@@ -3,5 +3,5 @@ public class Shooter extends Plants {
     private int quantity;
     private int turn;
     private int defaultTurn;
-
+    private Pea pea;
 }
