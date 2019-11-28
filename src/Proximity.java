@@ -1,4 +1,4 @@
-public class Proximity {
+public class Proximity extends Plants {
     private int distance;
     private int load;
     private boolean isTall;
