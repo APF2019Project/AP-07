@@ -8,7 +8,7 @@ public class Proximity extends Plants {
     private boolean isMagnet;
 
     public static void cattail() {
-        //kills the nearest zombie
+        //kills the nearest Zombie
     }
 
     public static void cherryBomb() {
