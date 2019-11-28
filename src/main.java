@@ -3,6 +3,6 @@ public class main {
     {
         System.out.println("kirekhareGav");
         String s = "Shombul";
-        String a = "dudul";
+        String s = "dudul";
     }
 }
