@@ -1,3 +1,5 @@
+package Plants;
+
 public class Proximity extends Plants {
     private int distance;
     private int load;
@@ -8,7 +10,7 @@ public class Proximity extends Plants {
     private boolean isMagnet;
 
     public static void cattail() {
-        //kills the nearest Zombie
+        //kills the nearest Zombies.Zombie
     }
 
     public static void cherryBomb() {

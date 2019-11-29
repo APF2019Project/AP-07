@@ -1,7 +1,9 @@
-public class ScaredyShroom extends Plants {
+package Plants;
+
+public class Shooter extends Plants {
+    private boolean catapult;
     private int quantity;
     private int turn;
     private int defaultTurn;
-    private int distance;
     private Pea pea;
 }

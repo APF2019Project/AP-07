@@ -1,3 +1,5 @@
+package Zombies;
+
 public class InstantKillZombie {
     private int distance;
     private boolean IsZomboni;

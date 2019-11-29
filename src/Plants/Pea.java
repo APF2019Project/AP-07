@@ -1,3 +1,5 @@
+package Plants;
+
 public class Pea {
     public String name;
     private int damage;

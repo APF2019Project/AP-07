@@ -1,3 +1,5 @@
+package Plants;
+
 public class Plants {
     private String name;
     private int sun;

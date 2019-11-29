@@ -1,3 +1,5 @@
+package Zombies;
+
 public class NormalZombie extends Zombie {
     private int armour;
     private boolean armourIsMetal;
