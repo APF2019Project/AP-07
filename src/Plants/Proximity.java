@@ -7,7 +7,6 @@ public class Proximity extends Plants {
     private int load;
     private boolean isTall;
     private int damage;
-    private int sunProduced;
     private boolean mine;
     private boolean isMagnet;
 
