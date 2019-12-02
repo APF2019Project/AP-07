@@ -26,12 +26,4 @@ public class Shop {
         this.zombies = zombies;
     }
 
-    public void getPlants(ArrayList<Plants> plants) {
-        this.plants = plants;
-    }
-
-    public void getZombies(ArrayList<Zombie> zombies) {
-        this.zombies = zombies;
-    }
-
 }

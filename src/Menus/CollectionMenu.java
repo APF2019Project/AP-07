@@ -1,6 +1,6 @@
 package Menus;
 
-public class CollectionMenu {
+public class CollectionMenu extends Menu {
     public void showHand() {
         //liste carthaye entakhab shode ra mide
     }

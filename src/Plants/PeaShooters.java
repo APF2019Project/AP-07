@@ -2,7 +2,7 @@ package Plants;
 
 import Zombies.Zombie;
 
-public class PeaShooters {
+public class PeaShooters extends Plants{
     public String name;
     private int damage;
     private int speed;
