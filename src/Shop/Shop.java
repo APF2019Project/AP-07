@@ -26,20 +26,12 @@ public class Shop {
         this.zombies = zombies;
     }
 
-    public void show_shop(){
-        //liste cart haye kharide nashode va qeimate anha
+    public void getPlants(ArrayList<Plants> plants) {
+        this.plants = plants;
     }
 
-    public void show_collection(){
-        //liste carthaye kharide shode
-    }
-
-    public void buy(String name){
-        //kharide cart
-    }
-
-    public void Money(Player player){
-        //namayeshe tedad sekke haye bazikon
+    public void getZombies(ArrayList<Zombie> zombies) {
+        this.zombies = zombies;
     }
 
 }

@@ -2,7 +2,7 @@ package Menus;
 
 public class MainMenu extends Menu {
 
-    public void Paly(){
+    public void Play(){
 
     }
 

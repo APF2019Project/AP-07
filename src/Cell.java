@@ -11,7 +11,17 @@ public enum Cell {
     private String cell;
     private Plants plant;
     private ArrayList<Zombie> zombies;
-
+    public static Cell getEnum(String input) {
+        switch (input) {
+            case "water":
+                return Cell.WATER;
+            case "land":
+                return Cell.LAND;
+            case "lilypad":
+                return Cell.LILYPAD;
+        }
+        return null;
+    }
     Cell(String cell) {
         this.cell = cell;
     }
