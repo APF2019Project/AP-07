@@ -1,7 +1,9 @@
 package Zombies;
 
+import Cell.Cell;
 import Plants.PeaOrProjectile;
-import javafx.scene.control.Cell;
+
+
 
 public class Zombie {
 
