@@ -5,4 +5,8 @@ public class Plants {
     private int sun;
     private int cooldown;
     private int health;
+
+    public void addSun(int suns){
+        suns += this.sun;
+    }
 }

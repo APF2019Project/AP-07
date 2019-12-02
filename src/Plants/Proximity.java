@@ -9,15 +9,15 @@ public class Proximity extends Plants {
     private boolean mine;
     private boolean isMagnet;
 
-    public static void cattail() {
+    public static <Cell> void cattail(Cell[][] map, int x, int y) {
         //kills the nearest Zombies.Zombie
     }
 
-    public static void cherryBomb() {
+    public static <Cell> void cherryBomb(Cell[][] map, int x, int y) {
         //bursts 8 neighbor cells
     }
 
-    public static void jalapeno() {
+    public static <Cell> void jalapeno(Cell[][] map, int x, int y) {
         //bursts the row
     }
 

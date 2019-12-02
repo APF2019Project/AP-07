@@ -9,7 +9,6 @@ public class Cell {
     private boolean isLilyPad;
     private Plants plant;
     private ArrayList<Zombie> zombies;
-    private Cell[][] map=new Cell[19][6];
 
     public boolean isWater() {
         return isWater;
