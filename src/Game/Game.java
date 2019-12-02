@@ -5,7 +5,7 @@ import Player.Player;
 
 public class Game {
     private int waveCounter=0;
-    private boolean turn;
+    private int turn;
     private Menu menu;
     private Player player;
     private boolean isOver=false;
@@ -23,7 +23,7 @@ public class Game {
         return waveCounter;
     }
 
-    public boolean isTurn() {
+    public int isTurn() {
         return turn;
     }
 

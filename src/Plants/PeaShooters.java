@@ -2,14 +2,22 @@ package Plants;
 
 import Zombies.Zombie;
 
-public class Pea {
+public class PeaShooters {
     public String name;
     private int damage;
     private int speed;
     private boolean prickly;
     private double speedReduction;
 
-    public void speedReduc(Zombie zombie){
+    public void speedReduce(Zombie zombie){
         //kahesh sorate zombie
+    }
+
+    public void shoot(int turn){
+
+    }
+
+    public void hurtZombie(Zombie zombie){
+
     }
 }

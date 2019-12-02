@@ -5,5 +5,5 @@ public class ScaredyShroom extends Plants {
     private int turn;
     private int defaultTurn;
     private int distance;
-    private Pea pea;
+    private PeaShooters pea;
 }
