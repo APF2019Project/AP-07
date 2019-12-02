@@ -7,11 +7,27 @@ import Plants.PeaOrProjectile;
 
 public class Zombie {
 
-    private int health;
-    private int speed;
+    private int Health;
+    private int Speed;
     private Cell walkAreaType;
     private PeaOrProjectile peaOrProjectile;
     //kind of thing that hurts it
+    public void setHealth(int health)
+    {
+        this.Health = health;
+    }
+    public void setSpeed(int speed)
+    {
+        this.Speed = speed;
+    }
+
+    public void setWalkAreaType(Cell cell) {
+        this.walkAreaType = cell;
+    }
+
+    public void setPeaOrProjectile(PeaOrProjectile peaOrProjectile) {
+        this.peaOrProjectile = peaOrProjectile;
+    }
 
     public PeaOrProjectile getPeaOrProjectile() {
         return peaOrProjectile;
@@ -30,15 +46,15 @@ public class Zombie {
     }
 
     public int getHealth() {
-        return health;
+        return this.Health;
     }
 
     public int getSpeed() {
-        return speed;
+        return this.Speed;
     }
 
     public Cell getWalkAreaType() {
-        return walkAreaType;
+        return this.walkAreaType;
     }
 
 }
