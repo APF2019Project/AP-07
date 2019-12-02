@@ -1,7 +1,6 @@
 package Zombies;
 
-public class Ghool extends Zombie {
-
+public class Ghool {
     public void killPlantByOneImpact(){
 
     }
