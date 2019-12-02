@@ -1,4 +1,4 @@
 package Zombies;
 
-public class MashinDar {
+public class MashinDar extends Zombie {
 }

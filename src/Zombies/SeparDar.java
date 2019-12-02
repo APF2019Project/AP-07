@@ -1,8 +1,8 @@
 package Zombies;
 
-public class SeparDar {
+public class SeparDar extends Zombie {
 
     public void defend(){
-        
+
     }
 }

@@ -1,6 +1,6 @@
 package Zombies;
 
-public class BungeeZombie {
+public class BungeeZombie extends Zombie {
 
     public void appearInCell(){
 
