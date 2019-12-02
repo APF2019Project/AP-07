@@ -7,7 +7,7 @@ public class Zombie {
 
     private int health;
     private int speed;
-    private Cell walkAreaType;
+    private walkAreaType;
     private PeaOrProjectile peaOrProjectile;
     //kind of thing that hurts it
 
