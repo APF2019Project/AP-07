@@ -3,23 +3,21 @@ import Zombies.Zombie;
 
 import java.util.ArrayList;
 
-public class Cell {
+public enum Cell {
+    WATER("water"),
+    LAND("land"),
+    LILYPAD("lilypad");
 
-    private boolean isWater;
-    private boolean isLilyPad;
+    private String cell;
     private Plants plant;
     private ArrayList<Zombie> zombies;
 
-    public boolean isWater() {
-        return isWater;
+    Cell(String cell) {
+        this.cell = cell;
     }
 
-    public void setType(String type) {
-        //booleane type morede nazaro true kon
-    }
-
-    public boolean isLilyPad() {
-        return isLilyPad;
+    public String Cell() {
+        return cell;
     }
 
     public Plants getPlant() {
@@ -38,8 +36,5 @@ public class Cell {
         zombies.add(zombie);
     }
 
-    public Cell[][] getMap() {
-        return map;
-    }
 
-}
+    }

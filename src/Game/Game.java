@@ -9,11 +9,6 @@ public class Game {
     private Menu menu;
     private Player player;
     private boolean isOver=false;
-    private boolean Day;
-    private boolean Water;
-    private boolean Rail;
-    private boolean Zombie;
-    private boolean twoPlayers;
 
     public Player getPlayer() {
         return player;
