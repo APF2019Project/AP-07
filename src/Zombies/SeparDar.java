@@ -12,4 +12,7 @@ public class SeparDar extends Zombie {
     public void beingAffected(){
 
     }
+    public boolean isArmourOfMetal() {
+        return true;
+    }
 }
