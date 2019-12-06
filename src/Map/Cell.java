@@ -1,4 +1,4 @@
-package Cell;
+package Map;
 
 import Plants.Plant;
 import Zombies.Zombie;

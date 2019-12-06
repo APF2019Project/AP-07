@@ -1,9 +1,12 @@
-package Cell;
+package Map;
 
 import Plants.Plant;
 import Zombies.Zombie;
 
-public class LandCell extends Cell {
+public class WaterCell extends Cell {
+
+    Plant lilypad;
+
     @Override
     boolean canBePlanted(Plant plant) {
         return false;
