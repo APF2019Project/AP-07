@@ -34,4 +34,6 @@ public class Zombie {
     public int getSpeed() {
         return speed;
     }
+
+
 }
