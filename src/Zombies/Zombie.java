@@ -35,9 +35,4 @@ public class Zombie {
     public int getSpeed() {
         return speed;
     }
-
-    public Cell getWalkAreaType() {
-        return walkAreaType;
-    }
-
 }

@@ -1,6 +1,6 @@
 package Plants;
 
-public class ScaredyShroom extends Plants {
+public class ScaredyShroom extends Plant {
     private int quantity;
     private int turn;
     private int defaultTurn;

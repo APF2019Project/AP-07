@@ -2,7 +2,7 @@ package Plants;
 
 import javafx.scene.control.Cell;
 
-public class Proximity extends Plants {
+public class Proximity extends Plant {
     private int distance;
     private int load;
     private boolean isTall;

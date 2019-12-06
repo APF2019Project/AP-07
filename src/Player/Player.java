@@ -1,13 +1,13 @@
 package Player;
 
-import Plants.Plants;
+import Plants.Plant;
 import Shop.Collection;
 import Zombies.Zombie;
 
 import java.util.ArrayList;
 
 public class Player {
-    private ArrayList<Plants> PlayerPlants;
+    private ArrayList<Plant> PlayerPlants;
     private ArrayList<Zombie> PlayerZombies;
     private Profile profile;
     private Collection collection;
@@ -28,11 +28,11 @@ public class Player {
         return profile;
     }
 
-    public ArrayList<Plants> getPlayerPlants() {
+    public ArrayList<Plant> getPlayerPlants() {
         return PlayerPlants;
     }
 
-    public void setPlayerPlants(ArrayList<Plants> playerPlants) {
+    public void setPlayerPlants(ArrayList<Plant> playerPlants) {
         PlayerPlants = playerPlants;
     }
 

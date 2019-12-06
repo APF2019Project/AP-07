@@ -2,7 +2,7 @@ package Plants;
 
 import Zombies.Zombie;
 
-public class Shooter extends Plants {
+public class Shooter extends Plant {
     private int quantity;
     private int turn;
     private int defaultTurn;
