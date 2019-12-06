@@ -19,5 +19,4 @@ public class Map {
     void updateCells(){
         // zombie ha va plant haye cell ha ro tabe hashun ro ye dor seda kone
     }
-
 }
