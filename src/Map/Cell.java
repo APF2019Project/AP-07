@@ -13,11 +13,10 @@ public abstract class Cell{
 
     abstract boolean canBePlanted(Plant plant);
     abstract boolean canBeZombied(Zombie zombie);
-
     abstract void removePlant();
+    abstract public void plant(Plant plant);
 
     void moveZombies(){
-
     }
 
     void removeDeadZombie(Zombie zombie){

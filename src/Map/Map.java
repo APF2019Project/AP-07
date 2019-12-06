@@ -13,7 +13,7 @@ public class Map {
     Cell getCell(int x ,int y){
         return null;
     }
-    Cell getCell(Cell cell){
+    public Cell getCell(Cell cell){
         return null;
     }
     void updateCells(){

@@ -18,6 +18,11 @@ public class WaterCell extends Cell {
     }
 
     @Override
+    void plant(Plant plant) {
+
+    }
+
+    @Override
     void removePlant() {
 
     }

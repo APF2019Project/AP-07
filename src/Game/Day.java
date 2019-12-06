@@ -1,41 +1,5 @@
 package Game;
 
-public class Day extends Game {
-    private int numOfSuns;
+public class Day extends GameMode  {
 
-    public void showHand(){
-
-    }
-
-    public void select(String name){
-
-    }
-
-    public void plant(){
-
-    }
-
-    public void remove(){
-
-    }
-
-    public void endTurn(){
-
-    }
-
-    public void showLawn(){
-
-    }
-
-    public void wave(){
-
-    }
-
-    public void checkTypeOfCells(){
-
-    }
-
-    public void checkIsOver(){
-
-    }
 }

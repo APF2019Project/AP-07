@@ -15,6 +15,11 @@ public class LandCell extends Cell {
     }
 
     @Override
+    void plant(Plant plant) {
+
+    }
+
+    @Override
     void removePlant() {
 
     }
