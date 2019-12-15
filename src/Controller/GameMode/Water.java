@@ -1,4 +1,4 @@
-package Model.Game;
+package Controller.GameMode;
 
 public class Water extends GameMode {
 

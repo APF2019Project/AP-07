@@ -1,7 +1,5 @@
 package Controller.Menus;
 
-import Controller.Menus.Menu;
-
 public class CollectionMenu extends Menu {
 //    uses account.getCollection()
 

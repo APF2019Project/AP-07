@@ -1,6 +1,6 @@
 package Model.Card.Plants;
 
-import Model.Game.Zombie;
+import Controller.GameMode.Zombie;
 
 public class PeaOrProjectile {
     public String name;

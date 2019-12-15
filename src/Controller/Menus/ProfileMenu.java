@@ -1,7 +1,5 @@
 package Controller.Menus;
 
-import Controller.Menus.Menu;
-
 public class ProfileMenu extends Menu {
     public void change() {
 

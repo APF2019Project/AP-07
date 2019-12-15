@@ -46,7 +46,7 @@ public class PlantsAction {
         PlantsAction.plantsActions = plantsActions;
     }
 
-    public void Kill(Model.Game.Zombie firstZombie){
+    public void Kill(Controller.GameMode.Zombie firstZombie){
 
     }
 }

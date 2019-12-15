@@ -1,6 +1,5 @@
 package Controller.Menus;
 
-import Controller.Menus.Menu;
 import Model.Player.Player;
 
 public class LoginMenu extends Menu {

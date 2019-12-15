@@ -1,4 +1,4 @@
-package Model.Game;
+package Controller.GameMode;
 
 import Model.Map.Cell;
 import Model.Map.Map;

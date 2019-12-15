@@ -1,7 +1,5 @@
 package Controller.Menus;
 
-import Controller.Menus.Menu;
-
 public class MenuHandler {
     private Menu currentMenu;
 
