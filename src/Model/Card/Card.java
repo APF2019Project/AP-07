@@ -14,7 +14,6 @@ public class Card {
     Cell location;
     Collection collection;
 
-
     private static ArrayList<Card> cards;
 
 }
