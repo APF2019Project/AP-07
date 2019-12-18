@@ -3,7 +3,9 @@ package Model.Card.Plants;
 import Controller.GameMode.Zombie;
 
 public class PeaOrProjectile {
-    public String name;
+    private int x;
+    private int y;
+    private String name;
     private int damage;
     private int speed;
     private boolean prickly;

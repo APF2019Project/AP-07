@@ -13,7 +13,7 @@ public class Zombie extends Card {
     private int speed;
     private PeaOrProjectile peaOrProjectile;
     //kind of thing that hurts it
-    private ArrayList<ZombiesAction> actions=new ArrayList<>();
+    private ArrayList<ZombiesAction> actions = new ArrayList<>();
 
     public PeaOrProjectile getPeaOrProjectile() {
         return peaOrProjectile;
