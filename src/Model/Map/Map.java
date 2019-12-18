@@ -16,6 +16,7 @@ public class Map {
     public Cell getCell(Cell cell){
         return null;
     }
+
     void updateCells(){
         // zombie ha va plant haye cell ha ro tabe hashun ro ye dor seda kone
     }

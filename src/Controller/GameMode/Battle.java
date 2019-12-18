@@ -30,9 +30,6 @@ public class Battle {
     }
 
     public void PlayTurn() {
-
-
-
         gameMode.checkState();
     }
 

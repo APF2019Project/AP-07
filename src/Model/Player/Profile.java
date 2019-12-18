@@ -4,10 +4,15 @@ import java.util.ArrayList;
 
 class Profile {
 
-    private ArrayList<Profile> profiles;
+    private static ArrayList<Profile> profiles = new ArrayList<Profile>();
     private String username;
     private String password;
     private int score;
+
+    private Profile(String username, String password) {
+        this.password = password;
+        this.username = username;
+    }
 
     public String getUsername() {
         return username;
@@ -37,12 +42,14 @@ class Profile {
         return (this.password == password);
     }
 
-    public void delete_account() {
-
+    public void delete_account(String username, String password) {
+        if(this.username.equals(username) && this.password.equals(password))
+            profiles.remove(this);
     }
 
-    public void create_account() {
-
+    //Create Account - Login Menu
+    public static void create_account(String username, String password) {
+        profiles.add(new Profile(username,password));
     }
 
     public ArrayList<Profile> getAcoounts() {
