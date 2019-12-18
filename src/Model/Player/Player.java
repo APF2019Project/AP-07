@@ -11,7 +11,7 @@ public class Player {
     private ArrayList<Zombie> PlayerZombies;
     private Profile profile;
     private Collection collection;
-    //collection cartha ee ast ke player ba khod be bazi mibarad
+    //collection carta ee ast ke player ba khod be bazi mibarad
     private int externalCoins;
     private int internalCoins;
     private static ArrayList<Player> players = new ArrayList<>();

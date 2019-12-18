@@ -9,7 +9,7 @@ public class Profile {
     private String password;
     private int score;
 
-    private Profile(String username, String password) {
+    public Profile(String username, String password) {
         this.password = password;
         this.username = username;
     }
