@@ -14,7 +14,7 @@ public class Player {
     //collection cartha ee ast ke player ba khod be bazi mibarad
     private int externalCoins;
     private int internalCoins;
-    private static ArrayList<Player> players=new ArrayList<>();
+    private static ArrayList<Player> players = new ArrayList<>();
 
     public static ArrayList<Player> getPlayers() {
         return players;

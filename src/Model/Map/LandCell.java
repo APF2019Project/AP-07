@@ -15,7 +15,7 @@ public class LandCell extends Cell {
     }
 
     @Override
-    void plant(Plant plant) {
+    public void plant(Plant plant) {
 
     }
 
