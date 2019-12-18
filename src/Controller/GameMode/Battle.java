@@ -23,7 +23,6 @@ public class Battle {
 
     public void init(){
         this.map=gameMode.generateMap();
-
     }
 
     public void setPlayer(Player player) {

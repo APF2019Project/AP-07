@@ -17,6 +17,38 @@ public class Plant extends Card {
         return plantsActions;
     }
 
+    public int getSun() {
+        return sun;
+    }
+
+    public void setSun(int sun) {
+        this.sun = sun;
+    }
+
+    public int getCooldown() {
+        return cooldown;
+    }
+
+    public void setCooldown(int cooldown) {
+        this.cooldown = cooldown;
+    }
+
+    public int getHealth() {
+        return health;
+    }
+
+    public void setHealth(int health) {
+        this.health = health;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public void setPlantsActions(ArrayList<PlantsAction> plantsActions) {
         this.plantsActions = plantsActions;
     }
