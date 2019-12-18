@@ -16,6 +16,7 @@ public class Player {
     private int internalCoins;
     private static ArrayList<Player> players = new ArrayList<>();
 
+
     public static ArrayList<Player> getPlayers() {
         return players;
     }

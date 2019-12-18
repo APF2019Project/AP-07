@@ -2,7 +2,7 @@ package Model.Player;
 
 import java.util.ArrayList;
 
-class Profile {
+public class Profile {
 
     private static ArrayList<Profile> profiles = new ArrayList<Profile>();
     private String username;
@@ -52,7 +52,7 @@ class Profile {
         profiles.add(new Profile(username,password));
     }
 
-    public ArrayList<Profile> getAcoounts() {
+    public static ArrayList<Profile> getAcoounts() {
         return profiles;
     }
 }
