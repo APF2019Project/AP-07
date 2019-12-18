@@ -22,13 +22,17 @@ public class Menu {
     public void init(){
         //enter
         // kar haye avaliye mesl set kardan e account o ina
+
+
     }
 
     public void exit(){
         currentMenu=parentMenu;
         //bazgasht be safheye qabl
     }
+
     public void enter(Menu menu){
         //inito seda kon
+        currentMenu=this;
     }
 }
