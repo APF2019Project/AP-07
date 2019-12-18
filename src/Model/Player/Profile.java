@@ -2,14 +2,14 @@ package Model.Player;
 
 import java.util.ArrayList;
 
-class Profile {
+public class Profile {
 
     private static ArrayList<Profile> profiles = new ArrayList<Profile>();
     private String username;
     private String password;
     private int score;
 
-    private Profile(String username, String password) {
+    public Profile(String username, String password) {
         this.password = password;
         this.username = username;
     }
@@ -52,7 +52,7 @@ class Profile {
         profiles.add(new Profile(username,password));
     }
 
-    public ArrayList<Profile> getAcoounts() {
+    public static ArrayList<Profile> getAcoounts() {
         return profiles;
     }
 }

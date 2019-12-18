@@ -7,7 +7,6 @@ import java.util.ArrayList;
 
 public class Plant extends Card {
 
-    private String name;
     private int sun;
     private int cooldown;
     private int health;
@@ -41,13 +40,7 @@ public class Plant extends Card {
         this.health = health;
     }
 
-    public String getName() {
-        return name;
-    }
 
-    public void setName(String name) {
-        this.name = name;
-    }
 
     public void setPlantsActions(ArrayList<PlantsAction> plantsActions) {
         this.plantsActions = plantsActions;
