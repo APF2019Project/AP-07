@@ -52,7 +52,7 @@ public class Profile {
         profiles.add(new Profile(username,password));
     }
 
-    public ArrayList<Profile> getAcoounts() {
+    public static ArrayList<Profile> getAcoounts() {
         return profiles;
     }
 }
