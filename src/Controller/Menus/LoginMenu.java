@@ -8,8 +8,6 @@ public class LoginMenu extends Menu {
 
     }
 
-
-
     public void Login(Player player){
         //this.account =account
     }
