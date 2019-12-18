@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public abstract class Cell{
     int x;
     int y;
-    Plant plant;
+    protected Plant plant;
     ArrayList<Zombie> zombies;
 
     abstract boolean canBePlanted(Plant plant);
@@ -23,4 +23,19 @@ public abstract class Cell{
 
     }
 
+    public Plant getPlant() {
+        return plant;
+    }
+
+    public void setPlant(Plant plant) {
+        this.plant = plant;
+    }
+
+    public ArrayList<Zombie> getZombies() {
+        return zombies;
+    }
+
+    public void setZombies(ArrayList<Zombie> zombies) {
+        this.zombies = zombies;
+    }
 }
