@@ -15,6 +15,12 @@ public class Zombie extends Card {
     //kind of thing that hurts it
     private ArrayList<ZombiesAction> actions = new ArrayList<>();
 
+    public static ArrayList<Zombie> getZombies() {
+        return zombies;
+    }
+
+    private static ArrayList<Zombie> zombies = new ArrayList<>();
+
     public PeaOrProjectile getPeaOrProjectile() {
         return peaOrProjectile;
     }
@@ -39,5 +45,11 @@ public class Zombie extends Card {
         return speed;
     }
 
+    public static Zombie findZombie(String name) {
+        for (Zombie x : zombies)
+            if (x.name.equals(name))
+                return x;
+        return null;
+    }
 
 }

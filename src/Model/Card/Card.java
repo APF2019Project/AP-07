@@ -10,16 +10,16 @@ public class Card {
     int id;
     private static int uniqueId = 0;
     int AP;//attack point
-    int HP;//hosseinpur
+    int HP;//hosseinpour
     Cell location;
     Collection collection;
     int coin;
 
-    private static ArrayList<Card> cards;
 
     public int getCoin() {
         return this.coin;
     }
+
     public String getName() {
         return name;
     }

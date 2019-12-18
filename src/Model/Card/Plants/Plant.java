@@ -2,6 +2,7 @@ package Model.Card.Plants;
 
 import Model.Card.Card;
 import Model.Card.Plants.PlantsActions.PlantsAction;
+import Model.Player.Player;
 
 import java.util.ArrayList;
 
@@ -15,6 +16,12 @@ public class Plant extends Card {
     public ArrayList<PlantsAction> getPlantsActions() {
         return plantsActions;
     }
+
+    public static ArrayList<Plant> getPlants() {
+        return plants;
+    }
+
+    private static ArrayList<Plant> plants = new ArrayList<>();
 
     public int getSun() {
         return sun;
@@ -46,5 +53,12 @@ public class Plant extends Card {
         this.plantsActions = plantsActions;
     }
 
+    public static Plant findPlant(String name) {
+        for (Plant x : plants) {
+            if (x.name.equals(name))
+                return x;
+        }
+        return null;
+    }
 
 }
