@@ -36,16 +36,16 @@ public class Player {
         return PlayerPlants;
     }
 
-    public void setPlayerPlants(ArrayList<Plant> playerPlants) {
-        PlayerPlants = playerPlants;
+    public void addPlayerPlants(Plant plant) {
+        PlayerPlants.add(plant);
     }
 
     public ArrayList<Zombie> getPlayerZombies() {
         return PlayerZombies;
     }
 
-    public void setPlayerZombies(ArrayList<Zombie> playerZombies) {
-        PlayerZombies = playerZombies;
+    public void addPlayerZombies(Zombie zombie) {
+        PlayerZombies.add(zombie);
     }
 
     public int getExternalCoins() {
