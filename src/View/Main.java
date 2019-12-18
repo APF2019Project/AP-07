@@ -1,22 +1,26 @@
 package View;
 
 import Controller.Menus.LoginMenu;
-import Controller.Menus.MenuHandler;
+import Model.Player.Player;
 
 import java.util.Scanner;
 
 public class Main {
-   public static void main(String[] args){
-      LoginMenu loginMenu=new LoginMenu();
-      Scanner scanner=new Scanner(System.in);
-      String username=scanner.nextLine();
-      String password=scanner.nextLine();
-      loginMenu.createAccount(username,password);
-      //preprocess();
-      while(true){
-         //battleMenu.nextTurn();
-         //scanner.nextLine();
+    public static Scanner scanner = new Scanner(System.in);
 
-      }
-   }
+    public static void main(String[] args) {
+        LoginMenu loginMenu = new LoginMenu();
+        String username = scanner.nextLine();
+        String password = scanner.nextLine();
+        loginMenu.createAccount(username, password);
+        //String order=scanner.nextLine();
+        //preprocess();
+        while (true) {
+            //battleMenu.nextTurn();
+            //scanner.nextLine();
+
+
+
+        }
+    }
 }

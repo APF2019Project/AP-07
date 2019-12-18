@@ -1,5 +1,4 @@
 package Controller.Menus;
-
 import Controller.GameMode.Battle;
 import Model.Player.*;
 
@@ -12,9 +11,8 @@ public class LoginMenu extends Menu {
     public void createAccount(String username,String password){
         Profile profile = new Profile(username,password);
         profiles.add(profile);
+
         currentMenu=this;
-        //todo
-        //parentMenu=MainMenu;
     }
 
     public void Login(Player player){

@@ -16,6 +16,9 @@ public class Player {
     private int internalCoins;
     private static ArrayList<Player> players = new ArrayList<>();
 
+    public Player(Profile profile){
+        this.profile=profile;
+    }
 
     public static ArrayList<Player> getPlayers() {
         return players;

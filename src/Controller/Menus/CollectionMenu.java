@@ -1,8 +1,7 @@
 package Controller.Menus;
 
 public class CollectionMenu extends Menu {
-//    uses account.getCollection()
-
+    //    uses account.getCollection()
     //show nadarim
     // ya get  ya set
     public void showHand() {
