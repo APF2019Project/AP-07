@@ -16,7 +16,7 @@ public class LandCell extends Cell {
 
     @Override
     boolean canBeZombied(Zombie zombie) {
-        if(!(zombie instanceof Snorkel))
+        if(this.plant == null && !(zombie instanceof Snorkel))
         {
             return true;
         }

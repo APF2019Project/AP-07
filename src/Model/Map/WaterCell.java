@@ -26,7 +26,7 @@ public class WaterCell extends Cell {
     @Override
     boolean canBeZombied(Zombie zombie)
     {
-        if(zombie instanceof Snorkel)
+        if(this.lilypad == null && zombie instanceof Snorkel)
         {
             return true;
         }

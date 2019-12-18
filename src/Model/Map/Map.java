@@ -4,17 +4,11 @@ public class Map {
     private static final int HEIGHT = 6;
     private static final int WIDTH = 19;
 
-    Cell[][] cell;
+    public static Cell[][] cell = new Cell[HEIGHT][WIDTH];
 
-    public Map() {
-        this.cell = new Cell[6][19];
-    }
-
-    Cell getCell(int x ,int y){
-        return null;
-    }
-    public Cell getCell(Cell cell){
-        return null;
+    public static Cell getCell(int x ,int y)
+    {
+        return cell[x][y];
     }
 
     void updateCells(){
