@@ -4,6 +4,11 @@ import Model.Card.Card;
 import Model.Card.Plants.PeaOrProjectile;
 import Model.Card.Zombies.ZombiesActions.ZombiesAction;
 import Model.Map.Cell;
+import Model.Map.LandCell;
+import Model.Map.Map;
+import Model.Map.UnknownCell;
+
+import Model.Map.Cell;
 import java.util.ArrayList;
 
 public class Zombie extends Card {
@@ -42,27 +47,22 @@ public class Zombie extends Card {
     public void walk() {
 
     }
-
-    public void attack() {
-
+    public void setHealth(int hp)
+    {
+        this.health += hp;
     }
-
-    public void defend() {
-
-    }
-
     public int getHealth() {
-        return health;
+        return this.health;
     }
 
     public int getSpeed() {
-        return speed;
+        return this.speed;
     }
 
     public static Zombie findZombie(String name) {
-        for (Zombie x : zombies)
-            if (x.name.equals(name))
-                return x;
+        for (Zombie zombie : zombies)
+            if (zombie.name.equals(name))
+                return zombie;
         return null;
     }
 

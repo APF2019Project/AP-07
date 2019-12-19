@@ -3,6 +3,7 @@ package Controller.Menus;
 import java.util.ArrayList;
 
 public class Menu {
+    //ba profile mizanim
     public static LoginMenu loginMenu = new LoginMenu();
     public static CollectionMenu collectionMenu = new CollectionMenu();
     public static GameMenu gameMenu = new GameMenu();

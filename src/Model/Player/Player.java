@@ -7,16 +7,13 @@ import Model.Card.Zombies.Zombie;
 import java.util.ArrayList;
 
 public class Player {
+    //data haye dar hale bazi ee
     private ArrayList<Plant> PlayerPlants;
     private ArrayList<Zombie> PlayerZombies;
-    private Profile profile;
+    //collection carta ee ast ke player ba khod be bazi mibarad
     private Collection collection;
     private int externalCoins;
     private int internalCoins;
-
-    public Player(Profile profile){
-        this.profile=profile;
-    }
 
     public void addToCollection(Card card)
     {
@@ -32,11 +29,6 @@ public class Player {
                 break;
             }
         }
-    }
-
-
-    public Profile getProfile() {
-        return profile;
     }
 
     public ArrayList<Plant> getPlayerPlants() {
