@@ -11,7 +11,6 @@ public class Player {
     private ArrayList<Zombie> PlayerZombies;
     private Profile profile;
     private Collection collection;
-    //collection carta ee ast ke player ba khod be bazi mibarad
     private int externalCoins;
     private int internalCoins;
     private static ArrayList<Player> players = new ArrayList<>();
@@ -62,5 +61,9 @@ public class Player {
 
     public void setInternal_coins(int internalCoins) {
         this.internalCoins += internalCoins;
+    }
+
+    public Collection getCollection() {
+        return collection;
     }
 }

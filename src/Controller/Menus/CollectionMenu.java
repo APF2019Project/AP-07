@@ -1,11 +1,25 @@
 package Controller.Menus;
 
+import Model.Card.Plants.Plant;
+import Model.Card.Zombies.Zombie;
+import Model.Shop.Collection;
+
+import java.util.ArrayList;
+
 public class CollectionMenu extends Menu {
-    //    uses account.getCollection()
-    //show nadarim
-    // ya get  ya set
+    private Collection collection;
     public void showHand() {
-        //liste carthaye entakhab shode ra mide
+        ArrayList<Plant> p = this.collection.getPlants();
+        ArrayList<Zombie> z = this.collection.getZombies();
+        if (p != null) {
+            for (Plant x : p) {
+                System.out.println(x.getName());
+            }
+        }
+        else {
+            for (Zombie x : z)
+                System.out.println(x.getName());
+        }
     }
 
     public void showCollection(){
@@ -13,11 +27,17 @@ public class CollectionMenu extends Menu {
     }
 
     public void selectCollection(String name){
-        //entekhabe cart
+        Zombie z = Zombie.findZombie(name);
+        Plant p = Plant.findPlant(name);
+        if (p != null)
+            this.collection.addPlant(p);
+        if (z != null)
+            this.collection.addZombie(z);
     }
 
     public void removeCollection(String name){
-        //hazfe cart
+        this.collection.removePlant(name);
+        this.collection.removeZombie(name);
     }
 
     public void play(){
