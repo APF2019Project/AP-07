@@ -52,7 +52,16 @@ public class Main {
                 else
                     System.out.println("invalid command");
             }
+            if (Menu.menuHandler.getCurrentMenu() == Menu.profileMenu) {
+                if (input.equalsIgnoreCase("help"))
+                    Menu.help();
+                else if (input.equalsIgnoreCase("Change"))
+                //*****************************************************//
+            }
 
+            if (Menu.menuHandler.getCurrentMenu() == Menu.gameMenu){
+
+            }
         }
     }
 }
