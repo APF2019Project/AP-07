@@ -10,11 +10,9 @@ public class Player {
     private ArrayList<Plant> PlayerPlants;
     private ArrayList<Zombie> PlayerZombies;
     private Profile profile;
-    //collection carta ee ast ke player ba khod be bazi mibarad
     private Collection collection;
     private int externalCoins;
     private int internalCoins;
-    private static ArrayList<Player> players = new ArrayList<>();
 
     public Player(Profile profile){
         this.profile=profile;
@@ -36,13 +34,6 @@ public class Player {
         }
     }
 
-    public static ArrayList<Player> getPlayers() {
-        return players;
-    }
-
-    public static void addToPlayers(Player player) {
-        players.add(player);
-    }
 
     public Profile getProfile() {
         return profile;

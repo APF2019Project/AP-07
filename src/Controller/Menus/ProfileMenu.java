@@ -51,19 +51,8 @@ public class ProfileMenu extends Menu {
         for (Profile x : profiles)
             if (x.getUsername().equals(username))
                 System.out.println("this username has exist, please enter another username");
-        profiles.add(new Profile(username,password));
+        profiles.add(new Profile(username, password));
         Menu.menuHandler.setCurrentMenu(loginMenu);
-    }
-
-
-    public void show(Battle battle) {
-        for(int i=0;i<Player.getPlayers().size();i++){
-            //todo
-            //check
-            if(Player.getPlayers().get(i).equals(battle.getPlayer(i))){
-                System.out.println(Player.getPlayers().get(i).getProfile().getUsername());
-            }
-        }
     }
 
 
