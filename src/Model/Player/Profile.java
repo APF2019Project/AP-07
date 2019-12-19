@@ -1,5 +1,6 @@
 package Model.Player;
 
+import java.lang.ref.PhantomReference;
 import java.util.ArrayList;
 
 public class Profile {
@@ -58,5 +59,9 @@ public class Profile {
 
     public static ArrayList<Profile> getAcoounts() {
         return profiles;
+    }
+
+    public static void addAccount(Profile profile) {
+        profiles.add(profile);
     }
 }
