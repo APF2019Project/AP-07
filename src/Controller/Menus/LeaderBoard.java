@@ -7,8 +7,6 @@ import java.util.ArrayList;
 import java.util.Comparator;
 
 public class LeaderBoard extends Menu {
-
-
     public void showPlayers() {
         ArrayList<Profile> pros = Profile.getAcoounts();
         pros.sort(new Comparator<Profile>() {

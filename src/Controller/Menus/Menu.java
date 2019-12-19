@@ -22,8 +22,6 @@ public class Menu {
     public void init(){
         //enter
         // kar haye avaliye mesl set kardan e account o ina
-
-
     }
 
     public void exit(){
