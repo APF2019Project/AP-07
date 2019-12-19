@@ -4,7 +4,7 @@ public class Map {
     private static final int HEIGHT = 6;
     private static final int WIDTH = 19;
 
-    public static Cell[][] cell = new Cell[HEIGHT][WIDTH];
+    public static Cell[][] cell = new Cell[HEIGHT+2][WIDTH+2];
 
     public static Cell getCell(int x ,int y)
     {

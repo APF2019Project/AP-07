@@ -10,6 +10,7 @@ public class Player {
     private ArrayList<Plant> PlayerPlants;
     private ArrayList<Zombie> PlayerZombies;
     private Profile profile;
+    //collection carta ee ast ke player ba khod be bazi mibarad
     private Collection collection;
     private int externalCoins;
     private int internalCoins;
@@ -21,21 +22,19 @@ public class Player {
 
     public void addToCollection(Card card)
     {
-        for(int i=0; i<card.getCollection().getPlants().size();i++){
-            if(card.getCollection().getPlants().get(i).getName().equals(card.getName())){
-                this.collection.addPlantToColection((Plant)card);
+        for(int i=0; i<card.getPlants().size();i++){
+            if(card.getPlants().get(i).getName().equals(card.getName())){
+                this.collection.addPlant((Plant)card);
                 break;
             }
         }
-        for(int i=0; i<card.getCollection().getZombies().size();i++){
-            if(card.getCollection().getZombies().get(i).getName().equals(card.getName())){
-                this.collection.addZombieToColection((Zombie)card);
+        for(int i=0; i<card.getZombies().size();i++){
+            if(card.getZombies().get(i).getName().equals(card.getName())){
+                this.collection.addZombie((Zombie)card);
                 break;
             }
         }
     }
-
-    //collection carta ee ast ke player ba khod be bazi mibarad
 
     public static ArrayList<Player> getPlayers() {
         return players;
@@ -69,15 +68,15 @@ public class Player {
         return externalCoins;
     }
 
-    public void setExternal_coins(int externalCoins) {
+    public void setExternalCoins(int externalCoins) {
         this.externalCoins += externalCoins;
     }
 
-    public int getInternal_coins() {
+    public int getInternalCoins() {
         return internalCoins;
     }
 
-    public void setInternal_coins(int internalCoins) {
+    public void setInternalCoins(int internalCoins) {
         this.internalCoins += internalCoins;
     }
 

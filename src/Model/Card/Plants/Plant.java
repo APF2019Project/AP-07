@@ -2,7 +2,7 @@ package Model.Card.Plants;
 
 import Model.Card.Card;
 import Model.Card.Plants.PlantsActions.PlantsAction;
-import Model.Player.Player;
+import Model.Map.Cell;
 
 import java.util.ArrayList;
 
@@ -13,15 +13,34 @@ public class Plant extends Card {
     private int health;
     private ArrayList<PlantsAction> plantsActions;
 
+    public Plant(String name,int AP, int HP,Cell cell,int sun,int cooldown,int health) {
+        this.name=name;
+        this.AP=AP;
+        this.HP=HP;
+        this.id=uniqueId;
+        uniqueId++;
+        this.cell=cell;
+        this.coin=coin;
+        this.sun=sun;
+        this.cooldown=cooldown;
+        this.health=health;
+    }
+
+    public void addToPlantsActions(PlantsAction action) {
+        plantsActions.add(action);
+    }
+
+    public static Plant findPlant(String name) {
+        for (Plant x : getPlants()) {
+            if (x.name.equals(name))
+                return x;
+        }
+        return null;
+    }
+
     public ArrayList<PlantsAction> getPlantsActions() {
         return plantsActions;
     }
-
-    public static ArrayList<Plant> getPlants() {
-        return plants;
-    }
-
-    private static ArrayList<Plant> plants = new ArrayList<>();
 
     public int getSun() {
         return sun;
@@ -47,18 +66,5 @@ public class Plant extends Card {
         this.health = health;
     }
 
-
-
-    public void setPlantsActions(ArrayList<PlantsAction> plantsActions) {
-        this.plantsActions = plantsActions;
-    }
-
-    public static Plant findPlant(String name) {
-        for (Plant x : plants) {
-            if (x.name.equals(name))
-                return x;
-        }
-        return null;
-    }
 
 }

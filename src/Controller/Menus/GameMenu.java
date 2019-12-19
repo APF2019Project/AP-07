@@ -1,6 +1,8 @@
 package Controller.Menus;
 
+import Model.Card.Plants.Plant;
 import Model.Player.Player;
+import Model.Player.Profile;
 
 public class GameMenu extends Menu {
     private static GameMenu ourInstance = new GameMenu();
@@ -9,7 +11,8 @@ public class GameMenu extends Menu {
         return ourInstance;
     }
 
-    private GameMenu() {
+    public GameMenu() {
+
     }
 
     @Override

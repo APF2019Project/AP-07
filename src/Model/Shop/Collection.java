@@ -3,6 +3,7 @@ package Model.Shop;
 import Model.Card.Plants.Plant;
 import Model.Card.Zombies.Zombie;
 
+import javax.xml.namespace.QName;
 import java.util.ArrayList;
 
 public class Collection {
@@ -11,24 +12,32 @@ public class Collection {
     private ArrayList<Plant> plants = new ArrayList<>();
     private ArrayList<Zombie> zombies = new ArrayList<>();
 
-    public Collection(ArrayList<Plant> plants) {
-        this.plants = plants;
+    public ArrayList<Plant> getPlants() {
+        return plants;
     }
 
     public ArrayList<Zombie> getZombies() {
         return zombies;
     }
 
-    public ArrayList<Plant> getPlants() {
-        return plants;
+    public void addZombie(Zombie zombie) {
+        this.zombies.add(zombie);
     }
 
-    public void addPlantToColection(Plant plant){
-        plants.add(plant);
+    public void addPlant(Plant plant) {
+        this.plants.add(plant);
     }
 
-    public void addZombieToColection(Zombie zombie){
-        zombies.add(zombie);
+    public void removeZombie(String name) {
+        Zombie z = Zombie.findZombie(name);
+        if (z!=null)
+            this.zombies.remove(z);
+    }
+
+    public void removePlant(String name) {
+        Plant p = Plant.findPlant(name);
+        if (p!=null)
+            this.plants.remove(p);
     }
 
 }
