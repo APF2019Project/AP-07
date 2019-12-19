@@ -22,5 +22,6 @@ public class LeaderBoard extends Menu {
         });
         for (Profile x : pros)
             System.out.println(x.getUsername());
+        currentMenu = loginMenu;
     }
 }

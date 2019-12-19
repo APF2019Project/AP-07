@@ -1,12 +1,13 @@
 package Controller.Menus;
+
 import Controller.GameMode.Battle;
 import Model.Player.Player;
 import Model.Player.Profile;
+
 import java.util.ArrayList;
 
 public class ProfileMenu extends Menu {
-    LoginMenu loginMenu = new LoginMenu();
-    ArrayList<Profile> profiles = loginMenu.getProfiles();
+    ArrayList<Profile> profiles = new ArrayList<Profile>();
 
     //change profile username or password
     public void change(Player player, String username, String password) {
@@ -18,8 +19,6 @@ public class ProfileMenu extends Menu {
                 }
             }
         }
-        ProfileMenu profileMenu=new ProfileMenu();
-        currentMenu=profileMenu;
     }
 
     //delete profile
@@ -33,8 +32,6 @@ public class ProfileMenu extends Menu {
                 }
             }
         }
-        ProfileMenu profileMenu=new ProfileMenu();
-        currentMenu=profileMenu;
     }
 
     public void rename(Player player, String username) {
@@ -47,20 +44,15 @@ public class ProfileMenu extends Menu {
                 }
             }
         }
-        ProfileMenu profileMenu=new ProfileMenu();
-        currentMenu=profileMenu;
     }
 
 
-    public void create_account(String username,String password) {
-        for (int i = 0; i < profiles.size(); i++) {
-            if (!profiles.get(i).getUsername().contains(username)) {
-                Profile profile=new Profile(username,password);
-                Player player=new Player(profile);
-            }
-        }
-        ProfileMenu profileMenu=new ProfileMenu();
-        currentMenu=profileMenu;
+    public void create_account(String username, String password) {
+        for (Profile x : profiles)
+            if (x.getUsername().equals(username))
+                System.out.println("this username has exist, please enter another username");
+        profiles.add(new Profile(username,password));
+
     }
 
 
@@ -73,5 +65,6 @@ public class ProfileMenu extends Menu {
             }
         }
     }
+
 
 }
