@@ -60,9 +60,9 @@ public class Zombie extends Card {
     }
 
     public static Zombie findZombie(String name) {
-        for (Zombie zombie : zombies)
-            if (zombie.name.equals(name))
-                return zombie;
+        for (Zombie x : zombies)
+            if (x.name.equals(name))
+                return x;
         return null;
     }
 
