@@ -32,7 +32,7 @@ public class Battle {
     }
 
     public void plant(Plant plant, Cell cell) {
-        this.map.getCell(cell).plant(plant);
+        //this.map.getCell(cell).plant(plant);
     }
 
     public void dig(Cell cell) {

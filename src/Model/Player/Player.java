@@ -1,5 +1,4 @@
 package Model.Player;
-
 import Model.Card.Card;
 import Model.Card.Plants.Plant;
 import Model.Shop.Collection;

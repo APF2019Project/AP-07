@@ -6,14 +6,15 @@ import Model.Card.Zombies.Zombie;
 import java.util.ArrayList;
 
 public class Shop {
+    //it is the whole zombies and plants
     private ArrayList<Plant> plants=new ArrayList<>();
     private ArrayList<Zombie> zombies=new ArrayList<>();
 
-    public void buy_Plants(ArrayList<Plant> plants) {
+    public void buyPlants(ArrayList<Plant> plants) {
 
     }
 
-    public void buy_Zombies(ArrayList<Zombie> zombies) {
+    public void buyZombies(ArrayList<Zombie> zombies) {
 
     }
 

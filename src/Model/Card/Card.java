@@ -16,6 +16,7 @@ public class Card {
     protected int coin;
     protected static ArrayList<Plant> plants = new ArrayList<>();
     protected static ArrayList<Zombie> zombies = new ArrayList<>();
+    protected int price;
 
     public String getName() {
         return name;

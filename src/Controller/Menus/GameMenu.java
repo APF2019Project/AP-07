@@ -8,12 +8,12 @@ public class GameMenu extends Menu {
     public static GameMenu getInstance() {
         return ourInstance;
     }
-    @Override
-    public void init() {
+   // @Override
+    //public void init() {
         /*acc1 acc2*/
         //2 ta player az ruye account 1 o 2 besaz
         //makePlayer
-    }
+    //}
 
     public void makePlayer(Player first, Player second){
 
