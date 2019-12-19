@@ -7,7 +7,12 @@ import Model.Shop.Collection;
 import java.util.ArrayList;
 
 public class CollectionMenu extends Menu {
+    public CollectionMenu(Collection collection) {
+        this.collection = collection;
+    }
+
     private Collection collection;
+
     public void showHand() {
         ArrayList<Plant> p = this.collection.getPlants();
         ArrayList<Zombie> z = this.collection.getZombies();
