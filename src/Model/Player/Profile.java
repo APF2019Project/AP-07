@@ -9,6 +9,7 @@ public class Profile {
     private String username;
     private String password;
     private int score;
+    private int externalCoins;
 
     public Profile(String username, String password) {
         this.password = password;
