@@ -3,7 +3,7 @@ package Model.Player;
 import java.util.ArrayList;
 
 public class Profile {
-
+    //kolle data ha
     private static ArrayList<Profile> profiles = new ArrayList<Profile>();
     private String username;
     private String password;

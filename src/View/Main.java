@@ -26,7 +26,7 @@ public class Main {
                     String password = scanner.nextLine();
                     profile = Menu.loginMenu.Login(username,password);
                 }
-                else if (input.equalsIgnoreCase("Leaderboard"))
+                else if (input.equalsIgnoreCase("Leaderboard"));
             }
         }
     }

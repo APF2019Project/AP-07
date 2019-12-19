@@ -12,7 +12,7 @@ public class ProfileMenu extends Menu {
     //change profile username or password
     public void change(Player player, String username, String password) {
         for (int i = 0; i < profiles.size(); i++) {
-            if (profiles.get(i).getUsername().equals(player.getProfile().getUsername())) {
+            if (profiles.get(i).getUsername().equals(player.getUsername())) {
                 if (profiles.get(i).getPassword().equals(player.getProfile().getPassword())) {
                     player.getProfile().change_username(username);
                     player.getProfile().change_Password(password);
