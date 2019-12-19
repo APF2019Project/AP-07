@@ -4,12 +4,11 @@ import Model.Card.Plants.Plant;
 import Model.Card.Zombies.Snorkel;
 import Model.Card.Zombies.Zombie;
 
-public class WaterCell extends Cell {
-
+public class WaterCell extends UnknownCell {
     Plant lilypad;
 
     @Override
-    boolean canBePlanted(Plant plant) {
+    public boolean canBePlanted(Plant plant) {
         if(plant.getName().equals("Tangle Kelp"))
         {
             if(this.lilypad == null)
@@ -24,7 +23,7 @@ public class WaterCell extends Cell {
         return false;
     }
     @Override
-    boolean canBeZombied(Zombie zombie)
+    public boolean canBeZombied(Zombie zombie)
     {
         if(this.lilypad == null && zombie instanceof Snorkel)
         {
@@ -42,7 +41,7 @@ public class WaterCell extends Cell {
     }
 
     @Override
-    void removePlant() {
+    public void removePlant() {
         Plant tempPlant = this.getPlant();
         if(tempPlant != null)
         {
