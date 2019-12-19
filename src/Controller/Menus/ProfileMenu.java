@@ -12,7 +12,7 @@ public class ProfileMenu extends Menu {
     //change profile username or password
     public void change(Player player, String username, String password) {
         for (int i = 0; i < profiles.size(); i++) {
-            if (profiles.get(i).getUsername().equals(player.getProfile().getUsername())) {
+            if (profiles.get(i).getUsername().equals(player.getUsername())) {
                 if (profiles.get(i).getPassword().equals(player.getProfile().getPassword())) {
                     player.getProfile().change_username(username);
                     player.getProfile().change_Password(password);
@@ -51,19 +51,8 @@ public class ProfileMenu extends Menu {
         for (Profile x : profiles)
             if (x.getUsername().equals(username))
                 System.out.println("this username has exist, please enter another username");
-        profiles.add(new Profile(username,password));
+        profiles.add(new Profile(username, password));
         Menu.menuHandler.setCurrentMenu(loginMenu);
-    }
-
-
-    public void show(Battle battle) {
-        for(int i=0;i<Player.getPlayers().size();i++){
-            //todo
-            //check
-            if(Player.getPlayers().get(i).equals(battle.getPlayer(i))){
-                System.out.println(Player.getPlayers().get(i).getProfile().getUsername());
-            }
-        }
     }
 
 

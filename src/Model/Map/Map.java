@@ -11,6 +11,10 @@ public class Map {
         return Map.unknowncells[x][y];
     }
 
+    public static Cell getCell(Cell cell) {
+        return null;
+    }
+
     void updateCells(){
         // zombie ha va plant haye cell ha ro tabe hashun ro ye dor seda kone
     }

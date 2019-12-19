@@ -1,9 +1,10 @@
 package Model.Player;
 
+import java.lang.ref.PhantomReference;
 import java.util.ArrayList;
 
 public class Profile {
-
+    //kolle data ha
     private static ArrayList<Profile> profiles = new ArrayList<Profile>();
     private String username;
     private String password;
@@ -58,5 +59,9 @@ public class Profile {
 
     public static ArrayList<Profile> getAcoounts() {
         return profiles;
+    }
+
+    public static void addAccount(Profile profile) {
+        profiles.add(profile);
     }
 }

@@ -3,7 +3,6 @@ package Model.Card.Plants;
 import Model.Card.Card;
 import Model.Card.Plants.PlantsActions.PlantsAction;
 import Model.Map.Cell;
-
 import java.util.ArrayList;
 
 public class Plant extends Card {
@@ -19,10 +18,9 @@ public class Plant extends Card {
 
     private int sun;
     private int cooldown;
-    private int health;
     private ArrayList<PlantsAction> plantsActions;
 
-    public Plant(String name,int AP, int HP,Cell cell,int sun,int cooldown,int health) {
+    public Plant(String name,int AP, int HP,Cell cell,int sun,int cooldown) {
         this.name=name;
         this.AP=AP;
         this.HP=HP;
@@ -32,7 +30,6 @@ public class Plant extends Card {
         this.coin=coin;
         this.sun=sun;
         this.cooldown=cooldown;
-        this.health=health;
     }
 
     public void addToPlantsActions(PlantsAction action) {
@@ -40,9 +37,9 @@ public class Plant extends Card {
     }
 
     public static Plant findPlant(String name) {
-        for (Plant x : getPlants()) {
-            if (x.name.equals(name))
-                return x;
+        for (Plant plant : getPlants()) {
+            if (plant.name.equals(name))
+                return plant;
         }
         return null;
     }
@@ -66,14 +63,5 @@ public class Plant extends Card {
     public void setCooldown(int cooldown) {
         this.cooldown = cooldown;
     }
-
-    public int getHealth() {
-        return health;
-    }
-
-    public void setHealth(int health) {
-        this.health = health;
-    }
-
 
 }
