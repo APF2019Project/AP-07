@@ -10,7 +10,7 @@ public class Main {
     public static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-
+        Menu.init();
         Profile profile;
         Player player;
         while (true) {
@@ -20,13 +20,13 @@ public class Main {
                     String username = scanner.nextLine();
                     String password = scanner.nextLine();
                     Menu.profileMenu.create_account(username,password);
-                    Menu.menuHandler.setCurrentMenu(Menu.loginMenu);
                 }
-                if (input.equalsIgnoreCase("login")) {
+                else if (input.equalsIgnoreCase("login")) {
                     String username = scanner.nextLine();
                     String password = scanner.nextLine();
-
+                    profile = Menu.loginMenu.Login(username,password);
                 }
+                else if (input.equalsIgnoreCase("Leaderboard"))
             }
         }
     }

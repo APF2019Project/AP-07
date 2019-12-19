@@ -20,14 +20,11 @@ public class LoginMenu extends Menu {
         currentMenu = this;
     }
 
-    public void Login(Player player) {
-        //this.account =account
-        Profile profile = new Profile("bot", "1");
-        Player player1 = new Player(profile);
-        Battle battle = new Battle(player, player1);
-        battle.setPlayer(player);
-        MainMenu mainMenu = new MainMenu();
-        currentMenu = mainMenu;
+    public Profile Login(String username, String password) {
+        Profile p = Profile.login(username,password);
+        if (p !=null)
+            menuHandler.setCurrentMenu(mainMenu);
+        return p;
     }
 
     public void LeaderBoard() {

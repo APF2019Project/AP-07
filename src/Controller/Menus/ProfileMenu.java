@@ -52,7 +52,7 @@ public class ProfileMenu extends Menu {
             if (x.getUsername().equals(username))
                 System.out.println("this username has exist, please enter another username");
         profiles.add(new Profile(username,password));
-
+        Menu.menuHandler.setCurrentMenu(loginMenu);
     }
 
 
