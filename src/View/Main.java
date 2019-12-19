@@ -4,7 +4,6 @@ import Controller.Menus.*;
 import Model.Player.Player;
 import Model.Player.Profile;
 
-import javax.swing.*;
 import java.util.Scanner;
 
 public class Main {
@@ -40,7 +39,7 @@ public class Main {
             }
             if (Menu.menuHandler.getCurrentMenu() == Menu.mainMenu) {
                 if (input.equalsIgnoreCase("play"))
-                    Menu.menuHandler.setCurrentMenu(Menu.gameMenu);
+                    Menu.menuHandler.setCurrentMenu(Menu.playMenu);
                 //else if (input.equalsIgnoreCase("Profiles"))
                     //Menu.menuHandler.setCurrentMenu(Menu.profileMenu);
                 else if (input.equalsIgnoreCase("Shop"))
@@ -55,13 +54,39 @@ public class Main {
             if (Menu.menuHandler.getCurrentMenu() == Menu.profileMenu) {
                 if (input.equalsIgnoreCase("help"))
                     Menu.help();
-                else if (input.equalsIgnoreCase("Change"))
-                //*****************************************************//
+                else if (input.equalsIgnoreCase("Change")) {
+                    //*****************************************************//
+                }
             }
 
-            if (Menu.menuHandler.getCurrentMenu() == Menu.gameMenu){
+            if (Menu.menuHandler.getCurrentMenu() == Menu.playMenu){
+                if (input.equalsIgnoreCase("help"))
+                    Menu.help();
 
+                else if (input.equalsIgnoreCase("day")){
+
+                    //new kardan game mode
+                }
+                else if (input.equalsIgnoreCase("water")) {
+
+                    //hmon
+                }
+                else if (input.equalsIgnoreCase("rail")) {
+                    /////
+                }
+                else if(input.equalsIgnoreCase("zombie")) {
+                    ////
+                }
+                else if (input.equalsIgnoreCase("pvp")){
+                    ////
+                }
+                else if (input.equalsIgnoreCase("exit")){
+                    Menu.menuHandler.setCurrentMenu(Menu.mainMenu);
+                }
+                else
+                    System.out.println("invalid command");
             }
+
         }
     }
 }
