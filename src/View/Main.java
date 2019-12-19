@@ -41,8 +41,8 @@ public class Main {
             if (Menu.menuHandler.getCurrentMenu() == Menu.mainMenu) {
                 if (input.equalsIgnoreCase("play"))
                     Menu.menuHandler.setCurrentMenu(Menu.gameMenu);
-                else if (input.equalsIgnoreCase("Profiles"))
-                    Menu.menuHandler.setCurrentMenu(Menu.profileMenu);
+                //else if (input.equalsIgnoreCase("Profiles"))
+                    //Menu.menuHandler.setCurrentMenu(Menu.profileMenu);
                 else if (input.equalsIgnoreCase("Shop"))
                     Menu.menuHandler.setCurrentMenu(Menu.shopMenu);
                 else if (input.equalsIgnoreCase("Exit"))

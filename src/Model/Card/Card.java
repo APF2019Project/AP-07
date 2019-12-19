@@ -1,40 +1,64 @@
 package Model.Card;
-
+import Model.Card.Plants.Plant;
+import Model.Card.Zombies.Zombie;
 import Model.Map.Cell;
-import Model.Shop.Collection;
 
 import java.util.ArrayList;
 
 public class Card {
+
     protected String name;
-    int id;
-    private static int uniqueId = 0;
-    int AP;//attack point
-    int HP;//hosseinpur
+    protected int id;
+    protected static int uniqueId = 0;
+    protected int AP;
+    protected int HP;
+    protected Cell cell;
+    protected int coin;
+    protected static ArrayList<Plant> plants = new ArrayList<>();
+    protected static ArrayList<Zombie> zombies = new ArrayList<>();
+
+    public String getName() {
+        return name;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public static int getUniqueId() {
+        return uniqueId;
+    }
+
+    public int getAP() {
+        return AP;
+    }
+
+    public int getHP() {
+        return HP;
+    }
 
     public Cell getCell() {
         return cell;
     }
 
-    public void setCell(Cell cell) {
-        this.cell = cell;
-    }
-
-    Cell cell;
-    Collection collection;
-    int coin;
-
-    private static ArrayList<Card> cards;
-
     public int getCoin() {
-        return this.coin;
-    }
-    public String getName() {
-        return name;
+        return coin;
     }
 
-    public void setName(String name) {
-        this.name = name;
+
+    public static ArrayList<Plant> getPlants() {
+        return plants;
     }
 
+    public static ArrayList<Zombie> getZombies() {
+        return zombies;
+    }
+
+    public static void addToPlants(Plant plant){
+        plants.add(plant);
+    }
+
+    public static void addToZombies(Zombie zombie){
+        zombies.add(zombie);
+    }
 }
