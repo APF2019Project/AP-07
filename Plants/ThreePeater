@@ -1,0 +1,13 @@
+{
+  "@type": "Model.Card.Plants",
+  "@val": {
+    "name": "ThreePeater",
+    "type": "Plant",
+    "id":"5",
+    "AP": "1",
+    "HP": "5",
+    "sun": "4",
+    "Turn": "4",
+    "cooldown": "4"
+  }
+}

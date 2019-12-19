@@ -1,0 +1,13 @@
+{
+  "@type": "Model.Card.Plants",
+  "@val": {
+    "name": "Repeater",
+    "type": "Plant",
+    "id":"4",
+    "AP": "1",
+    "HP": "4",
+    "sun": "3",
+    "Turn": "3",
+    "cooldown": "4"
+  }
+}
