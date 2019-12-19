@@ -8,10 +8,6 @@ public class GameMenu extends Menu {
     public static GameMenu getInstance() {
         return ourInstance;
     }
-
-    private GameMenu() {
-    }
-
     @Override
     public void init() {
         /*acc1 acc2*/

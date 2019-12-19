@@ -7,9 +7,7 @@ import Model.Shop.Collection;
 import java.util.ArrayList;
 
 public class CollectionMenu extends Menu {
-    public CollectionMenu(Collection collection) {
-        this.collection = collection;
-    }
+
 
     private Collection collection;
 
@@ -47,5 +45,8 @@ public class CollectionMenu extends Menu {
 
     public void play(){
         //marhaleye baad
+    }
+    public void setCollection(Collection collection) {
+        this.collection = collection;
     }
 }

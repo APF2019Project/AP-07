@@ -7,8 +7,7 @@ import Model.Player.Profile;
 import java.util.ArrayList;
 
 public class ProfileMenu extends Menu {
-    LoginMenu loginMenu = new LoginMenu();
-    ArrayList<Profile> profiles = loginMenu.getProfiles();
+    ArrayList<Profile> profiles = new ArrayList<Profile>();
 
     //change profile username or password
     public void change(Player player, String username, String password) {
@@ -48,12 +47,12 @@ public class ProfileMenu extends Menu {
     }
 
 
-    public void create_account(String username) {
-        for (int i = 0; i < profiles.size(); i++) {
-            if (profiles.get(i).getUsername().equals(username)) {
-                break;
-            }
-        }
+    public void create_account(String username, String password) {
+        for (Profile x : profiles)
+            if (x.getUsername().equals(username))
+                System.out.println("this username has exist, please enter another username");
+        profiles.add(new Profile(username,password));
+
     }
 
 
@@ -66,5 +65,6 @@ public class ProfileMenu extends Menu {
             }
         }
     }
+
 
 }

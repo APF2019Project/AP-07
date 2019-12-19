@@ -1,7 +1,8 @@
 package View;
 
-import Controller.Menus.LoginMenu;
+import Controller.Menus.*;
 import Model.Player.Player;
+import Model.Player.Profile;
 
 import java.util.Scanner;
 
@@ -9,18 +10,24 @@ public class Main {
     public static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        LoginMenu loginMenu = new LoginMenu();
-        String username = scanner.nextLine();
-        String password = scanner.nextLine();
-        loginMenu.createAccount(username, password);
-        //String order=scanner.nextLine();
-        //preprocess();
+
+        Profile profile;
+        Player player;
         while (true) {
-            //battleMenu.nextTurn();
-            //scanner.nextLine();
+            String input = scanner.nextLine();
+            if (Menu.menuHandler.getCurrentMenu() == Menu.loginMenu){
+                if (input.equalsIgnoreCase("create account")){
+                    String username = scanner.nextLine();
+                    String password = scanner.nextLine();
+                    Menu.profileMenu.create_account(username,password);
+                    Menu.menuHandler.setCurrentMenu(Menu.loginMenu);
+                }
+                if (input.equalsIgnoreCase("login")) {
+                    String username = scanner.nextLine();
+                    String password = scanner.nextLine();
 
-
-
+                }
+            }
         }
     }
 }
