@@ -9,7 +9,7 @@ public abstract class Cell{
     public int x;
     public int y;
     protected Plant plant;
-    ArrayList<Zombie> zombies;
+    public ArrayList<Zombie> zombies;
 
     abstract boolean canBePlanted(Plant plant);
     abstract boolean canBeZombied(Zombie zombie);

@@ -8,7 +8,7 @@ public class WaterCell extends UnknownCell {
     Plant lilypad;
 
     @Override
-    boolean canBePlanted(Plant plant) {
+    public boolean canBePlanted(Plant plant) {
         if(plant.getName().equals("Tangle Kelp"))
         {
             if(this.lilypad == null)
@@ -23,7 +23,7 @@ public class WaterCell extends UnknownCell {
         return false;
     }
     @Override
-    boolean canBeZombied(Zombie zombie)
+    public boolean canBeZombied(Zombie zombie)
     {
         if(this.lilypad == null && zombie instanceof Snorkel)
         {
@@ -41,7 +41,7 @@ public class WaterCell extends UnknownCell {
     }
 
     @Override
-    void removePlant() {
+    public void removePlant() {
         Plant tempPlant = this.getPlant();
         if(tempPlant != null)
         {

@@ -6,7 +6,7 @@ import Model.Card.Zombies.Zombie;
 
 public class LandCell extends UnknownCell {
     @Override
-    boolean canBePlanted(Plant plant) {
+    public boolean canBePlanted(Plant plant) {
         if(!plant.getName().equals("Tangle Kelp"))
         {
             return true;
@@ -15,7 +15,7 @@ public class LandCell extends UnknownCell {
     }
 
     @Override
-    boolean canBeZombied(Zombie zombie) {
+    public boolean canBeZombied(Zombie zombie) {
         if(this.plant == null && !(zombie instanceof Snorkel))
         {
             return true;
@@ -32,7 +32,7 @@ public class LandCell extends UnknownCell {
     }
 
     @Override
-    void removePlant() {
+    public void removePlant() {
         Plant tempPlant = this.getPlant();
         if(tempPlant != null)
         {
