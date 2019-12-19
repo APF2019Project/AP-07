@@ -12,9 +12,12 @@ public class Card {
     int AP;//attack point
     int HP;//hosseinpour
     Cell location;
-    Collection collection;
+    private Collection collection;
     int coin;
 
+    public Collection getCollection() {
+        return collection;
+    }
 
     public int getCoin() {
         return this.coin;

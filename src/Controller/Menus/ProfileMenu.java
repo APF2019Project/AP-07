@@ -1,9 +1,7 @@
 package Controller.Menus;
-
 import Controller.GameMode.Battle;
 import Model.Player.Player;
 import Model.Player.Profile;
-
 import java.util.ArrayList;
 
 public class ProfileMenu extends Menu {
@@ -20,6 +18,8 @@ public class ProfileMenu extends Menu {
                 }
             }
         }
+        ProfileMenu profileMenu=new ProfileMenu();
+        currentMenu=profileMenu;
     }
 
     //delete profile
@@ -33,6 +33,8 @@ public class ProfileMenu extends Menu {
                 }
             }
         }
+        ProfileMenu profileMenu=new ProfileMenu();
+        currentMenu=profileMenu;
     }
 
     public void rename(Player player, String username) {
@@ -45,15 +47,20 @@ public class ProfileMenu extends Menu {
                 }
             }
         }
+        ProfileMenu profileMenu=new ProfileMenu();
+        currentMenu=profileMenu;
     }
 
 
-    public void create_account(String username) {
+    public void create_account(String username,String password) {
         for (int i = 0; i < profiles.size(); i++) {
-            if (profiles.get(i).getUsername().equals(username)) {
-                break;
+            if (!profiles.get(i).getUsername().contains(username)) {
+                Profile profile=new Profile(username,password);
+                Player player=new Player(profile);
             }
         }
+        ProfileMenu profileMenu=new ProfileMenu();
+        currentMenu=profileMenu;
     }
 
 

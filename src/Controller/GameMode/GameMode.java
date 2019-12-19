@@ -9,23 +9,18 @@ public abstract class GameMode {
     }
 
     public void handleWin(){
-
     }
 
     public void updateCollection(){
-
     }
 
     public void getAvailableCards(){
-
     }
 
     public void generateSun(){
-
     }
 
     public Map generateMap(){
-
         return null;
     }
 

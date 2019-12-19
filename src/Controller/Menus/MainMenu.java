@@ -11,10 +11,12 @@ public class MainMenu extends Menu {
     }
 
     public void Profile(){
-
+        ProfileMenu profileMenu=new ProfileMenu();
+        currentMenu=profileMenu;
     }
 
     public void Shop(){
-
+        ShopMenu shopMenu=new ShopMenu();
+        currentMenu=shopMenu;
     }
 }

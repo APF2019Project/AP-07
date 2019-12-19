@@ -1,9 +1,9 @@
 package Model.Player;
 
+import Model.Card.Card;
 import Model.Card.Plants.Plant;
 import Model.Shop.Collection;
 import Model.Card.Zombies.Zombie;
-
 import java.util.ArrayList;
 
 public class Player {
@@ -11,7 +11,6 @@ public class Player {
     private ArrayList<Zombie> PlayerZombies;
     private Profile profile;
     private Collection collection;
-    //collection carta ee ast ke player ba khod be bazi mibarad
     private int externalCoins;
     private int internalCoins;
     private static ArrayList<Player> players = new ArrayList<>();
@@ -19,6 +18,24 @@ public class Player {
     public Player(Profile profile){
         this.profile=profile;
     }
+
+    public void addToCollection(Card card)
+    {
+        for(int i=0; i<card.getCollection().getPlants().size();i++){
+            if(card.getCollection().getPlants().get(i).getName().equals(card.getName())){
+                this.collection.addPlantToColection((Plant)card);
+                break;
+            }
+        }
+        for(int i=0; i<card.getCollection().getZombies().size();i++){
+            if(card.getCollection().getZombies().get(i).getName().equals(card.getName())){
+                this.collection.addZombieToColection((Zombie)card);
+                break;
+            }
+        }
+    }
+
+    //collection carta ee ast ke player ba khod be bazi mibarad
 
     public static ArrayList<Player> getPlayers() {
         return players;
@@ -62,5 +79,9 @@ public class Player {
 
     public void setInternal_coins(int internalCoins) {
         this.internalCoins += internalCoins;
+    }
+
+    public Collection getCollection() {
+        return collection;
     }
 }

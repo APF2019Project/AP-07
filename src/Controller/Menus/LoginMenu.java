@@ -20,7 +20,6 @@ public class LoginMenu extends Menu {
         Profile profile=new Profile("bot","1");
         Player player1=new Player(profile);
         Battle battle=new Battle(player,player1);
-        battle.setPlayer(player);
         MainMenu mainMenu=new MainMenu();
         currentMenu=mainMenu;
     }
