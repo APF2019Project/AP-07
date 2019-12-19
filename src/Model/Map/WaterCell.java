@@ -4,8 +4,7 @@ import Model.Card.Plants.Plant;
 import Model.Card.Zombies.Snorkel;
 import Model.Card.Zombies.Zombie;
 
-public class WaterCell extends Cell {
-
+public class WaterCell extends UnknownCell {
     Plant lilypad;
 
     @Override

@@ -11,7 +11,16 @@ public class Card {
     private static int uniqueId = 0;
     int AP;//attack point
     int HP;//hosseinpur
-    Cell location;
+
+    public Cell getCell() {
+        return cell;
+    }
+
+    public void setCell(Cell cell) {
+        this.cell = cell;
+    }
+
+    Cell cell;
     Collection collection;
     int coin;
 

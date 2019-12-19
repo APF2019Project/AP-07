@@ -2,10 +2,20 @@ package Model.Card.Plants;
 
 import Model.Card.Card;
 import Model.Card.Plants.PlantsActions.PlantsAction;
+import Model.Map.Cell;
 
 import java.util.ArrayList;
 
 public class Plant extends Card {
+    private Cell cell;
+
+    public Cell getCell() {
+        return cell;
+    }
+
+    public void setCell(Cell cell) {
+        this.cell = cell;
+    }
 
     private int sun;
     private int cooldown;

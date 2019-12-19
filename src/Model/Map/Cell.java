@@ -6,8 +6,8 @@ import Model.Card.Zombies.Zombie;
 import java.util.ArrayList;
 
 public abstract class Cell{
-    int x;
-    int y;
+    public int x;
+    public int y;
     protected Plant plant;
     ArrayList<Zombie> zombies;
 
@@ -15,24 +15,6 @@ public abstract class Cell{
     abstract boolean canBeZombied(Zombie zombie);
     abstract void removePlant();
     abstract public void plant(Plant plant);
-
-    void moveZombies(){
-        Cell nextCell = Map.getCell(this.x , (this.y - 1));
-        Cell thisCell = Map.getCell(this.x , this.y);
-        ArrayList<Zombie> tempZombies = new ArrayList<>();
-        for(Zombie i : thisCell.zombies)
-        {
-            if(nextCell.canBeZombied(i))
-            {
-                tempZombies.add(i);
-            }
-        }
-        for(Zombie i : tempZombies)
-        {
-            thisCell.zombies.remove(i);
-            nextCell.zombies.add(i);
-        }
-    }
 
     void removeDeadZombie(Zombie zombie){
         ArrayList<Zombie> tempZombies = new ArrayList<>();

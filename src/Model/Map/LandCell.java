@@ -4,7 +4,7 @@ import Model.Card.Plants.Plant;
 import Model.Card.Zombies.Snorkel;
 import Model.Card.Zombies.Zombie;
 
-public class LandCell extends Cell {
+public class LandCell extends UnknownCell {
     @Override
     boolean canBePlanted(Plant plant) {
         if(!plant.getName().equals("Tangle Kelp"))
