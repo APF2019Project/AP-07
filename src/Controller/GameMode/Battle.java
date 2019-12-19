@@ -1,5 +1,6 @@
 package Controller.GameMode;
 
+import Model.Card.Zombies.Zombie;
 import Model.Map.Cell;
 import Model.Map.Map;
 import Model.Card.Plants.Plant;
@@ -9,6 +10,7 @@ import java.util.ArrayList;
 
 
 public class Battle {
+
     GameMode gameMode;
     private int waveCounter = 0;
     private int turn = 0;
@@ -23,10 +25,6 @@ public class Battle {
 
     public void init(){
         this.map=gameMode.generateMap();
-    }
-
-    public void setPlayer(Player player) {
-
     }
 
     public void PlayTurn() {

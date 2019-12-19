@@ -47,9 +47,13 @@ public class Profile {
             profiles.remove(this);
     }
 
-    //Create Account - Login Menu
-    public static void create_account(String username, String password) {
-        profiles.add(new Profile(username,password));
+
+    public static Profile login(String username, String password) {
+        for (Profile p : profiles) {
+            if (p.password.equals(password) && p.username.equals(username))
+                return p ;
+        }
+        return null;
     }
 
     public static ArrayList<Profile> getAcoounts() {

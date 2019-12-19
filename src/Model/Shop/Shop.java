@@ -9,20 +9,19 @@ public class Shop {
     private ArrayList<Plant> plants=new ArrayList<>();
     private ArrayList<Zombie> zombies=new ArrayList<>();
 
-    public ArrayList<Plant> getPlants() {
-        return plants;
+    public void buy_Plants(ArrayList<Plant> plants) {
+
     }
 
-    public void buy_Plants(ArrayList<Plant> plants) {
-        this.plants = plants;
+    public void buy_Zombies(ArrayList<Zombie> zombies) {
+
+    }
+
+    public ArrayList<Plant> getPlants() {
+        return plants;
     }
 
     public ArrayList<Zombie> getZombies() {
         return zombies;
     }
-
-    public void buy_Zombies(ArrayList<Zombie> zombies) {
-        this.zombies = zombies;
-    }
-
 }
