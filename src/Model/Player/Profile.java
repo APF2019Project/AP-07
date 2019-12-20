@@ -1,10 +1,14 @@
 package Model.Player;
 
+import Model.Card.Plants.Plant;
+import Model.Card.Zombies.Zombie;
+
 import java.lang.ref.PhantomReference;
 import java.util.ArrayList;
 
 public class Profile {
-
+    private ArrayList<Zombie> purchasedZombies = new ArrayList<>();
+    private ArrayList<Plant> purchasedPlants = new ArrayList<>();
     private static ArrayList<Profile> profiles = new ArrayList<Profile>();
     private String username;
     private String password;
@@ -14,6 +18,7 @@ public class Profile {
     public Profile(String username, String password) {
         this.password = password;
         this.username = username;
+        /// zombie va plant haii ke az hmon aval dare lazem nis bexare
     }
 
     public String getUsername() {
@@ -24,24 +29,12 @@ public class Profile {
         this.username = username;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
     public void change_Password(String password) {
         this.password = password;
     }
 
     public int getScore() {
         return score;
-    }
-
-    public void setScore(int score) {
-        this.score += score;
-    }
-
-    public boolean check_password(String password) {
-        return (this.password == password);
     }
 
     public void delete_account(String username, String password) {
@@ -65,4 +58,14 @@ public class Profile {
     public static void addAccount(Profile profile) {
         profiles.add(profile);
     }
+
+    public ArrayList<Zombie> getPurchasedZombies() {
+        return purchasedZombies;
+    }
+
+    public ArrayList<Plant> getPurchasedPlants() {
+        return purchasedPlants;
+    }
+
+
 }

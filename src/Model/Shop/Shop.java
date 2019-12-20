@@ -6,8 +6,8 @@ import Model.Card.Zombies.Zombie;
 import java.util.ArrayList;
 
 public class Shop {
-    private ArrayList<Plant> plants=new ArrayList<>();
-    private ArrayList<Zombie> zombies=new ArrayList<>();
+    private ArrayList<Plant> plants = new ArrayList<>();
+    private ArrayList<Zombie> zombies = new ArrayList<>();
 
     public void buy_Plants(ArrayList<Plant> plants) {
 
