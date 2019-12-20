@@ -1,12 +1,12 @@
 {
   "@type": "Model.Card.Zombies",
   "@val": {
-    "name": "Zombie",
+    "name": "BungeeZombie",
     "type": "Zombie",
-    "id":"1",
-    "AP": "1",
-    "HP": "2",
-    "speed": "2",
+    "id":"7",
+    "AP": "100000",
+    "HP": "3",
+    "speed": "0",
     "armour": "0",
     "pea": "true"
   }

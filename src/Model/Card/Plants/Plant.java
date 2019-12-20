@@ -3,6 +3,7 @@ package Model.Card.Plants;
 import Model.Card.Card;
 import Model.Card.Plants.PlantsActions.PlantsAction;
 import Model.Map.Cell;
+
 import java.util.ArrayList;
 
 public class Plant extends Card {
@@ -21,15 +22,15 @@ public class Plant extends Card {
     }
 
     public Plant(String name, int AP, int HP, Cell cell, int sun, int cooldown) {
-        this.name=name;
-        this.AP=AP;
-        this.HP=HP;
-        this.id=uniqueId;
+        this.name = name;
+        this.AP = AP;
+        this.HP = HP;
+        this.id = uniqueId;
         uniqueId++;
-        this.cell=cell;
-        this.coin=coin;
-        this.sun=sun;
-        this.cooldown=cooldown;
+        this.cell = cell;
+        this.coin = coin;
+        this.sun = sun;
+        this.cooldown = cooldown;
     }
 
     public void addToPlantsActions(PlantsAction action) {

@@ -1,12 +1,12 @@
 {
   "@type": "Model.Card.Zombies",
   "@val": {
-    "name": "Zombie",
+    "name": "Giga-gargantuar",
     "type": "Zombie",
-    "id":"1",
-    "AP": "1",
-    "HP": "2",
-    "speed": "2",
+    "id":"12",
+    "AP": "10000",
+    "HP": "6",
+    "speed": "1",
     "armour": "0",
     "pea": "true"
   }
