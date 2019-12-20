@@ -35,7 +35,7 @@ public class CollectionMenu extends Menu {
 
     }
 
-    public void removeCollection(String name, Player player){
+   /* public void removeCollection(String name, Player player){
         //hazfe cart
         for(int i=0;i< player.getCollection().getPlants().size();i++) {
             if(player.getCollection().getPlants().get(i).getName().equals(name)){
@@ -57,7 +57,7 @@ public class CollectionMenu extends Menu {
             this.collection.addPlant(p);
         if (z != null)
             this.collection.addZombie(z);
-    }
+    }*/
 
     public void removeCollection(String name){
         this.collection.removePlant(name);
