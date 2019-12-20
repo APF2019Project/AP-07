@@ -1,5 +1,4 @@
 package Model.Card.Zombies;
-
 import Model.Card.Card;
 import Model.Card.Zombies.ZombiesActions.ZombiesAction;
 import Model.Map.Cell;

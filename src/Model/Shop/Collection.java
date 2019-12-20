@@ -6,7 +6,7 @@ import Model.Card.Zombies.Zombie;
 import java.util.ArrayList;
 
 public class Collection {
-
+    //it is the hand
     private ArrayList<Plant> plants = new ArrayList<>();
     private ArrayList<Zombie> zombies = new ArrayList<>();
 
