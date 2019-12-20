@@ -1,0 +1,13 @@
+{
+  "@type": "Model.Card.Plants",
+  "@val": {
+    "name": "Wall-nut",
+    "type": "Plant",
+    "id":"15",
+    "AP": "0",
+    "HP": "4",
+    "sun": "2",
+    "Turn": "0",
+    "cooldown": "4"
+  }
+}

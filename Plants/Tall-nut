@@ -1,0 +1,13 @@
+{
+  "@type": "Model.Card.Plants",
+  "@val": {
+    "name": "Tall-nut",
+    "type": "Plant",
+    "id":"17",
+    "AP": "0",
+    "HP": "6",
+    "sun": "4",
+    "Turn": "0",
+    "cooldown": "6"
+  }
+}

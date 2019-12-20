@@ -5,16 +5,20 @@ import Model.Player.Player;
 import Model.Player.Profile;
 
 import java.util.Scanner;
+import java.util.regex.Pattern;
 
 public class Main {
     public static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
+        Pattern selectCard = Pattern.compile("select \\w*");
+        Pattern removeCard = Pattern.compile("remove \\w*");
         Menu.init();
-        Profile profile;
-        Player player;
+        Profile profile = null;
+        Player player = null;
         while (true) {
             String input = scanner.nextLine();
+            String[] splitInput = input.split(" ");
             if (Menu.menuHandler.getCurrentMenu() == Menu.loginMenu) {
                 if (input.equalsIgnoreCase("create account")) {
                     String username = scanner.nextLine();
@@ -30,7 +34,7 @@ public class Main {
                     Menu.help();
                 } else if (input.equalsIgnoreCase("Exit")) {
                     Menu.loginMenu.exit();
-                } else if (input.equalsIgnoreCase("\n")) {
+                } else {
                     System.out.println("invalid command");
                 }
             }
@@ -39,6 +43,9 @@ public class Main {
                     Menu.menuHandler.setCurrentMenu(Menu.playMenu);
                 else if (input.equalsIgnoreCase("Profiles"))
                     Menu.menuHandler.setCurrentMenu(Menu.profileMenu);
+                else if (input.equalsIgnoreCase("login")){
+
+                }
                 else if (input.equalsIgnoreCase("Shop"))
                     Menu.menuHandler.setCurrentMenu(Menu.shopMenu);
                 else if (input.equalsIgnoreCase("Exit"))
@@ -78,8 +85,31 @@ public class Main {
                     System.out.println("invalid command");
             }
             if (Menu.menuHandler.getCurrentMenu() == Menu.collectionMenu) {
-
+                if (input.equalsIgnoreCase("Show hand")){
+                    Menu.collectionMenu.showHand();
+                }
+                else if (input.equalsIgnoreCase("Show collection")){
+                    Menu.collectionMenu.showCollection(profile);
+                }
+                else if (selectCard.matcher(input).matches()) {
+                    Menu.collectionMenu.selectCollection(splitInput[1], profile);
+                }
+                else if (input.equalsIgnoreCase("Play")) {
+                    Menu.collectionMenu.play(player);
+                }
+                else if (input.equalsIgnoreCase("help")) {
+                    Menu.help();
+                }
+                else if (input.equalsIgnoreCase("Exit")) {
+                    Menu.collectionMenu.exit();
+                }
+                else if (removeCard.matcher(input).matches()) {
+                    Menu.collectionMenu.removeCard(splitInput[1]);
+                }
+                else
+                    System.out.println("invalid command");
             }
+
         }
     }
 }

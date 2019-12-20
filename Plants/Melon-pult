@@ -1,0 +1,13 @@
+{
+  "@type": "Model.Card.Plants",
+  "@val": {
+    "name": "Melon-pult",
+    "type": "Plant",
+    "id":"12",
+    "AP": "3",
+    "HP": "3",
+    "sun": "3",
+    "Turn": "4",
+    "cooldown": "3"
+  }
+}

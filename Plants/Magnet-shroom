@@ -1,0 +1,13 @@
+{
+  "@type": "Model.Card.Plants",
+  "@val": {
+    "name": "Magnet-shroom",
+    "type": "Plant",
+    "id":"21",
+    "AP": "0",
+    "HP": "2",
+    "sun": "4",
+    "Turn": "3",
+    "cooldown": "4"
+  }
+}
