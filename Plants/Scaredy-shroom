@@ -1,0 +1,13 @@
+{
+  "@type": "Model.Card.Plants",
+  "@val": {
+    "name": "Scaredy-shroom",
+    "type": "Plant",
+    "id":"8",
+    "AP": "1",
+    "HP": "1",
+    "sun": "1",
+    "Turn": "2",
+    "cooldown": "2"
+  }
+}

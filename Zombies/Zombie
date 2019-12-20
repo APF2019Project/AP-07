@@ -1,0 +1,13 @@
+{
+  "@type": "Model.Card.Zombies",
+  "@val": {
+    "name": "",
+    "type": "",
+    "id":"",
+    "AP": "",
+    "HP": "",
+    "cell": "",
+    "speed": "",
+    "peaOrProjectile": ""
+  }
+}

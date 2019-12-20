@@ -10,8 +10,17 @@ public class Plant extends Card {
     private int sun;
     private int cooldown;
     private ArrayList<PlantsAction> plantsActions;
+    private int Turn;
 
-    public Plant(String name,int AP, int HP,Cell cell,int sun,int cooldown) {
+    public int getTurn() {
+        return Turn;
+    }
+
+    public void setTurn(int turn) {
+        Turn = turn;
+    }
+
+    public Plant(String name, int AP, int HP, Cell cell, int sun, int cooldown) {
         this.name=name;
         this.AP=AP;
         this.HP=HP;

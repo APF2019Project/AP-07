@@ -1,0 +1,13 @@
+{
+  "@type": "Model.Card.Plants",
+  "@val": {
+    "name": "Cabbage-pult",
+    "type": "Plant",
+    "id":"3",
+    "AP": "2",
+    "HP": "2",
+    "sun": "2",
+    "Turn": "2",
+    "cooldown": "3"
+  }
+}
