@@ -9,6 +9,25 @@ public class Plant extends Card {
 
     private int sun;
     private int cooldown;
+    private int ProducedSun;
+    private int SpeedReduction;
+
+    public int getSpeedReduction() {
+        return SpeedReduction;
+    }
+
+    public void setSpeedReduction(int speedReduction) {
+        SpeedReduction = speedReduction;
+    }
+
+    public int getProducedSun() {
+        return ProducedSun;
+    }
+
+    public void setProducedSun(int producedSun) {
+        ProducedSun = producedSun;
+    }
+
     private ArrayList<PlantsAction> plantsActions;
     private int Turn;
 
