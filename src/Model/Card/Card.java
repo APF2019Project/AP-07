@@ -62,4 +62,9 @@ public class Card {
     public static void addToZombies(Zombie zombie){
         zombies.add(zombie);
     }
+
+    public int getPrice() {
+        return price;
+    }
+
 }

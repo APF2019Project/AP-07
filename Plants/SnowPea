@@ -1,0 +1,13 @@
+{
+  "@type": "Model.Card.Plants",
+  "@val": {
+    "name": "SnowPea",
+    "type": "Plant",
+    "id":"2",
+    "AP": "1",
+    "HP": "3",
+    "sun": "3",
+    "Turn": "3",
+    "cooldown": "3"
+  }
+}

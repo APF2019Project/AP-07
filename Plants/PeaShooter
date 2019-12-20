@@ -1,13 +1,13 @@
 {
   "@type": "Model.Card.Plants",
   "@val": {
-    "name": "Peashooter",
+    "name": "PeaShooter",
     "type": "Plant",
     "id":"1",
     "AP": "1",
     "HP": "2",
-    "cell": "",
     "sun": "2",
+    "Turn": "2",
     "cooldown": "2"
-    }
+  }
 }
