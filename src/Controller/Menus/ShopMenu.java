@@ -7,7 +7,7 @@ import Model.Shop.Shop;
 
 public class ShopMenu extends Menu {
 
-    public void showShop(Player player) {
+    /*public void showShop(Player player) {
         for (Plant x : Plant.getPlants())
             if (!player.getPlayerPlants().contains(x))
                 System.out.println(x.getName());
@@ -34,5 +34,5 @@ public class ShopMenu extends Menu {
 
     public void showMoney(Player player) {
         System.out.println(player.getExternalCoins());
-    }
+    }*/
 }

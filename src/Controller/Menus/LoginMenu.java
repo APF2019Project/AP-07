@@ -25,8 +25,8 @@ public class LoginMenu extends Menu {
     public Profile Login(String username, String password) {
         Profile p = Profile.login(username, password);
         if (p != null) {
-            menuHandler.setCurrentMenu(mainMenu);
             System.out.println("logged in");
+            menuHandler.setCurrentMenu(mainMenu);
         }
         else
             System.out.println("wrong username or password");
