@@ -1,0 +1,13 @@
+{
+  "@type": "Model.Card.Plants",
+  "@val": {
+    "name": "WinterMelon",
+    "type": "Plant",
+    "id":"14",
+    "AP": "3",
+    "HP": "3",
+    "sun": "4",
+    "Turn": "4",
+    "cooldown": "5"
+  }
+}

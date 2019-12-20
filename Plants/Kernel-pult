@@ -1,0 +1,13 @@
+{
+  "@type": "Model.Card.Plants",
+  "@val": {
+    "name": "Kernel-pult",
+    "type": "Plant",
+    "id":"9",
+    "AP": "0",
+    "HP": "2",
+    "sun": "3",
+    "Turn": "4",
+    "cooldown": "3"
+  }
+}

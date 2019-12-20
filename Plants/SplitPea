@@ -1,0 +1,13 @@
+{
+  "@type": "Model.Card.Plants",
+  "@val": {
+    "name": "SplitPea",
+    "type": "Plant",
+    "id":"10",
+    "AP": "1",
+    "HP": "3",
+    "sun": "4",
+    "Turn": "2",
+    "cooldown": "4"
+  }
+}

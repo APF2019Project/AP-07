@@ -1,0 +1,13 @@
+{
+  "@type": "Model.Card.Plants",
+  "@val": {
+    "name": "",
+    "type": "Plant",
+    "id":"22",
+    "AP": "",
+    "HP": "",
+    "sun": "",
+    "Turn": "",
+    "cooldown": ""
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "@type": "Model.Card.Plants",
+  "@val": {
+    "name": "LilyPad",
+    "type": "Plant",
+    "id":"13",
+    "AP": "0",
+    "HP": "1",
+    "sun": "0",
+    "Turn": "0",
+    "cooldown": "1"
+  }
+}
