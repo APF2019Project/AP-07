@@ -19,6 +19,21 @@ public class Profile {
         this.password = password;
         this.username = username;
         /// zombie va plant haii ke az hmon aval dare lazem nis bexare
+        //*purchasedPlants.add(Plant.getPlants().get(0));
+        //        purchasedPlants.add(Plant.getPlants().get(1));
+        //        purchasedPlants.add(Plant.getPlants().get(7));
+        //        purchasedPlants.add(Plant.getPlants().get(8));
+        //        purchasedPlants.add(Plant.getPlants().get(10));
+        //        purchasedPlants.add(Plant.getPlants().get(19));
+        //        purchasedPlants.add(Plant.getPlants().get(21));
+        //
+        //        purchasedZombies.add(Zombie.getZombies().get(0));
+        //        purchasedZombies.add(Zombie.getZombies().get(1));
+        //        purchasedZombies.add(Zombie.getZombies().get(3));
+        //        purchasedZombies.add(Zombie.getZombies().get(4));
+        //        purchasedZombies.add(Zombie.getZombies().get(6));
+        //        purchasedZombies.add(Zombie.getZombies().get(7));
+        //        purchasedZombies.add(Zombie.getZombies().get(10));
     }
 
     public String getUsername() {

@@ -8,20 +8,14 @@ public abstract class GameMode {
         return false;
     }
 
-    public void handleWin(){
-    }
+    public abstract void handleWin();
 
-    public void updateCollection(){
-    }
+    public abstract void updateCollection();
 
-    public void getAvailableCards(){
-    }
+    public abstract void getAvailableCards();
 
-    public void generateSun(){
-    }
+    public abstract void generateSun();
 
-    public Map generateMap(){
-        return null;
-    }
+    public abstract Map generateMap();
 
 }

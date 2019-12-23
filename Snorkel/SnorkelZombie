@@ -1,5 +1,5 @@
 {
-  "@type": "Model.Card.Zombies",
+  "@type": "Model.Card.Snorkel",
   "@val": {
     "name": "SnorkelZombie",
     "type": "Snorkel",

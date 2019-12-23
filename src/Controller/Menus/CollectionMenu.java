@@ -25,7 +25,8 @@ public class CollectionMenu extends Menu {
             for (Plant x : p) {
                 System.out.println(x.getName());
             }
-        } else {
+        }
+        else {
             for (Zombie x : z)
                 System.out.println(x.getName());
         }

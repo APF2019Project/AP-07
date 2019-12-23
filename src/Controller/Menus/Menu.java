@@ -6,7 +6,7 @@ public class Menu {
     public static PlayMenu playMenu = new PlayMenu();
     public static LeaderBoard leaderBoard = new LeaderBoard();
     public static MainMenu mainMenu = new MainMenu();
-    //public static ProfileMenu profileMenu = new ProfileMenu();
+    public static ProfileMenu profileMenu = new ProfileMenu();
     public static ShopMenu shopMenu = new ShopMenu();
     public static MenuHandler menuHandler = new MenuHandler();
 
@@ -23,5 +23,6 @@ public class Menu {
 
     public static void init() {
         menuHandler.setCurrentMenu(loginMenu);
+        // ezafe kardan acc az file json
     }
 }
