@@ -4,7 +4,6 @@ import Model.Card.Card;
 import Model.Card.Plants.PlantsActions.PlantsAction;
 import Model.Map.Cell;
 import com.gilecode.yagson.YaGson;
-
 import java.util.ArrayList;
 
 public class Plant extends Card {
@@ -66,6 +65,7 @@ public class Plant extends Card {
         //
         return sun;
     }
+
 
     public void setSun(int sun) {
         this.sun = sun;

@@ -1,6 +1,5 @@
 package Controller.Menus;
 
-import Model.Player.Player;
 import Model.Player.Profile;
 
 import java.util.ArrayList;
@@ -8,7 +7,7 @@ import java.util.Comparator;
 
 public class LeaderBoard extends Menu {
     public void showPlayers() {
-        ArrayList<Profile> pros = Profile.getAcoounts();
+        ArrayList<Profile> pros = Profile.getAccounts();
         pros.sort(new Comparator<Profile>() {
             @Override
             public int compare(Profile o1, Profile o2) {
