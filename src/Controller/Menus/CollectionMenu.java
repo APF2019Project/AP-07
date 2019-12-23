@@ -3,7 +3,7 @@ package Controller.Menus;
 import Model.Player.Player;
 import Model.Card.Plants.Plant;
 import Model.Card.Zombies.Zombie;
-import Model.Player.Profile;
+import Model.Player.*;
 
 import java.util.ArrayList;
 
@@ -56,13 +56,12 @@ public class CollectionMenu extends Menu {
     }
 
     public void removeCard (String name,Profile profile) {
-        profile.getCollection().
-        collection.removePlant(name);
+       profile.removeCard(name);
     }
 
-    public void play(Player player) {
+    public void play(Profile profile) {
         //marhaleye baad
-        player.setCollection();
+        Player player=new Player(profile);
     }
 
     public void exit() {
