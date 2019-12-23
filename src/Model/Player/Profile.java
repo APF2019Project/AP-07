@@ -13,6 +13,11 @@ public class Profile {
     private String username;
     private String password;
     private int score;
+
+    public int getExternalCoins() {
+        return externalCoins;
+    }
+
     private int externalCoins;
 
     public Profile(String username, String password) {
@@ -66,7 +71,7 @@ public class Profile {
         return null;
     }
 
-    public static ArrayList<Profile> getAcoounts() {
+    public static ArrayList<Profile> getAccounts() {
         return profiles;
     }
 
@@ -82,5 +87,12 @@ public class Profile {
         return purchasedPlants;
     }
 
+    public void addZombie(Zombie zombie) {
+        this.purchasedZombies.add(zombie);
+    }
+
+    public void addPlant(Plant plant) {
+        this.purchasedPlants.add(plant);
+    }
 
 }

@@ -14,7 +14,8 @@ public class Battle {
     GameMode gameMode;
     private int waveCounter = 0;
     private int turn = 0;
-    private Player[] player;
+    private Player player1;
+    private Player player2;
 
     public Map getMap() {
         return map;
@@ -28,8 +29,8 @@ public class Battle {
     private ArrayList<Zombie> zombies;
 
     public Battle(Player player1, Player player2) {
-        this.player[0] = player1;
-        this.player[1] = player2;
+        this.player1 = player1;
+        this.player2 = player2;
     }
 
     public void init(){
@@ -53,11 +54,18 @@ public class Battle {
     }
 
     public Player getPlayer(int i) {
-        return player[i];
+        if(i ==1)
+            return player1;
+        if (i==2)
+            return player2;
+        return null;
     }
 
     public void setPlayer(Player player, int i) {
-        this.player[i] = player;
+        if(i ==1)
+            player1 = player;
+        if (i==2)
+            player2 = player;
     }
 
     public int getWaveCounter() {
