@@ -1,15 +1,23 @@
 package Model.Card.Zombies;
 import Model.Card.Card;
-import Model.Card.Plants.PeaOrProjectile;
 import Model.Card.Zombies.ZombiesActions.ZombiesAction;
 import Model.Map.Cell;
+
 import java.util.ArrayList;
 
 public class Zombie extends Card {
+    public int getArmour() {
+        return armour;
+    }
 
+    public boolean isPea() {
+        return pea;
+    }
+
+    private int armour;
     private int health;
     private int speed;
-    private PeaOrProjectile peaOrProjectile;
+    private boolean pea;
     private ArrayList<ZombiesAction> actions = new ArrayList<>();
 
     public void addToZombiesActions(ZombiesAction action) {
@@ -20,7 +28,7 @@ public class Zombie extends Card {
         return actions;
     }
 
-    public Zombie(String name, int AP, int HP, Cell cell, int health, int speed, PeaOrProjectile peaOrProjectile) {
+    public Zombie(String name, int AP, int HP, Cell cell, int health, int speed, int armour, boolean pea) {
         this.name = name;
         this.AP = AP;
         this.HP = HP;
@@ -30,13 +38,10 @@ public class Zombie extends Card {
         this.coin = coin;
         this.health = health;
         this.speed = speed;
-        this.peaOrProjectile = peaOrProjectile;
+        this.armour = armour;
+        this.pea = pea;
     }
 
-    //kind of thing that hurts it
-    public PeaOrProjectile getPeaOrProjectile() {
-        return peaOrProjectile;
-    }
 
     public void walk() {
 

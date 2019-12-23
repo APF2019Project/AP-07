@@ -8,6 +8,8 @@
     "HP": "1",
     "sun": "1",
     "Turn": "2",
-    "cooldown": "2"
+    "cooldown": "2",
+    "ProducedSun": "0",
+    "SpeedReduction": "1"
   }
 }
