@@ -34,16 +34,22 @@ public class MenuHandler {
     public void run() throws IOException {
 
         YaGson yaGson = new YaGson();
-        File file = new File("C:\\Users\\asus\\IdeaProjects\\untitled6\\Plants\\Cactus");
+        File file = new File("D:\\Programming\\Java\\AP-07\\Plants\\Cactus");
         BufferedReader br = new BufferedReader(new FileReader(file));
         String string = new String();
-        while (br.readLine() != null)
-            string += (br.readLine());
+        String s = new String();
+        while (true) {
+            s = br.readLine();
+            if (s!= null)
+                string += (s);
+            else
+                break;
+        }
         UnknownCell unknownCell=new UnknownCell();
         Plant plant=new Plant("Cactus",1,3,unknownCell,5,4);
 //        Plant plant1 = yaGson.fromJson(string, Plant.class);
-        String s = yaGson.toJson(plant);
-        System.out.println("0 = " + s);
+        String d = yaGson.toJson(plant);
+        System.out.println("0 = " + d);
         System.out.println("1 = " + string);
         yaGson.fromJson(s,Plant.class);
 //        System.out.println(s);

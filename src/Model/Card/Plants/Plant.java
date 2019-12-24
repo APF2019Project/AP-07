@@ -45,6 +45,7 @@ public class Plant extends Card {
     }
 
     public Plant(String name, int AP, int HP, Cell cell, int sun, int cooldown) {
+        super();
         this.name=name;
         this.AP =AP;
         this.HP=HP;
