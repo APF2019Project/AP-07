@@ -16,9 +16,9 @@ public abstract class Cell{
     abstract void removePlant();
     abstract public void plant(Plant plant);
 
-    void removeDeadZombie(Zombie zombie){
+    void removeDeadZombie(Zombie zombie, Map map){
         ArrayList<Zombie> tempZombies = new ArrayList<>();
-        Cell thisCell = Map.getCell(this.x , this.y);
+        Cell thisCell = map.getCell(this.x , this.y);
         for(Zombie i : thisCell.zombies)
         {
             if(i.getHealth() == 0)

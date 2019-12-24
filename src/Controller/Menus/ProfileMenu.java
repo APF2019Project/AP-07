@@ -5,4 +5,7 @@ public class ProfileMenu extends Menu {
         this.orders = new String[] {"Change", "Delete", "Rename", "Create", "Help", "Exit"};
     }
 
+    public void exit() {
+        Menu.menuHandler.setCurrentMenu(Menu.mainMenu);
+    }
 }

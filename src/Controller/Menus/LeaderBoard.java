@@ -7,7 +7,7 @@ import java.util.Comparator;
 
 public class LeaderBoard extends Menu {
     public void showPlayers() {
-        ArrayList<Profile> pros = Profile.getAccounts();
+        ArrayList<Profile> pros = Profile.getAcoounts();
         pros.sort(new Comparator<Profile>() {
             @Override
             public int compare(Profile o1, Profile o2) {

@@ -3,6 +3,7 @@ package Model.Card.Plants;
 import Model.Card.Card;
 import Model.Card.Plants.PlantsActions.PlantsAction;
 import Model.Map.Cell;
+import Model.Map.UnknownCell;
 import com.gilecode.yagson.YaGson;
 import java.util.ArrayList;
 
@@ -69,19 +70,6 @@ public class Plant extends Card {
     }
 
     public int getSun() {
-        YaGson yaGson=new YaGson();
-        String s = yaGson.toJson(this);
-        System.out.println("s = " + s);
-
-        /*
-        * briz tu file
-        * */
-
-        /*
-        * bekhun az file
-        * */
-        Plant plant = yaGson.fromJson(s, Plant.class);
-        //
         return sun;
     }
 
@@ -97,5 +85,6 @@ public class Plant extends Card {
     public void setCooldown(int cooldown) {
         this.cooldown = cooldown;
     }
+
 
 }

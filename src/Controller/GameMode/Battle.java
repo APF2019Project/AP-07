@@ -15,6 +15,15 @@ public class Battle {
     private int waveCounter = 0;
     private int turn = 0;
     private Player[] player;
+
+    public Map getMap() {
+        return map;
+    }
+
+    public void setMap(Map map) {
+        this.map = map;
+    }
+
     private Map map;
     private ArrayList<Zombie> zombies;
 

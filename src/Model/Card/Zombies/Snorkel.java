@@ -7,7 +7,7 @@ public class Snorkel extends Zombie {
 
     private int armour;
 
-    public Snorkel(String name, int AP, int HP, Cell cell, int health, int speed, PeaOrProjectile peaOrProjectile) {
-        super(name, AP, HP, cell, health, speed, peaOrProjectile);
+    public Snorkel(String name, int AP, int HP, Cell cell, int health, int speed, int armour, boolean pea) {
+        super(name, AP, HP, cell, health, speed, armour, pea);
     }
 }

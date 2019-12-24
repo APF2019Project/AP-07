@@ -1,14 +1,17 @@
 package Model.Map;
 
 public class Map {
-    private static final int HEIGHT = 6;
-    private static final int WIDTH = 19;
+    public static final int HEIGHT = 6;
+    public static final int WIDTH = 19;
 
     public static UnknownCell[][] unknowncells = new UnknownCell[HEIGHT][WIDTH];
 
-    public static UnknownCell getCell(int x ,int y)
+    public UnknownCell getCell(int x ,int y)
     {
-        return Map.unknowncells[x][y];
+        return unknowncells[x][y];
+    }
+    public void setLandCell(int x, int y, LandCell landCell) {
+        unknowncells[x][y] = landCell;
     }
 
     public static Cell getCell(Cell cell) {
