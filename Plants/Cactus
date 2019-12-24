@@ -1,15 +1,15 @@
 {
   "@type": "Model.Card.Plants",
   "@val": {
-    "name": "Cactus",
-    "type": "Plant",
-    "id":"6",
-    "AP": "1",
-    "HP": "5",
-    "sun": "5",
-    "Turn": "2",
-    "cooldown": "4",
-    "ProducedSun": "0",
-    "SpeedReduction": "1"
-  }
+      "name": "Cactus",
+      "type": "Plant",
+      "id":"6",
+      "AP": "1",
+      "HP": "5",
+      "sun": "5",
+      "Turn": "2",
+      "cooldown": "4",
+      "ProducedSun": "0",
+      "SpeedReduction": "1"
+    }
 }

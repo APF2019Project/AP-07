@@ -14,9 +14,7 @@ public class Plant extends Card {
     private int SpeedReduction;
 
     public void makeCard(Plant plant){
-        YaGson yaGson=new YaGson();
-        String string=yaGson.toJson(plant);
-        Plant plant1=yaGson.fromJson(string,Plant.class);
+
     }
 
     public int getSpeedReduction() {
