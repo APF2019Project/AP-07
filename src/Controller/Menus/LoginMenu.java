@@ -2,7 +2,7 @@ package Controller.Menus;
 
 import Controller.GameMode.Battle;
 import Model.Player.*;
-import View.Main;
+import View.PlantsMain;
 
 import javax.xml.stream.StreamFilter;
 import java.util.ArrayList;

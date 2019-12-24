@@ -13,7 +13,7 @@ public class Plant extends Card {
     private int ProducedSun;
     private int SpeedReduction;
 
-    public void makeCard(Plant plant){
+    public void makePlant(Plant plant){
         YaGson yaGson=new YaGson();
         String string=yaGson.toJson(plant);
         Plant plant1=yaGson.fromJson(string,Plant.class);

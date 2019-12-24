@@ -3,11 +3,10 @@ package Model.Player;
 import Model.Card.Plants.Plant;
 import Model.Card.Zombies.Zombie;
 
-import java.lang.ref.PhantomReference;
 import java.util.ArrayList;
 
 public class Profile {
-    private ArrayList<Zombie> purchasedZombies = new ArrayList<>();
+    private ArrayList<Zombie> purchasedZombies = new ArrayList<Zombie>();
     private ArrayList<Plant> purchasedPlants = new ArrayList<>();
     private static ArrayList<Profile> profiles = new ArrayList<Profile>();
     private String username;
