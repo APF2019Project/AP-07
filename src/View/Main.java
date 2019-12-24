@@ -4,6 +4,7 @@ import Controller.GameMode.Day;
 import Controller.GameMode.Rail;
 import Controller.GameMode.Water;
 import Controller.Menus.Menu;
+import Controller.Menus.Menu;
 
 import java.io.IOException;
 
