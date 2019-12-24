@@ -55,7 +55,8 @@ public class MenuHandler {
 //        System.out.println(s);
 //        System.out.println(plant1.getCooldown());
 //        System.out.println(plant1.getCooldown());
-
+Plant p2=yaGson.fromJson(d,Plant.class);
+        System.out.println(p2.getCooldown());
         Player bot = new Player();
         Profile profile = null;
         Scanner scanner = new Scanner(System.in);

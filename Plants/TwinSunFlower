@@ -10,6 +10,7 @@
     "Turn": "2",
     "cooldown": "5",
     "ProducedSun": "2",
-    "SpeedReduction": "1"
+    "SpeedReduction": "1",
+    "price":0
   }
 }
