@@ -4,6 +4,7 @@ import Controller.GameMode.Day;
 import Controller.GameMode.Rail;
 import Controller.GameMode.Water;
 import Model.Card.Plants.Plant;
+import Model.Map.UnknownCell;
 import Model.Player.Player;
 import Model.Player.Profile;
 import com.gilecode.yagson.YaGson;
@@ -33,13 +34,21 @@ public class MenuHandler {
     public void run() throws IOException {
 
         YaGson yaGson = new YaGson();
-        File file = new File("C:\\Users\\asus\\IdeaProjects\\untitled6\\Plants\\HHH");
+        File file = new File("C:\\Users\\asus\\IdeaProjects\\untitled6\\Plants\\Cactus");
         BufferedReader br = new BufferedReader(new FileReader(file));
         String string = new String();
         while (br.readLine() != null)
             string += (br.readLine());
-        Plant plant1 = yaGson.fromJson(string, Plant.class);
-        System.out.println(plant1.getCooldown());
+        UnknownCell unknownCell=new UnknownCell();
+        Plant plant=new Plant("Cactus",1,3,unknownCell,5,4);
+//        Plant plant1 = yaGson.fromJson(string, Plant.class);
+        String s = yaGson.toJson(plant);
+        System.out.println("0 = " + s);
+        System.out.println("1 = " + string);
+        yaGson.fromJson(s,Plant.class);
+//        System.out.println(s);
+//        System.out.println(plant1.getCooldown());
+//        System.out.println(plant1.getCooldown());
 
         Player bot = new Player();
         Profile profile = null;
