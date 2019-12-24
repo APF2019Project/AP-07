@@ -7,7 +7,12 @@ import Model.Card.Plants.Plant;
 import Model.Map.UnknownCell;
 import Model.Player.Player;
 import Model.Player.Profile;
+import com.gilecode.yagson.YaGson;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 
@@ -26,11 +31,24 @@ public class MenuHandler {
         this.currentMenu = currentMenu;
     }
 
-    public void run() {
+    public void run() throws IOException {
 
+        YaGson yaGson = new YaGson();
+        File file = new File("C:\\Users\\asus\\IdeaProjects\\untitled6\\Plants\\Cactus");
+        BufferedReader br = new BufferedReader(new FileReader(file));
+        String string = new String();
+        while (br.readLine() != null)
+            string += (br.readLine());
         UnknownCell unknownCell=new UnknownCell();
-        Plant plant=new Plant("Cactus",1,5,unknownCell,5,4);
-        plant.makePlant(plant);
+        Plant plant=new Plant("Cactus",1,3,unknownCell,5,4);
+//        Plant plant1 = yaGson.fromJson(string, Plant.class);
+        String s = yaGson.toJson(plant);
+        System.out.println("0 = " + s);
+        System.out.println("1 = " + string);
+        yaGson.fromJson(s,Plant.class);
+//        System.out.println(s);
+//        System.out.println(plant1.getCooldown());
+//        System.out.println(plant1.getCooldown());
 
         Player bot = new Player();
         Profile profile = null;
@@ -108,11 +126,9 @@ public class MenuHandler {
                     profile.delete_account(username, password);
                     profile = null;
                     Menu.menuHandler.setCurrentMenu(Menu.loginMenu);
-                }
-                else if (input.equalsIgnoreCase("exit")) {
+                } else if (input.equalsIgnoreCase("exit")) {
                     Menu.profileMenu.exit();
-                }
-                else
+                } else
                     System.out.println("invalid command");
             }
 
@@ -123,7 +139,7 @@ public class MenuHandler {
                     Menu.help();
 
                 else if (input.equalsIgnoreCase("day")) {
-                    Menu.playMenu.startDayGame(player,bot);
+                    Menu.playMenu.startDayGame(player, bot);
                     dayMode = new Day();
                 } else if (input.equalsIgnoreCase("water")) {
 
@@ -166,23 +182,17 @@ public class MenuHandler {
             if (Menu.menuHandler.getCurrentMenu() == Menu.shopMenu) {
                 if (input.equalsIgnoreCase("show shop")) {
                     Menu.shopMenu.showShop(profile);
-                }
-                else if (input.equalsIgnoreCase("show collection")) {
+                } else if (input.equalsIgnoreCase("show collection")) {
                     Menu.shopMenu.getCards(profile);
-                }
-                else if (input.equalsIgnoreCase("Money")) {
+                } else if (input.equalsIgnoreCase("Money")) {
                     Menu.shopMenu.showMoney(profile);
-                }
-                else if (input.equalsIgnoreCase("Help")) {
+                } else if (input.equalsIgnoreCase("Help")) {
                     Menu.help();
-                }
-                else if (input.equalsIgnoreCase("Exit")) {
+                } else if (input.equalsIgnoreCase("Exit")) {
                     Menu.shopMenu.exit();
-                }
-                else if (buyCard.matcher(input).matches()) {
-                    Menu.shopMenu.buy(splitInput[1],profile);
-                }
-                else
+                } else if (buyCard.matcher(input).matches()) {
+                    Menu.shopMenu.buy(splitInput[1], profile);
+                } else
                     System.out.println("invalid command");
             }
             if (Menu.menuHandler.getCurrentMenu() == null)
@@ -191,3 +201,4 @@ public class MenuHandler {
 
     }
 }
+

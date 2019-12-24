@@ -1,0 +1,15 @@
+{
+  "@type": "Model.Card.Plants",
+  "@val": {
+    "name": "GatlingPea",
+    "type": "Plant",
+    "id":"7",
+    "AP": "1",
+    "HP": "3",
+    "sun": "5",
+    "Turn": "5",
+    "cooldown": "4",
+    "ProducedSun": "0",
+    "SpeedReduction": "1"
+  }
+}

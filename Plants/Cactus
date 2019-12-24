@@ -1,15 +1,20 @@
 {
-  "@type": "Model.Card.Plants",
-  "@val": {
-    "name": "Cactus",
-    "type": "Plant",
-    "id":"6",
-    "AP": "1",
-    "HP": "5",
-    "sun": "5",
-    "Turn": "2",
-    "cooldown": "4",
-    "ProducedSun": "0",
-    "SpeedReduction": "1"
-  }
+"@type":"Model.Card.Plants.Plant",
+"@val{
+"sun":5,
+"cooldown":4,
+"ProducedSun":0,
+"SpeedReduction":0,
+"Turn":0,
+"name":"Cactus",
+"id":0,
+"AP":1,
+"HP":3,
+"cell":{"@type":"Model.Map.UnknownCell",
+"@val":{
+"x":0,
+"y":0}
+},
+"coin":0,
+"price":0}
 }
