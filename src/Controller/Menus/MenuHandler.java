@@ -34,7 +34,7 @@ public class MenuHandler {
     public void run() throws IOException {
 
         YaGson yaGson = new YaGson();
-        File file = new File("D:\\Programming\\Java\\AP-07\\Plants\\Cactus");
+        File file = new File("Plants/Cactus");
         BufferedReader br = new BufferedReader(new FileReader(file));
         String string = new String();
         String s = new String();
@@ -47,16 +47,10 @@ public class MenuHandler {
         }
         UnknownCell unknownCell=new UnknownCell();
         Plant plant=new Plant("Cactus",1,3,unknownCell,5,4);
-//        Plant plant1 = yaGson.fromJson(string, Plant.class);
         String d = yaGson.toJson(plant);
-        System.out.println("0 = " + d);
-        System.out.println("1 = " + string);
-        yaGson.fromJson(s,Plant.class);
-//        System.out.println(s);
-//        System.out.println(plant1.getCooldown());
-//        System.out.println(plant1.getCooldown());
-Plant p2=yaGson.fromJson(d,Plant.class);
+        Plant p2=yaGson.fromJson(d,Plant.class);
         System.out.println(p2.getCooldown());
+
         Player bot = new Player();
         Profile profile = null;
         Scanner scanner = new Scanner(System.in);
