@@ -3,6 +3,9 @@ package Controller.Menus;
 import Controller.GameMode.Day;
 import Controller.GameMode.Rail;
 import Controller.GameMode.Water;
+import Model.Card.Plants.Plant;
+import Model.Map.Cell;
+import Model.Map.UnknownCell;
 import Model.Player.Player;
 import Model.Player.Profile;
 
@@ -25,6 +28,11 @@ public class MenuHandler {
     }
 
     public void run() {
+
+        UnknownCell unknownCell=new UnknownCell();
+        Plant plant=new Plant("Cactus",1,5,unknownCell,5,4);
+        plant.makeCard(plant);
+
         Player bot = new Player();
         Profile profile = null;
         Scanner scanner = new Scanner(System.in);
