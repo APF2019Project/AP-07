@@ -1,6 +1,6 @@
 {
 "@type":"Model.Card.Plants.Plant",
-"@val{
+"@val":{
 "sun":5,
 "cooldown":4,
 "ProducedSun":0,
@@ -16,5 +16,6 @@
 "y":0}
 },
 "coin":0,
-"price":0}
+"price":0
+}
 }

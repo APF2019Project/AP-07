@@ -37,8 +37,12 @@ public class MenuHandler {
         File file = new File("C:\\Users\\asus\\IdeaProjects\\untitled6\\Plants\\Cactus");
         BufferedReader br = new BufferedReader(new FileReader(file));
         String string = new String();
-        while (br.readLine() != null)
-            string += (br.readLine());
+        while (true) {
+            String s=br.readLine();
+            if(!s.equals(null)){
+                string+=s;
+            }
+        }
         UnknownCell unknownCell=new UnknownCell();
         Plant plant=new Plant("Cactus",1,3,unknownCell,5,4);
 //        Plant plant1 = yaGson.fromJson(string, Plant.class);
