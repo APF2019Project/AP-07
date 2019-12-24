@@ -7,7 +7,10 @@ public class Day extends GameMode {
 
     @Override
     public void handleWin() {
-
+        ///age cell zombie-- manfi beshe va chmnzn nbashe
+        ////zombie wins
+        ///age wave ++ bishtar az 3 beshe
+        // plant wins
     }
 
     @Override

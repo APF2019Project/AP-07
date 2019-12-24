@@ -1,16 +1,16 @@
 package View;
 
-import Controller.Menus.*;
-import Model.Player.Player;
-import Model.Player.Profile;
+import Controller.GameMode.Day;
+import Controller.GameMode.Rail;
+import Controller.GameMode.Water;
+import Controller.Menus.Menu;
 
-import java.util.Scanner;
-import java.util.regex.Pattern;
 
 public class Main {
 
 
     public static void main(String[] args) {
+
         Menu.menuHandler.run();
     }
 }
