@@ -4,6 +4,7 @@ import Model.Card.Zombies.Zombie;
 import Model.Map.Cell;
 import Model.Map.UnknownCell;
 
+import java.io.*;
 import java.util.ArrayList;
 
 public class Card {
@@ -18,6 +19,52 @@ public class Card {
     protected static ArrayList<Plant> plants = new ArrayList<>();
     protected static ArrayList<Zombie> zombies = new ArrayList<>();
     protected int price;
+
+   public static String makeString(File file) throws IOException {
+       BufferedReader br = new BufferedReader(new FileReader(file));
+       String string = new String();
+       String s = new String();
+       while (true) {
+           s = br.readLine();
+           if (s!= null)
+               string += (s);
+           else
+               break;
+       }
+       return string;
+   }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public static void setUniqueId(int uniqueId) {
+        Card.uniqueId = uniqueId;
+    }
+
+    public void setAP(int AP) {
+        this.AP = AP;
+    }
+
+    public void setHP(int HP) {
+        this.HP += HP;
+    }
+
+    public void setCell(Cell cell) {
+        this.cell = cell;
+    }
+
+    public void setCoin(int coin) {
+        this.coin = coin;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
 
     public String getName() {
         return name;

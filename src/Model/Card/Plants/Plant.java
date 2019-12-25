@@ -2,8 +2,9 @@ package Model.Card.Plants;
 
 import Model.Card.Card;
 import Model.Card.Plants.PlantsActions.PlantsAction;
-import Model.Map.Cell;
 import com.gilecode.yagson.YaGson;
+
+import java.io.*;
 import java.util.ArrayList;
 
 public class Plant extends Card {
@@ -12,9 +13,27 @@ public class Plant extends Card {
     private int cooldown;
     private int ProducedSun;
     private int SpeedReduction;
+    private PeaOrProjectile peaOrProjectile;
 
-    public void makeCard(Plant plant){
+    public static Plant makePlant(String name) throws IOException {
+        YaGson yaGson = new YaGson();
+        Plant plant=new Plant(name);
+        File file = new File("Plants\\"+plant.getName());
+        String string=Card.makeString(file);
+        Plant plant1=yaGson.fromJson(string,Plant.class);
+        String d = yaGson.toJson(plant1);
+        plants.add(plant1);
+        return plant1;
+//        System.out.println(d);
+//        System.out.println(plant1.getSun());
+    }
 
+    public PeaOrProjectile getPeaOrProjectile() {
+        return peaOrProjectile;
+    }
+
+    public void setPeaOrProjectile(PeaOrProjectile peaOrProjectile) {
+        this.peaOrProjectile = peaOrProjectile;
     }
 
     public int getSpeedReduction() {
@@ -41,20 +60,14 @@ public class Plant extends Card {
     }
 
     public void setTurn(int turn) {
-        Turn = turn;
+        Turn += turn;
     }
 
-    public Plant(String name, int AP, int HP, Cell cell, int sun, int cooldown) {
+    public Plant(String name) {
         super();
         this.name=name;
-        this.AP =AP;
-        this.HP=HP;
         this.id=uniqueId;
         uniqueId++;
-        this.cell=cell;
-        this.coin=coin;
-        this.sun=sun;
-        this.cooldown=cooldown;
     }
 
     public void addToPlantsActions(PlantsAction action) {
@@ -89,6 +102,5 @@ public class Plant extends Card {
     public void setCooldown(int cooldown) {
         this.cooldown = cooldown;
     }
-
 
 }
