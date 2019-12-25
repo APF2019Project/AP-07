@@ -1,8 +1,7 @@
 {
-  "@type": "Model.Card.Plants",
+  "@type": "Model.Card.Plants.Plant",
   "@val": {
     "name": "CherryBomb",
-    "type": "Plant",
     "id":"20",
     "AP": "10000",
     "HP": "0",

@@ -1,8 +1,7 @@
 {
-  "@type": "Model.Card.Plants",
+  "@type": "Model.Card.Plants.Plant",
   "@val": {
     "name": "Cabbage-pult",
-    "type": "Plant",
     "id":"3",
     "AP": "2",
     "HP": "2",
@@ -11,6 +10,5 @@
     "cooldown": "3",
     "ProducedSun": "0",
     "SpeedReduction": "1",
-    "price":0
-  }
+    "price":0}
 }

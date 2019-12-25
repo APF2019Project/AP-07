@@ -4,10 +4,10 @@
 "sun":"5",
 "cooldown":"4",
 "ProducedSun":"0",
-"SpeedReduction":"0",
+"SpeedReduction":"1",
 "Turn":"0",
 "name":"Cactus",
-"id":"0",
+"id":"6",
 "AP":"1",
 "HP":"3",
 "price":0}

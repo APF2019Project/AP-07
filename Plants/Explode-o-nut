@@ -1,8 +1,7 @@
 {
-  "@type": "Model.Card.Plants",
+  "@type": "Model.Card.Plants.Plant",
   "@val": {
     "name": "Explode-o-nut",
-    "type": "Plant",
     "id":"11",
     "AP": "1",
     "HP": "3",
