@@ -1,8 +1,7 @@
 {
-  "@type": "Model.Card.Plants",
+  "@type": "Model.Card.Plants.Plant",
   "@val": {
     "name": "TwinSunFlower",
-    "type": "Plant",
     "id":"23",
     "AP": "0",
     "HP": "2",

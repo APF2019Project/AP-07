@@ -1,8 +1,7 @@
 {
-  "@type": "Model.Card.Plants",
+  "@type": "Model.Card.Plants.Plant",
   "@val": {
     "name": "Repeater",
-    "type": "Plant",
     "id":"4",
     "AP": "1",
     "HP": "4",

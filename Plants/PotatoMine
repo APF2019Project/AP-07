@@ -1,8 +1,7 @@
 {
-  "@type": "Model.Card.Plants",
+  "@type": "Model.Card.Plants.Plant",
   "@val": {
     "name": "PotatoMine",
-    "type": "Plant",
     "id":"19",
     "AP": "10000",
     "HP": "1",

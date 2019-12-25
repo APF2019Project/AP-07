@@ -1,8 +1,7 @@
 {
-  "@type": "Model.Card.Plants",
+  "@type": "Model.Card.Plants.Plant",
   "@val": {
     "name": "SplitPea",
-    "type": "Plant",
     "id":"10",
     "AP": "1",
     "HP": "3",

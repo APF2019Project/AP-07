@@ -1,8 +1,7 @@
 {
-  "@type": "Model.Card.Plants",
+  "@type": "Model.Card.Plants.Plant",
   "@val": {
     "name": "Tall-nut",
-    "type": "Plant",
     "id":"17",
     "AP": "0",
     "HP": "6",

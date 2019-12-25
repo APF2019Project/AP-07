@@ -1,13 +1,13 @@
 {
-  "@type": "Model.Card.Zombies",
+  "@type": "Model.Card.Zombies.Zombie",
   "@val": {
     "name": "CatapultZomboni",
-    "type": "Zombie",
     "id":"6",
     "AP": "10000",
     "HP": "3",
     "speed": "2",
     "armour": "0",
     "pea": "true"
+    "price": 0
   }
 }
