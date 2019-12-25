@@ -3,14 +3,37 @@ import Model.Card.Plants.Plant;
 import Model.Card.Zombies.Zombie;
 import Model.Map.Cell;
 
+import java.io.*;
 import java.util.ArrayList;
 
-public class Card {
+public abstract class Card {
 
     protected String name;
     protected int id;
     protected static int uniqueId = 0;
     protected int AP;
+    protected int HP;
+    protected Cell cell;
+    protected int coin;
+    protected static ArrayList<Plant> plants = new ArrayList<>();
+    protected static ArrayList<Zombie> zombies = new ArrayList<>();
+    protected int price;
+
+   public abstract Card makeCard(String name) throws IOException;
+
+   public static String makeString(File file) throws IOException {
+       BufferedReader br = new BufferedReader(new FileReader(file));
+       String string = new String();
+       String s = new String();
+       while (true) {
+           s = br.readLine();
+           if (s!= null)
+               string += (s);
+           else
+               break;
+       }
+       return string;
+   }
 
     public void setName(String name) {
         this.name = name;
@@ -43,13 +66,6 @@ public class Card {
     public void setPrice(int price) {
         this.price = price;
     }
-
-    protected int HP;
-    protected Cell cell;
-    protected int coin;
-    protected static ArrayList<Plant> plants = new ArrayList<>();
-    protected static ArrayList<Zombie> zombies = new ArrayList<>();
-    protected int price;
 
     public String getName() {
         return name;

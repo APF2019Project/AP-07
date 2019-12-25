@@ -1,9 +1,15 @@
 package Model.Card.Zombies;
 
 import Model.Card.Card;
+import Model.Card.Plants.Plant;
 import Model.Card.Zombies.ZombiesActions.ZombiesAction;
 import Model.Map.Cell;
+import com.gilecode.yagson.YaGson;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class Zombie extends Card {
@@ -21,6 +27,20 @@ public class Zombie extends Card {
     private boolean pea;
     private ArrayList<ZombiesAction> actions = new ArrayList<>();
 
+    @Override
+    public Zombie makeCard(String name) throws IOException {
+        YaGson yaGson = new YaGson();
+        Zombie zombie=new Zombie(name);
+        File file = new File("Zombies\\"+zombie.getName());
+        String string=Card.makeString(file);
+        Zombie zombie1=yaGson.fromJson(string,Zombie.class);
+        String d = yaGson.toJson(zombie1);
+        zombies.add(zombie1);
+        return zombie1;
+//        System.out.println(d);
+//        System.out.println(zombie1.getSpeed());
+    }
+
     public void addToZombiesActions(ZombiesAction action) {
         actions.add(action);
     }
@@ -29,20 +49,11 @@ public class Zombie extends Card {
         return actions;
     }
 
-    public Zombie(String name, int AP, int HP, Cell cell, int health, int speed, int armour, boolean pea) {
+    public Zombie(String name) {
         this.name = name;
-        this.AP = AP;
-        this.HP = HP;
         this.id = uniqueId;
         uniqueId++;
-        this.cell = cell;
-        this.coin = coin;
-        this.health = health;
-        this.speed = speed;
-        this.armour = armour;
-        this.pea = pea;
     }
-
 
     public void walk() {
 

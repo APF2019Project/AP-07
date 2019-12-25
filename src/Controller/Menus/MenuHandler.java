@@ -3,6 +3,7 @@ package Controller.Menus;
 import Controller.GameMode.Day;
 import Controller.GameMode.Rail;
 import Controller.GameMode.Water;
+import Model.Card.Card;
 import Model.Card.Plants.Plant;
 import Model.Map.UnknownCell;
 import Model.Player.Player;
@@ -33,24 +34,6 @@ public class MenuHandler {
 
     public void run() throws IOException {
 
-        YaGson yaGson = new YaGson();
-        Plant plant=new Plant("Cactus");
-        File file = new File("Plants\\"+plant.getName());
-        BufferedReader br = new BufferedReader(new FileReader(file));
-        String string = new String();
-        String s = new String();
-
-        while (true) {
-            s = br.readLine();
-            if (s!= null)
-                string += (s);
-            else
-                break;
-        }
-
-        Plant p2=yaGson.fromJson(string,Plant.class);
-        String d = yaGson.toJson(p2);
-        System.out.println(d);
 
         Player bot = new Player();
         Profile profile = null;

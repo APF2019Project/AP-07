@@ -2,8 +2,9 @@ package Model.Card.Plants;
 
 import Model.Card.Card;
 import Model.Card.Plants.PlantsActions.PlantsAction;
-import Model.Map.Cell;
 import com.gilecode.yagson.YaGson;
+
+import java.io.*;
 import java.util.ArrayList;
 
 public class Plant extends Card {
@@ -13,8 +14,18 @@ public class Plant extends Card {
     private int ProducedSun;
     private int SpeedReduction;
 
-    public void makeCard(Plant plant){
-
+    @Override
+    public Plant makeCard(String name) throws IOException {
+        YaGson yaGson = new YaGson();
+        Plant plant=new Plant(name);
+        File file = new File("Plants\\"+plant.getName());
+        String string=Card.makeString(file);
+        Plant plant1=yaGson.fromJson(string,Plant.class);
+        String d = yaGson.toJson(plant1);
+        plants.add(plant1);
+        return plant1;
+//        System.out.println(d);
+//        System.out.println(plant1.getSun());
     }
 
     public int getSpeedReduction() {
@@ -83,6 +94,5 @@ public class Plant extends Card {
     public void setCooldown(int cooldown) {
         this.cooldown = cooldown;
     }
-
 
 }
