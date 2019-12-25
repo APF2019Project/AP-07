@@ -6,7 +6,7 @@ import Model.Map.Cell;
 import java.io.*;
 import java.util.ArrayList;
 
-public abstract class Card {
+public class Card {
 
     protected String name;
     protected int id;
@@ -18,8 +18,6 @@ public abstract class Card {
     protected static ArrayList<Plant> plants = new ArrayList<>();
     protected static ArrayList<Zombie> zombies = new ArrayList<>();
     protected int price;
-
-   public abstract Card makeCard(String name) throws IOException;
 
    public static String makeString(File file) throws IOException {
        BufferedReader br = new BufferedReader(new FileReader(file));
@@ -52,7 +50,7 @@ public abstract class Card {
     }
 
     public void setHP(int HP) {
-        this.HP = HP;
+        this.HP += HP;
     }
 
     public void setCell(Cell cell) {

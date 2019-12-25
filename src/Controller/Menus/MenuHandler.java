@@ -32,7 +32,7 @@ public class MenuHandler {
         this.currentMenu = currentMenu;
     }
 
-    public void run() throws IOException {
+    public void run(){
 
 
         Player bot = new Player();

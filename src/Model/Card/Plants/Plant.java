@@ -13,9 +13,9 @@ public class Plant extends Card {
     private int cooldown;
     private int ProducedSun;
     private int SpeedReduction;
+    private PeaOrProjectile peaOrProjectile;
 
-    @Override
-    public Plant makeCard(String name) throws IOException {
+    public static Plant makePlant(String name) throws IOException {
         YaGson yaGson = new YaGson();
         Plant plant=new Plant(name);
         File file = new File("Plants\\"+plant.getName());
@@ -26,6 +26,14 @@ public class Plant extends Card {
         return plant1;
 //        System.out.println(d);
 //        System.out.println(plant1.getSun());
+    }
+
+    public PeaOrProjectile getPeaOrProjectile() {
+        return peaOrProjectile;
+    }
+
+    public void setPeaOrProjectile(PeaOrProjectile peaOrProjectile) {
+        this.peaOrProjectile = peaOrProjectile;
     }
 
     public int getSpeedReduction() {
@@ -52,7 +60,7 @@ public class Plant extends Card {
     }
 
     public void setTurn(int turn) {
-        Turn = turn;
+        Turn += turn;
     }
 
     public Plant(String name) {

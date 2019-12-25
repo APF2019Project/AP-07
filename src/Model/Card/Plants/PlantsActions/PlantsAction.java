@@ -11,8 +11,6 @@ public class PlantsAction {
 
     private static ArrayList<PlantsAction> plantsActions=new ArrayList<>();
 
-    private static ArrayList<Zombie> targetZombies=new ArrayList<>();
-
     //ino shak daram
     public void ScaredyShroom(int quantity,int turn,int defaultTurn,int distance) {
 

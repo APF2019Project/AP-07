@@ -21,14 +21,13 @@ public class Zombie extends Card {
         return pea;
     }
 
-    private int armour;
+    private int armour;//if nothing...it is 0
     private int health;
     private int speed;
     private boolean pea;
     private ArrayList<ZombiesAction> actions = new ArrayList<>();
 
-    @Override
-    public Zombie makeCard(String name) throws IOException {
+    public static Zombie makeZombie(String name) throws IOException {
         YaGson yaGson = new YaGson();
         Zombie zombie=new Zombie(name);
         File file = new File("Zombies\\"+zombie.getName());
