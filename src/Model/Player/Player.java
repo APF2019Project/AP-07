@@ -9,6 +9,7 @@ import java.util.ArrayList;
 public class Player {
 
     private int internalCoins;
+    private int sun;
     private ArrayList<Plant> plants=new ArrayList<>();
     private ArrayList<Zombie> zombies=new ArrayList<>();
 
@@ -21,5 +22,13 @@ public class Player {
 
     public void setCollection(Collection collection) {
 
+    }
+
+    public int getSun() {
+        return sun;
+    }
+
+    public void setSun(int sun) {
+        this.sun += sun;
     }
 }

@@ -2,8 +2,6 @@ package Model.Card;
 import Model.Card.Plants.Plant;
 import Model.Card.Zombies.Zombie;
 import Model.Map.Cell;
-import Model.Map.UnknownCell;
-
 import java.io.*;
 import java.util.ArrayList;
 
@@ -14,7 +12,7 @@ public class Card {
     protected static int uniqueId = 0;
     protected int AP;
     protected int HP;
-    protected UnknownCell cell;
+    protected Cell cell;
     protected int coin;
     protected static ArrayList<Plant> plants = new ArrayList<>();
     protected static ArrayList<Zombie> zombies = new ArrayList<>();
@@ -86,7 +84,7 @@ public class Card {
         return HP;
     }
 
-    public UnknownCell getCell() {
+    public Cell getCell() {
         return cell;
     }
 
