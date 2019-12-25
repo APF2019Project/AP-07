@@ -16,6 +16,8 @@ public class Plant extends Card {
     private int ProducedSun;
     private int SpeedReduction;
     private PeaOrProjectile peaOrProjectile;
+    //zombie ra chand turn negah dare
+    private int freeze;
 
     public static Plant makePlant(String name) throws IOException {
         YaGson yaGson = new YaGson();
@@ -28,6 +30,22 @@ public class Plant extends Card {
         return plant1;
 //        System.out.println(d);
 //        System.out.println(plant1.getSun());
+    }
+
+
+    public static Plant findPlant(String name) {
+        for (Plant plant : getPlants()) {
+            if (plant.name.equals(name))
+                return plant;
+        }
+        return null;
+    }
+
+    public Plant(String name) {
+        super();
+        this.name = name;
+        this.id = uniqueId;
+        uniqueId++;
     }
 
     public void proximity(int distance, int load, boolean isTall, int damage, boolean mine, boolean isMagnet) {
@@ -73,23 +91,8 @@ public class Plant extends Card {
         Turn += turn;
     }
 
-    public Plant(String name) {
-        super();
-        this.name = name;
-        this.id = uniqueId;
-        uniqueId++;
-    }
-
     public void addToPlantsActions(PlantsAction action) {
         plantsActions.add(action);
-    }
-
-    public static Plant findPlant(String name) {
-        for (Plant plant : getPlants()) {
-            if (plant.name.equals(name))
-                return plant;
-        }
-        return null;
     }
 
     public ArrayList<PlantsAction> getPlantsActions() {
@@ -99,7 +102,6 @@ public class Plant extends Card {
     public int getSun() {
         return sun;
     }
-
 
     public void setSun(int sun) {
         this.sun = sun;
@@ -113,4 +115,7 @@ public class Plant extends Card {
         this.cooldown = cooldown;
     }
 
+    public int getFreeze() {
+        return freeze;
+    }
 }
