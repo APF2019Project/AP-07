@@ -2,9 +2,11 @@ package Model.Card.Plants;
 
 import Model.Card.Card;
 import Model.Card.Plants.PlantsActions.PlantsAction;
+import Model.Map.Cell;
 import com.gilecode.yagson.YaGson;
 
-import java.io.*;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class Plant extends Card {
@@ -17,15 +19,23 @@ public class Plant extends Card {
 
     public static Plant makePlant(String name) throws IOException {
         YaGson yaGson = new YaGson();
-        Plant plant=new Plant(name);
-        File file = new File("Plants\\"+plant.getName());
-        String string=Card.makeString(file);
-        Plant plant1=yaGson.fromJson(string,Plant.class);
+        Plant plant = new Plant(name);
+        File file = new File("Plants\\" + plant.getName());
+        String string = Card.makeString(file);
+        Plant plant1 = yaGson.fromJson(string, Plant.class);
         String d = yaGson.toJson(plant1);
         plants.add(plant1);
         return plant1;
 //        System.out.println(d);
 //        System.out.println(plant1.getSun());
+    }
+
+    public void proximity(int distance, int load, boolean isTall, int damage, boolean mine, boolean isMagnet) {
+
+    }
+
+    public void spawn(Cell[][] targetArea, int x, int y, int turn) {
+
     }
 
     public PeaOrProjectile getPeaOrProjectile() {
@@ -65,8 +75,8 @@ public class Plant extends Card {
 
     public Plant(String name) {
         super();
-        this.name=name;
-        this.id=uniqueId;
+        this.name = name;
+        this.id = uniqueId;
         uniqueId++;
     }
 
