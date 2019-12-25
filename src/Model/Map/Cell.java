@@ -1,8 +1,6 @@
 package Model.Map;
-
 import Model.Card.Plants.Plant;
 import Model.Card.Zombies.Zombie;
-
 import java.util.ArrayList;
 
 public abstract class Cell{

@@ -2,6 +2,7 @@ package Model.Card;
 import Model.Card.Plants.Plant;
 import Model.Card.Zombies.Zombie;
 import Model.Map.Cell;
+import Model.Map.UnknownCell;
 import java.io.*;
 import java.util.ArrayList;
 
@@ -30,6 +31,10 @@ public class Card {
                break;
        }
        return string;
+   }
+
+   public static void calculateDistance(){
+
    }
 
     public void setName(String name) {

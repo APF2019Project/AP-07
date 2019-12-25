@@ -7,8 +7,13 @@ public class PeaOrProjectile {
     private int damage;//AP per attack
     private int speed=3;
     private boolean prickly;
-    private double speedReduction;
     private boolean projectile;
+
+    public PeaOrProjectile(int damage,boolean projectile, boolean prickly){
+        this.damage=damage;
+        this.projectile=projectile;
+        this.prickly=prickly;
+    }
 
     public int getX() {
         return x;
@@ -28,14 +33,6 @@ public class PeaOrProjectile {
 
     public boolean isPrickly() {
         return prickly;
-    }
-
-    public double getSpeedReduction() {
-        return speedReduction;
-    }
-
-    public PeaOrProjectile(int damage){
-        this.damage=damage;
     }
 
     public boolean isProjectile() {

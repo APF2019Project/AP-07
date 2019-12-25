@@ -1,10 +1,10 @@
 package Model.Card.Plants;
-
+import Model.Card.Action;
+import Model.Card.ActionsOfAnEvent;
 import Model.Card.Card;
 import Model.Card.Plants.PlantsActions.PlantsAction;
-import Model.Map.Cell;
+import Model.Map.Map;
 import com.gilecode.yagson.YaGson;
-
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -16,8 +16,17 @@ public class Plant extends Card {
     private int ProducedSun;
     private int SpeedReduction;
     private PeaOrProjectile peaOrProjectile;
+    private ArrayList<ActionsOfAnEvent> actionsOfAnEvent =new ArrayList<>();
     //zombie ra chand turn negah dare
     private int freeze;
+
+    public ArrayList<ActionsOfAnEvent> getActionsOfAnEvent() {
+        return actionsOfAnEvent;
+    }
+
+    public void setActionsOfAnEvent(ActionsOfAnEvent actionsOfAnEvent) {
+        this.actionsOfAnEvent.add(actionsOfAnEvent);
+    }
 
     public static Plant makePlant(String name) throws IOException {
         YaGson yaGson = new YaGson();
@@ -48,12 +57,14 @@ public class Plant extends Card {
         uniqueId++;
     }
 
-    public void proximity(int distance, int load, boolean isTall, int damage, boolean mine, boolean isMagnet) {
-
-    }
-
-    public void spawn(Cell[][] targetArea, int x, int y, int turn) {
-
+    public void act(Map map){
+        this.actionsOfAnEvent.forEach(e ->{
+            if(e.getEvent().check(this , map)) {//age shart barqarar bood
+                for (Action action : e.getActions()) {
+                    action.doAction(this,map);//action o anjam bede
+                }
+            }
+        });
     }
 
     public PeaOrProjectile getPeaOrProjectile() {
@@ -118,4 +129,5 @@ public class Plant extends Card {
     public int getFreeze() {
         return freeze;
     }
+
 }
