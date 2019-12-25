@@ -50,18 +50,6 @@ public class Zombie extends Card {
         uniqueId++;
     }
 
-    public void walk() {
-
-    }
-
-    public void attack() {
-
-    }
-
-    public void defend() {
-
-    }
-
     public int getHealth() {
         return health;
     }

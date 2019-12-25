@@ -14,7 +14,7 @@ public class Card {
     protected static int uniqueId = 0;
     protected int AP;
     protected int HP;
-    protected Cell cell;
+    protected UnknownCell cell;
     protected int coin;
     protected static ArrayList<Plant> plants = new ArrayList<>();
     protected static ArrayList<Zombie> zombies = new ArrayList<>();
@@ -86,7 +86,7 @@ public class Card {
         return HP;
     }
 
-    public Cell getCell() {
+    public UnknownCell getCell() {
         return cell;
     }
 
