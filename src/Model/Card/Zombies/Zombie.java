@@ -1,14 +1,10 @@
 package Model.Card.Zombies;
 
 import Model.Card.Card;
-import Model.Card.Plants.Plant;
 import Model.Card.Zombies.ZombiesActions.ZombiesAction;
-import Model.Map.Cell;
 import com.gilecode.yagson.YaGson;
 
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 

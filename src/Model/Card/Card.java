@@ -54,7 +54,7 @@ public class Card {
         this.HP += HP;
     }
 
-    public void setCell(Cell cell) {
+    public void setCell(UnknownCell cell) {
         this.cell = cell;
     }
 
