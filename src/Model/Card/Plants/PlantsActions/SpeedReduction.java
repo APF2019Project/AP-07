@@ -4,7 +4,7 @@ import Model.Card.Zombies.Zombie;
 
 public class SpeedReduction extends PlantsAction{
 
-    public void speedReduce(Zombie zombie){
+    public void reduceSpeed(Zombie zombie){
 
     }
 

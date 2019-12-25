@@ -5,16 +5,14 @@ public class PeaOrProjectile {
 
     private int x;
     private int y;
-    private String name;
-    private int damage;
+    private int damage=1;
     private int speed=3;
     private boolean prickly;
     private double speedReduction;
     private boolean projectile;
 
-    public void speedReduce(Zombie zombie) {
-        //kahesh sorate zombie
-
+    public boolean isProjectile() {
+        return projectile;
     }
 
 }

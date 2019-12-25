@@ -1,5 +1,6 @@
 package Model.Player;
 
+import Model.Card.Card;
 import Model.Card.Plants.Plant;
 import Model.Card.Zombies.Zombie;
 
@@ -22,8 +23,9 @@ public class Profile {
     public Profile(String username, String password) {
         this.password = password;
         this.username = username;
-        /// zombie va plant haii ke az hmon aval dare lazem nis bexare
-        //*purchasedPlants.add(Plant.getPlants().get(0));
+
+        /// zombie va plant haii ke az hmon aval dare lazem nis bezare
+        //purchasedPlants.add(Plant.getPlants().get(0));
         //        purchasedPlants.add(Plant.getPlants().get(1));
         //        purchasedPlants.add(Plant.getPlants().get(7));
         //        purchasedPlants.add(Plant.getPlants().get(8));

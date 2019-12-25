@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class Burst extends Plant {
 
     public Burst(String name, int AP, int HP, Cell cell, int sun, int cooldown) {
-        super(name, AP, HP, cell, sun, cooldown);
+        super(name);
     }
 
     public void burst(ArrayList<Cell> targetArea){
