@@ -11,6 +11,39 @@ public class Card {
     protected int id;
     protected static int uniqueId = 0;
     protected int AP;
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public static void setUniqueId(int uniqueId) {
+        Card.uniqueId = uniqueId;
+    }
+
+    public void setAP(int AP) {
+        this.AP = AP;
+    }
+
+    public void setHP(int HP) {
+        this.HP = HP;
+    }
+
+    public void setCell(Cell cell) {
+        this.cell = cell;
+    }
+
+    public void setCoin(int coin) {
+        this.coin = coin;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
     protected int HP;
     protected Cell cell;
     protected int coin;

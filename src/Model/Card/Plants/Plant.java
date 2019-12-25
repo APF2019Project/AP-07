@@ -44,17 +44,11 @@ public class Plant extends Card {
         Turn = turn;
     }
 
-    public Plant(String name, int AP, int HP, Cell cell, int sun, int cooldown) {
+    public Plant(String name) {
         super();
         this.name=name;
-        this.AP =AP;
-        this.HP=HP;
         this.id=uniqueId;
         uniqueId++;
-        this.cell=cell;
-        this.coin=coin;
-        this.sun=sun;
-        this.cooldown=cooldown;
     }
 
     public void addToPlantsActions(PlantsAction action) {

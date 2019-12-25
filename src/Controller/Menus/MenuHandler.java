@@ -34,10 +34,12 @@ public class MenuHandler {
     public void run() throws IOException {
 
         YaGson yaGson = new YaGson();
-        File file = new File("Plants/Cactus");
+        Plant plant=new Plant("Cactus");
+        File file = new File("Plants\\"+plant.getName());
         BufferedReader br = new BufferedReader(new FileReader(file));
         String string = new String();
         String s = new String();
+
         while (true) {
             s = br.readLine();
             if (s!= null)
@@ -45,11 +47,10 @@ public class MenuHandler {
             else
                 break;
         }
-        UnknownCell unknownCell=new UnknownCell();
-        Plant plant=new Plant("Cactus",1,3,unknownCell,5,4);
-        String d = yaGson.toJson(plant);
-        Plant p2=yaGson.fromJson(d,Plant.class);
-        System.out.println(p2.getCooldown());
+
+        Plant p2=yaGson.fromJson(string,Plant.class);
+        String d = yaGson.toJson(p2);
+        System.out.println(d);
 
         Player bot = new Player();
         Profile profile = null;
