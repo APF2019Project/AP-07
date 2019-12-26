@@ -10,7 +10,7 @@ public class Map {
 
     public UnknownCell[][] unknownCells = new UnknownCell[HEIGHT+3][WIDTH+3];
 
-    public UnknownCell getCell(int x ,int y)
+    public static UnknownCell getCell(int x ,int y)
     {
         return unknownCells[x][y];
     }
@@ -18,9 +18,6 @@ public class Map {
         unknownCells[x][y] = landCell;
     }
 
-    public static Cell getCell(Cell cell) {
-        return null;
-    }
 
     void updateCells(){
         // zombie ha va plant haye cell ha ro tabe hashun ro ye dor seda kone

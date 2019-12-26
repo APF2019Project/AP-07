@@ -12,7 +12,7 @@ public class OnSpawn extends Event{
     }
 
     @Override
-    public boolean check(Plant plant, Map map) {
+    public boolean check(Plant plant, Map map, int d) {
         return false;
     }
 }

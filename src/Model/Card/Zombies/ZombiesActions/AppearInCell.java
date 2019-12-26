@@ -1,7 +1,11 @@
 package Model.Card.Zombies.ZombiesActions;
 
-public class AppearInCell extends ZombiesAction{
-        public void appearInCell(){
+import Model.Card.Zombies.Zombie;
+import Model.Map.UnknownCell;
 
+public class AppearInCell extends ZombiesAction{
+        public void appearInCell(UnknownCell cell, Zombie zombie){
+                zombie.setCell(cell);
+                cell.zombies.add(zombie);
         }
 }

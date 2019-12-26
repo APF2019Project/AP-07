@@ -14,6 +14,6 @@ public abstract class Event {
     public static void addToEvents(Event event) {
         events.add(event);
     }
-    public abstract boolean check(Plant plant,Map map);
+    public abstract boolean check(Plant plant, Map map, int d);
 
 }
