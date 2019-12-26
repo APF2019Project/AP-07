@@ -1,10 +1,12 @@
 package Model.Card.Plants;
+
 import Model.Card.Action;
 import Model.Card.ActionsOfAnEvent;
 import Model.Card.Card;
 import Model.Card.Plants.PlantsActions.PlantsAction;
 import Model.Map.Map;
 import com.gilecode.yagson.YaGson;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -16,7 +18,7 @@ public class Plant extends Card {
     private int ProducedSun;
     private int SpeedReduction;
     private PeaOrProjectile peaOrProjectile;
-    private ArrayList<ActionsOfAnEvent> actionsOfAnEvent =new ArrayList<>();
+    private ArrayList<ActionsOfAnEvent> actionsOfAnEvent = new ArrayList<>();
     //zombie ra chand turn negah dare
     private int freeze;
 
@@ -57,12 +59,12 @@ public class Plant extends Card {
         uniqueId++;
     }
 
-    public void act(Map map){
-        this.actionsOfAnEvent.forEach(e ->{
-            int d=0;//bayad taeen she be ezaye har plant vali
-            if(e.getEvent().check(this , map, d)) {//age shart barqarar bood
+    public void act(Map map) {
+        this.actionsOfAnEvent.forEach(e -> {
+            int d = 0;//bayad taeen she be ezaye har plant vali
+            if (e.getEvent().check(this, map, d)) {//age shart barqarar bood
                 for (Action action : e.getActions()) {
-                    action.doAction(this,map);//action o anjam bede
+                    action.doAction(this, map, d);//action o anjam bede
                 }
             }
         });

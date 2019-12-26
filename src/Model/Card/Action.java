@@ -5,6 +5,6 @@ import Model.Map.Map;
 
 public abstract class Action {
 
-    public abstract void doAction(Plant plant,Map map);
+    public abstract void doAction(Plant plant, Map map, int d);
 
 }

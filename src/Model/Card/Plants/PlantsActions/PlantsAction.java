@@ -12,7 +12,7 @@ public class PlantsAction {
 
     private static ArrayList<PlantsAction> plantsActions = new ArrayList<>();
 
-    public void setPlantsActions() throws IOException {
+    public static void setPlantsActions() throws IOException {
 
         Event inTheSameRow = new InTheSameRow();
         Event OnSpawn = new OnSpawn();

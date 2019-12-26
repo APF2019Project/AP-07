@@ -6,7 +6,7 @@ import Model.Map.Map;
 
 public class Magnet extends Action {
     @Override
-    public void doAction(Plant plant, Map map) {
+    public void doAction(Plant plant, Map map, int d) {
 
     }
 }
