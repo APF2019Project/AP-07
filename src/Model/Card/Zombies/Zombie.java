@@ -51,7 +51,6 @@ public class Zombie extends Card {
         return actions;
     }
 
-
     public int getHealth() {
         return health;
     }

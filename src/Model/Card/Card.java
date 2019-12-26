@@ -3,7 +3,6 @@ import Model.Card.Plants.Plant;
 import Model.Card.Zombies.Zombie;
 import Model.Map.Cell;
 import Model.Map.UnknownCell;
-
 import java.io.*;
 import java.util.ArrayList;
 
@@ -32,6 +31,10 @@ public class Card {
                break;
        }
        return string;
+   }
+
+   public static void calculateDistance(){
+
    }
 
     public void setName(String name) {
@@ -86,7 +89,7 @@ public class Card {
         return HP;
     }
 
-    public UnknownCell getCell() {
+    public Cell getCell() {
         return cell;
     }
 
