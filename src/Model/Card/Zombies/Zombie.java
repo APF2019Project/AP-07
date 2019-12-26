@@ -51,18 +51,6 @@ public class Zombie extends Card {
         return actions;
     }
 
-    public void walk() {
-
-    }
-
-    public void attack() {
-
-    }
-
-    public void defend() {
-
-    }
-
     public int getHealth() {
         return health;
     }

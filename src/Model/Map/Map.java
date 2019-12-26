@@ -8,7 +8,7 @@ public class Map {
         return unknownCells;
     }
 
-    public UnknownCell[][] unknownCells = new UnknownCell[HEIGHT+3][WIDTH+3];
+    public static UnknownCell[][] unknownCells = new UnknownCell[HEIGHT+3][WIDTH+3];
 
     public static UnknownCell getCell(int x ,int y)
     {

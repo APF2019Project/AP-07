@@ -59,7 +59,8 @@ public class Plant extends Card {
 
     public void act(Map map){
         this.actionsOfAnEvent.forEach(e ->{
-            if(e.getEvent().check(this , map, )) {//age shart barqarar bood
+            int d=0;//bayad taeen she be ezaye har plant vali
+            if(e.getEvent().check(this , map, d)) {//age shart barqarar bood
                 for (Action action : e.getActions()) {
                     action.doAction(this,map);//action o anjam bede
                 }
