@@ -1,12 +1,23 @@
 package Model.Card.Zombies.ZombiesActions;
 
+import Model.Card.Action;
+import Model.Card.Plants.Plant;
 import Model.Card.Zombies.Zombie;
 import Model.Map.Map;
 import Model.Map.UnknownCell;
 
-public class Jump extends ZombiesAction{
-    public void jumpOverPlants(Zombie zombie){
-        UnknownCell cell = zombie.getCell();
-        zombie.setCell(Map.unknowncells[cell.x][cell.y-2]);
+public class Jump extends Action {
+    @Override
+    public void doAction(Plant plant, Map map) {
+
+    }
+
+    @Override
+    public void doZombieAction(Zombie zombie, Map map) {
+        if(map.getCell(zombie.getCell().x , zombie.getCell().y -1).getPlant() != null)
+        {
+            zombie.setCell(map.getCell(zombie.getCell().x , zombie.getCell().y -2));
+            map.getCell(zombie.getCell().x , zombie.getCell().y -2).zombies.add(zombie);
+        }
     }
 }

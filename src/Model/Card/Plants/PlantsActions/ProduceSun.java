@@ -1,6 +1,7 @@
 package Model.Card.Plants.PlantsActions;
 import Model.Card.Action;
 import Model.Card.Plants.Plant;
+import Model.Card.Zombies.Zombie;
 import Model.Map.Map;
 import Model.Player.Player;
 
@@ -15,5 +16,10 @@ public class ProduceSun extends Action {
             player.setSun(suns);
             plant.setTurn(plant.getTurn());
         }
+    }
+
+    @Override
+    public void doZombieAction(Zombie zombie, Map map) {
+
     }
 }

@@ -89,7 +89,7 @@ public class Card {
         return HP;
     }
 
-    public Cell getCell() {
+    public UnknownCell getCell() {
         return cell;
     }
 

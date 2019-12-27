@@ -1,6 +1,11 @@
 package Model.Card.Zombies.ZombiesActions;
 
-public class ShieldDefend extends ZombiesAction {
+import Model.Card.Action;
+import Model.Card.Plants.Plant;
+import Model.Card.Zombies.Zombie;
+import Model.Map.Map;
+
+public class ShieldDefend extends Action {
     //ino shak daram
     public void shieldDefend(){
 //        public boolean isArmourOfMetal() {
@@ -20,6 +25,16 @@ public class ShieldDefend extends ZombiesAction {
 
     }
     public void beingAffected(){
+
+    }
+
+    @Override
+    public void doAction(Plant plant, Map map) {
+
+    }
+
+    @Override
+    public void doZombieAction(Zombie zombie, Map map) {
 
     }
 }
