@@ -18,4 +18,9 @@ public class Burst extends Action {
             }
         }
     }
+
+    @Override
+    public void doZombieAction(Zombie zombie, Map map) {
+
+    }
 }
