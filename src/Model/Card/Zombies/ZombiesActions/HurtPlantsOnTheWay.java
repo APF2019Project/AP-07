@@ -3,19 +3,18 @@ package Model.Card.Zombies.ZombiesActions;
 import Model.Card.Action;
 import Model.Card.Plants.Plant;
 import Model.Card.Zombies.Zombie;
-import Model.Map.Cell;
 import Model.Map.Map;
-import Model.Map.UnknownCell;
 
-public class HurtPlant extends Action {
+public class HurtPlantsOnTheWay extends Action {
+
 
     @Override
-    public void doAction(Plant plant, Map map) {
+    public void doAction(Plant plant, Map map, int d) {
 
     }
 
     @Override
-    public void doZombieAction(Zombie zombie, Map map) {
+    public void doAction(Zombie zombie, Map map, int d) {
         while(map.getCell(zombie.getCell().x , zombie.getCell().y -1).getPlant().getHP() > 0)
         {
             map.getCell(zombie.getCell().x , zombie.getCell().y -1).getPlant().setHP(-zombie.getAP());

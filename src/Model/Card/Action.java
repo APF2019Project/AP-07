@@ -6,6 +6,8 @@ import Model.Map.Map;
 
 public abstract class Action {
 
-    public abstract void doAction(Plant plant,Map map);
-    public abstract void doZombieAction(Zombie zombie , Map map);
+    //PlantsActions
+    public abstract void doAction(Plant plant, Map map, int d);
+    //ZombiesActions
+    public abstract void doAction(Zombie zombie, Map map, int d);
 }

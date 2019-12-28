@@ -4,18 +4,18 @@ import Model.Card.Action;
 import Model.Card.Plants.Plant;
 import Model.Card.Zombies.Zombie;
 import Model.Map.Map;
-import Model.Map.UnknownCell;
 
 import java.util.Random;
 
 public class AppearInCell extends Action {
+
         @Override
-        public void doAction(Plant plant, Map map) {
+        public void doAction(Plant plant, Map map, int d) {
 
         }
 
         @Override
-        public void doZombieAction(Zombie zombie, Map map) {
+        public void doAction(Zombie zombie, Map map, int d) {
                 Random r = new Random();
                 int x = 5;
                 int y = 18;

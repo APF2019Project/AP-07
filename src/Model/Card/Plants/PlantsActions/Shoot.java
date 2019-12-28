@@ -29,7 +29,7 @@ public class Shoot extends Action {
     }
 
     @Override
-    public void doZombieAction(Zombie zombie, Map map) {
+    public void doAction(Zombie zombie, Map map, int d) {
 
     }
 }

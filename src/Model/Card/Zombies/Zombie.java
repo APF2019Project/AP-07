@@ -1,5 +1,6 @@
 package Model.Card.Zombies;
 
+import Model.Card.ActionsOfAnEvent;
 import Model.Card.Card;
 import Model.Card.Zombies.ZombiesActions.ZombiesAction;
 import com.gilecode.yagson.YaGson;
@@ -15,7 +16,7 @@ public class Zombie extends Card {
     private int speed;
     private boolean pea;
     private int freezeTurns =0;
-    private ArrayList<ZombiesAction> actions = new ArrayList<>();
+    private ArrayList<ActionsOfAnEvent> actionsOfAnEvent = new ArrayList<>();
 
     public static Zombie makeZombie(String name) throws IOException {
         YaGson yaGson = new YaGson();
@@ -43,12 +44,12 @@ public class Zombie extends Card {
         uniqueId++;
     }
 
-    public void addToZombiesActions(ZombiesAction action) {
-        actions.add(action);
+    public ArrayList<ActionsOfAnEvent> getActionsOfAnEvent() {
+        return actionsOfAnEvent;
     }
 
-    public ArrayList<ZombiesAction> getZombiesActions() {
-        return actions;
+    public void setActionsOfAnEvent(ActionsOfAnEvent actionsOfAnEvent) {
+        this.actionsOfAnEvent.add(actionsOfAnEvent);
     }
 
     public int getHealth() {

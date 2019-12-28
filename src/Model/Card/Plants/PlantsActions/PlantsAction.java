@@ -14,12 +14,11 @@ public class PlantsAction {
 
     public static void setPlantsActions() throws IOException {
 
-        Event inTheSameRow = new InTheSameRow();
+        Event inTheSameRow = new NearRows();
         Event OnSpawn = new OnSpawn();
         Event nearest = new NearestCell();
-        Event proximityInRadiousDistanceOne = new ProximityInRadiousDistanceOne();
+        Event proximityInRadiousDistanceOne = new ProximityInRadiousDistance();
         Event nearRows = new NearRows();
-        Event zombieAttack = new ZombieAttack();
 
         Action burst = new Burst();
         Action produceSun = new ProduceSun();

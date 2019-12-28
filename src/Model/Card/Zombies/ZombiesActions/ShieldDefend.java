@@ -6,8 +6,15 @@ import Model.Card.Zombies.Zombie;
 import Model.Map.Map;
 
 public class ShieldDefend extends Action {
-    //ino shak daram
-    public void shieldDefend(){
+
+
+    @Override
+    public void doAction(Plant plant, Map map, int d) {
+
+    }
+
+    @Override
+    public void doAction(Zombie zombie, Map map, int d) {
 //        public boolean isArmourOfMetal() {
 //            return true;
 //        }
@@ -15,26 +22,5 @@ public class ShieldDefend extends Action {
 //    public void setArmourHealth(int armourHealth)
 //    {
 //        this.ArmourHealth = armourHealth;
-//    }
-        defend();
-        beingAffected();
-    }
-
-
-    public void defend(){
-
-    }
-    public void beingAffected(){
-
-    }
-
-    @Override
-    public void doAction(Plant plant, Map map) {
-
-    }
-
-    @Override
-    public void doZombieAction(Zombie zombie, Map map) {
-
     }
 }
