@@ -8,17 +8,18 @@ public class NearestCell extends Event {
     @Override
     public boolean check(Plant plant, Map map, int d)
     {
-        for(UnknownCell[] i : map.getUnknownCells())
-        {
-            for(UnknownCell j : i)
-            {
-                if(j.getZombies().size() > 0)
-                {
-                    return true;
-                }
-            }
-        }
-
-        return false;
+//        for(UnknownCell[] i : map.getUnknownCells())
+//        {
+//            for(UnknownCell j : i)
+//            {
+//                if(j.getZombies().size() > 0)
+//                {
+//                    return true;
+//                }
+//            }
+//        }
+//
+//        return false;
+        return true;
     }
 }

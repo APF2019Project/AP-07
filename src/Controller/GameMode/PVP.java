@@ -3,12 +3,9 @@ package Controller.GameMode;
 import Model.Map.LandCell;
 import Model.Map.Map;
 
-public class Rail extends GameMode {
-
+public class PVP extends GameMode {
     @Override
-    //dar asl wave nadare va be soorate tasadofi har chand turn zombie varede zamin mishe
     public void wave(Battle battle) {
-        Zombie zombie=new Zombie();
 
     }
 
