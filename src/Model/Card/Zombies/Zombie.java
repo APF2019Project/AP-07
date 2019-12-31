@@ -20,6 +20,9 @@ public class Zombie extends Card {
     private ArrayList<ActionsOfAnEvent> actionsOfAnEvent = new ArrayList<>();
     protected ArrayList<Plant> stolenPlants=new ArrayList<>();
 
+    public Zombie() {
+    }
+
     public static Zombie makeZombie(String name) throws IOException {
         YaGson yaGson = new YaGson();
         Zombie zombie = new Zombie(name);

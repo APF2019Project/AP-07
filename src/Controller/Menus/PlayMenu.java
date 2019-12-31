@@ -1,7 +1,6 @@
 package Controller.Menus;
 
 import Controller.GameMode.Battle;
-import Controller.GameMode.Day;
 import Model.Player.Player;
 
 public class PlayMenu extends Menu {
@@ -10,8 +9,23 @@ public class PlayMenu extends Menu {
     }
     public void startDayGame(Player player1, Player player2) {
         Battle battle = new Battle(player1,player2);
-        Day dayMode = new Day();
         Menu.menuHandler.setCurrentMenu(Menu.collectionMenu);
     }
+
+    public void startWaterGame(Player player1, Player player2) {
+        Battle battle = new Battle(player1,player2);
+        Menu.menuHandler.setCurrentMenu(Menu.collectionMenu);
+    }
+
+    public void startRailGame(Player player1, Player player2) {
+        Battle battle = new Battle(player1,player2);
+        Menu.menuHandler.setCurrentMenu(Menu.playMenu);
+    }
+
+    public void startZombieGame(Player player1, Player player2) {
+        Battle battle = new Battle(player1,player2);
+        Menu.menuHandler.setCurrentMenu(Menu.collectionMenu);
+    }
+
 
 }

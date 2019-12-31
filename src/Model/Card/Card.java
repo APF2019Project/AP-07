@@ -1,9 +1,13 @@
 package Model.Card;
+
 import Model.Card.Plants.Plant;
 import Model.Card.Zombies.Zombie;
-import Model.Map.Cell;
 import Model.Map.UnknownCell;
-import java.io.*;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class Card {
@@ -19,23 +23,22 @@ public class Card {
     protected static ArrayList<Zombie> zombies = new ArrayList<>();
     protected int price;
 
-   public static String makeString(File file) throws IOException {
-       BufferedReader br = new BufferedReader(new FileReader(file));
-       String string = new String();
-       String s = new String();
-       while (true) {
-           s = br.readLine();
-           if (s!= null)
-               string += (s);
-           else
-               break;
-       }
-       return string;
-   }
+    public static String makeString(File file) throws IOException {
+        BufferedReader br = new BufferedReader(new FileReader(file));
+        String string = new String();
+        String s = new String();
+        while (true) {
+            s = br.readLine();
+            if (s != null)
+                string += (s);
+            else
+                break;
+        }
+        return string;
+    }
 
-   public static void calculateDistance(){
-
-   }
+    public static void calculateDistance() {
+    }
 
     public void setName(String name) {
         this.name = name;
@@ -97,7 +100,6 @@ public class Card {
         return coin;
     }
 
-
     public static ArrayList<Plant> getPlants() {
         return plants;
     }
@@ -106,11 +108,11 @@ public class Card {
         return zombies;
     }
 
-    public static void addToPlants(Plant plant){
+    public static void addToPlants(Plant plant) {
         plants.add(plant);
     }
 
-    public static void addToZombies(Zombie zombie){
+    public static void addToZombies(Zombie zombie) {
         zombies.add(zombie);
     }
 

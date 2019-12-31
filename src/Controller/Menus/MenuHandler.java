@@ -3,6 +3,7 @@ package Controller.Menus;
 import Controller.GameMode.Day;
 import Controller.GameMode.Rail;
 import Controller.GameMode.Water;
+import Model.Card.Zombies.Zombie;
 import Model.Player.Player;
 import Model.Player.Profile;
 import java.util.Scanner;
@@ -14,6 +15,7 @@ public class MenuHandler {
     public Day dayMode = null;
     public Rail railMode = null;
     public Water waterMode = null;
+    public Zombie zombie = null;
 
     public Menu getCurrentMenu() {
         return currentMenu;
@@ -30,7 +32,7 @@ public class MenuHandler {
         Profile profile = null;
         Scanner scanner = new Scanner(System.in);
         Player player = null;
-
+        Player player2 = null;
         Pattern selectCard = Pattern.compile("select \\w*");
         Pattern removeCard = Pattern.compile("remove \\w*");
         Pattern buyCard = Pattern.compile("buy \\w*");
@@ -117,15 +119,24 @@ public class MenuHandler {
                 else if (input.equalsIgnoreCase("day")) {
                     Menu.playMenu.startDayGame(player, bot);
                     dayMode = new Day();
+                    Menu.collectionMenu.zombieMode = false;
                 } else if (input.equalsIgnoreCase("water")) {
-
-                    //hmon
+                    Menu.playMenu.startWaterGame(player, bot);
+                    waterMode = new Water();
+                    Menu.collectionMenu.zombieMode = false;
                 } else if (input.equalsIgnoreCase("rail")) {
-                    /////
+                    Menu.playMenu.startRailGame(player,bot);
+                    railMode = new Rail();
+                    Menu.collectionMenu.zombieMode = false;
                 } else if (input.equalsIgnoreCase("zombie")) {
-                    ////
+                    Menu.playMenu.startZombieGame(player,bot);
+                    zombie = new Zombie();
+                    Menu.collectionMenu.zombieMode = true;
                 } else if (input.equalsIgnoreCase("pvp")) {
-                    ////
+                    player2 = new Player();
+                    Menu.playMenu.startDayGame(player,player2);
+                    dayMode = new Day();
+                    Menu.collectionMenu.pvp = true;
                 } else if (input.equalsIgnoreCase("exit")) {
                     Menu.menuHandler.setCurrentMenu(Menu.mainMenu);
                 } else
@@ -142,7 +153,7 @@ public class MenuHandler {
                 } else if (selectCard.matcher(input).matches()) {
                     Menu.collectionMenu.selectCollection(splitInput[1], profile);
                 } else if (input.equalsIgnoreCase("Play")) {
-                    Menu.collectionMenu.play(player);
+                    Menu.collectionMenu.play(player, bot);
                 } else if (input.equalsIgnoreCase("help")) {
                     Menu.help();
                 } else if (input.equalsIgnoreCase("Exit")) {
