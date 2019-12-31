@@ -12,7 +12,7 @@ public class NearestCell extends Event {
         {
             for(UnknownCell j : i)
             {
-                if(j.zombies.size() > 0)
+                if(j.getZombies().size() > 0)
                 {
                     return true;
                 }

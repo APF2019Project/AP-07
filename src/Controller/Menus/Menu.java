@@ -1,5 +1,10 @@
 package Controller.Menus;
 
+import Model.Card.Plants.PlantsActions.PlantsAction;
+import Model.Card.Zombies.ZombiesActions.ZombiesAction;
+
+import java.io.IOException;
+
 public class Menu {
     public static LoginMenu loginMenu = new LoginMenu();
     public static CollectionMenu collectionMenu = new CollectionMenu();
@@ -22,8 +27,9 @@ public class Menu {
         }
     }
 
-    public static void init() {
+    public static void init() throws IOException {
         menuHandler.setCurrentMenu(loginMenu);
-        // ezafe kardan acc az file json
+        PlantsAction.setPlantsActions();
+        ZombiesAction.setZombiesActions();
     }
 }

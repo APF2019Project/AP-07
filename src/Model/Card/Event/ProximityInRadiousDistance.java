@@ -6,7 +6,7 @@ import Model.Map.Map;
 public class ProximityInRadiousDistance extends Event {
     @Override
     public boolean check(Plant plant, Map map, int d) {
-        if(map.getCell(plant.getCell().x , plant.getCell().y).zombies.size() > 0)
+        if(map.getCell(plant.getCell().x , plant.getCell().y).getZombies().size() > 0)
         {
             return true;
         }

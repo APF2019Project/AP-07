@@ -6,6 +6,8 @@ import Model.Player.Player;
 import Model.Player.Profile;
 import Model.Shop.Shop;
 
+import java.util.ArrayList;
+
 public class ShopMenu extends Menu {
 
     public ShopMenu() {
@@ -13,7 +15,8 @@ public class ShopMenu extends Menu {
     }
 
     public void showShop(Profile profile) {
-        for (Plant x : Plant.getPlants())
+        ArrayList<Plant> plants = Plant.getPlants();
+        for (Plant x : plants)
             if (!profile.getPurchasedPlants().contains(x))
                 System.out.println(x.getName());
         for (Zombie x : Zombie.getZombies())

@@ -4,9 +4,11 @@ import Controller.GameMode.Day;
 import Controller.GameMode.Rail;
 import Controller.GameMode.Water;
 import Controller.GameMode.ZombieGameMode;
-import Model.Card.Zombies.Zombie;
+import Model.Card.Plants.Plant;
 import Model.Player.Player;
 import Model.Player.Profile;
+
+import java.io.IOException;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 
@@ -26,7 +28,7 @@ public class MenuHandler {
         this.currentMenu = currentMenu;
     }
 
-    public void run(){
+    public void run() throws IOException {
 
 
         Player bot = new Player();
@@ -37,6 +39,8 @@ public class MenuHandler {
         Pattern selectCard = Pattern.compile("select \\w*");
         Pattern removeCard = Pattern.compile("remove \\w*");
         Pattern buyCard = Pattern.compile("buy \\w*");
+        Pattern plantPlant = Pattern.compile("select \\w*");
+        Pattern removePlant = Pattern.compile("remove \\d* \\d*");
         Menu.init();
         while (true) {
             String input = scanner.nextLine();
@@ -126,16 +130,16 @@ public class MenuHandler {
                     waterMode = new Water();
                     Menu.collectionMenu.zombieMode = false;
                 } else if (input.equalsIgnoreCase("rail")) {
-                    Menu.playMenu.startRailGame(player,bot);
+                    Menu.playMenu.startRailGame(player, bot);
                     railMode = new Rail();
                     Menu.collectionMenu.zombieMode = false;
                 } else if (input.equalsIgnoreCase("zombie")) {
-                    Menu.playMenu.startZombieGame(player,bot);
+                    Menu.playMenu.startZombieGame(player, bot);
                     zombieMode = new ZombieGameMode();
                     Menu.collectionMenu.zombieMode = true;
                 } else if (input.equalsIgnoreCase("pvp")) {
                     player2 = new Player();
-                    Menu.playMenu.startDayGame(player,player2);
+                    Menu.playMenu.startDayGame(player, player2);
                     dayMode = new Day();
                     Menu.collectionMenu.pvp = true;
                 } else if (input.equalsIgnoreCase("exit")) {
@@ -190,6 +194,32 @@ public class MenuHandler {
                 if (input.equalsIgnoreCase("show hand")) {
                     Menu.gameMenu.showHand();
                 }
+
+                else if (plantPlant.matcher(input).matches()) {
+                    String name = splitInput[1];
+                    Plant p = Plant.findPlant(name);
+                    String[] planting = scanner.nextLine().split(" ");
+                    int x = Integer.parseInt(planting[1]);
+                    int y = Integer.parseInt(planting[2]);
+                    /////clone the plant
+                }
+
+                else if (removePlant.matcher(input).matches()) {
+                    int x = Integer.parseInt(splitInput[1]);
+                    int y = Integer.parseInt(splitInput[2]);
+                    Menu.gameMenu.remove(x,y);
+                }
+
+                else if (input.equalsIgnoreCase("End Turn")) {
+                    Menu.gameMenu.endTurn();
+                }
+
+                else if (input.equalsIgnoreCase("show lawn")) {
+                    Menu.gameMenu.showLawn();
+                }
+
+                else
+                    System.out.println("invalid command");
             }
 
             if (Menu.menuHandler.getCurrentMenu() == null)

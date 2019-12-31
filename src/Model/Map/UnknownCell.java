@@ -16,8 +16,8 @@ public class UnknownCell extends Cell {
     }
 
     @Override
-    void removePlant() {
-
+    public void removePlant() {
+        this.plant = null;
     }
 
     @Override

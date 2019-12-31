@@ -31,8 +31,8 @@ public class Day extends GameMode {
     @Override
     public Map generateMap() {
         Map m = new Map();
-        for (int i = 0; i < Map.HEIGHT; i++) {
-            for (int j = 0; j < Map.WIDTH; j++) {
+        for (int i = 0; i < Map.getHEIGHT(); i++) {
+            for (int j = 0; j < Map.getWIDTH(); j++) {
                 m.setLandCell(i, j, new LandCell());
             }
         }
