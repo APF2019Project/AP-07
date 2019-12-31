@@ -16,12 +16,18 @@ public class ShopMenu extends Menu {
 
     public void showShop(Profile profile) {
         ArrayList<Plant> plants = Plant.getPlants();
+        System.out.println("Plants");
+        System.out.println("----------------------");
         for (Plant x : plants)
             if (!profile.getPurchasedPlants().contains(x))
                 System.out.println(x.getName());
+        System.out.println("----------------------");
+        System.out.println("Zombies");
+        System.out.println("----------------------");
         for (Zombie x : Zombie.getZombies())
             if (!profile.getPurchasedZombies().contains(x))
                 System.out.println(x.getName());
+        System.out.println("----------------------");
     }
 
     public void getCards(Profile profile) {

@@ -12,6 +12,11 @@ import java.util.ArrayList;
 public class Profile {
     private ArrayList<Zombie> purchasedZombies = new ArrayList<Zombie>();
     private ArrayList<Plant> purchasedPlants = new ArrayList<>();
+
+    public static void setProfiles(ArrayList<Profile> profiles) {
+        Profile.profiles = profiles;
+    }
+
     private static ArrayList<Profile> profiles = new ArrayList<Profile>();
     private String username;
     private String password;
@@ -26,22 +31,22 @@ public class Profile {
         this.password = password;
         this.username = username;
 
-        /// zombie va plant haii ke az hmon aval dare lazem nis bezare
-        //purchasedPlants.add(Plant.getPlants().get(0));
-        //        purchasedPlants.add(Plant.getPlants().get(1));
-        //        purchasedPlants.add(Plant.getPlants().get(7));
-        //        purchasedPlants.add(Plant.getPlants().get(8));
-        //        purchasedPlants.add(Plant.getPlants().get(10));
-        //        purchasedPlants.add(Plant.getPlants().get(19));
-        //        purchasedPlants.add(Plant.getPlants().get(21));
-        //
-        //        purchasedZombies.add(Zombie.getZombies().get(0));
-        //        purchasedZombies.add(Zombie.getZombies().get(1));
-        //        purchasedZombies.add(Zombie.getZombies().get(3));
-        //        purchasedZombies.add(Zombie.getZombies().get(4));
-        //        purchasedZombies.add(Zombie.getZombies().get(6));
-        //        purchasedZombies.add(Zombie.getZombies().get(7));
-        //        purchasedZombies.add(Zombie.getZombies().get(10));
+        purchasedPlants.add(Plant.findPlant("PeaShooter"));
+        purchasedPlants.add(Plant.findPlant("SnowPea"));
+        purchasedPlants.add(Plant.findPlant("Explode-o-nut"));
+        purchasedPlants.add(Plant.findPlant("Scaredy-shroom"));
+        purchasedPlants.add(Plant.findPlant("Kernel-pult"));
+        purchasedPlants.add(Plant.findPlant("SunFlower"));
+        purchasedPlants.add(Plant.findPlant("CherryBomb"));
+
+        purchasedZombies.add(Zombie.findZombie("Zombie"));
+        purchasedZombies.add(Zombie.findZombie("Zomboni"));
+        purchasedZombies.add(Zombie.findZombie("ScreenDoorZombie"));
+        purchasedZombies.add(Zombie.findZombie("FootballZombie"));
+        purchasedZombies.add(Zombie.findZombie("ConeheadZombie"));
+        purchasedZombies.add(Zombie.findZombie("BalloonZombie"));
+        purchasedZombies.add(Zombie.findZombie("BungeeZombie"));
+
     }
 
     public static Profile makeProfile(Profile profile){

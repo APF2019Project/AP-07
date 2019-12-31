@@ -79,7 +79,7 @@ public class MenuHandler {
                 else if (input.equalsIgnoreCase("Shop"))
                     Menu.menuHandler.setCurrentMenu(Menu.shopMenu);
                 else if (input.equalsIgnoreCase("Exit"))
-                    Menu.menuHandler.setCurrentMenu(Menu.loginMenu);
+                    Menu.mainMenu.exit();
                 else if (input.equalsIgnoreCase("help"))
                     Menu.help();
                 else
@@ -143,12 +143,12 @@ public class MenuHandler {
                     dayMode = new Day();
                     Menu.collectionMenu.pvp = true;
                 } else if (input.equalsIgnoreCase("exit")) {
-                    Menu.menuHandler.setCurrentMenu(Menu.mainMenu);
+                    Menu.playMenu.exit();
                 } else
                     System.out.println("invalid command");
             }
 
-            //cpllectionMenu//
+            //collectionMenu//
 
             if (Menu.menuHandler.getCurrentMenu() == Menu.collectionMenu) {
                 if (input.equalsIgnoreCase("Show hand")) {

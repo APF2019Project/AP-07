@@ -5,6 +5,16 @@ import Model.Map.Map;
 
 public class ZombieGameMode extends GameMode {
     @Override
+    public void wave(Battle battle) {
+
+    }
+
+    @Override
+    public boolean canWave() {
+        return false;
+    }
+
+    @Override
     public void handleWin() {
 
     }
@@ -20,6 +30,11 @@ public class ZombieGameMode extends GameMode {
     }
 
     @Override
+    public void generateSun(Battle battle) {
+
+    }
+
+
     public void generateSun() {
 
     }

@@ -7,7 +7,7 @@
     "HP": "3",
     "speed": "2",
     "armour": "0",
-    "pea": "false"
-    "price": 0
+    "pea": "false",
+    "price": "0"
   }
 }
