@@ -5,7 +5,7 @@ import Model.Map.Map;
 
 public class Zombie extends GameMode {
     @Override
-    public void wave(Battle battle) {
+    public void wave() {
 
     }
 

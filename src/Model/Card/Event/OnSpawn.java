@@ -10,7 +10,7 @@ public class OnSpawn extends Event {
         for (int i = 0; i < map.getUnknownCells().length; i++) {
             if (map.getCell(plant.getCell().x, plant.getCell().y).x == plant.getCell().x &&
                     map.getCell(plant.getCell().x, plant.getCell().y).y == plant.getCell().y) {
-                if (map.getCell(plant.getCell().x, plant.getCell().y).getZombies().size() > 0) {
+                if (!map.getCell(plant.getCell().x, plant.getCell().y).getZombies().isEmpty()) {
                     return true;
                 }
             }

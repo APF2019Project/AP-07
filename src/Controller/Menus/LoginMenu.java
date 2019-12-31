@@ -1,11 +1,6 @@
 package Controller.Menus;
 
-import Controller.GameMode.Battle;
 import Model.Player.*;
-import View.PlantsMain;
-
-import javax.xml.stream.StreamFilter;
-import java.util.ArrayList;
 
 public class LoginMenu extends Menu {
 
