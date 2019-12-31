@@ -19,7 +19,12 @@ public class ShieldDefend extends Action {
             for(int i=0;i<Map.unknownCells.length;i++) {
                 for (int j = 0; j < Map.unknownCells[i].length; j++) {
                     if (Map.unknownCells[i][j].getPlant()!=null){
-
+                        if(!Map.unknownCells[i][j].getPlant().getPeaOrProjectile().isProjectile()){
+                            zombie.setArmour(0);
+                        }
+                        if(Map.unknownCells[i][j].getPlant().getPeaOrProjectile().isProjectile()){
+                            zombie.setHP(-Map.unknownCells[i][j].getPlant().getAP());
+                        }
                     }
                 }
             }
