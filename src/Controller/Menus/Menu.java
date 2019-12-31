@@ -9,6 +9,7 @@ public class Menu {
     public static ProfileMenu profileMenu = new ProfileMenu();
     public static ShopMenu shopMenu = new ShopMenu();
     public static MenuHandler menuHandler = new MenuHandler();
+    public static GameMenu gameMenu = new GameMenu();
 
     public String[] getOrders() {
         return orders;

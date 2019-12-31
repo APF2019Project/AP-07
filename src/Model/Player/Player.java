@@ -10,6 +10,11 @@ public class Player {
 
     private int internalCoins;
     private int sun;
+
+    public ArrayList<Zombie> getZombies() {
+        return zombies;
+    }
+
     private ArrayList<Plant> plants=new ArrayList<>();
     private ArrayList<Zombie> zombies=new ArrayList<>();
 

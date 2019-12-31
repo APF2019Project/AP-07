@@ -9,9 +9,11 @@ import Model.Shop.Collection;
 import java.util.ArrayList;
 
 public class CollectionMenu extends Menu {
-
+    public boolean zombieMode;
+    public boolean pvp;
     public CollectionMenu() {
         this.orders = new String[]{"Show hand", "Show collection", "Select", "Remove", "Play", "Help", "Exit"};
+        this.pvp = false;
     }
 
     private Collection collection = new Collection();
@@ -21,7 +23,7 @@ public class CollectionMenu extends Menu {
 
         ArrayList<Plant> p = this.collection.getPlants();
         ArrayList<Zombie> z = this.collection.getZombies();
-        if (p != null) {
+        if (!zombieMode) {
             for (Plant x : p) {
                 System.out.println(x.getName());
             }
@@ -33,29 +35,40 @@ public class CollectionMenu extends Menu {
     }
 
     public void showCollection(Profile profile) {
-        for (Plant p : profile.getPurchasedPlants()) {
-            if (!collection.getPlants().contains(p))
-                System.out.println(p.getName());
+        if (!zombieMode){
+            for (Plant p : profile.getPurchasedPlants()) {
+                if (!collection.getPlants().contains(p))
+                    System.out.println(p.getName());
+            }
         }
 
         ///baraie halate zombie
-        for (Zombie z : profile.getPurchasedZombies()) {
-            if (!collection.getZombies().contains(z))
-                System.out.println(z.getName());
+        else {
+            for (Zombie z : profile.getPurchasedZombies()) {
+                if (!collection.getZombies().contains(z))
+                    System.out.println(z.getName());
+            }
         }
     }
 
 
     public void selectCollection(String name, Profile profile) {
-        Zombie z = Zombie.findZombie(name);
-        if (profile.getPurchasedZombies().contains(z) && !collection.getZombies().contains(z))
-            collection.addZombie(z);
+        if (zombieMode){
+            Zombie z = Zombie.findZombie(name);
+            if (collection.getZombies().size() == 7)
+                System.out.println("your collection is full");
+            else if (profile.getPurchasedZombies().contains(z) && !collection.getZombies().contains(z))
+                collection.addZombie(z);
+        }
 
-        Plant p = Plant.findPlant(name);
-        if(profile.getPurchasedPlants().contains(p) && !collection.getPlants().contains(p))
-            collection.addPlant(p);
+        else {
+            Plant p = Plant.findPlant(name);
+            if (collection.getPlants().size() == 7)
+                System.out.println("your collection is full");
+            else if(profile.getPurchasedPlants().contains(p) && !collection.getPlants().contains(p))
+                collection.addPlant(p);
+        }
 
-        //bishtar az 7 ta ro hm bayad check konim
     }
 
     public void removeCard (String name) {
@@ -63,9 +76,17 @@ public class CollectionMenu extends Menu {
         collection.removePlant(name);
     }
 
-    public void play(Player player) {
-        //marhaleye baad
-        player.setCollection(collection);
+    public void play(Player player,Player player2) {
+        if (player.getPlants()!= null && player.getZombies() !=null) {
+            player.setCollection(collection);
+            if (!pvp)
+                Menu.menuHandler.setCurrentMenu(gameMenu);
+        }
+        else {
+            player2.setCollection(collection);
+            menuHandler.setCurrentMenu(gameMenu);
+        }
+
     }
 
     public void setCollection(Collection collection) {
