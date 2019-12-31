@@ -4,6 +4,7 @@ import Model.Card.Action;
 import Model.Card.Plants.Plant;
 import Model.Card.Zombies.Zombie;
 import Model.Map.Map;
+import Model.Map.UnknownCell;
 
 public class Jump extends Action {
 
@@ -14,10 +15,17 @@ public class Jump extends Action {
 
     @Override
     public void doAction(Zombie zombie, Map map, int d) {
-        if(map.getCell(zombie.getCell().x , zombie.getCell().y -1).getPlant() != null)
-        {
-            zombie.setCell(map.getCell(zombie.getCell().x , zombie.getCell().y -2));
-            map.getCell(zombie.getCell().x , zombie.getCell().y -2).zombies.add(zombie);
+        int x = zombie.getCell().x;
+        int y = zombie.getCell().y;
+        if (map.getCell(x + 1, y).getPlant() != null) {
+            if (map.getCell(x + 2, y) != null) {
+                if (zombie.getHP() > 0) {
+                    UnknownCell unknownCell = new UnknownCell();
+                    map.getCell(zombie.getCell().x, zombie.getCell().y ).getZombies().remove(zombie);
+                    zombie.setCell(map.getCell(x + 2, y));
+                    map.getCell(zombie.getCell().x, zombie.getCell().y).getZombies().add(zombie);
+                }
+            }
         }
     }
 }

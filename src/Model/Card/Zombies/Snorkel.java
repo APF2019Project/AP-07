@@ -1,16 +1,12 @@
 package Model.Card.Zombies;
 
 import Model.Card.Card;
-import Model.Card.Plants.PeaOrProjectile;
-import Model.Map.Cell;
 import com.gilecode.yagson.YaGson;
 
 import java.io.File;
 import java.io.IOException;
 
 public class Snorkel extends Zombie {
-
-    private int armour;
 
     public Snorkel(String name) {
         super(name);

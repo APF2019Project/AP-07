@@ -3,7 +3,7 @@
   "@val": {
     "name": "SnorkelZombie",
     "id":"13",
-    "AP": "2",
+    "AP": "1",
     "HP": "2",
     "speed": "2",
     "armour": "3",

@@ -21,10 +21,7 @@ public class Plant extends Card {
     private ArrayList<ActionsOfAnEvent> actionsOfAnEvent = new ArrayList<>();
     //zombie ra chand turn negah dare
     private int freeze;
-
-    public ArrayList<ActionsOfAnEvent> getActionsOfAnEvent() {
-        return actionsOfAnEvent;
-    }
+    private int turn;
 
     public void setActionsOfAnEvent(ActionsOfAnEvent actionsOfAnEvent) {
         this.actionsOfAnEvent.add(actionsOfAnEvent);
@@ -94,15 +91,18 @@ public class Plant extends Card {
         ProducedSun = producedSun;
     }
 
+    public ArrayList<ActionsOfAnEvent> getActionsOfAnEvent() {
+        return actionsOfAnEvent;
+    }
+
     private ArrayList<PlantsAction> plantsActions;
-    private int Turn;
 
     public int getTurn() {
-        return Turn;
+        return turn;
     }
 
     public void setTurn(int turn) {
-        Turn += turn;
+        this.turn += turn;
     }
 
     public void addToPlantsActions(PlantsAction action) {

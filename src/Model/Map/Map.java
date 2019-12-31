@@ -1,8 +1,9 @@
 package Model.Map;
 
 public class Map {
-    public static final int HEIGHT = 6;
-    public static final int WIDTH = 19;
+
+    private static final int HEIGHT = 6;
+    private static final int WIDTH = 19;
 
     public UnknownCell[][] getUnknownCells() {
         return unknownCells;
@@ -21,5 +22,13 @@ public class Map {
 
     void updateCells(){
         // zombie ha va plant haye cell ha ro tabe hashun ro ye dor seda kone
+    }
+
+    public static int getHEIGHT() {
+        return HEIGHT;
+    }
+
+    public static int getWIDTH() {
+        return WIDTH;
     }
 }

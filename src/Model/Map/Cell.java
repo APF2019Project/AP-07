@@ -6,8 +6,9 @@ import java.util.ArrayList;
 public abstract class Cell{
     public int x;
     public int y;
+    //in each cell we have just 1 plant but not only 1 zombie
     protected Plant plant;
-    public ArrayList<Zombie> zombies;
+    protected ArrayList<Zombie> zombies;
 
     abstract boolean canBePlanted(Plant plant);
     abstract boolean canBeZombied(Zombie zombie);

@@ -8,23 +8,22 @@ import Model.Map.Map;
 import java.util.Random;
 
 public class AppearInCell extends Action {
+    @Override
+    public void doAction(Plant plant, Map map, int d) {
 
-        @Override
-        public void doAction(Plant plant, Map map, int d) {
+    }
 
+    @Override
+    public void doAction(Zombie zombie, Map map, int d) {
+        Random random = new Random();
+        int x = 5;
+        int y = 18;
+        if (zombie.getHP() > 0) {
+            x = random.nextInt(5);
+            y = random.nextInt(18);
         }
-
-        @Override
-        public void doAction(Zombie zombie, Map map, int d) {
-                Random r = new Random();
-                int x = 5;
-                int y = 18;
-                while(map.getCell(x , y).getPlant() == null)
-                {
-                        x= r.nextInt(5);
-                        y = r.nextInt(18);
-                }
-                zombie.setCell(map.getCell(x , y));
-                map.getCell(x , y).zombies.add(zombie);
-        }
+        map.getCell(zombie.getCell().x, zombie.getCell().y).getZombies().remove(zombie);
+        zombie.setCell(map.getCell(x, y));
+        map.getCell(x, y).getZombies().add(zombie);
+    }
 }

@@ -15,12 +15,15 @@ public class ShieldDefend extends Action {
 
     @Override
     public void doAction(Zombie zombie, Map map, int d) {
-//        public boolean isArmourOfMetal() {
-//            return true;
-//        }
-//        private int ArmourHealth;
-//    public void setArmourHealth(int armourHealth)
-//    {
-//        this.ArmourHealth = armourHealth;
+        if(zombie.getArmour()>0){
+            for(int i=0;i<Map.unknownCells.length;i++) {
+                for (int j = 0; j < Map.unknownCells[i].length; j++) {
+                    if (Map.unknownCells[i][j].getPlant()!=null){
+
+                    }
+                }
+            }
+        }
+
     }
 }

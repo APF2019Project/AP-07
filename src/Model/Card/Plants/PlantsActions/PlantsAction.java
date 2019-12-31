@@ -151,7 +151,7 @@ public class PlantsAction {
         Plant cherryBomb = Plant.makePlant("CherryBomb");
         actions.clear();
         actions.add(burst);
-        potatoMine.setActionsOfAnEvent(new ActionsOfAnEvent(proximityInRadiousDistanceOne, actions) {
+        cherryBomb.setActionsOfAnEvent(new ActionsOfAnEvent(proximityInRadiousDistanceOne, actions) {
         });
 
         Plant magnetShroom = Plant.makePlant("magnet-shroom");
@@ -169,7 +169,7 @@ public class PlantsAction {
         Plant twinSunFlower = Plant.makePlant("TwinSunFlower");
         actions.clear();
         actions.add(produceSun);
-        sunFlower.setActionsOfAnEvent(new ActionsOfAnEvent(proximityInRadiousDistanceOne, actions) {
+        twinSunFlower.setActionsOfAnEvent(new ActionsOfAnEvent(proximityInRadiousDistanceOne, actions) {
         });
 
         Plant jalapeno = Plant.makePlant("Jalapeno");
