@@ -23,7 +23,9 @@ public class AppearInCell extends Action {
             y = random.nextInt(18);
         }
         map.getCell(zombie.getCell().x, zombie.getCell().y).getZombies().remove(zombie);
-        zombie.setCell(map.getCell(x, y));
-        map.getCell(x, y).getZombies().add(zombie);
+        if (zombie.getHP() > 0) {
+            zombie.setCell(map.getCell(x, y));
+            map.getCell(x, y).getZombies().add(zombie);
+        }
     }
 }

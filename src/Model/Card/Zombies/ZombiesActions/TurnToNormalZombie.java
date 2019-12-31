@@ -19,11 +19,13 @@ public class TurnToNormalZombie extends Action {
     public void doAction(Zombie zombie, Map map, int d) throws IOException {
         if(!zombie.getName().equals("Zombie"))
         {
-            Zombie.getZombies().remove(zombie);
-            //todo
-            //this new Zombie should be added to cards and player hand
-            Zombie zombie1=new Zombie("Zombie");
-            Zombie.addToZombies(zombie1);
+            if(zombie.getHP()>0) {
+                Zombie.getZombies().remove(zombie);
+                //todo
+                //this new Zombie should be added to cards and player hand
+                Zombie zombie1 = new Zombie("Zombie");
+                Zombie.addToZombies(zombie1);
+            }
         }
     }
 }

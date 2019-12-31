@@ -9,7 +9,7 @@ public class WaterCell extends UnknownCell {
 
     @Override
     public boolean canBePlanted(Plant plant) {
-        if(plant.getName().equals("Tangle Kelp"))
+        if(plant.getName().equals("TangleKelp"))
         {
             if(this.lilypad == null)
             {

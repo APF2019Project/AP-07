@@ -3,7 +3,10 @@ package Model.Player;
 import Model.Card.Card;
 import Model.Card.Plants.Plant;
 import Model.Card.Zombies.Zombie;
+import com.gilecode.yagson.YaGson;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class Profile {
@@ -41,6 +44,14 @@ public class Profile {
         //        purchasedZombies.add(Zombie.getZombies().get(10));
     }
 
+    public static Profile makeProfile(Profile profile){
+        YaGson yaGson = new YaGson();
+        String s=profile.toString();
+        Profile profile1=yaGson.fromJson(s,Profile.class);
+        profiles.add(profile1);
+        return profile1;
+    }
+
     public String getUsername() {
         return username;
     }
@@ -58,7 +69,7 @@ public class Profile {
     }
 
     public void delete_account(String username, String password) {
-        if(this.username.equals(username) && this.password.equals(password))
+        if (this.username.equals(username) && this.password.equals(password))
             profiles.remove(this);
     }
 
@@ -66,7 +77,7 @@ public class Profile {
     public static Profile login(String username, String password) {
         for (Profile p : profiles) {
             if (p.password.equals(password) && p.username.equals(username))
-                return p ;
+                return p;
         }
         return null;
     }

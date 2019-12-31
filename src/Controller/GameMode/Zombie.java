@@ -3,12 +3,9 @@ package Controller.GameMode;
 import Model.Map.LandCell;
 import Model.Map.Map;
 
-public class Rail extends GameMode {
-
+public class Zombie extends GameMode {
     @Override
-    //dar asl wave nadare va be soorate tasadofi har chand turn zombie varede zamin mishe
     public void wave(Battle battle) {
-        Zombie zombie=new Zombie();
 
     }
 
@@ -39,6 +36,8 @@ public class Rail extends GameMode {
 
     @Override
     public Map generateMap() {
+        //todo
+        //zamin mitune land ya water bashe
         Map m = new Map();
         for (int i = 0; i < Map.getHEIGHT(); i++) {
             for (int j = 0; j < Map.getWIDTH(); j++) {
