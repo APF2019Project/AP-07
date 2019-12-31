@@ -87,7 +87,7 @@ public class Zombie extends Card {
     }
 
     public void setArmour(int armour) {
-        this.armour = armour;
+        this.armour += armour;
     }
 
 }
