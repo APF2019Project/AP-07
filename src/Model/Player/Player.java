@@ -26,7 +26,8 @@ public class Player {
     }
 
     public void setCollection(Collection collection) {
-
+        this.zombies = collection.getZombies();
+        this.plants = collection.getPlants();
     }
 
     public int getSun() {
