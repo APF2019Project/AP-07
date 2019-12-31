@@ -3,6 +3,7 @@ package Controller.Menus;
 import Controller.GameMode.Day;
 import Controller.GameMode.Rail;
 import Controller.GameMode.Water;
+import Controller.GameMode.ZombieGameMode;
 import Model.Card.Zombies.Zombie;
 import Model.Player.Player;
 import Model.Player.Profile;
@@ -15,7 +16,7 @@ public class MenuHandler {
     public Day dayMode = null;
     public Rail railMode = null;
     public Water waterMode = null;
-    public Zombie zombie = null;
+    public ZombieGameMode zombieMode = null;
 
     public Menu getCurrentMenu() {
         return currentMenu;
@@ -130,7 +131,7 @@ public class MenuHandler {
                     Menu.collectionMenu.zombieMode = false;
                 } else if (input.equalsIgnoreCase("zombie")) {
                     Menu.playMenu.startZombieGame(player,bot);
-                    zombie = new Zombie();
+                    zombieMode = new ZombieGameMode();
                     Menu.collectionMenu.zombieMode = true;
                 } else if (input.equalsIgnoreCase("pvp")) {
                     player2 = new Player();
@@ -182,6 +183,15 @@ public class MenuHandler {
                 } else
                     System.out.println("invalid command");
             }
+
+            //gameMenu//
+
+            if (Menu.menuHandler.getCurrentMenu() == Menu.gameMenu) {
+                if (input.equalsIgnoreCase("show hand")) {
+                    Menu.gameMenu.showHand();
+                }
+            }
+
             if (Menu.menuHandler.getCurrentMenu() == null)
                 break;
         }
