@@ -17,8 +17,9 @@ public class PlantsAction {
         Event inTheSameRow = new NearRows();
         Event OnSpawn = new OnSpawn();
         Event nearest = new NearestCell();
-        Event proximityInRadiousDistanceOne = new ProximityInRadiousDistance();
+        Event proximityInRadiausDistance = new ProximityInRadiousDistance();
         Event nearRows = new NearRows();
+        Event valid=new Valid();
 
         Action burst = new Burst();
         Action produceSun = new ProduceSun();
@@ -151,31 +152,31 @@ public class PlantsAction {
         Plant cherryBomb = Plant.makePlant("CherryBomb");
         actions.clear();
         actions.add(burst);
-        cherryBomb.setActionsOfAnEvent(new ActionsOfAnEvent(proximityInRadiousDistanceOne, actions) {
+        cherryBomb.setActionsOfAnEvent(new ActionsOfAnEvent(valid, actions) {
         });
 
         Plant magnetShroom = Plant.makePlant("magnet-shroom");
         actions.clear();
         actions.add(magnet);
-        magnetShroom.setActionsOfAnEvent(new ActionsOfAnEvent(proximityInRadiousDistanceOne, actions) {
+        magnetShroom.setActionsOfAnEvent(new ActionsOfAnEvent(proximityInRadiausDistance, actions) {
         });
 
         Plant sunFlower = Plant.makePlant("SunFlower");
         actions.clear();
         actions.add(produceSun);
-        sunFlower.setActionsOfAnEvent(new ActionsOfAnEvent(proximityInRadiousDistanceOne, actions) {
+        sunFlower.setActionsOfAnEvent(new ActionsOfAnEvent(valid, actions) {
         });
 
         Plant twinSunFlower = Plant.makePlant("TwinSunFlower");
         actions.clear();
         actions.add(produceSun);
-        twinSunFlower.setActionsOfAnEvent(new ActionsOfAnEvent(proximityInRadiousDistanceOne, actions) {
+        twinSunFlower.setActionsOfAnEvent(new ActionsOfAnEvent(valid, actions) {
         });
 
         Plant jalapeno = Plant.makePlant("Jalapeno");
         actions.clear();
         actions.add(burst);
-        jalapeno.setActionsOfAnEvent(new ActionsOfAnEvent(inTheSameRow, actions) {
+        jalapeno.setActionsOfAnEvent(new ActionsOfAnEvent(valid, actions) {
         });
 
     }

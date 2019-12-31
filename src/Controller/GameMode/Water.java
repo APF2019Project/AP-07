@@ -10,8 +10,8 @@ import java.util.Random;
 public class Water extends GameMode {
 
     @Override
-    public void wave(Battle battle) {
-        if (battle.getCurrentTurn() >= 3 && canWave()) {
+    public void wave() {
+        if (getBattle().getCurrentTurn() >= 3 && canWave()) {
             int numberOfZombiesInAWave = (int) (Math.random() * ((10 - 4) + 1)) + 4;
             for (int i = 0; i < numberOfZombiesInAWave; i++) {
                 Random random = new Random();

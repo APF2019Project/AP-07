@@ -3,9 +3,7 @@ package Model.Card.Zombies;
 import Model.Card.ActionsOfAnEvent;
 import Model.Card.Card;
 import Model.Card.Plants.Plant;
-import Model.Card.Zombies.ZombiesActions.ZombiesAction;
 import com.gilecode.yagson.YaGson;
-
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -17,10 +15,15 @@ public class Zombie extends Card {
     private int speed;
     private boolean pea;
     private int freezeTurns =0;
+    private boolean IronHat=false;
+
     private ArrayList<ActionsOfAnEvent> actionsOfAnEvent = new ArrayList<>();
     protected ArrayList<Plant> stolenPlants=new ArrayList<>();
 
     public Zombie() {
+        if(this.getName().equals("BucketheadZombie")){
+            this.IronHat=true;
+        }
     }
 
     public static Zombie makeZombie(String name) throws IOException {
@@ -93,4 +96,11 @@ public class Zombie extends Card {
         this.armour += armour;
     }
 
+    public boolean isIronHat() {
+        return IronHat;
+    }
+
+    public void setIronHat(boolean ironHat) {
+        IronHat = ironHat;
+    }
 }
