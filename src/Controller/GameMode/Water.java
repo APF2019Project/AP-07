@@ -4,6 +4,7 @@ import Model.Card.Zombies.Zombie;
 import Model.Map.*;
 import Model.Player.Profile;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 public class Water extends GameMode {
@@ -15,12 +16,12 @@ public class Water extends GameMode {
             for (int i = 0; i < numberOfZombiesInAWave; i++) {
                 Random random = new Random();
                 int randomY = (int) (Math.random() * ((Map.getHEIGHT()) + 1));
-                UnknoenCell unknownCell = new UnknoenCell(0, randomY);
+                Cell cell = new Cell(0, randomY);
                 Model.Card.Zombies.Zombie zombie = Zombie.getZombies().get(random.nextInt());
-                zombie.setCell(unknownCell);
+                zombie.setCell(cell);
                 getWaveZombies().add(zombie);
                 Map map = new Map();
-                map.setUnknownCell(0, randomY, unknownCell);
+                map.setCell(0, randomY, cell);
             }
             setWaveCounter(1);
         }
@@ -36,6 +37,39 @@ public class Water extends GameMode {
 
     @Override
     public boolean handleWin(Profile profile) {
+        //if player lose
+        for (int i = 0; i < getBattle().getMap().getCells().length; i++) {
+            for (int j = 0; j < getBattle().getMap().getCells()[i].length; i++) {
+                for (int k = 0; k < getBattle().getMap().getCells()[i][j].getZombies().size(); k++) {
+                    if (getBattle().getMap().getCells()[i][j].getZombies().get(k).getCell().x == Map.getWIDTH() + 1) {
+                        return false;
+                    }
+                }
+            }
+        }
+        //if player win
+        boolean allZombisAreDead = true;
+        ArrayList<Zombie> allZombies = new ArrayList<>();
+        for (int i = 0; i < getBattle().getMap().getCells().length; i++) {
+            for (int j = 0; j < getBattle().getMap().getCells()[i].length; i++) {
+                for (int k = 0; k < getBattle().getMap().getCells()[i][j].getZombies().size(); k++) {
+                    allZombies.addAll(getBattle().getMap().getCells()[i][j].getZombies());
+                }
+            }
+        }
+
+        for (int i = 0; i < allZombies.size(); i++) {
+            if (allZombies.get(i).getHP() != 0) {
+                allZombisAreDead = false;
+            }
+        }
+
+        //numberOfKilledZombies=external coins
+        if (allZombisAreDead) {
+            getBattle().getPlayer(0).setNumberOfKilledZombies(1);
+            profile.setExternalCoins(getBattle().getPlayer(0).getNumberOfKilledZombies() * 10);
+            return false;
+        }
         return true;
     }
 
@@ -67,7 +101,7 @@ public class Water extends GameMode {
         Map m = new Map();
         for (int i = 0; i < Map.getHEIGHT(); i++) {
             for (int j = 0; j < Map.getWIDTH(); j++) {
-                m.setUnknownCell(i, j, new UnknoenCell(i,j));
+                m.setCell(i, j, new Cell(i,j));
             }
         }
         return m;

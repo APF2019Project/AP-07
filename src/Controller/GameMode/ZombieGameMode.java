@@ -1,17 +1,18 @@
 package Controller.GameMode;
 
 import Model.Card.Plants.Plant;
-import Model.Map.UnknoenCell;
+import Model.Map.Cell;
 import Model.Map.Map;
-import Model.Map.WaterCell;
 import Model.Player.Profile;
 
 import java.util.ArrayList;
 
 public class ZombieGameMode extends GameMode {
+
+    private boolean potatoMine;
+
     @Override
     public void wave() {
-
         int size = 0;
         ArrayList<Plant> randomPlants = new ArrayList<>();
         randomPlants.add(Plant.findPlant("Explode-o-nut"));
@@ -28,15 +29,14 @@ public class ZombieGameMode extends GameMode {
         randomPlants.add(Plant.findPlant("Cabbage-pult"));
         randomPlants.add(Plant.findPlant("Cabbage-pult"));
         randomPlants.add(Plant.findPlant("GatlingPea"));
-        randomPlants.add(Plant.findPlant("PotatoMine"));
 
-        if (getBattle().getMap().getCell(0, 2) instanceof UnknoenCell) {
+        if (!getBattle().getMap().getCell(0, 2).water) {
             randomPlants.add(Plant.findPlant("PotatoMine"));
             randomPlants.add(Plant.findPlant("PotatoMine"));
             size = randomPlants.size();
         }
 
-        if (getBattle().getMap().getCell(0, 2) instanceof WaterCell) {
+        if (getBattle().getMap().getCell(0, 2).water) {
             randomPlants.add(Plant.findPlant("TangleKelp"));
             randomPlants.add(Plant.findPlant("TangleKelp"));
             randomPlants.add(Plant.findPlant("Cattail"));
@@ -45,7 +45,6 @@ public class ZombieGameMode extends GameMode {
             randomPlants.add(Plant.findPlant("LilyPad"));
             size = randomPlants.size();
         }
-
         int randomNumberOfPlants = (int) (Math.random() * ((size) + 1)) + size;
 
     }
@@ -82,7 +81,7 @@ public class ZombieGameMode extends GameMode {
         Map m = new Map();
         for (int i = 0; i < Map.getHEIGHT(); i++) {
             for (int j = 0; j < Map.getWIDTH(); j++) {
-                m.setUnknownCell(i, j, new UnknoenCell(i,j));
+                m.setCell(i, j, new Cell(i,j));
             }
         }
         getBattle().setMap(m);

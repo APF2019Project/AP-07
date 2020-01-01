@@ -1,15 +1,16 @@
 package Model.Card.Event;
 
 import Model.Card.Plants.Plant;
+import Model.Map.Cell;
 import Model.Map.Map;
 
 public class NearestCell extends Event {
     @Override
     public boolean check(Plant plant, Map map, int d)
     {
-        for(UnknownCell[] i : map.getUnknownCells())
+        for(Cell[] i : map.getCells())
         {
-            for(UnknownCell j : i)
+            for(Cell j : i)
             {
                 if(j.getZombies().size() > 0)
                 {

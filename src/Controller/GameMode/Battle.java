@@ -16,6 +16,8 @@ public class Battle {
     private int previousTurn;
     private Player player1;
     private Player player2;
+    private Map map;
+    private ArrayList<Zombie> zombies;
 
     public Battle(Player player1, Player player2) {
         this.player1 = player1;
@@ -30,9 +32,6 @@ public class Battle {
         this.map = map;
     }
 
-    private Map map;
-    private ArrayList<Zombie> zombies;
-
     public void init() {
         this.map = gameMode.generateMap();
     }
@@ -42,7 +41,7 @@ public class Battle {
     }
 
     public void plant(Plant plant, Cell cell) {
-        cell.plant(plant);
+        cell.plant = plant;
     }
 
     public void dig(Cell cell) {

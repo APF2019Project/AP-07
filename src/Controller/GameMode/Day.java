@@ -1,8 +1,8 @@
 package Controller.GameMode;
 
 import Model.Card.Zombies.Zombie;
-import Model.Map.UnknoenCell;
 import Model.Map.Map;
+import Model.Map.Cell;
 import Model.Player.Profile;
 
 import java.util.ArrayList;
@@ -17,12 +17,12 @@ public class Day extends GameMode {
             for (int i = 0; i < numberOfZombiesInAWave; i++) {
                 Random random = new Random();
                 int randomY = (int) (Math.random() * ((Map.getHEIGHT()) + 1));
-                UnknoenCell unknownCell = new UnknoenCell(0, randomY);
+                Cell cell = new Cell();
                 Zombie zombie = Zombie.getZombies().get(random.nextInt());
-                zombie.setCell(unknownCell);
+                zombie.setCell(cell);
                 getWaveZombies().add(zombie);
                 Map map = new Map();
-                map.setUnknownCell(0, randomY, unknownCell);
+                map.setCell(0, randomY, cell);
             }
             setWaveCounter(1);
         }
@@ -40,10 +40,10 @@ public class Day extends GameMode {
     @Override
     public boolean handleWin(Profile profile) {
         //if player lose
-        for (int i = 0; i < getBattle().getMap().getUnknownCells().length; i++) {
-            for (int j = 0; j < getBattle().getMap().getUnknownCells()[i].length; i++) {
-                for (int k = 0; k < getBattle().getMap().getUnknownCells()[i][j].getZombies().size(); k++) {
-                    if (getBattle().getMap().getUnknownCells()[i][j].getZombies().get(k).getCell().x == Map.getWIDTH() + 1) {
+        for (int i = 0; i < getBattle().getMap().getCells().length; i++) {
+            for (int j = 0; j < getBattle().getMap().getCells()[i].length; i++) {
+                for (int k = 0; k < getBattle().getMap().getCells()[i][j].getZombies().size(); k++) {
+                    if (getBattle().getMap().getCells()[i][j].getZombies().get(k).getCell().x == Map.getWIDTH() + 1) {
                         return false;
                     }
                 }
@@ -52,10 +52,10 @@ public class Day extends GameMode {
         //if player win
         boolean allZombisAreDead = true;
         ArrayList<Zombie> allZombies = new ArrayList<>();
-        for (int i = 0; i < getBattle().getMap().getUnknownCells().length; i++) {
-            for (int j = 0; j < getBattle().getMap().getUnknownCells()[i].length; i++) {
-                for (int k = 0; k < getBattle().getMap().getUnknownCells()[i][j].getZombies().size(); k++) {
-                    allZombies.addAll(getBattle().getMap().getUnknownCells()[i][j].getZombies());
+        for (int i = 0; i < getBattle().getMap().getCells().length; i++) {
+            for (int j = 0; j < getBattle().getMap().getCells()[i].length; i++) {
+                for (int k = 0; k < getBattle().getMap().getCells()[i][j].getZombies().size(); k++) {
+                    allZombies.addAll(getBattle().getMap().getCells()[i][j].getZombies());
                 }
             }
         }
@@ -72,9 +72,7 @@ public class Day extends GameMode {
             profile.setExternalCoins(getBattle().getPlayer(0).getNumberOfKilledZombies() * 10);
             return false;
         }
-
         return true;
-
     }
 
     @Override
@@ -105,7 +103,7 @@ public class Day extends GameMode {
         Map m = new Map();
         for (int i = 0; i < Map.getHEIGHT() + 4; i++) {
             for (int j = 0; j < Map.getWIDTH() + 4; j++) {
-                m.setUnknownCell(i, j, new UnknoenCell(i,j));
+                m.setCell(i, j, new Cell(i,j));
             }
         }
         return m;

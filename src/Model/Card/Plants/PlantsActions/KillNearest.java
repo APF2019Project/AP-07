@@ -4,9 +4,10 @@ import Model.Card.Action;
 import Model.Card.Plants.Plant;
 import Model.Card.Zombies.Zombie;
 import Model.Map.Map;
+import Model.Map.Cell;
 
 public class KillNearest extends Action {
-    public int calculateDistance(UnknownCell p, UnknownCell z) {
+    public int calculateDistance(Cell p, Cell z) {
         return (int) Math.sqrt(((p.x - z.x) * (p.x - z.x)) + ((p.y - z.y) * (p.y - z.y)));
     }
 
@@ -16,8 +17,8 @@ public class KillNearest extends Action {
         int X = 0;
         int Y = 19;
         if(plant.getHP()>0) {
-            for (UnknownCell[] i : map.getUnknownCells()) {
-                for (UnknownCell j : i) {
+            for (Cell[] i : map.getCells()) {
+                for (Cell j : i) {
                     if (j.getZombies().size() > 0) {
                         if (calculateDistance(plant.getCell(), j) < MinRad) {
                             X = j.x;
