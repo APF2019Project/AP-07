@@ -2,7 +2,6 @@ package Model.Card.Event;
 
 import Model.Card.Plants.Plant;
 import Model.Map.Map;
-import Model.Map.UnknownCell;
 
 public class NearestCell extends Event {
     @Override

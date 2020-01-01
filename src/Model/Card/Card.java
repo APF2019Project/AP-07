@@ -2,7 +2,6 @@ package Model.Card;
 
 import Model.Card.Plants.Plant;
 import Model.Card.Zombies.Zombie;
-import Model.Map.UnknownCell;
 
 import java.io.BufferedReader;
 import java.io.File;

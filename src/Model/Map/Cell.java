@@ -3,17 +3,18 @@ import Model.Card.Plants.Plant;
 import Model.Card.Zombies.Zombie;
 import java.util.ArrayList;
 
-public abstract class Cell{
+public class Cell {
     public int x;
     public int y;
     //in each cell we have just 1 plant but not only 1 zombie
     protected Plant plant;
     protected ArrayList<Zombie> zombies;
+    public boolean water;
 
-    abstract boolean canBePlanted(Plant plant);
-    abstract boolean canBeZombied(Zombie zombie);
-    abstract void removePlant();
-    abstract public void plant(Plant plant);
+//     boolean canBePlanted(Plant plant);
+//     boolean canBeZombied(Zombie zombie);
+//     void removePlant();
+//     public void plant(Plant plant);
 
     void removeDeadZombie(Zombie zombie, Map map){
         ArrayList<Zombie> tempZombies = new ArrayList<>();

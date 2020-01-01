@@ -4,7 +4,6 @@ import Controller.GameMode.*;
 import Model.Card.Plants.Plant;
 import Model.Card.Zombies.Zombie;
 import Model.Map.Map;
-import Model.Map.UnknownCell;
 import Model.Player.Player;
 
 public class GameMenu extends Menu {
@@ -14,7 +13,7 @@ public class GameMenu extends Menu {
     public ZombieGameMode zombieMode;
     public Player player1;
     public Player player2;
-    public Battle battle;
+    public Battle battle = new Battle(player1, player2);
 
 
     public void showHand() {
@@ -32,12 +31,18 @@ public class GameMenu extends Menu {
         cell.removePlant();
     }
 
+    public void plant(Plant plant, int x, int y) {
+//        if (battle.getMap().getCell(x,y))
+    }
+
     public void endTurn() {
-        for (int i=2;i<Map.getHEIGHT()+2;i++)
-            for (int j=2;j<Map.getWIDTH()+2;j++) {
-                battle.getMap().getCell(i,j).getPlant().act(battle.getMap());
-                for (Zombie z:battle.getMap().getCell(i,j).getZombies())
-                    z.act(battle.getMap());
+        for (int i = 2; i < Map.getHEIGHT() + 2; i++)
+            for (int j = 2; j < Map.getWIDTH() + 2; j++) {
+                if (battle.getMap().getCell(i, j).getPlant() != null)
+                    battle.getMap().getCell(i, j).getPlant().act(battle.getMap());
+                if (battle.getMap().getCell(i, j).getZombies().size() !=0)
+                    for (Zombie z : battle.getMap().getCell(i, j).getZombies())
+                        z.act(battle.getMap());
             }
 
     }

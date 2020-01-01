@@ -10,7 +10,7 @@ public class Burst extends Action {
     public void doAction(Plant plant, Map map, int d) {
         if(plant.getHP()>0) {
             for (int i = 0; i < map.getUnknownCells().length; i++) {
-                for (int j=0;j<map.getUnknownCells()[i].length;i++){
+                for (int j = 0; j<map.getUnknownCells()[i].length; i++){
                     if(map.getUnknownCells()[i][j]==plant.getCell()){
                         if (!map.getUnknownCells()[i][j].getZombies().isEmpty()) {
                             Zombie zombie1 = map.getCell(plant.getCell().x, plant.getCell().y).getZombies().get(0);

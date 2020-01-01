@@ -1,9 +1,7 @@
 package Controller.GameMode;
 
 import Model.Card.Zombies.Zombie;
-import Model.Map.Map;
-import Model.Map.UnknownCell;
-import Model.Map.WaterCell;
+import Model.Map.*;
 import Model.Player.Profile;
 
 import java.util.ArrayList;
@@ -18,9 +16,7 @@ public class Water extends GameMode {
             for (int i = 0; i < numberOfZombiesInAWave; i++) {
                 Random random = new Random();
                 int randomY = (int) (Math.random() * ((Map.getHEIGHT()) + 1));
-                UnknownCell unknownCell = new UnknownCell();
-                unknownCell.x = 0;
-                unknownCell.y = randomY;
+                UnknoenCell unknownCell = new UnknoenCell(0, randomY);
                 Model.Card.Zombies.Zombie zombie = Zombie.getZombies().get(random.nextInt());
                 zombie.setCell(unknownCell);
                 getWaveZombies().add(zombie);
@@ -105,7 +101,7 @@ public class Water extends GameMode {
         Map m = new Map();
         for (int i = 0; i < Map.getHEIGHT(); i++) {
             for (int j = 0; j < Map.getWIDTH(); j++) {
-                m.setUnknownCell(i, j, new WaterCell());
+                m.setUnknownCell(i, j, new UnknoenCell(i,j));
             }
         }
         return m;

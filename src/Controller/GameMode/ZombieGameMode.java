@@ -1,7 +1,7 @@
 package Controller.GameMode;
 
 import Model.Card.Plants.Plant;
-import Model.Map.LandCell;
+import Model.Map.UnknoenCell;
 import Model.Map.Map;
 import Model.Map.WaterCell;
 import Model.Player.Profile;
@@ -30,7 +30,7 @@ public class ZombieGameMode extends GameMode {
         randomPlants.add(Plant.findPlant("GatlingPea"));
         randomPlants.add(Plant.findPlant("PotatoMine"));
 
-        if (getBattle().getMap().getCell(0, 2) instanceof LandCell) {
+        if (getBattle().getMap().getCell(0, 2) instanceof UnknoenCell) {
             randomPlants.add(Plant.findPlant("PotatoMine"));
             randomPlants.add(Plant.findPlant("PotatoMine"));
             size = randomPlants.size();
@@ -81,7 +81,7 @@ public class ZombieGameMode extends GameMode {
         Map m = new Map();
         for (int i = 0; i < Map.getHEIGHT(); i++) {
             for (int j = 0; j < Map.getWIDTH(); j++) {
-                m.setUnknownCell(i, j, new LandCell());
+                m.setUnknownCell(i, j, new UnknoenCell(i,j));
             }
         }
         getBattle().setMap(m);

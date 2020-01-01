@@ -46,20 +46,6 @@ public class Menu {
 
     public static <JSonElement> void init() throws IOException {
         menuHandler.setCurrentMenu(loginMenu);
-        String[] plants = new String[]{"Cabbage-pult", "Cactus", "Cattail", "CherryBomb", "Explode-o-nut", "GatlingPea", "Kernel-pult", "LilyPad", "Magnet-shroom", "Melon-pult", "PeaShooter", "PotatoMine", "Repeater", "Scaredy-shroom", "SnowPea", "SplitPea", "SunFlower", "Tall-nut", "TangleKelp", "ThreePeater", "TwinSunFlower", "Wall-nut", "WinterMelon"};
-        String[] zombies = new String[]{"BalloonZombie",
-                "BucketheadZombie",
-                "BungeeZombie",
-                "CatapultZomboni",
-                "ConeheadZombie",
-                "DolphinRiderZombie",
-                "FootballZombie",
-                "Giga-gargantuar",
-                "NewspaperZombie", "PogoZombie", "ScreenDoorZombie", "SnorkelZombie", "TargetZombie","Zombie",  "Zomboni"};
-        for (String x : plants)
-            Plant.makePlant(x);
-        for (String x : zombies)
-            Zombie.makeZombie(x);
         YaGson yaGson = new YaGson();
         File file = new File("Accounts//accounts");
         BufferedReader br = new BufferedReader(new FileReader(file));
@@ -79,6 +65,21 @@ public class Menu {
 //        Profile.setProfiles(yaGson.fromJson(jsonElement, type));
         ArrayList<Profile> profiles = yaGson.fromJson(string,ArrayList.class);
         Profile.setProfiles(profiles);
+
+        String[] plants = new String[]{"Cabbage-pult", "Cactus", "Cattail", "CherryBomb", "Explode-o-nut", "GatlingPea", "Kernel-pult", "LilyPad", "Magnet-shroom", "Melon-pult", "PeaShooter", "PotatoMine", "Repeater", "Scaredy-shroom", "SnowPea", "SplitPea", "SunFlower", "Tall-nut", "TangleKelp", "ThreePeater", "TwinSunFlower", "Wall-nut", "WinterMelon"};
+        String[] zombies = new String[]{"BalloonZombie",
+                "BucketheadZombie",
+                "BungeeZombie",
+                "CatapultZomboni",
+                "ConeheadZombie",
+                "DolphinRiderZombie",
+                "FootballZombie",
+                "Giga-gargantuar",
+                "NewspaperZombie", "PogoZombie", "ScreenDoorZombie", "SnorkelZombie", "TargetZombie", "Zombie", "Zomboni"};
+        for (String x : plants)
+            Plant.makePlant(x);
+        for (String x : zombies)
+            Zombie.makeZombie(x);
 
     }
 }
