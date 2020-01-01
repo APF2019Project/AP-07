@@ -7,7 +7,7 @@ import Model.Card.Zombies.Zombie;
 public class LandCell extends UnknownCell {
     @Override
     public boolean canBePlanted(Plant plant) {
-        if(!plant.getName().equals("TangleKelp"))
+        if(!plant.getName().equals("TangleKelp") && plant.getCell().x%2==0)
         {
             return true;
         }
