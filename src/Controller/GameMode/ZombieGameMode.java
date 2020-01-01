@@ -1,11 +1,11 @@
 package Controller.GameMode;
 
-import Controller.Menus.GameMenu;
 import Model.Map.Map;
+import Model.Player.Profile;
 
 public class ZombieGameMode extends GameMode {
     @Override
-    public void wave(Battle battle) {
+    public void wave() {
 
     }
 
@@ -15,8 +15,8 @@ public class ZombieGameMode extends GameMode {
     }
 
     @Override
-    public void handleWin() {
-
+    public boolean handleWin(Profile profile) {
+        return true;
     }
 
     @Override

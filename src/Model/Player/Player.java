@@ -10,13 +10,13 @@ public class Player {
 
     private int internalCoins;
     private int sun;
+    private int numberOfKilledZombies=0;
+    private ArrayList<Plant> plants=new ArrayList<>();
+    private ArrayList<Zombie> zombies=new ArrayList<>();
 
     public ArrayList<Zombie> getZombies() {
         return zombies;
     }
-
-    private ArrayList<Plant> plants;
-    private ArrayList<Zombie> zombies;
 
     public Player(){
     }
@@ -36,5 +36,13 @@ public class Player {
 
     public void setSun(int sun) {
         this.sun += sun;
+    }
+
+    public int getNumberOfKilledZombies() {
+        return numberOfKilledZombies;
+    }
+
+    public void setNumberOfKilledZombies(int numberOfKilledZombies) {
+        this.numberOfKilledZombies += numberOfKilledZombies;
     }
 }

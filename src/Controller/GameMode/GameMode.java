@@ -3,7 +3,9 @@ package Controller.GameMode;
 import Model.Card.Zombies.Zombie;
 import Model.Map.Map;
 import Model.Player.Player;
+import Model.Player.Profile;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public abstract class GameMode {
@@ -13,13 +15,13 @@ public abstract class GameMode {
     private boolean canWave = true;
     private ArrayList<Zombie> waveZombies = new ArrayList<>();
 
-    public abstract void wave(Battle battle);
+    public abstract void wave() throws IOException;
 
     public abstract boolean canWave();
 
-    public abstract void handleWin();
+    public abstract boolean handleWin(Profile profile);
 
-    public abstract void updateCollection();
+    public abstract void updateCollection() throws IOException;
 
     public abstract void getAvailableCards();
 

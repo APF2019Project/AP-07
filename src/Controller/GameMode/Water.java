@@ -4,13 +4,14 @@ import Model.Card.Zombies.Zombie;
 import Model.Map.Map;
 import Model.Map.UnknownCell;
 import Model.Map.WaterCell;
+import Model.Player.Profile;
 
 import java.util.Random;
 
 public class Water extends GameMode {
 
     @Override
-    public void wave(Battle battle) {
+    public void wave() {
         if (getBattle().getCurrentTurn() >= 3 && canWave()) {
             int numberOfZombiesInAWave = (int) (Math.random() * ((10 - 4) + 1)) + 4;
             for (int i = 0; i < numberOfZombiesInAWave; i++) {
@@ -38,8 +39,8 @@ public class Water extends GameMode {
     }
 
     @Override
-    public void handleWin() {
-
+    public boolean handleWin(Profile profile) {
+        return true;
     }
 
     @Override

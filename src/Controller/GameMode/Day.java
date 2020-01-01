@@ -4,13 +4,15 @@ import Model.Card.Zombies.Zombie;
 import Model.Map.LandCell;
 import Model.Map.Map;
 import Model.Map.UnknownCell;
+import Model.Player.Profile;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 public class Day extends GameMode {
 
     @Override
-    public void wave(Battle battle) {
+    public void wave() {
         if (getBattle().getCurrentTurn() >= 3 && canWave()) {
             int numberOfZombiesInAWave = (int) (Math.random() * ((10 - 4) + 1)) + 4;
             for (int i = 0; i < numberOfZombiesInAWave; i++) {
@@ -35,15 +37,47 @@ public class Day extends GameMode {
     //7 turn pas az marge last zombie true mishe
     @Override
     public boolean canWave() {
-       return false;
+        return false;
     }
 
     @Override
-    public void handleWin() {
-        ///age cell zombie-- manfi beshe va chmnzn nbashe
-        ////zombie wins
-        ///age wave ++ bishtar az 3 beshe
-        // plant wins
+    public boolean handleWin(Profile profile) {
+        //if player lose
+        for (int i = 0; i < getBattle().getMap().getUnknownCells().length; i++) {
+            for (int j = 0; j < getBattle().getMap().getUnknownCells()[i].length; i++) {
+                for (int k = 0; k < getBattle().getMap().getUnknownCells()[i][j].getZombies().size(); k++) {
+                    if (getBattle().getMap().getUnknownCells()[i][j].getZombies().get(k).getCell().x == Map.getWIDTH() + 1) {
+                        return false;
+                    }
+                }
+            }
+        }
+        //if player win
+        boolean allZombisAreDead = true;
+        ArrayList<Zombie> allZombies = new ArrayList<>();
+        for (int i = 0; i < getBattle().getMap().getUnknownCells().length; i++) {
+            for (int j = 0; j < getBattle().getMap().getUnknownCells()[i].length; i++) {
+                for (int k = 0; k < getBattle().getMap().getUnknownCells()[i][j].getZombies().size(); k++) {
+                    allZombies.addAll(getBattle().getMap().getUnknownCells()[i][j].getZombies());
+                }
+            }
+        }
+
+        for (int i = 0; i < allZombies.size(); i++) {
+            if (allZombies.get(i).getHP() != 0) {
+                allZombisAreDead = false;
+            }
+        }
+
+        //numberOfKilledZombies=external coins
+        if (allZombisAreDead) {
+            getBattle().getPlayer(0).setNumberOfKilledZombies(1);
+            profile.setExternalCoins(getBattle().getPlayer(0).getNumberOfKilledZombies() * 10);
+            return false;
+        }
+
+        return true;
+
     }
 
     @Override
@@ -77,6 +111,7 @@ public class Day extends GameMode {
                 m.setUnknownCell(i, j, new LandCell());
             }
         }
+        getBattle().setMap(m);
         return m;
     }
 
