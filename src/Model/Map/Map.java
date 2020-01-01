@@ -15,7 +15,7 @@ public class Map {
         return cells[x][y];
     }
 
-    public void setUnknownCell(int x, int y, Cell cell) {
+    public void setUnknownCell(int x!, int y, Cell cell) {
         this.cells[x][y] = cell;
     }
 

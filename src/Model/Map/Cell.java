@@ -34,7 +34,6 @@ public class Cell {
     }
 
 
-
     public Plant getPlant() {
         return plant;
     }
@@ -64,4 +63,5 @@ public class Cell {
         }
         return true;
     }
+
 }

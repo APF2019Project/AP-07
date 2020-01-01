@@ -103,7 +103,7 @@ public class Day extends GameMode {
         Map m = new Map();
         for (int i = 0; i < Map.getHEIGHT() + 4; i++) {
             for (int j = 0; j < Map.getWIDTH() + 4; j++) {
-                m.setUnknownCell(i, j, new UnknoenCell(i,j));
+                m.setUnknownCell(i, j, new UnknownCell(i,j));
             }
         }
         return m;
