@@ -43,7 +43,7 @@ public class Plant extends Card {
 
     public static Plant findPlant(String name) {
         for (Plant plant : getPlants()) {
-            if (plant.name.equals(name))
+            if (plant.name.equalsIgnoreCase(name))
                 return plant;
         }
         return null;

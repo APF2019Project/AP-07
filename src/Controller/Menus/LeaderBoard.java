@@ -20,7 +20,7 @@ public class LeaderBoard extends Menu {
             }
         });
         for (Profile x : pros)
-            System.out.println(x.getUsername());
+            System.out.println(x.getUsername()+ "\t" +x.getScore());
         menuHandler.setCurrentMenu(loginMenu);
     }
 }

@@ -71,7 +71,7 @@ public class MenuHandler {
 
             //mainMenu//
 
-            if (Menu.menuHandler.getCurrentMenu() == Menu.mainMenu) {
+            else if (Menu.menuHandler.getCurrentMenu() == Menu.mainMenu) {
                 if (input.equalsIgnoreCase("play"))
                     Menu.menuHandler.setCurrentMenu(Menu.playMenu);
                 else if (input.equalsIgnoreCase("Profiles"))
@@ -88,14 +88,18 @@ public class MenuHandler {
 
             //profileMenu//
 
-            if (Menu.menuHandler.getCurrentMenu() == Menu.profileMenu) {
+            else if (Menu.menuHandler.getCurrentMenu() == Menu.profileMenu) {
                 if (input.equalsIgnoreCase("help"))
                     Menu.help();
                 else if (input.equalsIgnoreCase("Change")) {
                     String username = scanner.nextLine();
                     String password = scanner.nextLine();
-                    profile.change_username(username);
-                    profile.change_Password(password);
+                    Profile p = Profile.login(username, password);
+                    if (p == null)
+                        System.out.println("invalid account");
+                    else {
+                        profile = p;
+                    }
                 } else if (input.equalsIgnoreCase("rename")) {
                     String username = scanner.nextLine();
                     profile.change_username(username);
@@ -111,33 +115,41 @@ public class MenuHandler {
                     Menu.menuHandler.setCurrentMenu(Menu.loginMenu);
                 } else if (input.equalsIgnoreCase("exit")) {
                     Menu.profileMenu.exit();
+                } else if (input.equalsIgnoreCase("show")) {
+                    System.out.println(profile.getUsername());
                 } else
                     System.out.println("invalid command");
             }
 
             //playMenu//
 
-            if (Menu.menuHandler.getCurrentMenu() == Menu.playMenu) {
+            else if (Menu.menuHandler.getCurrentMenu() == Menu.playMenu) {
                 if (input.equalsIgnoreCase("help"))
                     Menu.help();
 
                 else if (input.equalsIgnoreCase("day")) {
+                    player = new Player();
                     Menu.playMenu.startDayGame(player, bot);
                     dayMode = new Day();
+                    Menu.gameMenu.battle.setMap(dayMode.generateMap());
                     Menu.collectionMenu.zombieMode = false;
                 } else if (input.equalsIgnoreCase("water")) {
+                    player = new Player();
                     Menu.playMenu.startWaterGame(player, bot);
                     waterMode = new Water();
                     Menu.collectionMenu.zombieMode = false;
                 } else if (input.equalsIgnoreCase("rail")) {
+                    player = new Player();
                     Menu.playMenu.startRailGame(player, bot);
                     railMode = new Rail();
                     Menu.collectionMenu.zombieMode = false;
                 } else if (input.equalsIgnoreCase("zombie")) {
+                    player = new Player();
                     Menu.playMenu.startZombieGame(player, bot);
                     zombieMode = new ZombieGameMode();
                     Menu.collectionMenu.zombieMode = true;
                 } else if (input.equalsIgnoreCase("pvp")) {
+                    player = new Player();
                     player2 = new Player();
                     Menu.playMenu.startDayGame(player, player2);
                     dayMode = new Day();
@@ -150,7 +162,7 @@ public class MenuHandler {
 
             //collectionMenu//
 
-            if (Menu.menuHandler.getCurrentMenu() == Menu.collectionMenu) {
+            else if (Menu.menuHandler.getCurrentMenu() == Menu.collectionMenu) {
                 if (input.equalsIgnoreCase("Show hand")) {
                     Menu.collectionMenu.showHand();
                 } else if (input.equalsIgnoreCase("Show collection")) {
@@ -171,7 +183,7 @@ public class MenuHandler {
 
             //shopMenu//
 
-            if (Menu.menuHandler.getCurrentMenu() == Menu.shopMenu) {
+            else if (Menu.menuHandler.getCurrentMenu() == Menu.shopMenu) {
                 if (input.equalsIgnoreCase("show shop")) {
                     Menu.shopMenu.showShop(profile);
                 } else if (input.equalsIgnoreCase("show collection")) {
@@ -190,39 +202,29 @@ public class MenuHandler {
 
             //gameMenu//
 
-            if (Menu.menuHandler.getCurrentMenu() == Menu.gameMenu) {
+            else if (Menu.menuHandler.getCurrentMenu() == Menu.gameMenu) {
                 if (input.equalsIgnoreCase("show hand")) {
                     Menu.gameMenu.showHand();
-                }
-
-                else if (plantPlant.matcher(input).matches()) {
+                } else if (plantPlant.matcher(input).matches()) {
                     String name = splitInput[1];
                     Plant p = Plant.findPlant(name);
                     String[] planting = scanner.nextLine().split(" ");
                     int x = Integer.parseInt(planting[1]);
                     int y = Integer.parseInt(planting[2]);
                     /////clone the plant
-                }
-
-                else if (removePlant.matcher(input).matches()) {
+                } else if (removePlant.matcher(input).matches()) {
                     int x = Integer.parseInt(splitInput[1]);
                     int y = Integer.parseInt(splitInput[2]);
-                    Menu.gameMenu.remove(x,y);
-                }
-
-                else if (input.equalsIgnoreCase("End Turn")) {
+                    Menu.gameMenu.remove(x, y);
+                } else if (input.equalsIgnoreCase("End Turn")) {
                     Menu.gameMenu.endTurn();
-                }
-
-                else if (input.equalsIgnoreCase("show lawn")) {
+                } else if (input.equalsIgnoreCase("show lawn")) {
                     Menu.gameMenu.showLawn();
-                }
-
-                else
+                } else
                     System.out.println("invalid command");
             }
 
-            if (Menu.menuHandler.getCurrentMenu() == null)
+            else if (Menu.menuHandler.getCurrentMenu() == null)
                 break;
         }
 

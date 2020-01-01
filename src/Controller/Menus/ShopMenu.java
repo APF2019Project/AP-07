@@ -20,21 +20,21 @@ public class ShopMenu extends Menu {
         System.out.println("----------------------");
         for (Plant x : plants)
             if (!profile.getPurchasedPlants().contains(x))
-                System.out.println(x.getName());
+                System.out.println(x.getName() + "\t" + x.getCoin());
         System.out.println("----------------------");
         System.out.println("Zombies");
         System.out.println("----------------------");
         for (Zombie x : Zombie.getZombies())
             if (!profile.getPurchasedZombies().contains(x))
-                System.out.println(x.getName());
+                System.out.println(x.getName() + "\t" + x.getCoin());
         System.out.println("----------------------");
     }
 
     public void getCards(Profile profile) {
         for (Plant x : profile.getPurchasedPlants())
-            System.out.println(x.getName() + "\t" + x.getCoin());
+            System.out.println(x.getName());
         for (Zombie x : profile.getPurchasedZombies())
-            System.out.println(x.getName() + "\t" + x.getCoin());
+            System.out.println(x.getName());
     }
 
     public void buy(String name, Profile profile) {

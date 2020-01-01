@@ -4,7 +4,7 @@ public class Map {
 
     private static final int HEIGHT = 6;
     private static final int WIDTH = 19;
-    public static UnknownCell[][] unknownCells = new UnknownCell[HEIGHT+3][WIDTH+3];
+    public UnknownCell[][] unknownCells = new UnknownCell[HEIGHT+4][WIDTH+4];
 
     public UnknownCell[][] getUnknownCells() {
         return unknownCells;
@@ -16,7 +16,7 @@ public class Map {
     }
 
     public void setUnknownCell(int x, int y,UnknownCell unknownCell) {
-        unknownCells[x][y] = unknownCell;
+        this.unknownCells[x][y] = unknownCell;
     }
 
     void updateCells(){

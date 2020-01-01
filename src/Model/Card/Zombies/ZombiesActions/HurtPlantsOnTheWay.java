@@ -22,9 +22,9 @@ public class HurtPlantsOnTheWay extends Action {
             for (int j = 0; j < Map.getHEIGHT(); j++) {
                 //todo
                 //checking the x and y
-                if (Map.unknownCells[i][j].getPlant().getCell().y == zombie.getCell().y) {
+                if (map.unknownCells[i][j].getPlant().getCell().y == zombie.getCell().y) {
                     if (zombie.getHP() > 0) {
-                        plantsInARow.add(Map.unknownCells[i][j].getPlant());
+                        plantsInARow.add(map.unknownCells[i][j].getPlant());
                     }
                 }
             }

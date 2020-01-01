@@ -16,12 +16,12 @@ public class Attack extends Action {
     public void doAction(Zombie zombie, Map map, int d) {
         for (int i = 0; i < Map.getWIDTH(); i++) {
             for (int j = 0; j < Map.getHEIGHT(); j++) {
-                if (Map.unknownCells[i][j].getPlant() != null) {
-                    if (Map.unknownCells[i][j] == zombie.getCell()) {
+                if (map.unknownCells[i][j].getPlant() != null) {
+                    if (map.unknownCells[i][j] == zombie.getCell()) {
                         if (!zombie.getName().equals("Giga-gargantuar")) {
-                            if (Map.unknownCells[i][j].getPlant() .getHP() > 0) {
+                            if (map.unknownCells[i][j].getPlant() .getHP() > 0) {
                                 if (zombie.getHP() > 0) {
-                                    Map.unknownCells[i][j].getPlant().setHP(-zombie.getAP());
+                                    map.unknownCells[i][j].getPlant().setHP(-zombie.getAP());
                                 }
                             }
                         }

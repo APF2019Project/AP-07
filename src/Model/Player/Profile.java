@@ -111,4 +111,11 @@ public class Profile {
         this.purchasedPlants.add(plant);
     }
 
+    public static boolean validUsername(String username) {
+        for (Profile x:profiles)
+            if (x.getUsername().equals(username))
+                return false;
+        return true;
+    }
+
 }

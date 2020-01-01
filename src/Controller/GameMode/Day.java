@@ -10,7 +10,7 @@ import java.util.Random;
 public class Day extends GameMode {
 
     @Override
-    public void wave() {
+    public void wave(Battle battle) {
         if (getBattle().getCurrentTurn() >= 3 && canWave()) {
             int numberOfZombiesInAWave = (int) (Math.random() * ((10 - 4) + 1)) + 4;
             for (int i = 0; i < numberOfZombiesInAWave; i++) {

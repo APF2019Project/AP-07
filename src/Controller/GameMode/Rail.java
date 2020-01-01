@@ -8,7 +8,7 @@ public class Rail extends GameMode {
 
     @Override
     //dar asl wave nadare va be soorate tasadofi har chand turn zombie varede zamin mishe
-    public void wave() {
+    public void wave(Battle battle) {
 
     }
 

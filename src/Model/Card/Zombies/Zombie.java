@@ -3,6 +3,7 @@ package Model.Card.Zombies;
 import Model.Card.ActionsOfAnEvent;
 import Model.Card.Card;
 import Model.Card.Plants.Plant;
+import Model.Map.Map;
 import com.gilecode.yagson.YaGson;
 import java.io.File;
 import java.io.IOException;
@@ -41,7 +42,7 @@ public class Zombie extends Card {
 
     public static Zombie findZombie(String name) {
         for (Zombie x : zombies)
-            if (x.name.equals(name))
+            if (x.name.equalsIgnoreCase(name))
                 return x;
         return null;
     }
@@ -102,5 +103,12 @@ public class Zombie extends Card {
 
     public void setIronHat(boolean ironHat) {
         IronHat = ironHat;
+    }
+
+    public void act(Map map) {
+        /////////////////////////////////////////////////////////////////////////////////////
+        ////////////////////
+        /////////////////////////////////////////////////
+        ////////////////////////////////////
     }
 }

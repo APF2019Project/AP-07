@@ -6,7 +6,7 @@ import Model.Map.Map;
 public class PVP extends GameMode {
 
     @Override
-    public void wave() {
+    public void wave(Battle battle) {
 
     }
 

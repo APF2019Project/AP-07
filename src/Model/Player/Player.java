@@ -15,8 +15,8 @@ public class Player {
         return zombies;
     }
 
-    private ArrayList<Plant> plants=new ArrayList<>();
-    private ArrayList<Zombie> zombies=new ArrayList<>();
+    private ArrayList<Plant> plants;
+    private ArrayList<Zombie> zombies;
 
     public Player(){
     }
@@ -26,7 +26,7 @@ public class Player {
     }
 
     public void setCollection(Collection collection) {
-        this.zombies = collection.getZombies();
+        //this.zombies = collection.getZombies();
         this.plants = collection.getPlants();
     }
 

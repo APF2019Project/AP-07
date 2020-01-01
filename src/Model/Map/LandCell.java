@@ -16,7 +16,7 @@ public class LandCell extends UnknownCell {
 
     @Override
     public boolean canBeZombied(Zombie zombie) {
-        if(this.plant == null && !(zombie instanceof Snorkel))
+        if(this.plant == null && !(zombie.getName().equalsIgnoreCase("snorkelzombie") || zombie.getName().equalsIgnoreCase("dolphinriderzombie")))
         {
             return true;
         }

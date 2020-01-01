@@ -13,7 +13,7 @@ public abstract class GameMode {
     private boolean canWave = true;
     private ArrayList<Zombie> waveZombies = new ArrayList<>();
 
-    public abstract void wave();
+    public abstract void wave(Battle battle);
 
     public abstract boolean canWave();
 

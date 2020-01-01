@@ -11,10 +11,15 @@ public class LoginMenu extends Menu {
 
 
     public void createAccount(String username, String password) {
-        Profile profile = new Profile(username, password);
-        Profile.addAccount(profile);
-        menuHandler.setCurrentMenu(loginMenu);
-        System.out.println("Account created");
+        if (Profile.validUsername(username)) {
+            Profile profile = new Profile(username, password);
+            Profile.addAccount(profile);
+            menuHandler.setCurrentMenu(loginMenu);
+            System.out.println("Account created");
+        }
+        else {
+            System.out.println("invalid username");
+        }
     }
 
     public Profile Login(String username, String password) {

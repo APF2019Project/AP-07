@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 public class CollectionMenu extends Menu {
     public boolean zombieMode;
-    public boolean pvp;
+    public boolean pvp = false;
 
     public CollectionMenu() {
         this.orders = new String[]{"Show hand", "Show collection", "Select", "Remove", "Play", "Help", "Exit"};
@@ -75,13 +75,12 @@ public class CollectionMenu extends Menu {
     }
 
     public void play(Player player, Player player2) {
-        if (player.getPlants() != null && player.getZombies() != null) {
-            player.setCollection(collection);
-            if (!pvp)
-                Menu.menuHandler.setCurrentMenu(gameMenu);
-        } else {
-            player2.setCollection(collection);
-            menuHandler.setCurrentMenu(gameMenu);
+        player.setCollection(collection);
+        if (!pvp)
+            Menu.menuHandler.setCurrentMenu(gameMenu);
+        else {
+//            player2.setCollection(collection);
+//            menuHandler.setCurrentMenu(gameMenu);
         }
 
     }
