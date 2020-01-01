@@ -51,8 +51,8 @@ public class GameMenu extends Menu {
     }
 
     public void showLawn() {
-        for (UnknownCell[] cells : battle.getMap().getCells()) {
-            for (UnknownCell cell : cells) {
+        for (Cell[] cells : battle.getMap().getCells()) {
+            for (Cell cell : cells) {
                 for (Zombie z : cell.getZombies()) {
                     System.out.println(z.getName() + "\t" + cell.x + "," + cell.y + "\t" + z.getHP());
                 }
