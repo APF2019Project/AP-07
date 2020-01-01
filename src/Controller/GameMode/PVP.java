@@ -2,11 +2,12 @@ package Controller.GameMode;
 
 import Model.Map.LandCell;
 import Model.Map.Map;
+import Model.Player.Profile;
 
 public class PVP extends GameMode {
 
     @Override
-    public void wave(Battle battle) {
+    public void wave() {
 
     }
 
@@ -16,8 +17,8 @@ public class PVP extends GameMode {
     }
 
     @Override
-    public void handleWin() {
-
+    public boolean handleWin(Profile profile) {
+return true;
     }
 
     @Override
@@ -43,6 +44,7 @@ public class PVP extends GameMode {
                 m.setUnknownCell(i, j, new LandCell(i,j));
             }
         }
+        getBattle().setMap(m);
         return m;
     }
 }

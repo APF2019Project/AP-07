@@ -1,31 +1,19 @@
 package Model.Player;
 
-import Model.Card.Card;
 import Model.Card.Plants.Plant;
 import Model.Card.Zombies.Zombie;
 import com.gilecode.yagson.YaGson;
 
-import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 
 public class Profile {
     private ArrayList<Zombie> purchasedZombies = new ArrayList<Zombie>();
     private ArrayList<Plant> purchasedPlants = new ArrayList<>();
-
-    public static void setProfiles(ArrayList<Profile> profiles) {
-        Profile.profiles = profiles;
-    }
-
     private static ArrayList<Profile> profiles = new ArrayList<Profile>();
     private String username;
     private String password;
     private int score;
     private int externalCoins;
-
-    public int getExternalCoins() {
-        return externalCoins;
-    }
 
     public Profile(String username, String password) {
         this.password = password;
@@ -39,7 +27,7 @@ public class Profile {
         purchasedPlants.add(Plant.findPlant("SunFlower"));
         purchasedPlants.add(Plant.findPlant("CherryBomb"));
 
-        purchasedZombies.add(Zombie.findZombie("Zombie"));
+        purchasedZombies.add(Zombie.findZombie("ZombieGameMode"));
         purchasedZombies.add(Zombie.findZombie("Zomboni"));
         purchasedZombies.add(Zombie.findZombie("ScreenDoorZombie"));
         purchasedZombies.add(Zombie.findZombie("FootballZombie"));
@@ -49,10 +37,10 @@ public class Profile {
 
     }
 
-    public static Profile makeProfile(Profile profile){
+    public static Profile makeProfile(Profile profile) {
         YaGson yaGson = new YaGson();
-        String s=profile.toString();
-        Profile profile1=yaGson.fromJson(s,Profile.class);
+        String s = profile.toString();
+        Profile profile1 = yaGson.fromJson(s, Profile.class);
         profiles.add(profile1);
         return profile1;
     }
@@ -77,7 +65,6 @@ public class Profile {
         if (this.username.equals(username) && this.password.equals(password))
             profiles.remove(this);
     }
-
 
     public static Profile login(String username, String password) {
         for (Profile p : profiles) {
@@ -107,12 +94,24 @@ public class Profile {
         this.purchasedZombies.add(zombie);
     }
 
+    public static void setProfiles(ArrayList<Profile> profiles) {
+        Profile.profiles = profiles;
+    }
+
+    public int getExternalCoins() {
+        return externalCoins;
+    }
+
     public void addPlant(Plant plant) {
         this.purchasedPlants.add(plant);
     }
 
+    public void setExternalCoins(int externalCoins) {
+        this.externalCoins += externalCoins;
+    }
+
     public static boolean validUsername(String username) {
-        for (Profile x:profiles)
+        for (Profile x : profiles)
             if (x.getUsername().equals(username))
                 return false;
         return true;

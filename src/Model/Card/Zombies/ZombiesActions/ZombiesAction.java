@@ -33,7 +33,7 @@ public class ZombiesAction {
 
         ArrayList<Action> actions = new ArrayList<>();
 
-        Zombie zombie = Zombie.makeZombie("Zombie");
+        Zombie zombie = Zombie.makeZombie("ZombieGameMode");
         actions.add(walk);
         actions.add(attack);
         zombie.setActionsOfAnEvent(new ActionsOfAnEvent(onSpawn, actions) {

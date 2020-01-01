@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 public class PlayMenu extends Menu {
     public PlayMenu() {
-        this.orders = new String[]{"Day", "Water", "Rail", "Zombie", "PvP"};
+        this.orders = new String[]{"Day", "Water", "Rail", "ZombieGameMode", "PvP"};
     }
 
     public void startDayGame(Player player1, Player player2) {
