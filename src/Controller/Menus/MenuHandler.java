@@ -207,11 +207,11 @@ public class MenuHandler {
                     Menu.gameMenu.showHand();
                 } else if (plantPlant.matcher(input).matches()) {
                     String name = splitInput[1];
-                    Plant p = Plant.findPlant(name);
+                    Plant p = Plant.makePlant(name);
                     String[] planting = scanner.nextLine().split(" ");
                     int x = Integer.parseInt(planting[1]);
                     int y = Integer.parseInt(planting[2]);
-                    /////clone the plant
+                    Menu.gameMenu.plant(p,x,y);
                 } else if (removePlant.matcher(input).matches()) {
                     int x = Integer.parseInt(splitInput[1]);
                     int y = Integer.parseInt(splitInput[2]);

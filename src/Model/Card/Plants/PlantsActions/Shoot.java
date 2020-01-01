@@ -9,7 +9,7 @@ public class Shoot extends Action {
     @Override
     public void doAction(Plant plant, Map map, int d) {
         if (plant.getHP() > 0) {
-            for (int i = 0; i < map.getUnknownCells().length; i++) {
+            for (int i = 0; i < map.getCells().length; i++) {
                 if (map.getCell(plant.getCell().x, plant.getCell().y).x == plant.getCell().x) {
                     if (map.getCell(plant.getCell().x, plant.getCell().y).getZombies().size() > 0) {
                         //if more than 1 zombie was in a cell the weapon will affect just 1 of them randomly

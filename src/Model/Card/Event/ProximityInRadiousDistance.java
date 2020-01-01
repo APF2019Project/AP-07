@@ -9,12 +9,12 @@ public class ProximityInRadiousDistance extends Event {
     @Override
     public boolean check(Plant plant, Map map, int d) {
         //if (d == 8) {
-        for (int i = 0; i < map.getUnknownCells().length; i++) {
-            for (int j = 0; j < map.getUnknownCells()[i].length; j++) {
-                if (!map.getUnknownCells()[i][j].getZombies().isEmpty()) {
-                    if (abs(map.getUnknownCells()[i][j].x - plant.getCell().x) <= 1) {
-                        if (abs(map.getUnknownCells()[i][j].x - plant.getCell().x) <= 1) {
-                            if (abs(map.getUnknownCells()[i][j].y - plant.getCell().y) <= 1) {
+        for (int i = 0; i < map.getCells().length; i++) {
+            for (int j = 0; j < map.getCells()[i].length; j++) {
+                if (!map.getCells()[i][j].getZombies().isEmpty()) {
+                    if (abs(map.getCells()[i][j].x - plant.getCell().x) <= 1) {
+                        if (abs(map.getCells()[i][j].x - plant.getCell().x) <= 1) {
+                            if (abs(map.getCells()[i][j].y - plant.getCell().y) <= 1) {
                                 return true;
                             }
                         }

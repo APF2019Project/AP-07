@@ -16,16 +16,16 @@ public class ShieldDefend extends Action {
     @Override
     public void doAction(Zombie zombie, Map map, int d) {
         if (zombie.getArmour() > 0 && zombie.getHP()>0) {
-            for (int i = 0; i < map.unknownCells.length; i++) {
-                for (int j = 0; j < map.unknownCells[i].length; j++) {
-                    if (map.unknownCells[i][j].getPlant() != null) {
-                        if (!map.unknownCells[i][j].getPlant().getPeaOrProjectile().isProjectile()) {
+            for (int i = 0; i < map.cells.length; i++) {
+                for (int j = 0; j < map.cells[i].length; j++) {
+                    if (map.cells[i][j].getPlant() != null) {
+                        if (!map.cells[i][j].getPlant().getPeaOrProjectile().isProjectile()) {
                             if (zombie.getArmour() > 0) {
                                 zombie.setArmour(-1);
                             }
                         }
-                        if (map.unknownCells[i][j].getPlant().getPeaOrProjectile().isProjectile()) {
-                            zombie.setHP(map.unknownCells[i][j].getPlant().getAP());
+                        if (map.cells[i][j].getPlant().getPeaOrProjectile().isProjectile()) {
+                            zombie.setHP(map.cells[i][j].getPlant().getAP());
                         }
                     }
                 }

@@ -7,9 +7,10 @@ public class Cell {
     public int x;
     public int y;
     //in each cell we have just 1 plant but not only 1 zombie
-    protected Plant plant;
-    protected ArrayList<Zombie> zombies;
+    public Plant plant;
+    public ArrayList<Zombie> zombies;
     public boolean water;
+    public boolean LilyPad;
 
 //     boolean canBePlanted(Plant plant);
 //     boolean canBeZombied(Zombie zombie);
@@ -32,6 +33,8 @@ public class Cell {
         }
     }
 
+
+
     public Plant getPlant() {
         return plant;
     }
@@ -46,5 +49,19 @@ public class Cell {
 
     public void setZombies(ArrayList<Zombie> zombies) {
         this.zombies = zombies;
+    }
+
+    public void removePlant() {
+
+    }
+
+    public boolean canBePlanted() {
+        if (this.water) {
+            if (this.LilyPad) {
+                if (this.plant == null)
+                    return true;
+            }
+        }
+        return true;
     }
 }
