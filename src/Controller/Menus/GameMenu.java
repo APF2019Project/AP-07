@@ -7,6 +7,8 @@ import Model.Map.Cell;
 import Model.Map.Map;
 import Model.Player.Player;
 
+import java.io.IOException;
+
 public class GameMenu extends Menu {
     public Day day;
     public Water water;
@@ -32,9 +34,15 @@ public class GameMenu extends Menu {
         cell.removePlant();
     }
 
-    public void plant(Plant plant, int x, int y) {
+    public void plant(String name, int x, int y) throws IOException {
         if (battle.getMap().getCell(x,y).canBePlanted()) {
-            battle.getMap().getCell(x,y).plant = plant;
+//            for (Plant p:player1.getPlants()){
+//                if (p.getName().equalsIgnoreCase(name)){
+                    battle.getMap().getCell(x,y).plant = Plant.makePlant(name);
+                    name =null;
+//                    break;
+//                }
+//            }
         }
     }
 
@@ -53,8 +61,10 @@ public class GameMenu extends Menu {
     public void showLawn() {
         for (Cell[] cells : battle.getMap().getCells()) {
             for (Cell cell : cells) {
-                for (Zombie z : cell.getZombies()) {
-                    System.out.println(z.getName() + "\t" + cell.x + "," + cell.y + "\t" + z.getHP());
+                if (cell.zombies.size() != 0) {
+                    for (Zombie z : cell.zombies) {
+                        System.out.println(z.getName() + "\t" + cell.x + "," + cell.y + "\t" + z.getHP());
+                    }
                 }
                 if (cell.getPlant() != null) {
                     Plant z = cell.getPlant();

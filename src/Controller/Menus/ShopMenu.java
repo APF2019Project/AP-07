@@ -31,10 +31,10 @@ public class ShopMenu extends Menu {
     }
 
     public void getCards(Profile profile) {
-        for (Plant x : profile.getPurchasedPlants())
-            System.out.println(x.getName());
-        for (Zombie x : profile.getPurchasedZombies())
-            System.out.println(x.getName());
+        for (String x : profile.getPurchasedPlants())
+            System.out.println(x);
+        for (String x : profile.getPurchasedZombies())
+            System.out.println(x);
     }
 
     public void buy(String name, Profile profile) {

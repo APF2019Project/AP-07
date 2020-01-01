@@ -7,8 +7,8 @@ import com.gilecode.yagson.YaGson;
 import java.util.ArrayList;
 
 public class Profile {
-    private ArrayList<String> purchasedZombies = new ArrayList<>();
-    private ArrayList<String> purchasedPlants = new ArrayList<>();
+    private ArrayList<String> purchasedZombies ;
+    private ArrayList<String> purchasedPlants;
     private static ArrayList<Profile> profiles = new ArrayList<Profile>();
     private String username;
     private String password;
@@ -18,6 +18,8 @@ public class Profile {
     public Profile(String username, String password) {
         this.password = password;
         this.username = username;
+        purchasedZombies = new ArrayList<String>();
+        purchasedPlants = new ArrayList<String>();
 
         purchasedPlants.add("PeaShooter");
         purchasedPlants.add("SnowPea");
@@ -27,7 +29,7 @@ public class Profile {
         purchasedPlants.add("SunFlower");
         purchasedPlants.add("CherryBomb");
 
-        purchasedZombies.add("ZombieGameMode");
+        purchasedZombies.add("Zombie");
         purchasedZombies.add("Zomboni");
         purchasedZombies.add("ScreenDoorZombie");
         purchasedZombies.add("FootballZombie");
@@ -81,16 +83,16 @@ public class Profile {
         profiles.add(profile);
     }
 
-    public ArrayList<Zombie> getPurchasedZombies() {
+    public ArrayList<String> getPurchasedZombies() {
         return purchasedZombies;
     }
 
-    public ArrayList<Plant> getPurchasedPlants() {
+    public ArrayList<String> getPurchasedPlants() {
         return purchasedPlants;
     }
 
     public void addZombie(Zombie zombie) {
-        this.purchasedZombies.add(zombie);
+        this.purchasedZombies.add(zombie.getName());
     }
 
     public static void setProfiles(ArrayList<Profile> profiles) {
@@ -102,7 +104,7 @@ public class Profile {
     }
 
     public void addPlant(Plant plant) {
-        this.purchasedPlants.add(plant);
+        this.purchasedPlants.add(plant.getName());
     }
 
     public void setExternalCoins(int externalCoins) {
@@ -110,9 +112,11 @@ public class Profile {
     }
 
     public static boolean validUsername(String username) {
-        for (Profile x : profiles)
-            if (x.getUsername().equals(username))
-                return false;
+        if (profiles.size()!=0) {
+            for (Profile x : profiles)
+                if (x.getUsername().equals(username))
+                    return false;
+        }
         return true;
     }
 

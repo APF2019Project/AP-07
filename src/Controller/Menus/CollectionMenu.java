@@ -36,17 +36,17 @@ public class CollectionMenu extends Menu {
 
     public void showCollection(Profile profile) {
         if (!zombieMode) {
-            for (Plant p : profile.getPurchasedPlants()) {
+            for (String p : profile.getPurchasedPlants()) {
                 if (!collection.getPlants().contains(p))
-                    System.out.println(p.getName());
+                    System.out.println(p);
             }
         }
 
         ///baraie halate zombie
         else {
-            for (Zombie z : profile.getPurchasedZombies()) {
+            for (String z : profile.getPurchasedZombies()) {
                 if (!collection.getZombies().contains(z))
-                    System.out.println(z.getName());
+                    System.out.println(z);
             }
         }
     }
@@ -57,13 +57,13 @@ public class CollectionMenu extends Menu {
             Zombie z = Zombie.findZombie(name);
             if (collection.getZombies().size() == 7)
                 System.out.println("your collection is full");
-            else if (profile.getPurchasedZombies().contains(z) && !collection.getZombies().contains(z))
+            else if (profile.getPurchasedZombies().contains(z.getName()) && !collection.getZombies().contains(z))
                 collection.addZombie(z);
         } else {
             Plant p = Plant.findPlant(name);
             if (collection.getPlants().size() == 7)
                 System.out.println("your collection is full");
-            else if (profile.getPurchasedPlants().contains(p) && !collection.getPlants().contains(p))
+            else if (profile.getPurchasedPlants().contains(p.getName()) && !collection.getPlants().contains(p))
                 collection.addPlant(p);
         }
 
