@@ -1,6 +1,6 @@
 package Controller.GameMode;
 
-import Model.Map.LandCell;
+import Model.Map.UnknoenCell;
 import Model.Map.Map;
 import Model.Player.Profile;
 
@@ -41,7 +41,7 @@ return true;
         Map m = new Map();
         for (int i = 0; i < Map.getHEIGHT(); i++) {
             for (int j = 0; j < Map.getWIDTH(); j++) {
-                m.setUnknownCell(i, j, new LandCell(i,j));
+                m.setUnknownCell(i, j, new UnknoenCell(i,j));
             }
         }
         getBattle().setMap(m);

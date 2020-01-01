@@ -2,7 +2,7 @@ package Controller.GameMode;
 
 import Model.Card.Plants.Plant;
 import Model.Card.Zombies.Zombie;
-import Model.Map.LandCell;
+import Model.Map.UnknoenCell;
 import Model.Map.Map;
 import Model.Player.Profile;
 
@@ -21,10 +21,8 @@ public class Rail extends GameMode {
         int numberOfPassedTurns = (int) (Math.random() * ((5 - 3) + 1)) + 3;
         int randomZombie = (int) (Math.random() * ((Zombie.getZombies().size()) + 1));
         Zombie newZombie = Zombie.makeZombie(Zombie.getZombies().get(randomZombie).getName());
-        LandCell landCell = new LandCell();
-        landCell.x = 0;
-        landCell.y = (int) (Math.random() * ((5) + 1)) + 5;
-        newZombie.setCell(landCell);
+        UnknoenCell unknoenCell = new UnknoenCell(0,(int) (Math.random() * ((5) + 1)) + 5);
+        newZombie.setCell(unknoenCell);
     }
 
     @Override
@@ -111,7 +109,7 @@ public class Rail extends GameMode {
         Map m = new Map();
         for (int i = 0; i < Map.getHEIGHT(); i++) {
             for (int j = 0; j < Map.getWIDTH(); j++) {
-                m.setUnknownCell(i, j, new LandCell(i,j));
+                m.setUnknownCell(i, j, new UnknoenCell(i,j));
             }
         }
         getBattle().setMap(m);

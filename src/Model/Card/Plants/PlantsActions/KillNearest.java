@@ -4,7 +4,6 @@ import Model.Card.Action;
 import Model.Card.Plants.Plant;
 import Model.Card.Zombies.Zombie;
 import Model.Map.Map;
-import Model.Map.UnknownCell;
 
 public class KillNearest extends Action {
     public int calculateDistance(UnknownCell p, UnknownCell z) {

@@ -4,7 +4,6 @@ import Controller.GameMode.*;
 import Model.Card.Plants.Plant;
 import Model.Card.Zombies.Zombie;
 import Model.Map.Map;
-import Model.Map.UnknownCell;
 import Model.Player.Player;
 
 public class GameMenu extends Menu {
@@ -30,6 +29,10 @@ public class GameMenu extends Menu {
         Map map = battle.getMap();
         UnknownCell cell = map.getCell(x, y);
         cell.removePlant();
+    }
+
+    public void plant(Plant plant, int x, int y) {
+//        if (battle.getMap().getCell(x,y))
     }
 
     public void endTurn() {
