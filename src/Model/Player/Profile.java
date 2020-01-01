@@ -27,7 +27,7 @@ public class Profile {
         purchasedPlants.add(Plant.findPlant("SunFlower"));
         purchasedPlants.add(Plant.findPlant("CherryBomb"));
 
-        purchasedZombies.add(Zombie.findZombie("Zombie"));
+        purchasedZombies.add(Zombie.findZombie("ZombieGameMode"));
         purchasedZombies.add(Zombie.findZombie("Zomboni"));
         purchasedZombies.add(Zombie.findZombie("ScreenDoorZombie"));
         purchasedZombies.add(Zombie.findZombie("FootballZombie"));

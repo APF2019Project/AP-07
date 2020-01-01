@@ -55,7 +55,7 @@ public class Menu {
                 "DolphinRiderZombie",
                 "FootballZombie",
                 "Giga-gargantuar",
-                "NewspaperZombie", "PogoZombie", "ScreenDoorZombie", "SnorkelZombie", "TargetZombie", "Zombie", "Zomboni"};
+                "NewspaperZombie", "PogoZombie", "ScreenDoorZombie", "SnorkelZombie", "TargetZombie","Zombie",  "Zomboni"};
         for (String x : plants)
             Plant.makePlant(x);
         for (String x : zombies)
