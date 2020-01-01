@@ -7,8 +7,8 @@ import com.gilecode.yagson.YaGson;
 import java.util.ArrayList;
 
 public class Profile {
-    private ArrayList<Zombie> purchasedZombies = new ArrayList<Zombie>();
-    private ArrayList<Plant> purchasedPlants = new ArrayList<>();
+    private ArrayList<String> purchasedZombies = new ArrayList<>();
+    private ArrayList<String> purchasedPlants = new ArrayList<>();
     private static ArrayList<Profile> profiles = new ArrayList<Profile>();
     private String username;
     private String password;
@@ -19,22 +19,21 @@ public class Profile {
         this.password = password;
         this.username = username;
 
-        purchasedPlants.add(Plant.findPlant("PeaShooter"));
-        purchasedPlants.add(Plant.findPlant("SnowPea"));
-        purchasedPlants.add(Plant.findPlant("Explode-o-nut"));
-        purchasedPlants.add(Plant.findPlant("Scaredy-shroom"));
-        purchasedPlants.add(Plant.findPlant("Kernel-pult"));
-        purchasedPlants.add(Plant.findPlant("SunFlower"));
-        purchasedPlants.add(Plant.findPlant("CherryBomb"));
+        purchasedPlants.add("PeaShooter");
+        purchasedPlants.add("SnowPea");
+        purchasedPlants.add("Explode-o-nut");
+        purchasedPlants.add("Scaredy-shroom");
+        purchasedPlants.add("Kernel-pult");
+        purchasedPlants.add("SunFlower");
+        purchasedPlants.add("CherryBomb");
 
-        purchasedZombies.add(Zombie.findZombie("ZombieGameMode"));
-        purchasedZombies.add(Zombie.findZombie("Zomboni"));
-        purchasedZombies.add(Zombie.findZombie("ScreenDoorZombie"));
-        purchasedZombies.add(Zombie.findZombie("FootballZombie"));
-        purchasedZombies.add(Zombie.findZombie("ConeheadZombie"));
-        purchasedZombies.add(Zombie.findZombie("BalloonZombie"));
-        purchasedZombies.add(Zombie.findZombie("BungeeZombie"));
-
+        purchasedZombies.add("ZombieGameMode");
+        purchasedZombies.add("Zomboni");
+        purchasedZombies.add("ScreenDoorZombie");
+        purchasedZombies.add("FootballZombie");
+        purchasedZombies.add("ConeheadZombie");
+        purchasedZombies.add("BalloonZombie");
+        purchasedZombies.add("BungeeZombie");
     }
 
     public static Profile makeProfile(Profile profile) {

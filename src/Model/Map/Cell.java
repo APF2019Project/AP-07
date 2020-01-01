@@ -8,6 +8,7 @@ public class Cell {
     public int y;
     //in each cell we have just 1 plant but not only 1 zombie
     protected Plant plant;
+    public Plant LilyPad;
     protected ArrayList<Zombie> zombies;
     public boolean water;
 

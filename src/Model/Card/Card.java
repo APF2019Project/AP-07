@@ -1,7 +1,10 @@
 package Model.Card;
 
+\package Model.Card;
+
 import Model.Card.Plants.Plant;
 import Model.Card.Zombies.Zombie;
+import Model.Map.Cell;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -16,7 +19,7 @@ public class Card {
     protected static int uniqueId = 0;
     protected int AP;//num of throwing pea or projectiles
     protected int HP;
-    protected UnknownCell cell;
+    protected Cell cell;
     protected int coin;
     protected static ArrayList<Plant> plants = new ArrayList<>();
     protected static ArrayList<Zombie> zombies = new ArrayList<>();
@@ -59,7 +62,7 @@ public class Card {
         this.HP += HP;
     }
 
-    public void setCell(UnknownCell cell) {
+    public void setCell(Cell cell) {
         this.cell = cell;
     }
 
@@ -91,7 +94,7 @@ public class Card {
         return HP;
     }
 
-    public UnknownCell getCell() {
+    public Cell getCell() {
         return cell;
     }
 
@@ -118,5 +121,4 @@ public class Card {
     public int getPrice() {
         return price;
     }
-
 }

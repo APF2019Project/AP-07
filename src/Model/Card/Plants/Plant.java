@@ -5,7 +5,7 @@ import Model.Card.ActionsOfAnEvent;
 import Model.Card.Card;
 import Model.Card.Plants.PlantsActions.PlantsAction;
 import Model.Map.Map;
-import com.gilecode.yagson.YaGson;
+
 
 import java.io.File;
 import java.io.IOException;
@@ -29,6 +29,7 @@ public class Plant extends Card {
 
     public static Plant makePlant(String name) throws IOException {
         YaGson yaGson = new YaGson();
+        
         Plant plant = new Plant(name);
         File file = new File("Plants\\" + plant.getName());
         String string = Card.makeString(file);
