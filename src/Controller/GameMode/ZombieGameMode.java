@@ -1,17 +1,17 @@
 package Controller.GameMode;
 
 import Model.Card.Plants.Plant;
-import Model.Map.UnknoenCell;
 import Model.Map.Map;
-import Model.Map.WaterCell;
 import Model.Player.Profile;
 
 import java.util.ArrayList;
 
 public class ZombieGameMode extends GameMode {
+
+    private boolean potatoMine;
+
     @Override
     public void wave() {
-
         int size = 0;
         ArrayList<Plant> randomPlants = new ArrayList<>();
         randomPlants.add(Plant.findPlant("Explode-o-nut"));
@@ -28,7 +28,6 @@ public class ZombieGameMode extends GameMode {
         randomPlants.add(Plant.findPlant("Cabbage-pult"));
         randomPlants.add(Plant.findPlant("Cabbage-pult"));
         randomPlants.add(Plant.findPlant("GatlingPea"));
-        randomPlants.add(Plant.findPlant("PotatoMine"));
 
         if (getBattle().getMap().getCell(0, 2) instanceof UnknoenCell) {
             randomPlants.add(Plant.findPlant("PotatoMine"));
@@ -45,7 +44,6 @@ public class ZombieGameMode extends GameMode {
             randomPlants.add(Plant.findPlant("LilyPad"));
             size = randomPlants.size();
         }
-
         int randomNumberOfPlants = (int) (Math.random() * ((size) + 1)) + size;
 
     }

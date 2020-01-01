@@ -1,8 +1,8 @@
 package Controller.GameMode;
 
 import Model.Card.Zombies.Zombie;
-import Model.Map.UnknoenCell;
 import Model.Map.Map;
+import Model.Map.Cell;
 import Model.Player.Profile;
 
 import java.util.ArrayList;
@@ -17,12 +17,12 @@ public class Day extends GameMode {
             for (int i = 0; i < numberOfZombiesInAWave; i++) {
                 Random random = new Random();
                 int randomY = (int) (Math.random() * ((Map.getHEIGHT()) + 1));
-                UnknoenCell unknownCell = new UnknoenCell(0, randomY);
+                Cell cell = new Cell();
                 Zombie zombie = Zombie.getZombies().get(random.nextInt());
-                zombie.setCell(unknownCell);
+                zombie.setCell(cell);
                 getWaveZombies().add(zombie);
                 Map map = new Map();
-                map.setUnknownCell(0, randomY, unknownCell);
+                map.setUnknownCell(0, randomY, cell);
             }
             setWaveCounter(1);
         }
@@ -72,9 +72,7 @@ public class Day extends GameMode {
             profile.setExternalCoins(getBattle().getPlayer(0).getNumberOfKilledZombies() * 10);
             return false;
         }
-
         return true;
-
     }
 
     @Override
