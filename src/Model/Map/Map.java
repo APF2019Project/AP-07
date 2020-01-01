@@ -4,7 +4,7 @@ public class Map {
 
     private static final int HEIGHT = 6;
     private static final int WIDTH = 19;
-    public UnknownCell[][] unknownCells = new UnknownCell[HEIGHT+4][WIDTH+4];
+    public LandCell[][] unknownCells = new LandCell[HEIGHT+4][WIDTH+4];
 
     public UnknownCell[][] getUnknownCells() {
         return unknownCells;
@@ -15,8 +15,12 @@ public class Map {
         return unknownCells[x][y];
     }
 
-    public void setUnknownCell(int x, int y,UnknownCell unknownCell) {
+    public void setUnknownCell(int x, int y,LandCell unknownCell) {
         this.unknownCells[x][y] = unknownCell;
+    }
+
+    public void setLandCell(int x,int y, LandCell landCell){
+
     }
 
     void updateCells(){

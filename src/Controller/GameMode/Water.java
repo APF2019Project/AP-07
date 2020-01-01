@@ -11,22 +11,22 @@ public class Water extends GameMode {
 
     @Override
     public void wave(Battle battle) {
-        if (getBattle().getCurrentTurn() >= 3 && canWave()) {
-            int numberOfZombiesInAWave = (int) (Math.random() * ((10 - 4) + 1)) + 4;
-            for (int i = 0; i < numberOfZombiesInAWave; i++) {
-                Random random = new Random();
-                int randomY = (int) (Math.random() * ((Map.getHEIGHT()) + 1));
-                UnknownCell unknownCell = new UnknownCell();
-                unknownCell.x = 0;
-                unknownCell.y = randomY;
-                Model.Card.Zombies.Zombie zombie = Zombie.getZombies().get(random.nextInt());
-                zombie.setCell(unknownCell);
-                getWaveZombies().add(zombie);
-                Map map = new Map();
-                map.setUnknownCell(0, randomY, unknownCell);
-            }
-            setWaveCounter(1);
-        }
+//        if (getBattle().getCurrentTurn() >= 3 && canWave()) {
+//            int numberOfZombiesInAWave = (int) (Math.random() * ((10 - 4) + 1)) + 4;
+//            for (int i = 0; i < numberOfZombiesInAWave; i++) {
+//                Random random = new Random();
+//                int randomY = (int) (Math.random() * ((Map.getHEIGHT()) + 1));
+//                UnknownCell unknownCell = new UnknownCell();
+//                unknownCell.x = 0;
+//                unknownCell.y = randomY;
+//                Model.Card.Zombies.Zombie zombie = Zombie.getZombies().get(random.nextInt());
+//                zombie.setCell(unknownCell);
+//                getWaveZombies().add(zombie);
+//                Map map = new Map();
+//                map.setUnknownCell(0, randomY, unknownCell);
+//            }
+//            setWaveCounter(1);
+//        }
     }
 
     //check the turn
@@ -68,11 +68,11 @@ public class Water extends GameMode {
     @Override
     public Map generateMap() {
         Map m = new Map();
-        for (int i = 0; i < Map.getHEIGHT(); i++) {
-            for (int j = 0; j < Map.getWIDTH(); j++) {
-                m.setUnknownCell(i, j, new WaterCell());
-            }
-        }
+//        for (int i = 0; i < Map.getHEIGHT(); i++) {
+//            for (int j = 0; j < Map.getWIDTH(); j++) {
+//                m.setUnknownCell(i, j, new WaterCell());
+//            }
+//        }
         return m;
     }
 }

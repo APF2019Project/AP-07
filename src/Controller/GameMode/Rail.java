@@ -42,7 +42,7 @@ public class Rail extends GameMode {
         Map m = new Map();
         for (int i = 0; i < Map.getHEIGHT(); i++) {
             for (int j = 0; j < Map.getWIDTH(); j++) {
-                m.setUnknownCell(i, j, new LandCell());
+                m.setUnknownCell(i, j, new LandCell(i,j));
             }
         }
         return m;

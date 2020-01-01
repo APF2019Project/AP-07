@@ -16,9 +16,7 @@ public class Day extends GameMode {
             for (int i = 0; i < numberOfZombiesInAWave; i++) {
                 Random random = new Random();
                 int randomY = (int) (Math.random() * ((Map.getHEIGHT()) + 1));
-                UnknownCell unknownCell = new UnknownCell();
-                unknownCell.x = 0;
-                unknownCell.y = randomY;
+                LandCell unknownCell = new LandCell(0, randomY);
                 Zombie zombie = Zombie.getZombies().get(random.nextInt());
                 zombie.setCell(unknownCell);
                 getWaveZombies().add(zombie);
@@ -35,7 +33,7 @@ public class Day extends GameMode {
     //7 turn pas az marge last zombie true mishe
     @Override
     public boolean canWave() {
-       return false;
+        return false;
     }
 
     @Override
@@ -72,9 +70,9 @@ public class Day extends GameMode {
     @Override
     public Map generateMap() {
         Map m = new Map();
-        for (int i = 0; i < Map.getHEIGHT(); i++) {
-            for (int j = 0; j < Map.getWIDTH(); j++) {
-                m.setUnknownCell(i, j, new LandCell());
+        for (int i = 0; i < Map.getHEIGHT() + 4; i++) {
+            for (int j = 0; j < Map.getWIDTH() + 4; j++) {
+                m.setUnknownCell(i, j, new LandCell(i,j));
             }
         }
         return m;
