@@ -75,9 +75,7 @@ public class Day extends GameMode {
             profile.setExternalCoins(getBattle().getPlayer(0).getNumberOfKilledZombies() * 10);
             return false;
         }
-
         return true;
-
     }
 
     @Override

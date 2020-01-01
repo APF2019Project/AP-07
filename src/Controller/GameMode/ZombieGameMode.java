@@ -9,9 +9,9 @@ import Model.Player.Profile;
 import java.util.ArrayList;
 
 public class ZombieGameMode extends GameMode {
+
     @Override
     public void wave() {
-
         int size = 0;
         ArrayList<Plant> randomPlants = new ArrayList<>();
         randomPlants.add(Plant.findPlant("Explode-o-nut"));
@@ -45,7 +45,6 @@ public class ZombieGameMode extends GameMode {
             randomPlants.add(Plant.findPlant("LilyPad"));
             size = randomPlants.size();
         }
-
         int randomNumberOfPlants = (int) (Math.random() * ((size) + 1)) + size;
 
     }

@@ -34,7 +34,7 @@ public class Rail extends GameMode {
 
     @Override
     public boolean handleWin(Profile profile) {
-        //if player lose
+//if player lose
         for (int i = 0; i < getBattle().getMap().getUnknownCells().length; i++) {
             for (int j = 0; j < getBattle().getMap().getUnknownCells()[i].length; i++) {
                 for (int k = 0; k < getBattle().getMap().getUnknownCells()[i][j].getZombies().size(); k++) {
@@ -69,6 +69,7 @@ public class Rail extends GameMode {
         }
 
         return true;
+
 
     }
 
