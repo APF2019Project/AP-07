@@ -74,6 +74,5 @@ public class Cell {
                 return true;
             return false;
         }
-        return true;
     }
 }

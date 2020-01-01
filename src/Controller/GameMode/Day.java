@@ -22,7 +22,7 @@ public class Day extends GameMode {
                 zombie.setCell(cell);
                 getWaveZombies().add(zombie);
                 Map map = new Map();
-                map.setUnknownCell(0, randomY, cell);
+                map.setCell(0, randomY, cell);
             }
             setWaveCounter(1);
         }
@@ -103,7 +103,7 @@ public class Day extends GameMode {
         Map m = new Map();
         for (int i = 0; i < Map.getHEIGHT() + 4; i++) {
             for (int j = 0; j < Map.getWIDTH() + 4; j++) {
-                m.setUnknownCell(i, j, new UnknoenCell(i,j));
+                m.setCell(i, j, new Cell(i,j));
             }
         }
         return m;
