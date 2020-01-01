@@ -33,10 +33,10 @@ public class Rail extends GameMode {
     @Override
     public boolean handleWin(Profile profile) {
         //if player lose
-        for (int i = 0; i < getBattle().getMap().getUnknownCells().length; i++) {
-            for (int j = 0; j < getBattle().getMap().getUnknownCells()[i].length; i++) {
-                for (int k = 0; k < getBattle().getMap().getUnknownCells()[i][j].getZombies().size(); k++) {
-                    if (getBattle().getMap().getUnknownCells()[i][j].getZombies().get(k).getCell().x == Map.getWIDTH() + 1) {
+        for (int i = 0; i < getBattle().getMap().getCells().length; i++) {
+            for (int j = 0; j < getBattle().getMap().getCells()[i].length; i++) {
+                for (int k = 0; k < getBattle().getMap().getCells()[i][j].getZombies().size(); k++) {
+                    if (getBattle().getMap().getCells()[i][j].getZombies().get(k).getCell().x == Map.getWIDTH() + 1) {
                         return false;
                     }
                 }
@@ -45,10 +45,10 @@ public class Rail extends GameMode {
         //if player win
         boolean allZombisAreDead = true;
         ArrayList<Zombie> allZombies = new ArrayList<>();
-        for (int i = 0; i < getBattle().getMap().getUnknownCells().length; i++) {
-            for (int j = 0; j < getBattle().getMap().getUnknownCells()[i].length; i++) {
-                for (int k = 0; k < getBattle().getMap().getUnknownCells()[i][j].getZombies().size(); k++) {
-                    allZombies.addAll(getBattle().getMap().getUnknownCells()[i][j].getZombies());
+        for (int i = 0; i < getBattle().getMap().getCells().length; i++) {
+            for (int j = 0; j < getBattle().getMap().getCells()[i].length; i++) {
+                for (int k = 0; k < getBattle().getMap().getCells()[i][j].getZombies().size(); k++) {
+                    allZombies.addAll(getBattle().getMap().getCells()[i][j].getZombies());
                 }
             }
         }

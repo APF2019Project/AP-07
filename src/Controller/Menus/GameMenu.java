@@ -3,6 +3,7 @@ package Controller.Menus;
 import Controller.GameMode.*;
 import Model.Card.Plants.Plant;
 import Model.Card.Zombies.Zombie;
+import Model.Map.Cell;
 import Model.Map.Map;
 import Model.Player.Player;
 
@@ -27,12 +28,14 @@ public class GameMenu extends Menu {
 
     public void remove(int x, int y) {
         Map map = battle.getMap();
-        UnknownCell cell = map.getCell(x, y);
+        Cell cell = map.getCell(x, y);
         cell.removePlant();
     }
 
     public void plant(Plant plant, int x, int y) {
-//        if (battle.getMap().getCell(x,y))
+        if (battle.getMap().getCell(x,y).canBePlanted()) {
+            battle.getMap().getCell(x,y).plant = plant;
+        }
     }
 
     public void endTurn() {
@@ -48,7 +51,7 @@ public class GameMenu extends Menu {
     }
 
     public void showLawn() {
-        for (UnknownCell[] cells : battle.getMap().getUnknownCells()) {
+        for (UnknownCell[] cells : battle.getMap().getCells()) {
             for (UnknownCell cell : cells) {
                 for (Zombie z : cell.getZombies()) {
                     System.out.println(z.getName() + "\t" + cell.x + "," + cell.y + "\t" + z.getHP());

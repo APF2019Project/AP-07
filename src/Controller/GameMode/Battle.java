@@ -42,7 +42,7 @@ public class Battle {
     }
 
     public void plant(Plant plant, Cell cell) {
-        cell.plant(plant);
+        cell.plant = plant;
     }
 
     public void dig(Cell cell) {

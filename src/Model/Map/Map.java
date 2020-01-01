@@ -4,19 +4,19 @@ public class Map {
 
     private static final int HEIGHT = 6;
     private static final int WIDTH = 19;
-    public Cell[][] unknownCells = new Cell[HEIGHT+4][WIDTH+4];
+    public Cell[][] cells = new Cell[HEIGHT+4][WIDTH+4];
 
-    public Cell[][] getUnknownCells() {
-        return unknownCells;
+    public Cell[][] getCells() {
+        return cells;
     }
 
     public Cell getCell(int x , int y)
     {
-        return unknownCells[x][y];
+        return cells[x][y];
     }
 
     public void setUnknownCell(int x, int y, Cell cell) {
-        this.unknownCells[x][y] = cell;
+        this.cells[x][y] = cell;
     }
 
     public void setLandCell(int x,int y, Cell landCell){

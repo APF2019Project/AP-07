@@ -13,13 +13,13 @@ public class Magnet extends Action {
     @Override
     public void doAction(Plant plant, Map map, int d) {
         ArrayList<Zombie> zombies = new ArrayList<>();
-        for (int i = 0; i < map.getUnknownCells().length; i++) {
-            for (int j = 0; j < map.getUnknownCells()[i].length; j++) {
-                if (!map.getUnknownCells()[i][j].getZombies().isEmpty()) {
-                    if (abs(map.getUnknownCells()[i][j].x - plant.getCell().x) <= 1) {
-                        if (abs(map.getUnknownCells()[i][j].x - plant.getCell().x) <= 1) {
-                            if (abs(map.getUnknownCells()[i][j].y - plant.getCell().y) <= 1) {
-                                zombies.addAll(map.getUnknownCells()[i][j].getZombies());
+        for (int i = 0; i < map.getCells().length; i++) {
+            for (int j = 0; j < map.getCells()[i].length; j++) {
+                if (!map.getCells()[i][j].getZombies().isEmpty()) {
+                    if (abs(map.getCells()[i][j].x - plant.getCell().x) <= 1) {
+                        if (abs(map.getCells()[i][j].x - plant.getCell().x) <= 1) {
+                            if (abs(map.getCells()[i][j].y - plant.getCell().y) <= 1) {
+                                zombies.addAll(map.getCells()[i][j].getZombies());
                             }
                         }
                     }
