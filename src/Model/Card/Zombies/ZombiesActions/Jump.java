@@ -17,14 +17,12 @@ public class Jump extends Action {
     public void doAction(Zombie zombie, Map map, int d) {
         int x = zombie.getCell().x;
         int y = zombie.getCell().y;
-        if (map.getCell(x + 1, y).getPlant() != null) {
-            if (map.getCell(x + 2, y) != null) {
-                if (zombie.getHP() > 0) {
-                    Cell cell = new Cell();
-                    map.getCell(zombie.getCell().x, zombie.getCell().y ).getZombies().remove(zombie);
-                    zombie.setCell(map.getCell(x + 2, y));
-                    map.getCell(zombie.getCell().x, zombie.getCell().y).getZombies().add(zombie);
-                }
+        if (map.getCell(x , y-1).getPlant() != null) {
+            if (zombie.getHP() > 0) {
+                Cell cell = new Cell();
+                map.getCell(zombie.getCell().x, zombie.getCell().y ).zombies.remove(zombie);
+                zombie.setCell(map.getCell(x , y -2));
+                map.getCell(zombie.getCell().x, zombie.getCell().y).zombies.add(zombie);
             }
         }
     }

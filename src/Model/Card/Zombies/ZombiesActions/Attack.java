@@ -14,10 +14,10 @@ public class Attack extends Action {
 
     @Override
     public void doAction(Zombie zombie, Map map, int d) {
-        for (int i = 0; i < Map.getWIDTH(); i++) {
-            for (int j = 0; j < Map.getHEIGHT(); j++) {
+        for (int i = 0; i < Map.getHEIGHT(); i++) {
+            for (int j = 0; j < Map.getWIDTH(); j++) {
                 if (map.cells[i][j].getPlant() != null) {
-                    if (map.cells[i][j] == zombie.getCell()) {
+                    if (i == zombie.getCell().x && j == zombie.getCell().y -1) {
                         if (!zombie.getName().equals("Giga-gargantuar")) {
                             if (map.cells[i][j].getPlant() .getHP() > 0) {
                                 if (zombie.getHP() > 0) {

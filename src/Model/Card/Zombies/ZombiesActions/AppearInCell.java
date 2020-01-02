@@ -18,14 +18,15 @@ public class AppearInCell extends Action {
         Random random = new Random();
         int x = 5;
         int y = 18;
-        if (zombie.getHP() > 0) {
+        while(map.getCell(x , y).plant == null)
+        {
             x = random.nextInt(5);
             y = random.nextInt(18);
         }
-        map.getCell(zombie.getCell().x, zombie.getCell().y).getZombies().remove(zombie);
+        map.getCell(x,y).zombies.add(zombie);
         if (zombie.getHP() > 0) {
-            zombie.setCell(map.getCell(x, y));
-            map.getCell(x, y).getZombies().add(zombie);
+            map.getCell(x , y).plant = null;
+            map.getCell(x , y).zombies.remove(zombie);
         }
     }
 }

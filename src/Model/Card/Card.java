@@ -1,7 +1,4 @@
 package Model.Card;
-
-\package Model.Card;
-
 import Model.Card.Plants.Plant;
 import Model.Card.Zombies.Zombie;
 import Model.Map.Cell;
