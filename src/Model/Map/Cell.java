@@ -1,4 +1,5 @@
 package Model.Map;
+import Model.Card.Plants.PeaOrProjectile;
 import Model.Card.Plants.Plant;
 import Model.Card.Zombies.Zombie;
 import java.util.ArrayList;
@@ -9,6 +10,7 @@ public class Cell {
     //in each cell we have just 1 plant but not only 1 zombie
     public Plant plant;
     public ArrayList<Zombie> zombies;
+    public ArrayList<PeaOrProjectile> peas;
     public boolean water;
     public boolean LilyPad;
 
@@ -21,6 +23,7 @@ public class Cell {
         this.x = x;
         this.y = y;
         this.zombies = new ArrayList<Zombie>();
+        this.peas = new ArrayList<PeaOrProjectile>();
     }
     public Cell(){}
 

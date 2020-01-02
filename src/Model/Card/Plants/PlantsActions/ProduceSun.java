@@ -7,7 +7,7 @@ import Model.Map.Map;
 public class ProduceSun extends Action {
     @Override
     public void doAction(Plant plant, Map map, int d) {
-
+        
     }
 
     @Override
