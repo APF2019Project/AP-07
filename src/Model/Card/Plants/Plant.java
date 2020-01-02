@@ -5,6 +5,7 @@ import Model.Card.ActionsOfAnEvent;
 import Model.Card.Card;
 import Model.Card.Plants.PlantsActions.PlantsAction;
 import Model.Map.Map;
+import com.gilecode.yagson.YaGson;
 
 
 import java.io.File;
@@ -15,6 +16,16 @@ public class Plant extends Card {
 
     private int sun;
     private int cooldown;
+
+    public int getLoading() {
+        return loading;
+    }
+
+    public void setLoading(int loading) {
+        this.loading = loading;
+    }
+
+    private int loading;
     private int ProducedSun;
     private int SpeedReduction;
     public boolean pea;
@@ -22,6 +33,8 @@ public class Plant extends Card {
     //zombie ra chand turn negah dare
     private int freeze;
     private int turn;
+
+    
 
     public void setActionsOfAnEvent(ActionsOfAnEvent actionsOfAnEvent) {
         this.actionsOfAnEvent.add(actionsOfAnEvent);
@@ -55,6 +68,7 @@ public class Plant extends Card {
         this.name = name;
         this.id = uniqueId;
         uniqueId++;
+        this.loading = 0;
     }
 
     public void act(Map map) {

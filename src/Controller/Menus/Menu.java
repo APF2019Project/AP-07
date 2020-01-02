@@ -63,7 +63,7 @@ public class Menu {
 //        Type type = new TypeToken<List<Profile>>() {
 //        }.getType();
 //        Profile.setProfiles(yaGson.fromJson(jsonElement, type));
-        ArrayList<Profile> profiles = yaGson.fromJson(string,ArrayList.class);
+        ArrayList<Profile> profiles = yaGson.fromJson(string , ArrayList.class);
         Profile.setProfiles(profiles);
 
         String[] plants = new String[]{"Cabbage-pult", "Cactus", "Cattail", "CherryBomb", "Explode-o-nut", "GatlingPea", "Kernel-pult", "LilyPad", "Magnet-shroom", "Melon-pult", "PeaShooter", "PotatoMine", "Repeater", "Scaredy-shroom", "SnowPea", "SplitPea", "SunFlower", "Tall-nut", "TangleKelp", "ThreePeater", "TwinSunFlower", "Wall-nut", "WinterMelon"};

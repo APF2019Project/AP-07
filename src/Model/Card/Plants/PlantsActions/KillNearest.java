@@ -18,12 +18,12 @@ public class KillNearest extends Action {
         int Y = 19;
         if(plant.getHP()>0) {
             for (Cell[] i : map.getCells()) {
-                for (Cell j : i) {
-                    if (j.getZombies().size() > 0) {
-                        if (calculateDistance(plant.getCell(), j) < MinRad) {
-                            X = j.x;
-                            Y = j.y;
-                            MinRad = calculateDistance(plant.getCell(), j);
+                for (Cell cell : i) {
+                    if (cell.getZombies().size() > 0) {
+                        if (calculateDistance(plant.getCell(), cell) < MinRad) {
+                            X = cell.x;
+                            Y = cell.y;
+                            MinRad = calculateDistance(plant.getCell(), cell);
                         }
                     }
                 }
