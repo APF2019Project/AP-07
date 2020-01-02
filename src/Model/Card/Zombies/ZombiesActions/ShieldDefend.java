@@ -25,7 +25,7 @@ public class ShieldDefend extends Action {
                             }
                         }
                         if (map.cells[i][j].getPlant().getPeaOrProjectile().isProjectile()) {
-                            zombie.setHP(map.cells[i][j].getPlant().getAP());
+                            zombie.setHP(-map.cells[i][j].getPlant().getAP());
                         }
                     }
                 }

@@ -15,10 +15,8 @@ public class Walk extends Action {
 
     @Override
     public void doAction(Zombie zombie, Map map, int d) {
-        //todo
-        //maybe bazi jaha motefavet gereftim x o y ha ro va +- ha shoono
-        if (zombie.getCell().x < Map.getWIDTH() && zombie.getCell().y < Map.getHEIGHT()) {
-            if (map.getCell(zombie.getCell().x + zombie.getSpeed(), zombie.getCell().y) != null) {
+        if (zombie.getCell().x < Map.getHEIGHT() && zombie.getCell().y < Map.getWIDTH()) {
+            if (map.getCell(zombie.getCell().x , zombie.getCell().y - zombie.getSpeed()).plant == null) {
                 if (zombie.getHP() > 0) {
                     zombie.setCell(map.getCell(zombie.getCell().x + zombie.getSpeed(), zombie.getCell().y));
                     map.getCell(zombie.getCell().x, zombie.getCell().y).getZombies().add(zombie);

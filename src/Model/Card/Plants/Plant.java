@@ -28,7 +28,7 @@ public class Plant extends Card {
     private int loading;
     private int ProducedSun;
     private int SpeedReduction;
-    private PeaOrProjectile peaOrProjectile;
+    public boolean pea;
     private ArrayList<ActionsOfAnEvent> actionsOfAnEvent = new ArrayList<>();
     //zombie ra chand turn negah dare
     private int freeze;
@@ -80,10 +80,6 @@ public class Plant extends Card {
                 }
             }
         });
-    }
-
-    public PeaOrProjectile getPeaOrProjectile() {
-        return peaOrProjectile;
     }
 
     public void setPeaOrProjectile(PeaOrProjectile peaOrProjectile) {

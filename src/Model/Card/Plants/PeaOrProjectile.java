@@ -1,9 +1,5 @@
 package Model.Card.Plants;
 
-import Model.Card.Zombies.Zombie;
-import Model.Map.Cell;
-import Model.Map.Map;
-
 public class PeaOrProjectile {
 
     private int x;
@@ -14,10 +10,9 @@ public class PeaOrProjectile {
     private boolean prickly;
     private boolean projectile;
 
-    public PeaOrProjectile(int damage,boolean projectile, boolean prickly){
+    public PeaOrProjectile(int damage,boolean projectile){
         this.damage=damage;
         this.projectile=projectile;
-        this.prickly=prickly;
     }
 
     public int getX() {
@@ -26,6 +21,14 @@ public class PeaOrProjectile {
 
     public int getY() {
         return y;
+    }
+
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public void setY(int y) {
+        this.y = y;
     }
 
     public int getDamage() {
@@ -38,21 +41,6 @@ public class PeaOrProjectile {
 
     public boolean isPrickly() {
         return prickly;
-    }
-
-    public void move(Map map){
-        Cell cell = map.getCell(this.x,this.y);
-        int i = 0;
-        while (i<this.speed){
-            if (map.getCell(x,y++).zombies.size()==0)
-                y++;
-            else {
-                map.getCell(x,y++).zombies.get(0).setHP(-this.damage);
-                map.getCell(x,y).peas.remove(this);
-                break;
-            }
-            i++;
-        }
     }
 
     public boolean isProjectile() {
