@@ -5,7 +5,9 @@ public class PeaOrProjectile {
     private int x;
     private int y;
     private int damage;//AP per attack
-    public int speed = 3;
+    private int speed=3;
+    private boolean backward;
+    private boolean prickly;
     private boolean projectile;
 
     public PeaOrProjectile(int damage,boolean projectile){
@@ -37,9 +39,12 @@ public class PeaOrProjectile {
         return speed;
     }
 
+    public boolean isPrickly() {
+        return prickly;
+    }
+
     public boolean isProjectile() {
         return projectile;
     }
-
 
 }
