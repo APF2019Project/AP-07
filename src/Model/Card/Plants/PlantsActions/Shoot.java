@@ -1,5 +1,6 @@
 package Model.Card.Plants.PlantsActions;
 
+import Controller.GameMode.Battle;
 import Model.Card.Action;
 import Model.Card.Plants.PeaOrProjectile;
 import Model.Card.Plants.Plant;
@@ -8,7 +9,7 @@ import Model.Map.Map;
 
 public class Shoot extends Action {
     @Override
-    public void doAction(Plant plant, Map map, int d) {
+    public void doAction(Plant plant, Battle battle, int d) {
         if (plant.getHP() > 0) {
             if(plant.pea)
             {

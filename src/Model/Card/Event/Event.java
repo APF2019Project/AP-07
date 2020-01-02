@@ -1,5 +1,6 @@
 package Model.Card.Event;
 
+import Controller.GameMode.Battle;
 import Model.Card.Plants.Plant;
 import Model.Map.Map;
 import java.util.ArrayList;
@@ -15,7 +16,7 @@ public class Event {
         events.add(event);
     }
 
-    public boolean check(Plant plant, Map map, int d) {
+    public boolean check(Plant plant, Battle battle, int d) {
         return false;
     }
 

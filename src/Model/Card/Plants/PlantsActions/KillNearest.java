@@ -1,5 +1,6 @@
 package Model.Card.Plants.PlantsActions;
 
+import Controller.GameMode.Battle;
 import Model.Card.Action;
 import Model.Card.Plants.Plant;
 import Model.Card.Zombies.Zombie;
@@ -12,11 +13,11 @@ public class KillNearest extends Action {
     }
 
     @Override
-    public void doAction(Plant plant, Map map, int d) {
+    public void doAction(Plant plant, Battle battle, int d) {
         double MinRad = 100;
         int X = 0;
         int Y = 19;
-        for (Cell[] i : map.getCells()) {
+        for (Cell[] i : battle.getMap().getCells()) {
             for (Cell cell : i) {
                 if (cell.getZombies().size() > 0) {
                     if (calculateDistance(plant.getCell(), cell) < MinRad) {
@@ -28,8 +29,8 @@ public class KillNearest extends Action {
             }
         }
         //todo
-        map.getCell(plant.getCell().x, plant.getCell().y).getZombies().remove(map.getCell(X, Y));
-        map.getCell(X, Y).getZombies().set(0, null);
+        battle.getMap().getCell(plant.getCell().x, plant.getCell().y).getZombies().remove(battle.getMap().getCell(X, Y));
+        battle.getMap().getCell(X, Y).getZombies().set(0, null);
     }
 
     @Override
