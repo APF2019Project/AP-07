@@ -76,8 +76,12 @@ public class CollectionMenu extends Menu {
 
     public void play(Player player, Player player2) {
         player.setCollection(collection);
-        if (!pvp)
+        if (!pvp) {
             Menu.menuHandler.setCurrentMenu(gameMenu);
+            for (Plant i : collection.getPlants()) {
+                i.setLoading(0);
+            }
+        }
         else {
 //            player2.setCollection(collection);
 //            menuHandler.setCurrentMenu(gameMenu);

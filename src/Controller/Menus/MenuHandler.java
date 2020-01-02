@@ -4,7 +4,6 @@ import Controller.GameMode.Day;
 import Controller.GameMode.Rail;
 import Controller.GameMode.Water;
 import Controller.GameMode.ZombieGameMode;
-import Model.Card.Plants.Plant;
 import Model.Player.Player;
 import Model.Player.Profile;
 
@@ -173,6 +172,7 @@ public class MenuHandler {
                     Menu.collectionMenu.selectCollection(splitInput[1], profile);
                 } else if (input.equalsIgnoreCase("Play")) {
                     Menu.collectionMenu.play(player, bot);
+                    Menu.gameMenu.player1 = player;
                 } else if (input.equalsIgnoreCase("help")) {
                     Menu.help();
                 } else if (input.equalsIgnoreCase("Exit")) {
@@ -213,7 +213,13 @@ public class MenuHandler {
                 else if (plantPlant.matcher(input).matches()) {
                     int x = Integer.parseInt(splitInput[1]);
                     int y = Integer.parseInt(splitInput[2]);
-                    Menu.gameMenu.plant(name,x,y);
+                    if (name != null) {
+                        Menu.gameMenu.plant(name,x,y);
+                    }
+                    else {
+                        System.out.println("select a plant first:|");
+                    }
+                    name =null;
                 } else if (removePlant.matcher(input).matches()) {
                     int x = Integer.parseInt(splitInput[1]);
                     int y = Integer.parseInt(splitInput[2]);

@@ -36,27 +36,41 @@ public class GameMenu extends Menu {
 
     public void plant(String name, int x, int y) throws IOException {
         if (battle.getMap().getCell(x,y).canBePlanted()) {
-//            for (Plant p:player1.getPlants()){
-//                if (p.getName().equalsIgnoreCase(name)){
-                    battle.getMap().getCell(x,y).plant = Plant.makePlant(name);
-                    name =null;
-//                    break;
-//                }
-//            }
+            for (Plant p:player1.getPlants()){
+                if (p.getName().equalsIgnoreCase(name)){
+                    if (p.getLoading() == 0) {
+                        battle.getMap().getCell(x,y).plant = Plant.makePlant(name);
+                        p.setLoading(p.getCooldown());
+                        System.out.println("plant planted:)");
+
+                    }
+                    else {
+                        System.out.println("plant is not ready");
+                    }
+
+                    break;
+                }
+            }
         }
     }
 
     public void endTurn() {
-        for (int i = 2; i < Map.getHEIGHT() + 2; i++)
-            for (int j = 2; j < Map.getWIDTH() + 2; j++) {
-                if (battle.getMap().getCell(i, j).getPlant() != null)
-                    battle.getMap().getCell(i, j).getPlant().act(battle.getMap());
-                if (battle.getMap().getCell(i, j).getZombies().size() !=0)
-                    for (Zombie z : battle.getMap().getCell(i, j).getZombies())
-                        z.act(battle.getMap());
+//        for (int i = 2; i < Map.getHEIGHT() + 2; i++)
+//            for (int j = 2; j < Map.getWIDTH() + 2; j++) {
+//                if (battle.getMap().getCell(i, j).getPlant() != null)
+//                    battle.getMap().getCell(i, j).getPlant().act(battle.getMap());
+//                if (battle.getMap().getCell(i, j).getZombies().size() !=0)
+//                    for (Zombie z : battle.getMap().getCell(i, j).getZombies())
+//                        z.act(battle.getMap());
+//            }
+        for (Plant p : this.player1.getPlants()) {
+            if (p.getLoading() != 0) {
+                p.setLoading(p.getLoading()-1);
             }
-
+        }
     }
+
+
 
     public void showLawn() {
         for (Cell[] cells : battle.getMap().getCells()) {
