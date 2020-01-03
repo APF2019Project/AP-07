@@ -1,5 +1,7 @@
-package Controller.GameMode;
+package Controller.Menus;
 
+import Controller.GameMode.Battle;
+import Controller.GameMode.Water;
 import Controller.Menus.Menu;
 import Model.Card.Plants.Plant;
 import Model.Card.Zombies.Zombie;

@@ -68,6 +68,11 @@ public class Day extends GameMode {
     }
 
     @Override
+    public ArrayList<Card> getAvailableCards() {
+        return null;
+    }
+
+    @Override
     public void generateSun(Battle battle) {
         int numberOfPassedTurns = (int) (Math.random() * ((2 - 1) + 1)) + 1;
         int numberOfSuns = (int) (Math.random() * ((5 - 2) + 1)) + 2;

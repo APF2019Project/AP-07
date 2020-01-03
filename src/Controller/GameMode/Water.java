@@ -13,11 +13,11 @@ import java.util.Random;
 public class Water extends GameMode {
 
     public Water() {
-        //player is gardner
-        getBattle().getPlayer(0).setSun(2);
-        for (int i=0;i<landMower.length;i++){
-            landMower[i]=true;
-        }
+//        //player is gardner
+//        getBattle().getPlayer(1).setSun(2);
+//        for (int i=0;i<landMower.length;i++){
+//            landMower[i]=true;
+//        }
     }
 
     @Override
@@ -79,6 +79,11 @@ public class Water extends GameMode {
     @Override
     public void updateCollection() {
 
+    }
+
+    @Override
+    public ArrayList<Card> getAvailableCards() {
+        return null;
     }
 
 

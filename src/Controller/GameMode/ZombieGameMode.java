@@ -63,6 +63,7 @@ public class ZombieGameMode extends GameMode {
         }
 
     }
+    public ZombieGameMode(){}
 
     @Override
     public void wave() {
@@ -158,6 +159,11 @@ public class ZombieGameMode extends GameMode {
     @Override
     public void updateCollection() {
 
+    }
+
+    @Override
+    public ArrayList<Card> getAvailableCards() {
+        return null;
     }
 
     @Override

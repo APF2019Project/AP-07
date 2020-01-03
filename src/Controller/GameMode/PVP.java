@@ -1,5 +1,6 @@
 package Controller.GameMode;
 
+import Model.Card.Card;
 import Model.Card.Plants.Plant;
 import Model.Card.Zombies.Zombie;
 import Model.Map.Cell;
@@ -60,6 +61,11 @@ public class PVP extends GameMode {
     @Override
     public void updateCollection() {
 
+    }
+
+    @Override
+    public ArrayList<Card> getAvailableCards() {
+        return null;
     }
 
 

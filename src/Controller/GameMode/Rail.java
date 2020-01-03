@@ -15,6 +15,7 @@ public class Rail extends GameMode {
 
     private ArrayList<Plant> plants = new ArrayList<>();
     private ArrayList<Plant> list = new ArrayList<Plant>();
+    private int record;
 
     public Rail() {
         for (int i=0;i<landMower.length;i++){
@@ -78,6 +79,11 @@ public class Rail extends GameMode {
         }
     }
 
+    @Override
+    public ArrayList<Card> getAvailableCards() {
+        return null;
+    }
+
 
     @Override
     public void generateSun(Battle battle) {
@@ -106,4 +112,11 @@ public class Rail extends GameMode {
         return list;
     }
 
+    public int getRecord() {
+        return record;
+    }
+
+    public void setRecord(int record) {
+        this.record = record;
+    }
 }
