@@ -15,13 +15,10 @@ public class Map {
         return cells[x][y];
     }
 
-    public void setUnknownCell(int x!, int y, Cell cell) {
+    public void setCell(int x, int y, Cell cell) {
         this.cells[x][y] = cell;
     }
 
-    public void setLandCell(int x,int y, Cell landCell){
-
-    }
 
     void updateCells(){
         // zombie ha va plant haye cell ha ro tabe hashun ro ye dor seda kone

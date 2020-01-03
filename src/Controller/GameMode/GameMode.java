@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public abstract class GameMode {
-
+    //players that it is 0 (gardener) or 1 (zombie) are set in the menu
     private Battle battle;
     private int waveCounter = 0;
     private boolean canWave = true;
@@ -28,12 +28,6 @@ public abstract class GameMode {
     public abstract void generateSun(Battle battle);
 
     public abstract Map generateMap();
-
-    //todo
-    //check how to set players in different modes
-//    public abstract void setPlayer1();
-//
-//    public abstract void setPlayer2();
 
     public ArrayList<Zombie> getWaveZombies() {
         return waveZombies;

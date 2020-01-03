@@ -17,13 +17,13 @@ public class TurnToNormalZombie extends Action {
 
     @Override
     public void doAction(Zombie zombie, Map map, int d) throws IOException {
-        if(!zombie.getName().equals("ZombieGameMode"))
+        if(!zombie.getName().equals("Zombie"))
         {
             if(zombie.getHP()>0) {
                 Zombie.getZombies().remove(zombie);
                 //todo
                 //this new ZombieGameMode should be added to cards and player hand
-                Zombie zombie1 = new Zombie("ZombieGameMode");
+                Zombie zombie1 = new Zombie("Zombie");
                 Zombie.addToZombies(zombie1);
             }
         }

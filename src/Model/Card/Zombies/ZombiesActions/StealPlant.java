@@ -13,7 +13,6 @@ public class StealPlant extends Action {
 
     @Override
     public void doAction(Zombie zombie, Map map, int d) {
-
         for (int i = 0; i < map.getWIDTH(); i++) {
             for (int j = 0; j < map.getHEIGHT(); j++) {
                 if (map.cells[i][j].getPlant() != null) {

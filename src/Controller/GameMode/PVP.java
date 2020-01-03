@@ -1,10 +1,13 @@
 package Controller.GameMode;
 
-import Model.Map.UnknoenCell;
+import Model.Map.Cell;
 import Model.Map.Map;
 import Model.Player.Profile;
 
 public class PVP extends GameMode {
+
+    public PVP(){
+    }
 
     @Override
     public void wave() {
@@ -41,10 +44,9 @@ return true;
         Map m = new Map();
         for (int i = 0; i < Map.getHEIGHT(); i++) {
             for (int j = 0; j < Map.getWIDTH(); j++) {
-                m.setUnknownCell(i, j, new UnknoenCell(i,j));
+                m.setCell(i, j, new Cell(i,j));
             }
         }
-        getBattle().setMap(m);
         return m;
     }
 }

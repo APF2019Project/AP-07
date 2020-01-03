@@ -1,14 +1,20 @@
 package Controller.GameMode;
 
 import Model.Card.Zombies.Zombie;
-import Model.Map.Map;
 import Model.Map.Cell;
+import Model.Map.Map;
+import Model.Player.Player;
 import Model.Player.Profile;
 
 import java.util.ArrayList;
 import java.util.Random;
 
 public class Day extends GameMode {
+
+    public Day(Player player) {
+        //player is gardner
+        getBattle().getPlayer(0).setSun(2);
+    }
 
     @Override
     public void wave() {
@@ -22,7 +28,7 @@ public class Day extends GameMode {
                 zombie.setCell(cell);
                 getWaveZombies().add(zombie);
                 Map map = new Map();
-                map.setUnknownCell(0, randomY, cell);
+                map.setCell(0, randomY, cell);
             }
             setWaveCounter(1);
         }
@@ -68,7 +74,6 @@ public class Day extends GameMode {
 
         //numberOfKilledZombies=external coins
         if (allZombisAreDead) {
-            getBattle().getPlayer(0).setNumberOfKilledZombies(1);
             profile.setExternalCoins(getBattle().getPlayer(0).getNumberOfKilledZombies() * 10);
             return false;
         }
@@ -87,15 +92,11 @@ public class Day extends GameMode {
 
     @Override
     public void generateSun(Battle battle) {
-        if (battle.getCurrentTurn() == 0) {
-            battle.getPlayer(0).setSun(2);
-        } else {
-            int numberOfPassedTurns = (int) (Math.random() * ((2 - 1) + 1)) + 1;
-            int numberOfSuns = (int) (Math.random() * ((5 - 2) + 1)) + 2;
-            //todo
-            //numberOfPassedTurns ra dar turn asar bede
-            battle.getPlayer(0).setSun(numberOfSuns);
-        }
+        int numberOfPassedTurns = (int) (Math.random() * ((2 - 1) + 1)) + 1;
+        int numberOfSuns = (int) (Math.random() * ((5 - 2) + 1)) + 2;
+        //todo
+        //numberOfPassedTurns ra dar turn asar bede
+        battle.getPlayer(0).setSun(numberOfSuns);
     }
 
     @Override
@@ -103,7 +104,7 @@ public class Day extends GameMode {
         Map m = new Map();
         for (int i = 0; i < Map.getHEIGHT() + 4; i++) {
             for (int j = 0; j < Map.getWIDTH() + 4; j++) {
-                m.setUnknownCell(i, j, new UnknownCell(i,j));
+                m.setCell(i, j, new Cell(i, j));
             }
         }
         return m;

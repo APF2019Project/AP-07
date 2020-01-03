@@ -1,9 +1,7 @@
 <component name="libraryTable">
   <library name="com.gilecode.yagson:yagson:0.5.1" type="repository">
     <properties maven-id="com.gilecode.yagson:yagson:0.5.1" />
-    <CLASSES>
-      <root url="jar://$MAVEN_REPOSITORY$/com/gilecode/yagson/yagson/0.5.1/yagson-0.5.1.jar!/" />
-    </CLASSES>
+    <CLASSES />
     <JAVADOC />
     <SOURCES />
   </library>

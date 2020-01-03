@@ -17,6 +17,12 @@ public class Cell {
 //     void removePlant();
 //     public void plant(Plant plant);
 
+    public Cell(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+    public Cell(){}
+
     void removeDeadZombie(Zombie zombie, Map map){
         ArrayList<Zombie> tempZombies = new ArrayList<>();
         Cell thisCell = map.getCell(this.x , this.y);
@@ -55,13 +61,18 @@ public class Cell {
     }
 
     public boolean canBePlanted() {
-        if (this.water) {
-            if (this.LilyPad) {
+        if (this.water){
+            if (this.LilyPad){
                 if (this.plant == null)
                     return true;
             }
+            return false;
         }
-        return true;
+        else {
+            if (this.plant == null)
+                return true;
+            return false;
+        }
     }
 
 }

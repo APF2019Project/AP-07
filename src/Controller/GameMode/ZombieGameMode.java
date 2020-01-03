@@ -1,6 +1,7 @@
 package Controller.GameMode;
 
 import Model.Card.Plants.Plant;
+import Model.Map.Cell;
 import Model.Map.Map;
 import Model.Player.Profile;
 
@@ -8,7 +9,9 @@ import java.util.ArrayList;
 
 public class ZombieGameMode extends GameMode {
 
-    private boolean potatoMine;
+    public ZombieGameMode(Profile profile){
+        profile.setExternalCoins(50);
+    }
 
     @Override
     public void wave() {
@@ -29,13 +32,13 @@ public class ZombieGameMode extends GameMode {
         randomPlants.add(Plant.findPlant("Cabbage-pult"));
         randomPlants.add(Plant.findPlant("GatlingPea"));
 
-        if (getBattle().getMap().getCell(0, 2) instanceof UnknoenCell) {
+        if (!getBattle().getMap().getCell(0, 2).water) {
             randomPlants.add(Plant.findPlant("PotatoMine"));
             randomPlants.add(Plant.findPlant("PotatoMine"));
             size = randomPlants.size();
         }
 
-        if (getBattle().getMap().getCell(0, 2) instanceof WaterCell) {
+        if (getBattle().getMap().getCell(0, 2).water) {
             randomPlants.add(Plant.findPlant("TangleKelp"));
             randomPlants.add(Plant.findPlant("TangleKelp"));
             randomPlants.add(Plant.findPlant("Cattail"));
@@ -45,6 +48,8 @@ public class ZombieGameMode extends GameMode {
             size = randomPlants.size();
         }
         int randomNumberOfPlants = (int) (Math.random() * ((size) + 1)) + size;
+        //todo
+        //plant plants
 
     }
 
@@ -55,6 +60,11 @@ public class ZombieGameMode extends GameMode {
 
     @Override
     public boolean handleWin(Profile profile) {
+        for (int i = 0; i < getBattle().getMap().getCells().length; i++) {
+            for (int j = 0; j < getBattle().getMap().getCells()[i].length; i++) {
+
+            }
+        }
         return false;
     }
 
@@ -80,10 +90,16 @@ public class ZombieGameMode extends GameMode {
         Map m = new Map();
         for (int i = 0; i < Map.getHEIGHT(); i++) {
             for (int j = 0; j < Map.getWIDTH(); j++) {
-                m.setUnknownCell(i, j, new UnknoenCell(i,j));
+                m.setCell(i, j, new Cell(i,j));
             }
         }
-        getBattle().setMap(m);
         return m;
     }
+
+    //todo
+    //dar while  e asli sedash kon
+    public void setTypeOFMap(String type){
+
+    }
+
 }

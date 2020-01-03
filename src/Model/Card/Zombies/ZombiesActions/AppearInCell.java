@@ -8,6 +8,7 @@ import Model.Map.Map;
 import java.util.Random;
 
 public class AppearInCell extends Action {
+
     @Override
     public void doAction(Plant plant, Map map, int d) {
 
