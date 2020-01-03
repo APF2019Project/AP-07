@@ -1,8 +1,11 @@
 package Controller.GameMode;
 import Model.Card.Card;
 import Model.Card.Zombies.Zombie;
+import Model.Map.Cell;
 import Model.Map.Map;
 import Model.Player.Profile;
+import com.sun.javafx.tools.packager.MakeAllParams;
+
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -109,6 +112,36 @@ public abstract class GameMode {
             return true;
         }
         return false;
+    }
+
+    public Map generateLandMap() {
+        Map m = new Map();
+        for (int i = 0; i < Map.getHEIGHT(); i++) {
+            for (int j = 0; j < Map.getWIDTH(); j++) {
+                m.setCell(i, j, new Cell(i, j, false));
+            }
+        }
+        return m;
+    }
+
+    public Map generateWaterMap(){
+        Map m=new Map();
+        for (int i = 2; i < 4; i++) {
+            for (int j = 0; j < Map.getWIDTH(); j++) {
+                m.setCell(i, j, new Cell(i, j, true));
+            }
+        }
+        for (int i = 4; i < 6; i++) {
+            for (int j = 0; j < Map.getWIDTH(); j++) {
+                m.setCell(i, j, new Cell(i, j, false));
+            }
+        }
+        for (int i = 0; i < 2; i++) {
+            for (int j = 0; j < Map.getWIDTH(); j++) {
+                m.setCell(i, j, new Cell(i, j, false));
+            }
+        }
+        return m;
     }
 
 }

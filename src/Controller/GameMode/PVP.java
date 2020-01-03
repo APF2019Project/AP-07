@@ -78,12 +78,6 @@ public class PVP extends GameMode {
 
     @Override
     public Map generateMap() {
-        Map m = new Map();
-        for (int i = 0; i < Map.getHEIGHT(); i++) {
-            for (int j = 0; j < Map.getWIDTH(); j++) {
-                m.setCell(i, j, new Cell(i, j, false));
-            }
-        }
-        return m;
+        return generateLandMap();
     }
 }

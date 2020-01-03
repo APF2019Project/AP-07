@@ -174,30 +174,12 @@ public class ZombieGameMode extends GameMode {
     public Map generateMap() {
         Map m = new Map();
         if (mapType.equals("Water")) {
-            for (int i = 2; i < 4; i++) {
-                for (int j = 0; j < Map.getWIDTH(); j++) {
-                    m.setCell(i, j, new Cell(i, j, true));
-                }
-            }
-            for (int i = 4; i < 6; i++) {
-                for (int j = 0; j < Map.getWIDTH(); j++) {
-                    m.setCell(i, j, new Cell(i, j, false));
-                }
-            }
-            for (int i = 0; i < 2; i++) {
-                for (int j = 0; j < Map.getWIDTH(); j++) {
-                    m.setCell(i, j, new Cell(i, j, false));
-                }
-            }
+
         }
         if (mapType.equals("Land")) {
-            for (int i = 0; i < Map.getHEIGHT() + 4; i++) {
-                for (int j = 0; j < Map.getWIDTH() + 4; j++) {
-                    m.setCell(i, j, new Cell(i, j, false));
-                }
-            }
+            return generateLandMap();
         }
-        return m;
+       return null;
     }
 
 }

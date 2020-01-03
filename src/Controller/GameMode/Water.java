@@ -101,23 +101,7 @@ public class Water extends GameMode {
 
     @Override
     public Map generateMap() {
-        Map m = new Map();
-        for (int i = 2; i < 4; i++) {
-            for (int j = 0; j < Map.getWIDTH(); j++) {
-                m.setCell(i, j, new Cell(i, j, true));
-            }
-        }
-        for (int i = 0; i < 2; i++) {
-            for (int j = 0; j < Map.getWIDTH(); j++) {
-                m.setCell(i, j, new Cell(i, j, false));
-            }
-        }
-        for (int i = 4; i < 6; i++) {
-            for (int j = 0; j < Map.getWIDTH(); j++) {
-                m.setCell(i, j, new Cell(i, j, false));
-            }
-        }
-        return m;
+        return generateWaterMap();
     }
 }
 
