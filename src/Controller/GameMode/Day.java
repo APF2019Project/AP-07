@@ -1,14 +1,16 @@
 package Controller.GameMode;
 
 import Model.Card.Card;
-import Model.Card.Zombies.Zombie;
-import Model.Map.Cell;
 import Model.Map.Map;
 import Model.Player.Profile;
 
 import java.util.ArrayList;
 
 public class Day extends GameMode {
+
+    private int lastTurnUpdatingDaySuns = 0;
+    private int lastTurnlastZombieKilled;
+    int random = (int) (Math.random() * ((2 - 1) + 1)) + 1;
 
     public Day() {
         //player is gardner
@@ -60,11 +62,12 @@ public class Day extends GameMode {
 
     @Override
     public void generateSun(Battle battle) {
-        int numberOfPassedTurns = (int) (Math.random() * ((2 - 1) + 1)) + 1;
         int numberOfSuns = (int) (Math.random() * ((5 - 2) + 1)) + 2;
-        //todo
-        //numberOfPassedTurns ra dar turn asar bede
-        battle.getPlayer(0).setSun(numberOfSuns);
+        if (lastTurnUpdatingDaySuns == random) {
+            random= (int) (Math.random() * ((2 - 1) + 1)) + 1;
+            lastTurnUpdatingDaySuns = 0;
+            battle.getPlayer(0).setSun(numberOfSuns);
+        }
     }
 
     @Override
@@ -75,6 +78,14 @@ public class Day extends GameMode {
     @Override
     public Map generateMap() {
         return generateLandMap();
+    }
+
+    public void setLastTurnUpdatingDarSuns(int lastTurnUpdatingDarSuns) {
+        this.lastTurnUpdatingDaySuns += lastTurnUpdatingDarSuns;
+    }
+
+    public void checkLastZombieLife(){
+
     }
 
 }

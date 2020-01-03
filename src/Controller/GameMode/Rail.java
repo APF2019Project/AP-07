@@ -2,21 +2,19 @@ package Controller.GameMode;
 
 import Model.Card.Card;
 import Model.Card.Plants.Plant;
-import Model.Card.Zombies.Zombie;
-import Model.Map.Cell;
 import Model.Map.Map;
 import Model.Player.Profile;
 
 import java.io.IOException;
 import java.util.ArrayList;
 
-import static java.lang.Math.abs;
 
 public class Rail extends GameMode {
 
     private ArrayList<Plant> plants = new ArrayList<>();
-    private ArrayList<Plant> list = new ArrayList<Plant>();
+    private ArrayList<Plant> list = new ArrayList<>();
     public int lastTurnUpdatingRailCollection =0;
+    int random = (int) (Math.random() * ((4 - 2) + 1)) + 2;
 
     public Rail() {
         for (int i = 0; i < landMower.length; i++) {
@@ -26,10 +24,13 @@ public class Rail extends GameMode {
 
     @Override
     //dar asl wave nadare va be soorate tasadofi har chand turn zombie varede zamin mishe
-    public void wave() throws IOException {
-        //todo
+    public void wave() {
         //har 3 ta 5 turn
-        generateZombies();
+        int random = (int) (Math.random() * ((5 - 3) + 1)) + 3;
+        if(lastTurnWaved ==random) {
+            lastTurnWaved=0;
+            generateZombies();
+        }
     }
 
     @Override
@@ -55,9 +56,9 @@ public class Rail extends GameMode {
     @Override
     public void updateCollection() throws IOException {
         //har 2 ta 4 turn
-        int random = (int) (Math.random() * ((4 - 2) + 1)) + 2;
         if(lastTurnUpdatingRailCollection ==random){
             lastTurnUpdatingRailCollection =0;
+            random= (int) (Math.random() * ((4 - 2) + 1)) + 2;
             int randomPlant = (int) (Math.random() * ((plants.size()) + 1));
             Plant newPlant = Plant.makePlant(Plant.getPlants().get(randomPlant).getName());
             if (plants.size() < 10) {
@@ -108,3 +109,4 @@ public class Rail extends GameMode {
     }
 
 }
+

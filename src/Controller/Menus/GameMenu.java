@@ -49,6 +49,8 @@ public class GameMenu extends Menu {
     }
 
     public void endTurn() {
+        battle.setCurrentTurn(1);
+        battle.
 //        for (int i = 2; i < Map.getHEIGHT() + 2; i++)
 //            for (int j = 2; j < Map.getWIDTH() + 2; j++) {
 //                if (battle.getMap().getCell(i, j).getPlant() != null)

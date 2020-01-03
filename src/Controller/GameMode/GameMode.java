@@ -4,7 +4,6 @@ import Model.Card.Zombies.Zombie;
 import Model.Map.Cell;
 import Model.Map.Map;
 import Model.Player.Profile;
-import com.sun.javafx.tools.packager.MakeAllParams;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -16,6 +15,7 @@ public abstract class GameMode {
     private boolean canWave = true;
     private ArrayList<Zombie> waveZombies = new ArrayList<>();
     protected boolean landMower[] = new boolean[6];
+    public int lastTurnWaved=0;
 
     public abstract void wave() throws IOException;
 
@@ -152,5 +152,9 @@ public abstract class GameMode {
         zombie.setCell(generateMap().getCell(randomPlace, 0));
         generateMap().getCell(randomPlace, 0).getZombies().add(zombie);
         getWaveZombies().add(zombie);
+    }
+
+    public void setLastTurnWaved(int lastTurnWaved) {
+        this.lastTurnWaved += lastTurnWaved;
     }
 }

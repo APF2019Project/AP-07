@@ -19,9 +19,28 @@ public class Battle {
     private Map map;
     private ArrayList<Zombie> zombies;
 
+    public Player getPlayer(int i) {
+        if (i == 1)
+            return player1;
+        if (i == 2)
+            return player2;
+        return null;
+    }
+
+    public void setPlayer(Player player, int i) {
+        if (i == 1)
+            player1 = player;
+        if (i == 2)
+            player2 = player;
+    }
+
     public Battle(Player player1, Player player2) {
         this.player1 = player1;
         this.player2 = player2;
+    }
+
+    public void setCurrentTurn(int currentTurn) {
+        this.currentTurn += currentTurn;
     }
 
     public Map getMap() {
@@ -50,21 +69,6 @@ public class Battle {
         if(player1.getPlants()!=null){
             cell.setPlant(null);
         }
-    }
-
-    public Player getPlayer(int i) {
-        if (i == 1)
-            return player1;
-        if (i == 2)
-            return player2;
-        return null;
-    }
-
-    public void setPlayer(Player player, int i) {
-        if (i == 1)
-            player1 = player;
-        if (i == 2)
-            player2 = player;
     }
 
     public int getCurrentTurn() {
