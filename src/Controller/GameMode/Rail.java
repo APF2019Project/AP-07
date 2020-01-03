@@ -1,5 +1,6 @@
 package Controller.GameMode;
 
+import Model.Card.Card;
 import Model.Card.Plants.Plant;
 import Model.Card.Zombies.Zombie;
 import Model.Map.Cell;
@@ -8,10 +9,12 @@ import Model.Player.Profile;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Rail extends GameMode {
 
-    private ArrayList<Plant> playerPlants = getBattle().getPlayer(0).getPlants();
+    private ArrayList<Plant> plants = Card.getPlants();
+    private ArrayList<Plant> list = new ArrayList<Plant>();
 
     @Override
     //dar asl wave nadare va be soorate tasadofi har chand turn zombie varede zamin mishe
@@ -77,21 +80,21 @@ public class Rail extends GameMode {
         //todo
         //turn
         int numberOfPassedTurns = (int) (Math.random() * ((4 - 2) + 1)) + 2;
-        int randomPlant = (int) (Math.random() * ((playerPlants.size()) + 1));
+        int randomPlant = (int) (Math.random() * ((plants.size()) + 1));
         Plant newPlant = Plant.makePlant(Plant.getPlants().get(randomPlant).getName());
-        if (playerPlants.size() < 10) {
+        if (plants.size() < 10) {
             getBattle().getPlayer(0).getPlants().add(newPlant);
         }
         //if plant the zombie remove it from playerPlants
         ArrayList<Plant> plantsToBeOmitted = new ArrayList<>();
-        for (int i = 0; i < playerPlants.size(); i++) {
-            if (playerPlants.get(i).getCell() != null) {
-                plantsToBeOmitted.add(playerPlants.get(i));
+        for (int i = 0; i < plants.size(); i++) {
+            if (plants.get(i).getCell() != null) {
+                plantsToBeOmitted.add(plants.get(i));
             }
         }
         //do the deletion
         for (int i = 0; i < plantsToBeOmitted.size(); i++) {
-            playerPlants.remove(plantsToBeOmitted.get(i));
+            plants.remove(plantsToBeOmitted.get(i));
         }
     }
 
@@ -115,6 +118,17 @@ public class Rail extends GameMode {
         }
         getBattle().setMap(m);
         return m;
+    }
+
+    public void addPlant(Battle battle) {
+        if (battle.getCurrentTurn()%5 == 0 && plants.size()<10) {
+            int rnd = (int) (Math.random() *(plants.size()+1));
+            plants.add(plants.get(rnd));
+        }
+    }
+
+    public ArrayList<Plant> showList() {
+        return list;
     }
 
 }

@@ -1,7 +1,9 @@
 package Model.Map;
+
 import Model.Card.Plants.PeaOrProjectile;
 import Model.Card.Plants.Plant;
 import Model.Card.Zombies.Zombie;
+
 import java.util.ArrayList;
 
 public class Cell {
@@ -25,24 +27,22 @@ public class Cell {
         this.zombies = new ArrayList<Zombie>();
         this.peas = new ArrayList<PeaOrProjectile>();
     }
-    public Cell(){}
 
-    void removeDeadZombie(Zombie zombie, Map map){
+    public Cell() {
+    }
+
+    void removeDeadZombie(Zombie zombie, Map map) {
         ArrayList<Zombie> tempZombies = new ArrayList<>();
-        Cell thisCell = map.getCell(this.x , this.y);
-        for(Zombie i : thisCell.zombies)
-        {
-            if(i.getHealth() == 0)
-            {
+        Cell thisCell = map.getCell(this.x, this.y);
+        for (Zombie i : thisCell.zombies) {
+            if (i.getHealth() == 0) {
                 tempZombies.add(i);
             }
         }
-        for(Zombie i : tempZombies)
-        {
+        for (Zombie i : tempZombies) {
             thisCell.zombies.remove(i);
         }
     }
-
 
 
     public Plant getPlant() {
@@ -66,14 +66,13 @@ public class Cell {
     }
 
     public boolean canBePlanted() {
-        if (this.water){
-            if (this.LilyPad){
+        if (this.water) {
+            if (this.LilyPad) {
                 if (this.plant == null)
                     return true;
             }
             return false;
-        }
-        else {
+        } else {
             if (this.plant == null)
                 return true;
             return false;

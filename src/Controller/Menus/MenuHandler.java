@@ -6,6 +6,7 @@ import Controller.GameMode.Water;
 import Controller.GameMode.ZombieGameMode;
 import Model.Player.Player;
 import Model.Player.Profile;
+import Model.Shop.Shop;
 
 import java.io.IOException;
 import java.util.Scanner;
@@ -29,7 +30,7 @@ public class MenuHandler {
 
     public void run() throws IOException {
 
-
+        Shop shop = new Shop();
         Player bot = new Player();
         Profile profile = null;
         Scanner scanner = new Scanner(System.in);
