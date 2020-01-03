@@ -29,12 +29,7 @@ public class Rail extends GameMode {
     public void wave() throws IOException {
         //todo
         //har 3 ta 5 turn
-        int zombieNumber = (int) (Math.random() * (12 + 1));
-        int randomPlace = (int) (Math.random() * ((Map.getHEIGHT()) + 1));
-        Zombie zombie = new Zombie(Card.getZombies().get(zombieNumber).getName());
-        zombie.setCell(generateMap().getCell(randomPlace, 0));
-        generateMap().getCell(randomPlace, 0).getZombies().add(zombie);
-        getWaveZombies().add(zombie);
+        generateZombies();
     }
 
     @Override

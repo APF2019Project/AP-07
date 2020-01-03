@@ -23,12 +23,7 @@ public class Day extends GameMode {
         if (canWave()) {
             int numberOfZombiesInAWave = (int) (Math.random() * ((10 - 4) + 1)) + 4;
             for (int i = 0; i < numberOfZombiesInAWave; i++) {
-                int zombieNumber = (int) (Math.random() * (12 + 1));
-                int randomPlace = (int) (Math.random() * ((Map.getHEIGHT()) + 1));
-                Zombie zombie = new Zombie(Card.getZombies().get(zombieNumber).getName());
-                zombie.setCell(generateMap().getCell(randomPlace, 0));
-                generateMap().getCell(randomPlace, 0).getZombies().add(zombie);
-                getWaveZombies().add(zombie);
+                generateZombies();
             }
             setWaveCounter(1);
         }
