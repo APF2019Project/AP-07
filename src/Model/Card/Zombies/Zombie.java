@@ -7,6 +7,7 @@ import Model.Card.Card;
 import com.gilecode.yagson.YaGson;
 import java.io.File;
 import java.io.IOException;
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 
 public class Zombie extends Card {
@@ -34,6 +35,7 @@ public class Zombie extends Card {
         String d = yaGson.toJson(zombie1);
         zombies.add(zombie1);
         return zombie1;
+
 //        System.out.println(d);
 //        System.out.println(zombie1.getSpeed());
     }

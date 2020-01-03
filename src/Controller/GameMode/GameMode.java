@@ -1,9 +1,8 @@
 package Controller.GameMode;
-
+import Model.Card.Plants.Plant;
 import Model.Card.Zombies.Zombie;
 import Model.Map.Map;
 import Model.Player.Profile;
-
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -22,8 +21,6 @@ public abstract class GameMode {
     public abstract boolean handleWin(Profile profile);
 
     public abstract void updateCollection() throws IOException;
-
-    public abstract void getAvailableCards();
 
     public abstract void generateSun(Battle battle);
 

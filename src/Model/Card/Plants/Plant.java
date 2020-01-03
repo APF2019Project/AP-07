@@ -37,6 +37,7 @@ public class Plant extends Card {
         Plant plant1 = yaGson.fromJson(string, Plant.class);
         String d = yaGson.toJson(plant1);
         plants.add(plant1);
+        System.out.println(plant1.getActionsOfAnEvent());
         return plant1;
 //        System.out.println(d);
 //        System.out.println(plant1.getSun());

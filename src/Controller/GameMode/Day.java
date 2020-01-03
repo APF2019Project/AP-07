@@ -1,6 +1,7 @@
 package Controller.GameMode;
 
 import Model.Card.Card;
+import Model.Card.Plants.Plant;
 import Model.Card.Zombies.Zombie;
 import Model.Map.Cell;
 import Model.Map.Map;
@@ -48,25 +49,22 @@ public class Day extends GameMode {
     @Override
     public boolean handleWin(Profile profile) {
         //if player lose
-       if(zombieReachedToTheEnd()){
-           return false;
+        if (zombieReachedToTheEnd()) {
+            return false;
         }
         //if player win
-       if(allZombiesAreDead(profile)){
-           return false;
-       }
-       //continue the game
+        if (allZombiesAreDead(profile)) {
+            return false;
+        }
+        //continue the game
         return true;
     }
 
     @Override
     public void updateCollection() {
-
-    }
-
-    @Override
-    public void getAvailableCards() {
-
+//        for (int i = 0; i < getBattle().getPlayer(0).getZombies(); i++) {
+//            if()
+//        }
     }
 
     @Override

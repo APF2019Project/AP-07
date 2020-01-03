@@ -1,9 +1,12 @@
 package Controller.GameMode;
 
 import Model.Card.Plants.Plant;
+import Model.Card.Zombies.Zombie;
 import Model.Map.Cell;
 import Model.Map.Map;
 import Model.Player.Profile;
+
+import java.util.ArrayList;
 
 public class PVP extends GameMode {
 
@@ -59,10 +62,6 @@ public class PVP extends GameMode {
 
     }
 
-    @Override
-    public void getAvailableCards() {
-
-    }
 
     @Override
     public void generateSun(Battle battle) {

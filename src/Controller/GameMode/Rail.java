@@ -13,7 +13,7 @@ import java.util.Random;
 
 public class Rail extends GameMode {
 
-    private ArrayList<Plant> plants = Card.getPlants();
+    private ArrayList<Plant> plants = new ArrayList<>();
     private ArrayList<Plant> list = new ArrayList<Plant>();
 
     public Rail() {
@@ -78,10 +78,6 @@ public class Rail extends GameMode {
         }
     }
 
-    @Override
-    public void getAvailableCards() {
-
-    }
 
     @Override
     public void generateSun(Battle battle) {

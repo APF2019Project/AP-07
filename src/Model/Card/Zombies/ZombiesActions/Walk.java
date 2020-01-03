@@ -17,8 +17,8 @@ public class Walk extends Action {
     @Override
     public void doAction(Zombie zombie, Battle battle, int d) {
         int i =0;
-        int x = zombie.getCell().x;
-        int y = zombie.getCell().y;
+        int x = zombie.getCell().x();
+        int y = zombie.getCell().y();
 
     }
 }

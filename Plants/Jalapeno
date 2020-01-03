@@ -1,0 +1,16 @@
+{
+  "@type":"Model.Card.Plants.Plant",
+  "@val":{
+    "sun":"4",
+    "cooldown":"5",
+    "ProducedSun":"0",
+    "SpeedReduction":"1",
+    "Turn":"0",
+    "name":"Cactus",
+    "id":"24",
+    "AP":"0",
+    "HP":"0",
+    "price":0,
+    "actionsOfAnEvent":["Burst"]
+  }
+}

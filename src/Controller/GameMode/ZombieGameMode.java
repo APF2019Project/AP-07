@@ -6,9 +6,7 @@ import Model.Card.Zombies.Zombie;
 import Model.Map.Cell;
 import Model.Map.Map;
 import Model.Player.Profile;
-
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Random;
 
 public class ZombieGameMode extends GameMode {
@@ -159,11 +157,6 @@ public class ZombieGameMode extends GameMode {
 
     @Override
     public void updateCollection() {
-
-    }
-
-    @Override
-    public void getAvailableCards() {
 
     }
 
