@@ -1,5 +1,6 @@
 package Model.Card.Event;
 
+import Controller.GameMode.Battle;
 import Model.Card.Plants.Plant;
 import Model.Map.Map;
 
@@ -7,14 +8,14 @@ import static java.lang.Math.abs;
 
 public class ProximityInRadiousDistance extends Event {
     @Override
-    public boolean check(Plant plant, Map map, int d) {
+    public boolean check(Plant plant, Battle battle, int d) {
         //if (d == 8) {
-        for (int i = 0; i < map.getCells().length; i++) {
-            for (int j = 0; j < map.getCells()[i].length; j++) {
-                if (!map.getCells()[i][j].getZombies().isEmpty()) {
-                    if (abs(map.getCells()[i][j].x - plant.getCell().x) <= 1) {
-                        if (abs(map.getCells()[i][j].x - plant.getCell().x) <= 1) {
-                            if (abs(map.getCells()[i][j].y - plant.getCell().y) <= 1) {
+        for (int i = 0; i < battle.getMap().getCells().length; i++) {
+            for (int j = 0; j < battle.getMap().getCells()[i].length; j++) {
+                if (!battle.getMap().getCells()[i][j].getZombies().isEmpty()) {
+                    if (abs(battle.getMap().getCells()[i][j].x - plant.getCell().x) <= 1) {
+                        if (abs(battle.getMap().getCells()[i][j].x - plant.getCell().x) <= 1) {
+                            if (abs(battle.getMap().getCells()[i][j].y - plant.getCell().y) <= 1) {
                                 return true;
                             }
                         }
