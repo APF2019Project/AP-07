@@ -14,6 +14,8 @@ public class ZombieGameMode extends GameMode {
     private String mapType;
     private Profile profile;
 
+    public ZombieGameMode(){}
+
     public ZombieGameMode(Profile profile, String mapType) {
         for (int i=0;i<landMower.length;i++){
             landMower[i]=false;
@@ -172,33 +174,20 @@ public class ZombieGameMode extends GameMode {
     }
 
     @Override
+    public ArrayList<Card> getAvailableCards() {
+        return null;
+    }
+
+    @Override
     public Map generateMap() {
         Map m = new Map();
         if (mapType.equals("Water")) {
-            for (int i = 2; i < 4; i++) {
-                for (int j = 0; j < Map.getWIDTH(); j++) {
-                    m.setCell(i, j, new Cell(i, j, true));
-                }
-            }
-            for (int i = 4; i < 6; i++) {
-                for (int j = 0; j < Map.getWIDTH(); j++) {
-                    m.setCell(i, j, new Cell(i, j, false));
-                }
-            }
-            for (int i = 0; i < 2; i++) {
-                for (int j = 0; j < Map.getWIDTH(); j++) {
-                    m.setCell(i, j, new Cell(i, j, false));
-                }
-            }
+
         }
         if (mapType.equals("Land")) {
-            for (int i = 0; i < Map.getHEIGHT() + 4; i++) {
-                for (int j = 0; j < Map.getWIDTH() + 4; j++) {
-                    m.setCell(i, j, new Cell(i, j, false));
-                }
-            }
+            return generateLandMap();
         }
-        return m;
+       return null;
     }
 
 }

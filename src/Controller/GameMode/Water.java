@@ -1,9 +1,7 @@
 package Controller.GameMode;
 
 import Model.Card.Card;
-import Model.Card.Plants.Plant;
 import Model.Card.Zombies.Zombie;
-import Model.Map.Cell;
 import Model.Map.Map;
 import Model.Player.Profile;
 
@@ -11,6 +9,10 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class Water extends GameMode {
+
+    private int lastTurnGivingSuns = 0;
+    private int lastTurnlastZombieKilled;
+    int random = (int) (Math.random() * ((2 - 1) + 1)) + 1;
 
     public Water() {
 //        //player is gardner
@@ -57,6 +59,8 @@ public class Water extends GameMode {
     public boolean canWave()
     {
         if (getBattle().getCurrentTurn() >= 3 && getWaveCounter() <= 3) {
+            if(getBattle().getCurrentTurn()==0 || (getBattle().getCurrentTurn()-lastTurnlastZombieKilled)==7)
+                lastTurnlastZombieKilled=0;
             return true;
         }
         return false;
@@ -89,36 +93,26 @@ public class Water extends GameMode {
 
     @Override
     public void generateSun(Battle battle) {
-        if (battle.getCurrentTurn() == 0) {
-            battle.getPlayer(0).setSun(2);
-        } else {
-            int numberOfPassedTurns = (int) (Math.random() * ((2 - 1) + 1)) + 1;
-            int numberOfSuns = (int) (Math.random() * ((5 - 2) + 1)) + 2;
-            //todo
-            //numberOfPassedTurns ra dar turn asar bede
+        int numberOfSuns = (int) (Math.random() * ((5 - 2) + 1)) + 2;
+        if (lastTurnGivingSuns == random) {
+            random= (int) (Math.random() * ((2 - 1) + 1)) + 1;
+            lastTurnGivingSuns = 0;
             battle.getPlayer(0).setSun(numberOfSuns);
         }
     }
 
     @Override
+    public ArrayList<Card> getAvailableCards() {
+        return null;
+    }
+
+    @Override
     public Map generateMap() {
-        Map m = new Map();
-        for (int i = 2; i < 4; i++) {
-            for (int j = 0; j < Map.getWIDTH(); j++) {
-                m.setCell(i, j, new Cell(i, j, true));
-            }
-        }
-        for (int i = 0; i < 2; i++) {
-            for (int j = 0; j < Map.getWIDTH(); j++) {
-                m.setCell(i, j, new Cell(i, j, false));
-            }
-        }
-        for (int i = 4; i < 6; i++) {
-            for (int j = 0; j < Map.getWIDTH(); j++) {
-                m.setCell(i, j, new Cell(i, j, false));
-            }
-        }
-        return m;
+        return generateWaterMap();
+    }
+
+    public void setLastTurnGivingSuns(int lastTurnUpdatingDarSuns) {
+        this.lastTurnGivingSuns += lastTurnUpdatingDarSuns;
     }
 }
 

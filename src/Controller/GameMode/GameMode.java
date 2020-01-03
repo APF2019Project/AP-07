@@ -1,8 +1,7 @@
 package Controller.GameMode;
-import Model.Card.Plants.Plant;
-
 import Model.Card.Card;
 import Model.Card.Zombies.Zombie;
+import Model.Map.Cell;
 import Model.Map.Map;
 import Model.Player.Profile;
 
@@ -16,6 +15,7 @@ public abstract class GameMode {
     private boolean canWave = true;
     private ArrayList<Zombie> waveZombies = new ArrayList<>();
     protected boolean landMower[] = new boolean[6];
+    public int lastTurnWaved=0;
 
     public abstract void wave() throws IOException;
 
@@ -25,9 +25,9 @@ public abstract class GameMode {
 
     public abstract void updateCollection() throws IOException;
 
-    public abstract ArrayList<Card> getAvailableCards();
-
     public abstract void generateSun(Battle battle);
+
+    public abstract ArrayList<Card> getAvailableCards();
 
     public abstract Map generateMap();
 
@@ -114,4 +114,47 @@ public abstract class GameMode {
         return false;
     }
 
+    public Map generateLandMap() {
+        Map m = new Map();
+        for (int i = 0; i < Map.getHEIGHT(); i++) {
+            for (int j = 0; j < Map.getWIDTH(); j++) {
+                m.setCell(i, j, new Cell(i, j, false));
+            }
+        }
+        return m;
+    }
+
+    public Map generateWaterMap(){
+        Map m=new Map();
+        for (int i = 2; i < 4; i++) {
+            for (int j = 0; j < Map.getWIDTH(); j++) {
+                m.setCell(i, j, new Cell(i, j, true));
+            }
+        }
+        for (int i = 4; i < 6; i++) {
+            for (int j = 0; j < Map.getWIDTH(); j++) {
+                m.setCell(i, j, new Cell(i, j, false));
+            }
+        }
+        for (int i = 0; i < 2; i++) {
+            for (int j = 0; j < Map.getWIDTH(); j++) {
+                m.setCell(i, j, new Cell(i, j, false));
+            }
+        }
+        return m;
+    }
+
+
+    public void generateZombies(){
+        int zombieNumber = (int) (Math.random() * (12 + 1));
+        int randomPlace = (int) (Math.random() * ((Map.getHEIGHT()) + 1));
+        Zombie zombie = new Zombie(Card.getZombies().get(zombieNumber).getName());
+        zombie.setCell(generateMap().getCell(randomPlace, 0));
+        generateMap().getCell(randomPlace, 0).getZombies().add(zombie);
+        getWaveZombies().add(zombie);
+    }
+
+    public void setLastTurnWaved(int lastTurnWaved) {
+        this.lastTurnWaved += lastTurnWaved;
+    }
 }

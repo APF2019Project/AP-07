@@ -10,7 +10,6 @@
     "id":"24",
     "AP":"0",
     "HP":"0",
-    "price":0,
-    "actionsOfAnEvent":["Burst"]
+    "price":0
   }
 }

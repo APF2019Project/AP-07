@@ -7,10 +7,12 @@ import Model.Card.Zombies.Zombie;
 import Model.Map.Cell;
 import Model.Map.Map;
 import Model.Player.Player;
+import Model.Player.Profile;
 
 import java.io.IOException;
 
 public class ZombieMenu extends Menu {
+
     public ZombieGameMode zombieGameMode = new ZombieGameMode();
     public Player player1;
     public Player player2;

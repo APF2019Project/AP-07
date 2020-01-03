@@ -7,7 +7,6 @@ import Controller.GameMode.ZombieGameMode;
 import Model.Card.Card;
 import Model.Player.Player;
 import Model.Player.Profile;
-import Model.Shop.Shop;
 
 import java.io.IOException;
 import java.util.Scanner;
@@ -317,7 +316,7 @@ public class MenuHandler {
 
             else if (Menu.menuHandler.getCurrentMenu() == null)
                 break;
-            
+
 
         }
     }

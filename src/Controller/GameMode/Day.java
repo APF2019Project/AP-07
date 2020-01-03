@@ -1,15 +1,18 @@
 package Controller.GameMode;
 
 import Model.Card.Card;
-import Model.Card.Plants.Plant;
-import Model.Card.Zombies.Zombie;
-import Model.Map.Cell;
 import Model.Map.Map;
 import Model.Player.Profile;
 
 import java.util.ArrayList;
 
 public class Day extends GameMode {
+
+    private int lastTurnGivingSuns = 0;
+
+    private int lastTurnlastZombieKilled;
+
+    int random = (int) (Math.random() * ((2 - 1) + 1)) + 1;
 
     public Day() {
         //player is gardner
@@ -24,23 +27,17 @@ public class Day extends GameMode {
         if (canWave()) {
             int numberOfZombiesInAWave = (int) (Math.random() * ((10 - 4) + 1)) + 4;
             for (int i = 0; i < numberOfZombiesInAWave; i++) {
-                int zombieNumber = (int) (Math.random() * (12 + 1));
-                int randomPlace = (int) (Math.random() * ((Map.getHEIGHT()) + 1));
-                Zombie zombie = new Zombie(Card.getZombies().get(zombieNumber).getName());
-                zombie.setCell(generateMap().getCell(randomPlace, 0));
-                generateMap().getCell(randomPlace, 0).getZombies().add(zombie);
-                getWaveZombies().add(zombie);
+                generateZombies();
             }
             setWaveCounter(1);
         }
     }
 
-    //check the turn
-    //todo
-    //7 turn pas az marge last zombie true mishe
     @Override
     public boolean canWave() {
         if (getBattle().getCurrentTurn() >= 3 && getWaveCounter() <= 3) {
+            if(getBattle().getCurrentTurn()==0 || (getBattle().getCurrentTurn()-lastTurnlastZombieKilled)==7)
+                lastTurnlastZombieKilled=0;
             return true;
         }
         return false;
@@ -54,6 +51,7 @@ public class Day extends GameMode {
         }
         //if player win
         if (allZombiesAreDead(profile)) {
+            lastTurnlastZombieKilled=getBattle().getCurrentTurn();
             return false;
         }
         //continue the game
@@ -62,9 +60,6 @@ public class Day extends GameMode {
 
     @Override
     public void updateCollection() {
-//        for (int i = 0; i < getBattle().getPlayer(0).getZombies(); i++) {
-//            if()
-//        }
     }
 
     @Override
@@ -74,22 +69,26 @@ public class Day extends GameMode {
 
     @Override
     public void generateSun(Battle battle) {
-        int numberOfPassedTurns = (int) (Math.random() * ((2 - 1) + 1)) + 1;
         int numberOfSuns = (int) (Math.random() * ((5 - 2) + 1)) + 2;
-        //todo
-        //numberOfPassedTurns ra dar turn asar bede
-        battle.getPlayer(0).setSun(numberOfSuns);
+        if (lastTurnGivingSuns == random) {
+            random= (int) (Math.random() * ((2 - 1) + 1)) + 1;
+            lastTurnGivingSuns = 0;
+            battle.getPlayer(0).setSun(numberOfSuns);
+        }
+    }
+
+    @Override
+    public ArrayList<Card> getAvailableCards() {
+        return null;
     }
 
     @Override
     public Map generateMap() {
-        Map m = new Map();
-        for (int i = 0; i < Map.getHEIGHT() + 4; i++) {
-            for (int j = 0; j < Map.getWIDTH() + 4; j++) {
-                m.setCell(i, j, new Cell(i, j, false));
-            }
-        }
-        return m;
+        return generateLandMap();
+    }
+
+    public void setLastTurnGivingSuns(int lastTurnUpdatingDarSuns) {
+        this.lastTurnGivingSuns += lastTurnUpdatingDarSuns;
     }
 
 }

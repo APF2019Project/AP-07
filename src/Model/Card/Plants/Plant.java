@@ -37,14 +37,13 @@ public class Plant extends Card {
         String string = Card.makeString(file);
         Plant plant1 = yaGson.fromJson(string, Plant.class);
         String d = yaGson.toJson(plant1);
-        boolean q = false;
-        for (Plant p: plants)
-            if (p.getName().equalsIgnoreCase(plant1.getName()))
-                q = true;
-        if (!q)
-            plants.add(plant1);
-        plant1.setPrice();
-        System.out.println(plant1.getActionsOfAnEvent());
+//        boolean q = false;
+//        for (Plant p: plants)
+//            if (p.getName().equalsIgnoreCase(plant1.getName()))
+//                q = true;
+//        if (!q)
+//            plants.add(plant1);
+//        plant1.setPrice();
 
         return plant1;
 //        System.out.println(d);
