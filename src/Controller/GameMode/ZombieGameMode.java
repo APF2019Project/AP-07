@@ -6,7 +6,6 @@ import Model.Card.Zombies.Zombie;
 import Model.Map.Cell;
 import Model.Map.Map;
 import Model.Player.Profile;
-
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -65,10 +64,6 @@ public class ZombieGameMode extends GameMode {
 
     }
 
-    public ZombieGameMode() {
-
-    }
-
     @Override
     public void wave() {
         for (int i = 0; i < getBattle().getMap().getCells().length; i++) {
@@ -77,7 +72,7 @@ public class ZombieGameMode extends GameMode {
                 zombiesInRow.addAll(getBattle().getMap().getCells()[i][j].getZombies());
             }
             if (zombiesInRow.size() <= 2) {
-                if (mapType.equalsIgnoreCase("Water")) {
+                if (mapType.equals("Water")) {
                     Random random = new Random();
                     int randomPlace = (int) (Math.random() * ((Map.getHEIGHT()) + 1));
                     //if in landCell
@@ -104,7 +99,7 @@ public class ZombieGameMode extends GameMode {
                         }
                     }
                 }
-                if (mapType.equalsIgnoreCase("Land")) {
+                if (mapType.equals("Land")) {
                     int zombieNumber = (int) (Math.random() * (12 + 1));
                     int randomPlace = (int) (Math.random() * ((Map.getHEIGHT()) + 1));
                     Zombie zombie = new Zombie(Card.getZombies().get(zombieNumber).getName());
@@ -163,12 +158,6 @@ public class ZombieGameMode extends GameMode {
     @Override
     public void updateCollection() {
 
-    }
-
-    @Override
-    public ArrayList<Card> getAvailableCards() {
-
-        return null;
     }
 
     @Override

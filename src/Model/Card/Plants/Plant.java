@@ -5,7 +5,7 @@ import Model.Card.Action;
 import Model.Card.ActionsOfAnEvent;
 import Model.Card.Card;
 import Model.Card.Plants.PlantsActions.PlantsAction;
-import Model.Player.Player;
+import Model.Player.Profile;
 import com.gilecode.yagson.YaGson;
 
 
@@ -44,6 +44,8 @@ public class Plant extends Card {
         if (!q)
             plants.add(plant1);
         plant1.setPrice();
+        System.out.println(plant1.getActionsOfAnEvent());
+
         return plant1;
 //        System.out.println(d);
 //        System.out.println(plant1.getSun());

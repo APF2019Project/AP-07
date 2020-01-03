@@ -8,6 +8,7 @@ import Model.Card.Plants.Plant;
 import com.gilecode.yagson.YaGson;
 import java.io.File;
 import java.io.IOException;
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 
 public class Zombie extends Card {
@@ -41,6 +42,7 @@ public class Zombie extends Card {
             zombies.add(zombie1);
         zombie1.setPrice();
         return zombie1;
+
 //        System.out.println(d);
 //        System.out.println(zombie1.getSpeed());
     }

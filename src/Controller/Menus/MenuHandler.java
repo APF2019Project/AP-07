@@ -315,9 +315,10 @@ public class MenuHandler {
                     System.out.println("invalid command");
             }
 
-            else if (Menu.menuHandler.getCurrentMenu() == null)
-                break;
-        }
+//            else if (Menu.menuHandler.getCurrentMenu() == null)
+//                break;
+            }
 
+        }
     }
 }
