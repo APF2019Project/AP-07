@@ -64,40 +64,14 @@ public class Water extends GameMode {
     @Override
     public boolean handleWin(Profile profile) {
         //if player lose
-        for (int i = 0; i < getBattle().getMap().getCells().length; i++) {
-            for (int j = 0; j < getBattle().getMap().getCells()[i].length; i++) {
-                for (int k = 0; k < getBattle().getMap().getCells()[i][j].getZombies().size(); k++) {
-                    if (getBattle().getMap().getCells()[i][j].getZombies().get(k).getCell().x() == Map.getWIDTH() + 1) {
-                        if(landMower(i)){
-                            return false;
-                        }
-                        return true;
-                    }
-                }
-            }
-        }
-        //if player win
-        boolean allZombisAreDead = true;
-        ArrayList<Zombie> allZombies = new ArrayList<>();
-        for (int i = 0; i < getBattle().getMap().getCells().length; i++) {
-            for (int j = 0; j < getBattle().getMap().getCells()[i].length; i++) {
-                for (int k = 0; k < getBattle().getMap().getCells()[i][j].getZombies().size(); k++) {
-                    allZombies.addAll(getBattle().getMap().getCells()[i][j].getZombies());
-                }
-            }
-        }
-
-        for (int i = 0; i < allZombies.size(); i++) {
-            if (allZombies.get(i).getHP() != 0) {
-                allZombisAreDead = false;
-            }
-        }
-
-        //numberOfKilledZombies=external coins
-        if (allZombisAreDead) {
-            profile.setExternalCoins(getBattle().getPlayer(0).getNumberOfKilledZombies() * 10);
+        if(zombieReachedToTheEnd()){
             return false;
         }
+        //if player win
+        if(allZombiesAreDead(profile)){
+            return false;
+        }
+        //continue the game
         return true;
     }
 

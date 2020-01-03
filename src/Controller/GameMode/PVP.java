@@ -41,19 +41,16 @@ public class PVP extends GameMode {
 
     @Override
     public boolean handleWin(Profile profile) {
-        for (int i = 0; i < getBattle().getMap().getCells().length; i++) {
-            for (int j = 0; j < getBattle().getMap().getCells()[i].length; i++) {
-                for (int k = 0; k < getBattle().getMap().getCells()[i][j].getZombies().size(); k++) {
-                    if (getBattle().getMap().getCells()[i][j].getZombies().get(k).getCell().x() == Map.getWIDTH() + 1) {
-                        if(landMower(i)){
-                            return false;
-                        }
-                        profile.setExternalCoins(200);
-                        return false;
-                    }
-                }
-            }
+        //if player lose
+        if(zombieReachedToTheEnd()){
+            profile.setExternalCoins(200);
+            return false;
         }
+        //if player win
+        if(allZombiesAreDead(profile)){
+            return false;
+        }
+        //continue the game
         return true;
     }
 
