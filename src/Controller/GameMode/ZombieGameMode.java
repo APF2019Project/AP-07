@@ -86,7 +86,6 @@ public class ZombieGameMode extends GameMode {
                             getWaveZombies().add(zombie);
                         }
                     }
-
                     //if in water cell
                     if (randomPlace == 2 || randomPlace == 3) {
                         int zombieNumber = (int) (Math.random() * ((14 - 13) + 1)) + 13;
@@ -112,6 +111,7 @@ public class ZombieGameMode extends GameMode {
                 }
             }
         }
+
         for (int i = 0; i < getBattle().getMap().getCells().length; i++) {
             for (int j = 0; j < getBattle().getMap().getCells()[i].length; i++) {
                 if (getBattle().getMap().getCells()[i][j].getPlant().getHP() == 0) {
@@ -139,7 +139,7 @@ public class ZombieGameMode extends GameMode {
             }
         }
         if(allPlantsAreDead){
-            return true;
+            return false;
         }
         boolean canNotBuyAnyZombie=true;
         for(int i=0;i< Zombie.getZombies().size();i++){
@@ -149,9 +149,9 @@ public class ZombieGameMode extends GameMode {
             }
         }
         if(canNotBuyAnyZombie){
-            return true;
+            return false;
         }
-        return false;
+        return true;
     }
 
     @Override
