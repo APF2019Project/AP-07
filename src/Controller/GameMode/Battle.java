@@ -19,6 +19,24 @@ public class Battle {
     private Map map;
     private ArrayList<Zombie> zombies;
 
+    public void actAllMembers(Battle battle){
+        for (int i = 2; i < Map.getHEIGHT() + 2; i++) {
+            for (int j = 2; j < Map.getWIDTH() + 2; j++) {
+                if (battle.getMap().getCell(i, j).getPlant() != null)
+                    battle.getMap().getCell(i, j).getPlant().act(battle);
+                if (!battle.getMap().getCell(i, j).getZombies().isEmpty())
+                    for (Zombie z : battle.getMap().getCell(i, j).getZombies())
+                        z.act(battle);
+            }
+        }
+        for (Plant p : this.player1.getPlants()) {
+            if (p.getLoading() != 0) {
+                p.setLoading(p.getLoading() - 1);
+            }
+        }
+    }
+
+
     public Player getPlayer(int i) {
         if (i == 1)
             return player1;

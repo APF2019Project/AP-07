@@ -105,5 +105,9 @@ public class Water extends GameMode {
     public Map generateMap() {
         return generateWaterMap();
     }
+
+    public void setLastTurnGivingSuns(int lastTurnUpdatingDarSuns) {
+        this.lastTurnGivingSuns += lastTurnUpdatingDarSuns;
+    }
 }
 

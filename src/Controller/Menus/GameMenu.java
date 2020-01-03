@@ -1,11 +1,15 @@
 package Controller.Menus;
 
-import Controller.GameMode.*;
+import Controller.GameMode.Battle;
+import Controller.GameMode.Day;
+import Controller.GameMode.Rail;
+import Controller.GameMode.Water;
 import Model.Card.Plants.Plant;
 import Model.Card.Zombies.Zombie;
 import Model.Map.Cell;
 import Model.Map.Map;
 import Model.Player.Player;
+import Model.Player.Profile;
 
 import java.io.IOException;
 
@@ -29,16 +33,15 @@ public class GameMenu extends Menu {
     }
 
     public void plant(String name, int x, int y) throws IOException {
-        if (battle.getMap().getCell(x,y).canBePlanted()) {
-            for (Plant p:player1.getPlants()){
-                if (p.getName().equalsIgnoreCase(name)){
+        if (battle.getMap().getCell(x, y).canBePlanted()) {
+            for (Plant p : player1.getPlants()) {
+                if (p.getName().equalsIgnoreCase(name)) {
                     if (p.getLoading() == 0) {
-                        battle.getMap().getCell(x,y).setPlant(Plant.makePlant(name));
+                        battle.getMap().getCell(x, y).setPlant(Plant.makePlant(name));
                         p.setLoading(p.getCooldown());
                         System.out.println("plant planted:)");
 
-                    }
-                    else {
+                    } else {
                         System.out.println("plant is not ready");
                     }
 
@@ -48,24 +51,28 @@ public class GameMenu extends Menu {
         }
     }
 
-    public void endTurn() {
-        battle.setCurrentTurn(1);
-        battle.
-//        for (int i = 2; i < Map.getHEIGHT() + 2; i++)
-//            for (int j = 2; j < Map.getWIDTH() + 2; j++) {
-//                if (battle.getMap().getCell(i, j).getPlant() != null)
-//                    battle.getMap().getCell(i, j).getPlant().act(battle.getMap());
-//                if (battle.getMap().getCell(i, j).getZombies().size() !=0)
-//                    for (Zombie z : battle.getMap().getCell(i, j).getZombies())
-//                        z.act(battle.getMap());
-//            }
-        for (Plant p : this.player1.getPlants()) {
-            if (p.getLoading() != 0) {
-                p.setLoading(p.getLoading()-1);
-            }
+    public void endTurn(Profile profile) throws IOException {
+        battle.getGameMode().wave();
+        if (battle.getGameMode() instanceof Day) {
+            Day day = (Day) battle.getGameMode();
+            day.setLastTurnGivingSuns(1);
         }
+        if (battle.getGameMode() instanceof Water) {
+            Water water = (Water) battle.getGameMode();
+            water.setLastTurnGivingSuns(1);
+        }
+        if (battle.getGameMode() instanceof Rail) {
+            Rail rail = (Rail) battle.getGameMode();
+            rail.setLastTurnUpdatingRailCollection(1);
+        }
+        
+        battle.actAllMembers(battle);
+        battle.getGameMode().generateSun(battle);
+        battle.getGameMode().handleWin(profile);
+        battle.getGameMode().setLastTurnWaved(1);
+        battle.getGameMode().updateCollection();
+        battle.setCurrentTurn(1);
     }
-
 
 
     public void showLawn() {

@@ -10,7 +10,6 @@
     "cooldown": "5",
     "ProducedSun": "2",
     "SpeedReduction": "1",
-    "price":0,
-    "actionsOfAnEvent":["ProduceSun"]
+    "price":0
   }
 }

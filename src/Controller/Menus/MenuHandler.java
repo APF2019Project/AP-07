@@ -7,7 +7,6 @@ import Controller.GameMode.ZombieGameMode;
 import Model.Card.Card;
 import Model.Player.Player;
 import Model.Player.Profile;
-import Model.Shop.Shop;
 
 import java.io.IOException;
 import java.util.Scanner;
@@ -227,7 +226,7 @@ public class MenuHandler {
                     int y = Integer.parseInt(splitInput[2]);
                     Menu.gameMenu.remove(x, y);
                 } else if (input.equalsIgnoreCase("End Turn")) {
-                    Menu.gameMenu.endTurn();
+                    Menu.gameMenu.endTurn(profile);
                 } else if (input.equalsIgnoreCase("show lawn")) {
                     Menu.gameMenu.showLawn();
                 } else
@@ -259,7 +258,7 @@ public class MenuHandler {
                     int y = Integer.parseInt(splitInput[2]);
                     Menu.railMenu.remove(x, y);
                 } else if (input.equalsIgnoreCase("End Turn")) {
-                    Menu.railMenu.endTurn();
+                    Menu.gameMenu.endTurn(profile);
                 } else if (input.equalsIgnoreCase("show lawn")) {
                     Menu.railMenu.showLawn();
                 } else if (input.equalsIgnoreCase("record"))
@@ -289,7 +288,7 @@ public class MenuHandler {
                     int y = Integer.parseInt(splitInput[2]);
                     Menu.waterModeMenu.remove(x, y);
                 } else if (input.equalsIgnoreCase("End Turn")) {
-                    Menu.waterModeMenu.endTurn();
+                    Menu.gameMenu.endTurn(profile);
                 } else if (input.equalsIgnoreCase("show lawn")) {
                     Menu.waterModeMenu.showLawn();
                 } else
@@ -300,25 +299,23 @@ public class MenuHandler {
             else if (Menu.menuHandler.getCurrentMenu() == Menu.zombieMenu) {
                 if (input.equalsIgnoreCase("show hand")) {
                     Menu.zombieMenu.showHand();
-                }  else if (zombie.matcher(input).matches()) {
+                } else if (zombie.matcher(input).matches()) {
                     String n = splitInput[1];
                     int x = Integer.parseInt(splitInput[2]);
-                    Menu.zombieMenu.putZombie(n,x);
-                }  else if (input.equalsIgnoreCase("start")) {
+                    Menu.zombieMenu.putZombie(n, x);
+                } else if (input.equalsIgnoreCase("start")) {
                     Menu.zombieMenu.start();
                 } else if (input.equalsIgnoreCase("show lanes")) {
                     Menu.zombieMenu.showLanes();
                 } else if (input.equalsIgnoreCase("show lawn")) {
                     Menu.zombieMenu.showLawn();
-                }
-                else
+                } else
                     System.out.println("invalid command");
             }
 
 //            else if (Menu.menuHandler.getCurrentMenu() == null)
 //                break;
-            }
-
         }
+
     }
 }

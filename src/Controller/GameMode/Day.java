@@ -9,7 +9,9 @@ import java.util.ArrayList;
 public class Day extends GameMode {
 
     private int lastTurnGivingSuns = 0;
+
     private int lastTurnlastZombieKilled;
+
     int random = (int) (Math.random() * ((2 - 1) + 1)) + 1;
 
     public Day() {
@@ -31,9 +33,6 @@ public class Day extends GameMode {
         }
     }
 
-    //check the turn
-    //todo
-    //7 turn pas az marge last zombie true mishe
     @Override
     public boolean canWave() {
         if (getBattle().getCurrentTurn() >= 3 && getWaveCounter() <= 3) {
@@ -83,12 +82,8 @@ public class Day extends GameMode {
         return generateLandMap();
     }
 
-    public void setLastTurnUpdatingDarSuns(int lastTurnUpdatingDarSuns) {
+    public void setLastTurnGivingSuns(int lastTurnUpdatingDarSuns) {
         this.lastTurnGivingSuns += lastTurnUpdatingDarSuns;
-    }
-
-    public void checkLastZombieLife(){
-
     }
 
 }

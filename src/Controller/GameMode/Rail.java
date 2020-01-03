@@ -13,7 +13,7 @@ public class Rail extends GameMode {
 
     private ArrayList<Plant> plants = new ArrayList<>();
     private ArrayList<Plant> list = new ArrayList<>();
-    public int lastTurnUpdatingRailCollection =0;
+    private int lastTurnUpdatingRailCollection =0;
     int random = (int) (Math.random() * ((4 - 2) + 1)) + 2;
 
     public Rail() {
@@ -108,5 +108,8 @@ public class Rail extends GameMode {
         this.lastTurnUpdatingRailCollection += lastTurnUpdatingRailCollection;
     }
 
+    public String getRecord() {
+        return null;
+    }
 }
 
