@@ -1,5 +1,5 @@
 package Controller.GameMode;
-import Model.Card.Plants.Plant;
+import Model.Card.Card;
 import Model.Card.Zombies.Zombie;
 import Model.Map.Map;
 import Model.Player.Profile;
@@ -23,6 +23,8 @@ public abstract class GameMode {
     public abstract void updateCollection() throws IOException;
 
     public abstract void generateSun(Battle battle);
+
+    public abstract ArrayList<Card> getAvailableCards();
 
     public abstract Map generateMap();
 

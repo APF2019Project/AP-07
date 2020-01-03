@@ -1,7 +1,6 @@
 package Controller.GameMode;
 
 import Model.Card.Card;
-import Model.Card.Plants.Plant;
 import Model.Card.Zombies.Zombie;
 import Model.Map.Cell;
 import Model.Map.Map;
@@ -62,9 +61,6 @@ public class Day extends GameMode {
 
     @Override
     public void updateCollection() {
-//        for (int i = 0; i < getBattle().getPlayer(0).getZombies(); i++) {
-//            if()
-//        }
     }
 
     @Override
@@ -74,6 +70,11 @@ public class Day extends GameMode {
         //todo
         //numberOfPassedTurns ra dar turn asar bede
         battle.getPlayer(0).setSun(numberOfSuns);
+    }
+
+    @Override
+    public ArrayList<Card> getAvailableCards() {
+        return null;
     }
 
     @Override

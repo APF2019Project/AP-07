@@ -166,6 +166,11 @@ public class ZombieGameMode extends GameMode {
     }
 
     @Override
+    public ArrayList<Card> getAvailableCards() {
+        return null;
+    }
+
+    @Override
     public Map generateMap() {
         Map m = new Map();
         if (mapType.equals("Water")) {

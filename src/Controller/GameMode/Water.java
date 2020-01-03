@@ -1,7 +1,6 @@
 package Controller.GameMode;
 
 import Model.Card.Card;
-import Model.Card.Plants.Plant;
 import Model.Card.Zombies.Zombie;
 import Model.Map.Cell;
 import Model.Map.Map;
@@ -93,6 +92,11 @@ public class Water extends GameMode {
             //numberOfPassedTurns ra dar turn asar bede
             battle.getPlayer(0).setSun(numberOfSuns);
         }
+    }
+
+    @Override
+    public ArrayList<Card> getAvailableCards() {
+        return null;
     }
 
     @Override

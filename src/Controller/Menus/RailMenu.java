@@ -18,11 +18,10 @@ public class RailMenu extends Menu {
     public Battle battle = new Battle(player1, player2);
 
 
-
     public void plant(String name, int x, int y, Rail rail) throws IOException {
         for (Card card : rail.getAvailableCards())
             if (card.getName().equalsIgnoreCase(name)) {
-                battle.getMap().getCell(x,y).setPlant(Plant.makePlant(name));
+                battle.getMap().getCell(x, y).setPlant(Plant.makePlant(name));
                 rail.getAvailableCards().remove(card);
                 System.out.println("planted");
                 return;
@@ -30,7 +29,7 @@ public class RailMenu extends Menu {
         System.out.println("plant not found");
     }
 
-    public void record(){
+    public void record() {
         System.out.println("killed zombies: " + rail.getRecord());
     }
 
@@ -45,7 +44,7 @@ public class RailMenu extends Menu {
 //            }
         for (Plant p : this.player1.getPlants()) {
             if (p.getLoading() != 0) {
-                p.setLoading(p.getLoading()-1);
+                p.setLoading(p.getLoading() - 1);
             }
         }
     }
