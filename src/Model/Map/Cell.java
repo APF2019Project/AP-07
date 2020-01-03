@@ -58,6 +58,9 @@ public class Cell {
     public void setZombies(ArrayList<Zombie> zombies) {
         this.zombies = zombies;
     }
+    public void addZombie(Zombie zombie){
+        this.zombies.add(zombie);
+    }
 
     public void removePlant() {
 
