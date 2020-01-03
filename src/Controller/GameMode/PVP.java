@@ -1,5 +1,6 @@
 package Controller.GameMode;
 
+import Model.Card.Card;
 import Model.Card.Plants.Plant;
 import Model.Card.Zombies.Zombie;
 import Model.Map.Cell;
@@ -68,6 +69,11 @@ public class PVP extends GameMode {
         //todo
         //payane har turn
         getBattle().getPlayer(0).setSun(1);
+    }
+
+    @Override
+    public ArrayList<Card> getAvailableCards() {
+        return null;
     }
 
     @Override
