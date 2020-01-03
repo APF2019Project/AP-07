@@ -12,5 +12,5 @@ public abstract class Action {
     //PlantsActions
     public abstract void doAction(Plant plant, Battle battle, int d);
     //ZombiesActions
-    public abstract void doAction(Zombie zombie, Map map, int d) throws IOException;
+    public abstract void doAction(Zombie zombie, Battle battle, int d) throws IOException;
 }

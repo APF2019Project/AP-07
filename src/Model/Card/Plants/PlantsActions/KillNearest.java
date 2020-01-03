@@ -7,6 +7,8 @@ import Model.Card.Zombies.Zombie;
 import Model.Map.Map;
 import Model.Map.Cell;
 
+import java.io.IOException;
+
 public class KillNearest extends Action {
     public int calculateDistance(Cell p, Cell z) {
         return (int) Math.sqrt(((p.x - z.x) * (p.x - z.x)) + ((p.y - z.y) * (p.y - z.y)));
@@ -36,8 +38,9 @@ public class KillNearest extends Action {
     }
 
     @Override
-    public void doAction(Zombie zombie, Map map, int d) {
+    public void doAction(Zombie zombie, Battle battle, int d) throws IOException {
 
     }
+
 
 }
