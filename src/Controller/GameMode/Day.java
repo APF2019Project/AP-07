@@ -110,8 +110,4 @@ public class Day extends GameMode {
         return m;
     }
 
-//    public void checkZombies(){
-//        for(int i=0;i<Map.getHEIGHT())
-//    }
-
 }
