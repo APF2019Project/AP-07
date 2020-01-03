@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 public class Day extends GameMode {
 
-    private int lastTurnUpdatingDaySuns = 0;
+    private int lastTurnGivingSuns = 0;
     private int lastTurnlastZombieKilled;
     int random = (int) (Math.random() * ((2 - 1) + 1)) + 1;
 
@@ -37,6 +37,8 @@ public class Day extends GameMode {
     @Override
     public boolean canWave() {
         if (getBattle().getCurrentTurn() >= 3 && getWaveCounter() <= 3) {
+            if(getBattle().getCurrentTurn()==0 || (getBattle().getCurrentTurn()-lastTurnlastZombieKilled)==7)
+                lastTurnlastZombieKilled=0;
             return true;
         }
         return false;
@@ -50,6 +52,7 @@ public class Day extends GameMode {
         }
         //if player win
         if (allZombiesAreDead(profile)) {
+            lastTurnlastZombieKilled=getBattle().getCurrentTurn();
             return false;
         }
         //continue the game
@@ -63,9 +66,9 @@ public class Day extends GameMode {
     @Override
     public void generateSun(Battle battle) {
         int numberOfSuns = (int) (Math.random() * ((5 - 2) + 1)) + 2;
-        if (lastTurnUpdatingDaySuns == random) {
+        if (lastTurnGivingSuns == random) {
             random= (int) (Math.random() * ((2 - 1) + 1)) + 1;
-            lastTurnUpdatingDaySuns = 0;
+            lastTurnGivingSuns = 0;
             battle.getPlayer(0).setSun(numberOfSuns);
         }
     }
@@ -81,7 +84,7 @@ public class Day extends GameMode {
     }
 
     public void setLastTurnUpdatingDarSuns(int lastTurnUpdatingDarSuns) {
-        this.lastTurnUpdatingDaySuns += lastTurnUpdatingDarSuns;
+        this.lastTurnGivingSuns += lastTurnUpdatingDarSuns;
     }
 
     public void checkLastZombieLife(){
