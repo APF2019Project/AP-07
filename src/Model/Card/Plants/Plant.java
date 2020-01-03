@@ -1,5 +1,6 @@
 package Model.Card.Plants;
 
+import Controller.GameMode.Battle;
 import Model.Card.Action;
 import Model.Card.ActionsOfAnEvent;
 import Model.Card.Card;
@@ -71,20 +72,17 @@ public class Plant extends Card {
         this.loading = 0;
     }
 
-    public void act(Map map) {
+    public void act(Battle battle) {
         this.actionsOfAnEvent.forEach(e -> {
             int d = 0;//bayad taeen she be ezaye har plant vali
-            if (e.getEvent().check(this, map, d)) {//age shart barqarar bood
+            if (e.getEvent().check(this, battle, d)) {//age shart barqarar bood
                 for (Action action : e.getActions()) {
-                    action.doAction(this, map, d);//action o anjam bede
+                    action.doAction(this, battle, d);//action o anjam bede
                 }
             }
         });
     }
 
-    public void setPeaOrProjectile(PeaOrProjectile peaOrProjectile) {
-        this.peaOrProjectile = peaOrProjectile;
-    }
 
     public int getSpeedReduction() {
         return SpeedReduction;

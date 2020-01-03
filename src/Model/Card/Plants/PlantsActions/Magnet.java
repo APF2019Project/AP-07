@@ -1,6 +1,5 @@
 package Model.Card.Plants.PlantsActions;
 
-import Controller.GameMode.Battle;
 import Model.Card.Action;
 import Model.Card.Plants.Plant;
 import Model.Card.Zombies.Zombie;

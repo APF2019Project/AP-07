@@ -8,7 +8,9 @@ import Model.Map.Map;
 public class ProduceSun extends Action {
     @Override
     public void doAction(Plant plant, Battle battle, int d) {
-        
+        if (battle.getCurrentTurn()%plant.getTurn() ==0) {
+            battle.getPlayer(1).setSun(battle.getPlayer(1).getSun() + plant.getProducedSun());
+        }
     }
 
     @Override
