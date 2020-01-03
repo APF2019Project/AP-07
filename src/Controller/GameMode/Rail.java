@@ -9,12 +9,12 @@ import Model.Player.Profile;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Random;
 
 public class Rail extends GameMode {
 
-    private ArrayList<Plant> plants = Card.getPlants();
+    private ArrayList<Plant> plants = new ArrayList<>();
     private ArrayList<Plant> list = new ArrayList<Plant>();
+    private int record;
 
     public Rail() {
     }
@@ -100,8 +100,12 @@ public class Rail extends GameMode {
     }
 
     @Override
-    public void getAvailableCards() {
-
+    public ArrayList<Card> getAvailableCards() {
+        ArrayList<Card> cards = new ArrayList<>();
+        for (Plant p : list) {
+            cards.add(p);
+        }
+        return cards;
     }
 
     @Override
@@ -114,15 +118,15 @@ public class Rail extends GameMode {
         Map m = new Map();
         for (int i = 0; i < Map.getHEIGHT(); i++) {
             for (int j = 0; j < Map.getWIDTH(); j++) {
-                m.setCell(i, j, new Cell(i, j,false));
+                m.setCell(i, j, new Cell(i, j, false));
             }
         }
         return m;
     }
 
     public void addPlant(Battle battle) {
-        if (battle.getCurrentTurn()%5 == 0 && plants.size()<10) {
-            int rnd = (int) (Math.random() *(plants.size()+1));
+        if (battle.getCurrentTurn() % 3 == 0 && plants.size() < 10) {
+            int rnd = (int) (Math.random() * (plants.size() + 1));
             plants.add(plants.get(rnd));
         }
     }
@@ -131,4 +135,11 @@ public class Rail extends GameMode {
         return list;
     }
 
+    public int getRecord() {
+        return record;
+    }
+
+    public void setRecord(int record) {
+        this.record = record;
+    }
 }

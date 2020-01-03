@@ -25,7 +25,7 @@ public abstract class GameMode {
 
     public abstract void updateCollection() throws IOException;
 
-    public abstract void getAvailableCards();
+    public abstract ArrayList<Card> getAvailableCards();
 
     public abstract void generateSun(Battle battle);
 

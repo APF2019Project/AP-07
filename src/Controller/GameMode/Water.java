@@ -101,8 +101,9 @@ public class Water extends GameMode {
     }
 
     @Override
-    public void getAvailableCards() {
+    public ArrayList<Card> getAvailableCards() {
 
+        return null;
     }
 
     @Override

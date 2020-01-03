@@ -1,8 +1,11 @@
 package Controller.GameMode;
 
+import Model.Card.Card;
 import Model.Map.Cell;
 import Model.Map.Map;
 import Model.Player.Profile;
+
+import java.util.ArrayList;
 
 public class PVP extends GameMode {
 
@@ -30,8 +33,9 @@ return true;
     }
 
     @Override
-    public void getAvailableCards() {
+    public ArrayList<Card> getAvailableCards() {
 
+        return null;
     }
 
     @Override

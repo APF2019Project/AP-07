@@ -1,6 +1,6 @@
-package Controller.Menus;
+package Controller.GameMode;
 
-import Controller.GameMode.*;
+import Controller.Menus.Menu;
 import Model.Card.Plants.Plant;
 import Model.Card.Zombies.Zombie;
 import Model.Map.Cell;
@@ -9,8 +9,8 @@ import Model.Player.Player;
 
 import java.io.IOException;
 
-public class GameMenu extends Menu {
-    public Day day;
+public class WaterModeMenu extends Menu {
+    public Water waterMode = new Water();
     public Player player1;
     public Player player2;
     public Battle battle = new Battle(player1, player2);
@@ -46,6 +46,8 @@ public class GameMenu extends Menu {
                 }
             }
         }
+        else if (name.equalsIgnoreCase("lilypad"))
+            battle.getMap().getCell(x,y).setLilyPad();
     }
 
     public void endTurn() {
@@ -81,4 +83,5 @@ public class GameMenu extends Menu {
             }
         }
     }
+
 }

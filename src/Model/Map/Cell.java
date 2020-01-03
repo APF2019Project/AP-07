@@ -105,4 +105,7 @@ public class Cell {
         this.y = y;
     }
 
+    public void setLilyPad() {
+        this.LilyPad = true;
+    }
 }

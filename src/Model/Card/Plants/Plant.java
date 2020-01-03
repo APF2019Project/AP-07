@@ -5,6 +5,7 @@ import Model.Card.Action;
 import Model.Card.ActionsOfAnEvent;
 import Model.Card.Card;
 import Model.Card.Plants.PlantsActions.PlantsAction;
+import Model.Player.Player;
 import com.gilecode.yagson.YaGson;
 
 
@@ -36,7 +37,12 @@ public class Plant extends Card {
         String string = Card.makeString(file);
         Plant plant1 = yaGson.fromJson(string, Plant.class);
         String d = yaGson.toJson(plant1);
-        plants.add(plant1);
+        boolean q = false;
+        for (Plant p: plants)
+            if (p.getName().equalsIgnoreCase(plant1.getName()))
+                q = true;
+        if (!q)
+            plants.add(plant1);
         return plant1;
 //        System.out.println(d);
 //        System.out.println(plant1.getSun());

@@ -1,25 +1,16 @@
 package Controller.Menus;
 
-import Model.Card.Card;
+import Controller.GameMode.WaterModeMenu;
 import Model.Card.Plants.Plant;
-import Model.Card.Plants.PlantsActions.PlantsAction;
 import Model.Card.Zombies.Zombie;
-import Model.Card.Zombies.ZombiesActions.ZombiesAction;
 import Model.Player.Profile;
 import com.gilecode.yagson.YaGson;
-import com.gilecode.yagson.com.google.gson.JsonArray;
-import com.gilecode.yagson.com.google.gson.JsonElement;
-import com.gilecode.yagson.com.google.gson.JsonParser;
-import com.gilecode.yagson.com.google.gson.reflect.TypeToken;
 
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.lang.reflect.Type;
-import java.security.KeyRep;
 import java.util.ArrayList;
-import java.util.List;
 
 public class Menu {
     public static LoginMenu loginMenu = new LoginMenu();
@@ -31,6 +22,8 @@ public class Menu {
     public static ShopMenu shopMenu = new ShopMenu();
     public static MenuHandler menuHandler = new MenuHandler();
     public static GameMenu gameMenu = new GameMenu();
+    public static RailMenu railMenu = new RailMenu();
+    public static WaterModeMenu waterModeMenu = new WaterModeMenu();
 
     public String[] getOrders() {
         return orders;
