@@ -6,6 +6,7 @@ import Controller.GameMode.Water;
 import Controller.GameMode.ZombieGameMode;
 import Model.Player.Player;
 import Model.Player.Profile;
+import Model.Shop.Shop;
 
 import java.io.IOException;
 import java.util.Scanner;
@@ -28,6 +29,7 @@ public class MenuHandler {
     }
 
     public void run() throws IOException {
+
 
         Player bot = new Player();
         Profile profile = null;
@@ -234,5 +236,6 @@ public class MenuHandler {
             else if (Menu.menuHandler.getCurrentMenu() == null)
                 break;
         }
+
     }
 }

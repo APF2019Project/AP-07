@@ -10,15 +10,15 @@ public class Player {
 
     private int internalCoins;
     private int sun;
-    private int numberOfKilledZombies=0;
-    private ArrayList<Plant> plants=new ArrayList<>();
-    private ArrayList<Zombie> zombies=new ArrayList<>();
+    private int numberOfKilledZombies = 0;
+    private ArrayList<Plant> plants = new ArrayList<>();
+    private ArrayList<Zombie> zombies = new ArrayList<>();
 
     public ArrayList<Zombie> getZombies() {
         return zombies;
     }
 
-    public Player(){
+    public Player() {
     }
 
     public ArrayList<Plant> getPlants() {

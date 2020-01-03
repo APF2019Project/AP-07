@@ -58,11 +58,6 @@ public class Menu {
             else
                 break;
         }
-//        JsonParser jsonParser = new JsonParser();
-//        JsonElement jsonElement = jsonParser.parse(br);
-//        Type type = new TypeToken<List<Profile>>() {
-//        }.getType();
-//        Profile.setProfiles(yaGson.fromJson(jsonElement, type));
         ArrayList<Profile> profiles = yaGson.fromJson(string , ArrayList.class);
         Profile.setProfiles(profiles);
 
