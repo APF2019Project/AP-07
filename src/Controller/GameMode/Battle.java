@@ -44,8 +44,12 @@ public class Battle {
         cell.setPlant(plant);
     }
 
+    //bilche
     public void dig(Cell cell) {
-
+        //if player 1 is gardener
+        if(player1.getPlants()!=null){
+            cell.setPlant(null);
+        }
     }
 
     public Player getPlayer(int i) {

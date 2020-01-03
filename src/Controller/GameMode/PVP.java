@@ -11,23 +11,26 @@ public class PVP extends GameMode {
     Profile profile;
 
     public PVP(Profile profile) {
-       this.profile=profile;
+        this.profile = profile;
+        for (int i = 0; i < landMower.length; i++) {
+            landMower[i] = true;
+        }
     }
 
     @Override
     public void wave() {
         int randomNumberOfPlants = (int) (Math.random() * ((Plant.getPlants().size()) + 1)) + Plant.getPlants().size();
-        for(int i=0;i<randomNumberOfPlants;i++) {
+        for (int i = 0; i < randomNumberOfPlants; i++) {
             int randomPlant = (int) (Math.random() * ((Plant.getPlants().size()) + 1)) + Plant.getPlants().size();
             int randomPlace = (int) (Math.random() * (Map.getHEIGHT()) + 1);
             Plant plant = new Plant(Plant.getPlants().get(randomPlant).getName());
-            if(plant.getPrice()<=getBattle().getPlayer(0).getSun()) {
+            if (plant.getPrice() <= getBattle().getPlayer(0).getSun()) {
                 plant.setCell(generateMap().getCell(randomPlace, Map.getWIDTH() - 1));
                 generateMap().getCell(randomPlace, 0).setPlant(plant);
                 getBattle().getPlayer(0).setSun(-plant.getPrice());
             }
         }
-        ZombieGameMode zombieGameMode=new ZombieGameMode(profile,"Land");
+        ZombieGameMode zombieGameMode = new ZombieGameMode(profile, "Land");
         zombieGameMode.wave();
     }
 
@@ -42,6 +45,9 @@ public class PVP extends GameMode {
             for (int j = 0; j < getBattle().getMap().getCells()[i].length; i++) {
                 for (int k = 0; k < getBattle().getMap().getCells()[i][j].getZombies().size(); k++) {
                     if (getBattle().getMap().getCells()[i][j].getZombies().get(k).getCell().x() == Map.getWIDTH() + 1) {
+                        if(landMower(i)){
+                            return false;
+                        }
                         profile.setExternalCoins(200);
                         return false;
                     }

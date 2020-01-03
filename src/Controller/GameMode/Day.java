@@ -1,7 +1,6 @@
 package Controller.GameMode;
 
 import Model.Card.Card;
-import Model.Card.Plants.Plant;
 import Model.Card.Zombies.Zombie;
 import Model.Map.Cell;
 import Model.Map.Map;
@@ -14,6 +13,9 @@ public class Day extends GameMode {
     public Day() {
         //player is gardner
         getBattle().getPlayer(0).setSun(2);
+        for (int i = 0; i < landMower.length; i++) {
+            landMower[i] = true;
+        }
     }
 
     @Override
@@ -50,7 +52,10 @@ public class Day extends GameMode {
             for (int j = 0; j < getBattle().getMap().getCells()[i].length; i++) {
                 for (int k = 0; k < getBattle().getMap().getCells()[i][j].getZombies().size(); k++) {
                     if (getBattle().getMap().getCells()[i][j].getZombies().get(k).getCell().x() == Map.getWIDTH() + 1) {
-                        return false;
+                        if(landMower(i)){
+                            return false;
+                        }
+                        return true;
                     }
                 }
             }

@@ -17,6 +17,9 @@ public class ZombieGameMode extends GameMode {
     private Profile profile;
 
     public ZombieGameMode(Profile profile, String mapType) {
+        for (int i=0;i<landMower.length;i++){
+            landMower[i]=false;
+        }
         profile.setExternalCoins(50);
         this.mapType = mapType;
         this.profile = profile;
@@ -178,12 +181,12 @@ public class ZombieGameMode extends GameMode {
                     m.setCell(i, j, new Cell(i, j, true));
                 }
             }
-            for (int i = 0; i < 2; i++) {
+            for (int i = 4; i < 6; i++) {
                 for (int j = 0; j < Map.getWIDTH(); j++) {
                     m.setCell(i, j, new Cell(i, j, false));
                 }
             }
-            for (int i = 4; i < 6; i++) {
+            for (int i = 0; i < 2; i++) {
                 for (int j = 0; j < Map.getWIDTH(); j++) {
                     m.setCell(i, j, new Cell(i, j, false));
                 }

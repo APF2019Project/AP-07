@@ -17,6 +17,9 @@ public class Rail extends GameMode {
     private ArrayList<Plant> list = new ArrayList<Plant>();
 
     public Rail() {
+        for (int i=0;i<landMower.length;i++){
+            landMower[i]=true;
+        }
     }
 
     @Override
@@ -44,7 +47,10 @@ public class Rail extends GameMode {
             for (int j = 0; j < getBattle().getMap().getCells()[i].length; i++) {
                 for (int k = 0; k < getBattle().getMap().getCells()[i][j].getZombies().size(); k++) {
                     if (getBattle().getMap().getCells()[i][j].getZombies().get(k).getCell().x() == Map.getWIDTH() + 1) {
-                        return false;
+                        if(landMower(i)){
+                            return false;
+                        }
+                        return true;
                     }
                 }
             }
