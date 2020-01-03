@@ -4,6 +4,7 @@ import Controller.GameMode.Day;
 import Controller.GameMode.Rail;
 import Controller.GameMode.Water;
 import Controller.GameMode.ZombieGameMode;
+import Model.Card.Card;
 import Model.Player.Player;
 import Model.Player.Profile;
 import Model.Shop.Shop;
@@ -148,8 +149,8 @@ public class MenuHandler {
                 } else if (input.equalsIgnoreCase("zombie")) {
                     player = new Player();
                     Menu.playMenu.startZombieGame(player, bot);
-                    String mapType=scanner.nextLine();
-                    zombieMode = new ZombieGameMode(profile,mapType);
+                    String mapType = scanner.nextLine();
+                    zombieMode = new ZombieGameMode(profile, mapType);
                     Menu.collectionMenu.zombieMode = true;
                 } else if (input.equalsIgnoreCase("pvp")) {
                     player = new Player();
@@ -209,19 +210,17 @@ public class MenuHandler {
             else if (Menu.menuHandler.getCurrentMenu() == Menu.gameMenu) {
                 if (input.equalsIgnoreCase("show hand")) {
                     Menu.gameMenu.showHand();
-                } else if(select.matcher(input).matches()) {
+                } else if (select.matcher(input).matches()) {
                     name = splitInput[1];
-                }
-                else if (plantPlant.matcher(input).matches()) {
+                } else if (plantPlant.matcher(input).matches()) {
                     int x = Integer.parseInt(splitInput[1]);
                     int y = Integer.parseInt(splitInput[2]);
                     if (name != null) {
-                        Menu.gameMenu.plant(name,x,y);
-                    }
-                    else {
+                        Menu.gameMenu.plant(name, x, y);
+                    } else {
                         System.out.println("select a plant first:|");
                     }
-                    name =null;
+                    name = null;
                 } else if (removePlant.matcher(input).matches()) {
                     int x = Integer.parseInt(splitInput[1]);
                     int y = Integer.parseInt(splitInput[2]);
@@ -234,9 +233,71 @@ public class MenuHandler {
                     System.out.println("invalid command");
             }
 
-            else if (Menu.menuHandler.getCurrentMenu() == null)
-                break;
-        }
+            //railMenu//
 
+            else if (Menu.menuHandler.getCurrentMenu() == Menu.railMenu) {
+                if (input.equalsIgnoreCase("List")) {
+                    for (Card card : railMode.getAvailableCards()) {
+                        System.out.println(card.getName());
+                    }
+                } else if (select.matcher(input).matches()) {
+                    name = splitInput[1];
+                } else if (plantPlant.matcher(input).matches()) {
+                    int x = Integer.parseInt(splitInput[1]);
+                    int y = Integer.parseInt(splitInput[2]);
+                    if (name != null) {
+                        Menu.railMenu.plant(name, x, y, railMode);
+                    } else if (!(x == 0 || x == 2 || x == 4)) {
+                        System.out.println("you can only plant in first three column:|");
+                    } else {
+                        System.out.println("select a plant first:|");
+                    }
+                    name = null;
+                } else if (removePlant.matcher(input).matches()) {
+                    int x = Integer.parseInt(splitInput[1]);
+                    int y = Integer.parseInt(splitInput[2]);
+                    Menu.railMenu.remove(x, y);
+                } else if (input.equalsIgnoreCase("End Turn")) {
+                    Menu.railMenu.endTurn();
+                } else if (input.equalsIgnoreCase("show lawn")) {
+                    Menu.railMenu.showLawn();
+                } else if (input.equalsIgnoreCase("record"))
+                    Menu.railMenu.record();
+                else
+                    System.out.println("invalid command");
+            }
+
+            //Water//
+
+            else if (Menu.menuHandler.getCurrentMenu() == Menu.waterModeMenu) {
+                if (input.equalsIgnoreCase("show hand")) {
+                    Menu.waterModeMenu.showHand();
+                } else if (select.matcher(input).matches()) {
+                    name = splitInput[1];
+                } else if (plantPlant.matcher(input).matches()) {
+                    int x = Integer.parseInt(splitInput[1]);
+                    int y = Integer.parseInt(splitInput[2]);
+                    if (name != null) {
+                        Menu.waterModeMenu.plant(name, x, y);
+                    } else {
+                        System.out.println("select a plant first:|");
+                    }
+                    name = null;
+                } else if (removePlant.matcher(input).matches()) {
+                    int x = Integer.parseInt(splitInput[1]);
+                    int y = Integer.parseInt(splitInput[2]);
+                    Menu.waterModeMenu.remove(x, y);
+                } else if (input.equalsIgnoreCase("End Turn")) {
+                    Menu.waterModeMenu.endTurn();
+                } else if (input.equalsIgnoreCase("show lawn")) {
+                    Menu.waterModeMenu.showLawn();
+                } else
+                    System.out.println("invalid command");
+
+//            else if (Menu.menuHandler.getCurrentMenu() == null)
+//                break;
+            }
+
+        }
     }
 }

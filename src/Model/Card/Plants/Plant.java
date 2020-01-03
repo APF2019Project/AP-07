@@ -5,6 +5,7 @@ import Model.Card.Action;
 import Model.Card.ActionsOfAnEvent;
 import Model.Card.Card;
 import Model.Card.Plants.PlantsActions.PlantsAction;
+import Model.Player.Profile;
 import com.gilecode.yagson.YaGson;
 
 
