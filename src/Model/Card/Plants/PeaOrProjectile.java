@@ -1,9 +1,10 @@
 package Model.Card.Plants;
 
+import Model.Map.Cell;
+
 public class PeaOrProjectile {
 
-    private int x;
-    private int y;
+    private Cell cell;
     private int damage;//AP per attack
     private int speed=3;
     private boolean backward;
@@ -15,20 +16,20 @@ public class PeaOrProjectile {
         this.projectile=projectile;
     }
 
-    public int getX() {
-        return x;
+    public Cell getCell(){
+        return cell;
     }
 
-    public int getY() {
-        return y;
+    public void setCell(Cell cell){
+        this.cell=cell;
     }
 
     public void setX(int x) {
-        this.x = x;
+        this.cell.setX(x);
     }
 
     public void setY(int y) {
-        this.y = y;
+        this.cell.setY(y);
     }
 
     public int getDamage() {

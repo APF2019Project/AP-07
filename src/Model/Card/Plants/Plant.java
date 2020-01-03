@@ -5,7 +5,6 @@ import Model.Card.Action;
 import Model.Card.ActionsOfAnEvent;
 import Model.Card.Card;
 import Model.Card.Plants.PlantsActions.PlantsAction;
-import Model.Map.Map;
 import com.gilecode.yagson.YaGson;
 
 
@@ -17,15 +16,6 @@ public class Plant extends Card {
 
     private int sun;
     private int cooldown;
-
-    public int getLoading() {
-        return loading;
-    }
-
-    public void setLoading(int loading) {
-        this.loading = loading;
-    }
-
     private int loading;
     private int ProducedSun;
     private int SpeedReduction;
@@ -35,15 +25,12 @@ public class Plant extends Card {
     private int freeze;
     private int turn;
 
-    
-
     public void setActionsOfAnEvent(ActionsOfAnEvent actionsOfAnEvent) {
         this.actionsOfAnEvent.add(actionsOfAnEvent);
     }
 
     public static Plant makePlant(String name) throws IOException {
         YaGson yaGson = new YaGson();
-        
         Plant plant = new Plant(name);
         File file = new File("Plants\\" + plant.getName());
         String string = Card.makeString(file);
@@ -75,14 +62,13 @@ public class Plant extends Card {
     public void act(Battle battle) {
         this.actionsOfAnEvent.forEach(e -> {
             int d = 0;//bayad taeen she be ezaye har plant vali
-            if (e.getEvent().check(this, battle, d)) {//age shart barqarar bood
+            if (e.getEvent().check(this, battle, d)) {//age shart barqharar bood
                 for (Action action : e.getActions()) {
                     action.doAction(this, battle, d);//action o anjam bede
                 }
             }
         });
     }
-
 
     public int getSpeedReduction() {
         return SpeedReduction;
@@ -142,4 +128,17 @@ public class Plant extends Card {
         return freeze;
     }
 
+
+    public int getLoading() {
+        return loading;
+    }
+
+    public void setLoading(int loading) {
+        this.loading = loading;
+    }
+
+    @Override
+    public void setPrice() {
+        this.price=this.sun*this.cooldown*this.getHP()+1;
+    }
 }

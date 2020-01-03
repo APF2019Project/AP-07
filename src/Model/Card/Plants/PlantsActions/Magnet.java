@@ -5,12 +5,8 @@ import Model.Card.Action;
 import Model.Card.Plants.Plant;
 import Model.Card.Zombies.Zombie;
 import Model.Map.Cell;
-import Model.Map.Map;
-
 import java.io.IOException;
 import java.util.ArrayList;
-
-import static java.lang.Math.abs;
 
 public class Magnet extends Action {
     @Override
@@ -20,9 +16,9 @@ public class Magnet extends Action {
         {
             for(Cell j : i)
             {
-                if(j.x == plant.getCell().x && j.y - plant.getCell().y <8)
+                if(j.x() == plant.getCell().x() && j.y() - plant.getCell().y() <8)
                 {
-                    zombies.addAll(j.zombies);
+                    zombies.addAll(j.getZombies());
                 }
             }
         }

@@ -4,14 +4,14 @@ import Controller.GameMode.Battle;
 import Model.Card.Action;
 import Model.Card.Plants.Plant;
 import Model.Card.Zombies.Zombie;
-import Model.Map.Map;
 import Model.Map.Cell;
 
 import java.io.IOException;
 
 public class KillNearest extends Action {
-    public int calculateDistance(Cell p, Cell z) {
-        return (int) Math.sqrt(((p.x - z.x) * (p.x - z.x)) + ((p.y - z.y) * (p.y - z.y)));
+    public int calculateDistance(Cell cell, Cell cell1) {
+        return (int) Math.sqrt(((cell.y() - cell1.y()) * (cell.x() - cell1.x())) +
+                ((cell.y() - cell1.y()) * (cell.x() - cell1.x())));
     }
 
     @Override
@@ -24,8 +24,8 @@ public class KillNearest extends Action {
                 for (Cell cell : i) {
                     if (cell.getZombies().size() > 0) {
                         if (calculateDistance(plant.getCell(), cell) < MinRad) {
-                            X = cell.x;
-                            Y = cell.y;
+                            X = cell.x();
+                            Y = cell.y();
                             MinRad = calculateDistance(plant.getCell(), cell);
                         }
                     }
@@ -33,7 +33,7 @@ public class KillNearest extends Action {
             }
         }
         //todo
-        battle.getMap().getCell(plant.getCell().x, plant.getCell().y).getZombies().remove(battle.getMap().getCell(X,Y));
+        battle.getMap().getCell(plant.getCell().x(), plant.getCell().y()).getZombies().remove(battle.getMap().getCell(X,Y));
         battle.getMap().getCell(X, Y).getZombies().set(0, null);
     }
 

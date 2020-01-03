@@ -9,6 +9,7 @@ import Model.Map.Map;
 import java.util.Random;
 
 public class AppearInCell extends Action {
+
     @Override
     public void doAction(Plant plant, Battle battle, int d) {
 
@@ -19,15 +20,15 @@ public class AppearInCell extends Action {
         Random random = new Random();
         int x = 5;
         int y = 18;
-        while(battle.getMap().getCell(x , y).plant == null)
+        while(battle.getMap().getCell(x , y).getPlant() == null)
         {
             x = random.nextInt(5);
             y = random.nextInt(18);
         }
-        battle.getMap().getCell(x,y).zombies.add(zombie);
+        battle.getMap().getCell(x,y).getZombies().add(zombie);
         if (zombie.getHP() > 0) {
-            battle.getMap().getCell(x , y).plant = null;
-            battle.getMap().getCell(x , y).zombies.remove(zombie);
+            battle.getMap().getCell(x , y).setPlant(null);
+            battle.getMap().getCell(x , y).getZombies().remove(zombie);
         }
     }
 }

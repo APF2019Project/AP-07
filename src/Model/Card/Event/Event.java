@@ -8,6 +8,10 @@ import java.util.ArrayList;
 public class Event {
     private static ArrayList<Event> events=new ArrayList<>();
 
+    public boolean check(Plant plant, Battle battle, int d) {
+        return false;
+    }
+
     public static ArrayList<Event> getEvents() {
         return events;
     }
@@ -16,8 +20,6 @@ public class Event {
         events.add(event);
     }
 
-    public boolean check(Plant plant, Battle battle, int d) {
-        return false;
-    }
+
 
 }

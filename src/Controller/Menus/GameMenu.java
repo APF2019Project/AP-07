@@ -39,7 +39,7 @@ public class GameMenu extends Menu {
             for (Plant p:player1.getPlants()){
                 if (p.getName().equalsIgnoreCase(name)){
                     if (p.getLoading() == 0) {
-                        battle.getMap().getCell(x,y).plant = Plant.makePlant(name);
+                        battle.getMap().getCell(x,y).setPlant(Plant.makePlant(name));
                         p.setLoading(p.getCooldown());
                         System.out.println("plant planted:)");
 
@@ -75,14 +75,14 @@ public class GameMenu extends Menu {
     public void showLawn() {
         for (Cell[] cells : battle.getMap().getCells()) {
             for (Cell cell : cells) {
-                if (cell.zombies.size() != 0) {
-                    for (Zombie z : cell.zombies) {
-                        System.out.println(z.getName() + "\t" + cell.x + "," + cell.y + "\t" + z.getHP());
+                if (cell.getZombies().size() != 0) {
+                    for (Zombie z : cell.getZombies()) {
+                        System.out.println(z.getName() + "\t" + cell.x() + "," + cell.y() + "\t" + z.getHP());
                     }
                 }
                 if (cell.getPlant() != null) {
                     Plant z = cell.getPlant();
-                    System.out.println(z.getName() + "\t" + cell.x + "," + cell.y + "\t" + z.getHP());
+                    System.out.println(z.getName() + "\t" + cell.x() + "," + cell.y() + "\t" + z.getHP());
                 }
             }
         }

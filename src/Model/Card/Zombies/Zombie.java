@@ -1,9 +1,8 @@
 package Model.Card.Zombies;
 
+import Controller.GameMode.Battle;
 import Model.Card.ActionsOfAnEvent;
 import Model.Card.Card;
-import Model.Card.Plants.Plant;
-import Model.Map.Map;
 import com.gilecode.yagson.YaGson;
 import java.io.File;
 import java.io.IOException;
@@ -17,9 +16,7 @@ public class Zombie extends Card {
     private boolean pea;
     private int freezeTurns =0;
     private boolean IronHat=false;
-
     private ArrayList<ActionsOfAnEvent> actionsOfAnEvent = new ArrayList<>();
-    protected ArrayList<Plant> stolenPlants=new ArrayList<>();
 
     public Zombie() {
         if(this.getName().equals("BucketheadZombie")){
@@ -89,10 +86,6 @@ public class Zombie extends Card {
         this.freezeTurns += freezeTurns;
     }
 
-    public ArrayList<Plant> getStolenPlants() {
-        return stolenPlants;
-    }
-
     public void setArmour(int armour) {
         this.armour += armour;
     }
@@ -105,10 +98,23 @@ public class Zombie extends Card {
         IronHat = ironHat;
     }
 
-    public void act(Map map) {
-        /////////////////////////////////////////////////////////////////////////////////////
-        ////////////////////
-        /////////////////////////////////////////////////
-        ////////////////////////////////////
+    public void act(Battle battle) {
+//        this.actionsOfAnEvent.forEach(e -> {
+//            int d = 0;//bayad taeen she be ezaye har plant vali
+//            if (e.getEvent().check(this, battle, d)) {//age shart barqarar bood
+//                for (Action action : e.getActions()) {
+//                    try {
+//                        action.doAction(this, battle, d);//action o anjam bede
+//                    } catch (IOException ex) {
+//                        ex.printStackTrace();
+//                    }
+//                }
+//            }
+//        });
+    }
+
+    @Override
+    public void setPrice(){
+        this.price=(1+this.getSpeed())*this.getHP()*10;
     }
 }

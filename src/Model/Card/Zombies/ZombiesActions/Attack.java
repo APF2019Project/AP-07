@@ -18,7 +18,7 @@ public class Attack extends Action {
         for (int i = 0; i < Map.getHEIGHT(); i++) {
             for (int j = 0; j < Map.getWIDTH(); j++) {
                 if (battle.getMap().cells[i][j].getPlant() != null) {
-                    if (i == zombie.getCell().x && j == zombie.getCell().y -1) {
+                    if (i == zombie.getCell().x() && j == zombie.getCell().y() -1) {
                         if (!zombie.getName().equals("Giga-gargantuar")) {
                             if (battle.getMap().cells[i][j].getPlant() .getHP() > 0) {
                                 if (zombie.getHP() > 0) {

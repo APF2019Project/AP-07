@@ -30,7 +30,7 @@ public class MenuHandler {
 
     public void run() throws IOException {
 
-        Shop shop = new Shop();
+
         Player bot = new Player();
         Profile profile = null;
         Scanner scanner = new Scanner(System.in);
@@ -148,7 +148,7 @@ public class MenuHandler {
                 } else if (input.equalsIgnoreCase("zombie")) {
                     player = new Player();
                     Menu.playMenu.startZombieGame(player, bot);
-                    zombieMode = new ZombieGameMode();
+                    zombieMode = new ZombieGameMode(profile);
                     Menu.collectionMenu.zombieMode = true;
                 } else if (input.equalsIgnoreCase("pvp")) {
                     player = new Player();
