@@ -1,5 +1,6 @@
 package Model.Card.Zombies.ZombiesActions;
 
+import Controller.GameMode.Battle;
 import Model.Card.Action;
 import Model.Card.Plants.Plant;
 import Model.Card.Zombies.Zombie;
@@ -10,23 +11,24 @@ import java.util.Random;
 public class AppearInCell extends Action {
 
     @Override
-    public void doAction(Plant plant, Map map, int d) {
+    public void doAction(Plant plant, Battle battle, int d) {
 
     }
 
     @Override
-    public void doAction(Zombie zombie, Map map, int d) {
+    public void doAction(Zombie zombie,Battle battle, int d) {
         Random random = new Random();
         int x = 5;
         int y = 18;
-        if (zombie.getHP() > 0) {
+        while(battle.getMap().getCell(x , y).getPlant() == null)
+        {
             x = random.nextInt(5);
             y = random.nextInt(18);
         }
-        map.getCell(zombie.getCell().x, zombie.getCell().y).getZombies().remove(zombie);
+        battle.getMap().getCell(x,y).getZombies().add(zombie);
         if (zombie.getHP() > 0) {
-            zombie.setCell(map.getCell(x, y));
-            map.getCell(x, y).getZombies().add(zombie);
+            battle.getMap().getCell(x , y).setPlant(null);
+            battle.getMap().getCell(x , y).getZombies().remove(zombie);
         }
     }
 }

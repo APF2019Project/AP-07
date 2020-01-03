@@ -1,8 +1,10 @@
 package Model.Card;
 
+
 import Model.Card.Plants.Plant;
 import Model.Card.Zombies.Zombie;
 import Model.Map.Cell;
+import Model.Shop.Shop;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -10,7 +12,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class Card {
+public abstract class Card {
 
     protected String name;
     protected int id;
@@ -68,10 +70,11 @@ public class Card {
         this.coin = coin;
     }
 
-    public void setPrice(int price) {
-        this.price = price;
-    }
+    public abstract void setPrice();
 
+    public int getPrice() {
+        return price;
+    }
     public String getName() {
         return name;
     }
@@ -114,9 +117,5 @@ public class Card {
 
     public static void addToZombies(Zombie zombie) {
         zombies.add(zombie);
-    }
-
-    public int getPrice() {
-        return price;
     }
 }

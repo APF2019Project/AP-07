@@ -7,13 +7,13 @@ public class PeaOrProjectile {
     private Cell cell;
     private int damage;//AP per attack
     private int speed=3;
+    private boolean backward;
     private boolean prickly;
     private boolean projectile;
 
-    public PeaOrProjectile(int damage,boolean projectile, boolean prickly){
+    public PeaOrProjectile(int damage,boolean projectile){
         this.damage=damage;
         this.projectile=projectile;
-        this.prickly=prickly;
     }
 
     public Cell getCell(){
@@ -22,6 +22,14 @@ public class PeaOrProjectile {
 
     public void setCell(Cell cell){
         this.cell=cell;
+    }
+
+    public void setX(int x) {
+        this.cell.setX(x);
+    }
+
+    public void setY(int y) {
+        this.cell.setY(y);
     }
 
     public int getDamage() {

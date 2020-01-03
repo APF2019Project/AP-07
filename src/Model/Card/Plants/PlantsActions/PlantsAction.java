@@ -7,6 +7,7 @@ import Model.Card.Plants.Plant;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collection;
 
 public class PlantsAction {
 

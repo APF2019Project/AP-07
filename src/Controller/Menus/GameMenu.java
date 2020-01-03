@@ -7,6 +7,8 @@ import Model.Map.Cell;
 import Model.Map.Map;
 import Model.Player.Player;
 
+import java.io.IOException;
+
 public class GameMenu extends Menu {
     public Day day;
     public Water water;
@@ -32,33 +34,55 @@ public class GameMenu extends Menu {
         cell.removePlant();
     }
 
-    public void plant(Plant plant, int x, int y) {
+    public void plant(String name, int x, int y) throws IOException {
         if (battle.getMap().getCell(x,y).canBePlanted()) {
-            battle.getMap().getCell(x,y).plant = plant;
+            for (Plant p:player1.getPlants()){
+                if (p.getName().equalsIgnoreCase(name)){
+                    if (p.getLoading() == 0) {
+                        battle.getMap().getCell(x,y).setPlant(Plant.makePlant(name));
+                        p.setLoading(p.getCooldown());
+                        System.out.println("plant planted:)");
+
+                    }
+                    else {
+                        System.out.println("plant is not ready");
+                    }
+
+                    break;
+                }
+            }
         }
     }
 
     public void endTurn() {
-        for (int i = 2; i < Map.getHEIGHT() + 2; i++)
-            for (int j = 2; j < Map.getWIDTH() + 2; j++) {
-                if (battle.getMap().getCell(i, j).getPlant() != null)
-                    battle.getMap().getCell(i, j).getPlant().act(battle.getMap());
-                if (battle.getMap().getCell(i, j).getZombies().size() !=0)
-                    for (Zombie z : battle.getMap().getCell(i, j).getZombies())
-                        z.act(battle.getMap());
+//        for (int i = 2; i < Map.getHEIGHT() + 2; i++)
+//            for (int j = 2; j < Map.getWIDTH() + 2; j++) {
+//                if (battle.getMap().getCell(i, j).getPlant() != null)
+//                    battle.getMap().getCell(i, j).getPlant().act(battle.getMap());
+//                if (battle.getMap().getCell(i, j).getZombies().size() !=0)
+//                    for (Zombie z : battle.getMap().getCell(i, j).getZombies())
+//                        z.act(battle.getMap());
+//            }
+        for (Plant p : this.player1.getPlants()) {
+            if (p.getLoading() != 0) {
+                p.setLoading(p.getLoading()-1);
             }
-
+        }
     }
+
+
 
     public void showLawn() {
         for (Cell[] cells : battle.getMap().getCells()) {
             for (Cell cell : cells) {
-                for (Zombie z : cell.getZombies()) {
-                    System.out.println(z.getName() + "\t" + cell.x + "," + cell.y + "\t" + z.getHP());
+                if (cell.getZombies().size() != 0) {
+                    for (Zombie z : cell.getZombies()) {
+                        System.out.println(z.getName() + "\t" + cell.x() + "," + cell.y() + "\t" + z.getHP());
+                    }
                 }
                 if (cell.getPlant() != null) {
                     Plant z = cell.getPlant();
-                    System.out.println(z.getName() + "\t" + cell.x + "," + cell.y + "\t" + z.getHP());
+                    System.out.println(z.getName() + "\t" + cell.x() + "," + cell.y() + "\t" + z.getHP());
                 }
             }
         }

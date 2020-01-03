@@ -1,9 +1,9 @@
 package Controller.GameMode;
 
+import Model.Card.Card;
 import Model.Card.Zombies.Zombie;
 import Model.Map.Cell;
 import Model.Map.Map;
-import Model.Player.Player;
 import Model.Player.Profile;
 
 import java.util.ArrayList;
@@ -11,24 +11,36 @@ import java.util.Random;
 
 public class Water extends GameMode {
 
-    public Water(Player player) {
+    public Water() {
         //player is gardner
         getBattle().getPlayer(0).setSun(2);
     }
 
     @Override
     public void wave() {
-        if (getBattle().getCurrentTurn() >= 3 && canWave()) {
+        if (canWave()) {
             int numberOfZombiesInAWave = (int) (Math.random() * ((10 - 4) + 1)) + 4;
             for (int i = 0; i < numberOfZombiesInAWave; i++) {
                 Random random = new Random();
-                int randomY = (int) (Math.random() * ((Map.getHEIGHT()) + 1));
-                Cell cell = new Cell(0, randomY);
-                Model.Card.Zombies.Zombie zombie = Zombie.getZombies().get(random.nextInt());
-                zombie.setCell(cell);
-                getWaveZombies().add(zombie);
-                Map map = new Map();
-                map.setCell(0, randomY, cell);
+                int randomPlace = (int) (Math.random() * ((Map.getHEIGHT()) + 1));
+                //if in landCell
+                if (randomPlace != 2 && randomPlace != 3) {
+                    //zombies number 0 to 12 can be in landCell
+                    int zombieNumber = (int) (Math.random() * (12 + 1));
+                    Zombie zombie = new Zombie(Card.getZombies().get(zombieNumber).getName());
+                    zombie.setCell(generateMap().getCell(randomPlace, 0));
+                    generateMap().getCell(randomPlace, 0).getZombies().add(zombie);
+                    getWaveZombies().add(zombie);
+                }
+
+                //if in water cell
+                if (randomPlace == 2 || randomPlace == 3) {
+                    int zombieNumber = (int) (Math.random() * ((14 - 13) + 1)) + 13;
+                    Zombie zombie = new Zombie(Card.getZombies().get(zombieNumber).getName());
+                    zombie.setCell(generateMap().getCell(randomPlace, 0));
+                    generateMap().getCell(randomPlace, 0).getZombies().add(zombie);
+                    getWaveZombies().add(zombie);
+                }
             }
             setWaveCounter(1);
         }
@@ -38,7 +50,11 @@ public class Water extends GameMode {
     //todo
     //7 turn pas az marge last zombie true mishe
     @Override
-    public boolean canWave() {
+    public boolean canWave()
+    {
+        if (getBattle().getCurrentTurn() >= 3 && getWaveCounter() <= 3) {
+            return true;
+        }
         return false;
     }
 
@@ -48,7 +64,7 @@ public class Water extends GameMode {
         for (int i = 0; i < getBattle().getMap().getCells().length; i++) {
             for (int j = 0; j < getBattle().getMap().getCells()[i].length; i++) {
                 for (int k = 0; k < getBattle().getMap().getCells()[i][j].getZombies().size(); k++) {
-                    if (getBattle().getMap().getCells()[i][j].getZombies().get(k).getCell().x == Map.getWIDTH() + 1) {
+                    if (getBattle().getMap().getCells()[i][j].getZombies().get(k).getCell().x() == Map.getWIDTH() + 1) {
                         return false;
                     }
                 }
@@ -105,9 +121,19 @@ public class Water extends GameMode {
     @Override
     public Map generateMap() {
         Map m = new Map();
-        for (int i = 0; i < Map.getHEIGHT(); i++) {
+        for (int i = 2; i < 4; i++) {
             for (int j = 0; j < Map.getWIDTH(); j++) {
-                m.setCell(i, j, new Cell(i, j));
+                m.setCell(i, j, new Cell(i, j, true));
+            }
+        }
+        for (int i = 0; i < 2; i++) {
+            for (int j = 0; j < Map.getWIDTH(); j++) {
+                m.setCell(i, j, new Cell(i, j, false));
+            }
+        }
+        for (int i = 4; i < 6; i++) {
+            for (int j = 0; j < Map.getWIDTH(); j++) {
+                m.setCell(i, j, new Cell(i, j, false));
             }
         }
         return m;

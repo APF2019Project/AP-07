@@ -1,23 +1,25 @@
 package Model.Map;
+import Model.Card.Plants.PeaOrProjectile;
 import Model.Card.Plants.Plant;
 import Model.Card.Zombies.Zombie;
 import java.util.ArrayList;
 
 public class Cell {
-    public int x;
-    public int y;
+    private int x;
+    private int y;
     //in each cell we have just 1 plant but not only 1 zombie
-    public Plant plant;
-    public ArrayList<Zombie> zombies;
-    public boolean water;
-    public boolean LilyPad;
+    private Plant plant;
+    private ArrayList<Zombie> zombies;
+    private ArrayList<PeaOrProjectile> peas;
+    private boolean water;
+    private boolean LilyPad;
 
 //     boolean canBePlanted(Plant plant);
 //     boolean canBeZombied(Zombie zombie);
 //     void removePlant();
 //     public void plant(Plant plant);
 
-    public Cell(int x, int y) {
+    public Cell(int x, int y,boolean water) {
         this.x = x;
         this.y = y;
     }
@@ -73,6 +75,34 @@ public class Cell {
                 return true;
             return false;
         }
+    }
+
+    public ArrayList<PeaOrProjectile> getPeas() {
+        return peas;
+    }
+
+    public int x() {
+        return x;
+    }
+
+    public int y() {
+        return y;
+    }
+
+    public boolean isWater() {
+        return water;
+    }
+
+    public boolean isLilyPad() {
+        return LilyPad;
+    }
+
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public void setY(int y) {
+        this.y = y;
     }
 
 }

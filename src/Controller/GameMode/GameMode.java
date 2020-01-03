@@ -1,5 +1,7 @@
 package Controller.GameMode;
 
+import Model.Card.Card;
+import Model.Card.Plants.Plant;
 import Model.Card.Zombies.Zombie;
 import Model.Map.Map;
 import Model.Player.Player;

@@ -23,7 +23,6 @@ public class ZombiesAction {
         Event nearRows = new NearRows();
 
         Action appearInCell = new AppearInCell();
-        Action hurtPlantsOnTheWay = new HurtPlantsOnTheWay();
         Action jump = new Jump();
         Action shieldDefend = new ShieldDefend();
         Action turnToNormalZombie = new TurnToNormalZombie();
@@ -68,14 +67,12 @@ public class ZombiesAction {
         actions.clear();
         actions.add(walk);
         actions.add(turnToNormalZombie);
-        actions.add(hurtPlantsOnTheWay);
         zomboni.setActionsOfAnEvent(new ActionsOfAnEvent(nearRows, actions) {
         });
 
         Zombie catapultZomboni = Zombie.makeZombie("CatapultZomboni");
         actions.clear();
         actions.add(walk);
-        actions.add(hurtPlantsOnTheWay);
         catapultZomboni.setActionsOfAnEvent(new ActionsOfAnEvent(nearRows, actions) {
         });
 

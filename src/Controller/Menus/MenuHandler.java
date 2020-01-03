@@ -4,7 +4,6 @@ import Controller.GameMode.Day;
 import Controller.GameMode.Rail;
 import Controller.GameMode.Water;
 import Controller.GameMode.ZombieGameMode;
-import Model.Card.Plants.Plant;
 import Model.Player.Player;
 import Model.Player.Profile;
 
@@ -30,7 +29,6 @@ public class MenuHandler {
 
     public void run() throws IOException {
 
-
         Player bot = new Player();
         Profile profile = null;
         Scanner scanner = new Scanner(System.in);
@@ -39,8 +37,10 @@ public class MenuHandler {
         Pattern selectCard = Pattern.compile("select \\w*");
         Pattern removeCard = Pattern.compile("remove \\w*");
         Pattern buyCard = Pattern.compile("buy \\w*");
-        Pattern plantPlant = Pattern.compile("select \\w*");
+        Pattern plantPlant = Pattern.compile("plant \\d* \\d*");
         Pattern removePlant = Pattern.compile("remove \\d* \\d*");
+        Pattern select = Pattern.compile("select \\w*");
+        String name = null;
         Menu.init();
         while (true) {
             String input = scanner.nextLine();
@@ -146,7 +146,7 @@ public class MenuHandler {
                 } else if (input.equalsIgnoreCase("zombie")) {
                     player = new Player();
                     Menu.playMenu.startZombieGame(player, bot);
-                    zombieMode = new ZombieGameMode();
+                    zombieMode = new ZombieGameMode(profile);
                     Menu.collectionMenu.zombieMode = true;
                 } else if (input.equalsIgnoreCase("pvp")) {
                     player = new Player();
@@ -171,6 +171,7 @@ public class MenuHandler {
                     Menu.collectionMenu.selectCollection(splitInput[1], profile);
                 } else if (input.equalsIgnoreCase("Play")) {
                     Menu.collectionMenu.play(player, bot);
+                    Menu.gameMenu.player1 = player;
                 } else if (input.equalsIgnoreCase("help")) {
                     Menu.help();
                 } else if (input.equalsIgnoreCase("Exit")) {
@@ -205,13 +206,19 @@ public class MenuHandler {
             else if (Menu.menuHandler.getCurrentMenu() == Menu.gameMenu) {
                 if (input.equalsIgnoreCase("show hand")) {
                     Menu.gameMenu.showHand();
-                } else if (plantPlant.matcher(input).matches()) {
-                    String name = splitInput[1];
-                    Plant p = Plant.makePlant(name);
-                    String[] planting = scanner.nextLine().split(" ");
-                    int x = Integer.parseInt(planting[1]);
-                    int y = Integer.parseInt(planting[2]);
-                    Menu.gameMenu.plant(p,x,y);
+                } else if(select.matcher(input).matches()) {
+                    name = splitInput[1];
+                }
+                else if (plantPlant.matcher(input).matches()) {
+                    int x = Integer.parseInt(splitInput[1]);
+                    int y = Integer.parseInt(splitInput[2]);
+                    if (name != null) {
+                        Menu.gameMenu.plant(name,x,y);
+                    }
+                    else {
+                        System.out.println("select a plant first:|");
+                    }
+                    name =null;
                 } else if (removePlant.matcher(input).matches()) {
                     int x = Integer.parseInt(splitInput[1]);
                     int y = Integer.parseInt(splitInput[2]);
@@ -227,7 +234,5 @@ public class MenuHandler {
             else if (Menu.menuHandler.getCurrentMenu() == null)
                 break;
         }
-
     }
 }
-

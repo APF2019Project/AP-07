@@ -1,5 +1,6 @@
 package Controller.GameMode;
 
+import Model.Card.Card;
 import Model.Card.Plants.Plant;
 import Model.Card.Zombies.Zombie;
 import Model.Map.Cell;
@@ -8,13 +9,13 @@ import Model.Player.Profile;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Rail extends GameMode {
 
     private ArrayList<Plant> playerPlants = getBattle().getPlayer(0).getPlants();
 
-    public Rail(){
-
+    public Rail() {
     }
 
     @Override
@@ -22,11 +23,12 @@ public class Rail extends GameMode {
     public void wave() throws IOException {
         //todo
         //har 3 ta 5 turn
-        int numberOfPassedTurns = (int) (Math.random() * ((5 - 3) + 1)) + 3;
-        int randomZombie = (int) (Math.random() * ((Zombie.getZombies().size()) + 1));
-        Zombie newZombie = Zombie.makeZombie(Zombie.getZombies().get(randomZombie).getName());
-        Cell cell = new Cell(0, (int) (Math.random() * ((5) + 1)) + 5);
-        newZombie.setCell(cell);
+        int zombieNumber = (int) (Math.random() * (12 + 1));
+        int randomPlace = (int) (Math.random() * ((Map.getHEIGHT()) + 1));
+        Zombie zombie = new Zombie(Card.getZombies().get(zombieNumber).getName());
+        zombie.setCell(generateMap().getCell(randomPlace, 0));
+        generateMap().getCell(randomPlace, 0).getZombies().add(zombie);
+        getWaveZombies().add(zombie);
     }
 
     @Override
@@ -40,13 +42,14 @@ public class Rail extends GameMode {
         for (int i = 0; i < getBattle().getMap().getCells().length; i++) {
             for (int j = 0; j < getBattle().getMap().getCells()[i].length; i++) {
                 for (int k = 0; k < getBattle().getMap().getCells()[i][j].getZombies().size(); k++) {
-                    if (getBattle().getMap().getCells()[i][j].getZombies().get(k).getCell().x == Map.getWIDTH() + 1) {
+                    if (getBattle().getMap().getCells()[i][j].getZombies().get(k).getCell().x() == Map.getWIDTH() + 1) {
                         return false;
                     }
                 }
             }
         }
         //if player win
+
         boolean allZombisAreDead = true;
         ArrayList<Zombie> allZombies = new ArrayList<>();
         for (int i = 0; i < getBattle().getMap().getCells().length; i++) {
@@ -110,7 +113,7 @@ public class Rail extends GameMode {
         Map m = new Map();
         for (int i = 0; i < Map.getHEIGHT(); i++) {
             for (int j = 0; j < Map.getWIDTH(); j++) {
-                m.setCell(i, j, new Cell(i, j));
+                m.setCell(i, j, new Cell(i, j,false));
             }
         }
         return m;

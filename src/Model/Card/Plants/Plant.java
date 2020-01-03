@@ -1,10 +1,10 @@
 package Model.Card.Plants;
 
+import Controller.GameMode.Battle;
 import Model.Card.Action;
 import Model.Card.ActionsOfAnEvent;
 import Model.Card.Card;
 import Model.Card.Plants.PlantsActions.PlantsAction;
-import Model.Map.Map;
 import com.gilecode.yagson.YaGson;
 
 
@@ -16,9 +16,10 @@ public class Plant extends Card {
 
     private int sun;
     private int cooldown;
+    private int loading;
     private int ProducedSun;
     private int SpeedReduction;
-    private PeaOrProjectile peaOrProjectile;
+    public boolean pea;
     private ArrayList<ActionsOfAnEvent> actionsOfAnEvent = new ArrayList<>();
     //zombie ra chand turn negah dare
     private int freeze;
@@ -55,25 +56,18 @@ public class Plant extends Card {
         this.name = name;
         this.id = uniqueId;
         uniqueId++;
+        this.loading = 0;
     }
 
-    public void act(Map map) {
+    public void act(Battle battle) {
         this.actionsOfAnEvent.forEach(e -> {
             int d = 0;//bayad taeen she be ezaye har plant vali
-            if (e.getEvent().check(this, map, d)) {//age shart barqarar bood
+            if (e.getEvent().check(this, battle, d)) {//age shart barqharar bood
                 for (Action action : e.getActions()) {
-                    action.doAction(this, map, d);//action o anjam bede
+                    action.doAction(this, battle, d);//action o anjam bede
                 }
             }
         });
-    }
-
-    public PeaOrProjectile getPeaOrProjectile() {
-        return peaOrProjectile;
-    }
-
-    public void setPeaOrProjectile(PeaOrProjectile peaOrProjectile) {
-        this.peaOrProjectile = peaOrProjectile;
     }
 
     public int getSpeedReduction() {
@@ -134,4 +128,17 @@ public class Plant extends Card {
         return freeze;
     }
 
+
+    public int getLoading() {
+        return loading;
+    }
+
+    public void setLoading(int loading) {
+        this.loading = loading;
+    }
+
+    @Override
+    public void setPrice() {
+        this.price=this.sun*this.cooldown*this.getHP()+1;
+    }
 }
