@@ -43,6 +43,7 @@ public class Plant extends Card {
                 q = true;
         if (!q)
             plants.add(plant1);
+        plant1.setPrice();
         return plant1;
 //        System.out.println(d);
 //        System.out.println(plant1.getSun());

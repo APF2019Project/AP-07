@@ -4,6 +4,7 @@ import Controller.GameMode.Battle;
 import Model.Card.Action;
 import Model.Card.ActionsOfAnEvent;
 import Model.Card.Card;
+import Model.Card.Plants.Plant;
 import com.gilecode.yagson.YaGson;
 import java.io.File;
 import java.io.IOException;
@@ -32,7 +33,13 @@ public class Zombie extends Card {
         String string = Card.makeString(file);
         Zombie zombie1 = yaGson.fromJson(string, Zombie.class);
         String d = yaGson.toJson(zombie1);
-        zombies.add(zombie1);
+        boolean q = false;
+        for (Zombie z: zombies)
+            if (z.getName().equalsIgnoreCase(zombie1.getName()))
+                q = true;
+        if (!q)
+            zombies.add(zombie1);
+        zombie1.setPrice();
         return zombie1;
 //        System.out.println(d);
 //        System.out.println(zombie1.getSpeed());

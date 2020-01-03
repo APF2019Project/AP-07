@@ -24,6 +24,7 @@ public class Menu {
     public static GameMenu gameMenu = new GameMenu();
     public static RailMenu railMenu = new RailMenu();
     public static WaterModeMenu waterModeMenu = new WaterModeMenu();
+    public static ZombieMenu zombieMenu = new ZombieMenu();
 
     public String[] getOrders() {
         return orders;
@@ -37,7 +38,7 @@ public class Menu {
         }
     }
 
-    public static <JSonElement> void init() throws IOException {
+    public static void init() throws IOException {
         menuHandler.setCurrentMenu(loginMenu);
         YaGson yaGson = new YaGson();
         File file = new File("Accounts//accounts");
@@ -51,7 +52,7 @@ public class Menu {
             else
                 break;
         }
-        ArrayList<Profile> profiles = yaGson.fromJson(string , ArrayList.class);
+        ArrayList<Profile> profiles = yaGson.fromJson(string, ArrayList.class);
         Profile.setProfiles(profiles);
 
         String[] plants = new String[]{"Cabbage-pult", "Cactus", "Cattail", "CherryBomb", "Explode-o-nut", "GatlingPea", "Kernel-pult", "LilyPad", "Magnet-shroom", "Melon-pult", "PeaShooter", "PotatoMine", "Repeater", "Scaredy-shroom", "SnowPea", "SplitPea", "SunFlower", "Tall-nut", "TangleKelp", "ThreePeater", "TwinSunFlower", "Wall-nut", "WinterMelon"};
