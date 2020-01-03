@@ -16,6 +16,9 @@ public class ZombieGameMode extends GameMode {
     private Profile profile;
 
     public ZombieGameMode(Profile profile, String mapType) {
+        for (int i=0;i<landMower.length;i++){
+            landMower[i]=false;
+        }
         profile.setExternalCoins(50);
         this.mapType = mapType;
         this.profile = profile;
@@ -89,7 +92,6 @@ public class ZombieGameMode extends GameMode {
                             getWaveZombies().add(zombie);
                         }
                     }
-
                     //if in water cell
                     if (randomPlace == 2 || randomPlace == 3) {
                         int zombieNumber = (int) (Math.random() * ((14 - 13) + 1)) + 13;
@@ -115,6 +117,7 @@ public class ZombieGameMode extends GameMode {
                 }
             }
         }
+
         for (int i = 0; i < getBattle().getMap().getCells().length; i++) {
             for (int j = 0; j < getBattle().getMap().getCells()[i].length; i++) {
                 if (getBattle().getMap().getCells()[i][j].getPlant().getHP() == 0) {
@@ -142,7 +145,7 @@ public class ZombieGameMode extends GameMode {
             }
         }
         if(allPlantsAreDead){
-            return true;
+            return false;
         }
         boolean canNotBuyAnyZombie=true;
         for(int i=0;i< Zombie.getZombies().size();i++){
@@ -152,9 +155,9 @@ public class ZombieGameMode extends GameMode {
             }
         }
         if(canNotBuyAnyZombie){
-            return true;
+            return false;
         }
-        return false;
+        return true;
     }
 
     @Override
@@ -182,12 +185,12 @@ public class ZombieGameMode extends GameMode {
                     m.setCell(i, j, new Cell(i, j, true));
                 }
             }
-            for (int i = 0; i < 2; i++) {
+            for (int i = 4; i < 6; i++) {
                 for (int j = 0; j < Map.getWIDTH(); j++) {
                     m.setCell(i, j, new Cell(i, j, false));
                 }
             }
-            for (int i = 4; i < 6; i++) {
+            for (int i = 0; i < 2; i++) {
                 for (int j = 0; j < Map.getWIDTH(); j++) {
                     m.setCell(i, j, new Cell(i, j, false));
                 }

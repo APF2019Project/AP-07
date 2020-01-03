@@ -4,13 +4,11 @@ import Controller.GameMode.Day;
 import Controller.GameMode.Rail;
 import Controller.GameMode.Water;
 import Controller.GameMode.ZombieGameMode;
-import Model.Card.Card;
 import Model.Player.Player;
 import Model.Player.Profile;
 import Model.Shop.Shop;
 
 import java.io.IOException;
-import java.util.Map;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 
@@ -150,7 +148,8 @@ public class MenuHandler {
                 } else if (input.equalsIgnoreCase("zombie")) {
                     player = new Player();
                     Menu.playMenu.startZombieGame(player, bot);
-                    zombieMode = new ZombieGameMode(profile ,"Water");
+                    String mapType=scanner.nextLine();
+                    zombieMode = new ZombieGameMode(profile,mapType);
                     Menu.collectionMenu.zombieMode = true;
                 } else if (input.equalsIgnoreCase("pvp")) {
                     player = new Player();
@@ -301,7 +300,6 @@ public class MenuHandler {
                 } else
                     System.out.println("invalid command");
 
-            }
             else if (Menu.menuHandler.getCurrentMenu() == null)
                 break;
         }

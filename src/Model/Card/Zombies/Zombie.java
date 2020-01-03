@@ -1,6 +1,7 @@
 package Model.Card.Zombies;
 
 import Controller.GameMode.Battle;
+import Model.Card.Action;
 import Model.Card.ActionsOfAnEvent;
 import Model.Card.Card;
 import com.gilecode.yagson.YaGson;
@@ -99,18 +100,18 @@ public class Zombie extends Card {
     }
 
     public void act(Battle battle) {
-//        this.actionsOfAnEvent.forEach(e -> {
-//            int d = 0;//bayad taeen she be ezaye har plant vali
-//            if (e.getEvent().check(this, battle, d)) {//age shart barqarar bood
-//                for (Action action : e.getActions()) {
-//                    try {
-//                        action.doAction(this, battle, d);//action o anjam bede
-//                    } catch (IOException ex) {
-//                        ex.printStackTrace();
-//                    }
-//                }
-//            }
-//        });
+        this.actionsOfAnEvent.forEach(e -> {
+            int d = 0;//bayad taeen she be ezaye har plant vali
+            if (e.getEvent().check(this, battle, d)) {//age shart barqarar bood
+                for (Action action : e.getActions()) {
+                    try {
+                        action.doAction(this, battle, d);//action o anjam bede
+                    } catch (IOException ex) {
+                        ex.printStackTrace();
+                    }
+                }
+            }
+        });
     }
 
     @Override

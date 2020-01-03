@@ -13,6 +13,9 @@ public class Day extends GameMode {
     public Day() {
         //player is gardner
         getBattle().getPlayer(0).setSun(2);
+        for (int i = 0; i < landMower.length; i++) {
+            landMower[i] = true;
+        }
     }
 
     @Override
@@ -45,37 +48,14 @@ public class Day extends GameMode {
     @Override
     public boolean handleWin(Profile profile) {
         //if player lose
-        for (int i = 0; i < getBattle().getMap().getCells().length; i++) {
-            for (int j = 0; j < getBattle().getMap().getCells()[i].length; i++) {
-                for (int k = 0; k < getBattle().getMap().getCells()[i][j].getZombies().size(); k++) {
-                    if (getBattle().getMap().getCells()[i][j].getZombies().get(k).getCell().x() == Map.getWIDTH() + 1) {
-                        return false;
-                    }
-                }
-            }
+       if(zombieReachedToTheEnd()){
+           return false;
         }
         //if player win
-        boolean allZombisAreDead = true;
-        ArrayList<Zombie> allZombies = new ArrayList<>();
-        for (int i = 0; i < getBattle().getMap().getCells().length; i++) {
-            for (int j = 0; j < getBattle().getMap().getCells()[i].length; i++) {
-                for (int k = 0; k < getBattle().getMap().getCells()[i][j].getZombies().size(); k++) {
-                    allZombies.addAll(getBattle().getMap().getCells()[i][j].getZombies());
-                }
-            }
-        }
-
-        for (int i = 0; i < allZombies.size(); i++) {
-            if (allZombies.get(i).getHP() != 0) {
-                allZombisAreDead = false;
-            }
-        }
-
-        //numberOfKilledZombies=external coins
-        if (allZombisAreDead) {
-            profile.setExternalCoins(getBattle().getPlayer(0).getNumberOfKilledZombies() * 10);
-            return false;
-        }
+       if(allZombiesAreDead(profile)){
+           return false;
+       }
+       //continue the game
         return true;
     }
 
@@ -109,9 +89,5 @@ public class Day extends GameMode {
         }
         return m;
     }
-
-//    public void checkZombies(){
-//        for(int i=0;i<Map.getHEIGHT())
-//    }
 
 }
