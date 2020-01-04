@@ -69,4 +69,7 @@ public class WaterModeMenu extends Menu {
         }
     }
 
+    public void endTurn() {
+
+    }
 }

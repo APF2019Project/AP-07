@@ -19,14 +19,14 @@ public class Battle {
     private Map map;
     private ArrayList<Zombie> zombies;
 
-    public void actAllMembers(Battle battle){
-        for (int i = 2; i < Map.getHEIGHT() + 2; i++) {
-            for (int j = 2; j < Map.getWIDTH() + 2; j++) {
-                if (battle.getMap().getCell(i, j).getPlant() != null)
-                    battle.getMap().getCell(i, j).getPlant().act(battle);
-                if (!battle.getMap().getCell(i, j).getZombies().isEmpty())
-                    for (Zombie z : battle.getMap().getCell(i, j).getZombies())
-                        z.act(battle);
+    public void actAllMembers(){
+        for (int i = 0; i < Map.getHEIGHT() ; i++) {
+            for (int j = 0; j < Map.getWIDTH() ; j++) {
+                if (map.getCell(i, j).getPlant() != null)
+                    map.getCell(i, j).getPlant().act(this);
+//                if (!battle.getMap().getCell(i, j).getZombies().isEmpty())
+                    for (Zombie z : map.getCell(i, j).getZombies())
+                            z.act(this);
             }
         }
         for (Plant p : this.player1.getPlants()) {
@@ -52,9 +52,16 @@ public class Battle {
             player2 = player;
     }
 
-    public Battle(Player player1, Player player2) {
+    public Battle(Player player1, Player player2, Day day) {
         this.player1 = player1;
         this.player2 = player2;
+        this.map = day.generateMap();
+    }
+
+    public Battle(Player player1, Player player2){
+        this.player1 = player1;
+        this.player2 = player2;
+
     }
 
     public void setCurrentTurn(int currentTurn) {

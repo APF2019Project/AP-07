@@ -74,10 +74,7 @@ public class PVP extends GameMode {
         getBattle().getPlayer(0).setSun(1);
     }
 
-    @Override
-    public ArrayList<Card> getAvailableCards() {
-        return null;
-    }
+
 
     @Override
     public Map generateMap() {

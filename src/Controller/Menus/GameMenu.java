@@ -14,10 +14,10 @@ import Model.Player.Profile;
 import java.io.IOException;
 
 public class GameMenu extends Menu {
-    public Day day;
+    public Day day = new Day();
     public Player player1;
     public Player player2;
-    public Battle battle = new Battle(player1, player2);
+    public Battle battle = new Battle(player1, player2,day);
 
 
     public void showHand() {
@@ -52,25 +52,25 @@ public class GameMenu extends Menu {
     }
 
     public void endTurn(Profile profile) throws IOException {
-        battle.getGameMode().wave();
-        if (battle.getGameMode() instanceof Day) {
-            Day day = (Day) battle.getGameMode();
+        day.wave();
+//        if (battle.getGameMode() instanceof Day) {
+//            Day day = (Day) battle.getGameMode();
             day.setLastTurnGivingSuns(1);
-        }
-        if (battle.getGameMode() instanceof Water) {
-            Water water = (Water) battle.getGameMode();
-            water.setLastTurnGivingSuns(1);
-        }
-        if (battle.getGameMode() instanceof Rail) {
-            Rail rail = (Rail) battle.getGameMode();
-            rail.setLastTurnUpdatingRailCollection(1);
-        }
+//        }
+//        else if (battle.getGameMode() instanceof Water) {
+//            Water water = (Water) battle.getGameMode();
+//            water.setLastTurnGivingSuns(1);
+//        }
+//        else if (battle.getGameMode() instanceof Rail) {
+//            Rail rail = (Rail) battle.getGameMode();
+//            rail.setLastTurnUpdatingRailCollection(1);
+//        }
         
-        battle.actAllMembers(battle);
-        battle.getGameMode().generateSun(battle);
-        battle.getGameMode().handleWin(profile);
-        battle.getGameMode().setLastTurnWaved(1);
-        battle.getGameMode().updateCollection();
+        battle.actAllMembers();
+        day.generateSun(battle);
+        day.handleWin(profile);
+        day.setLastTurnWaved(1);
+        day.updateCollection();
         battle.setCurrentTurn(1);
     }
 

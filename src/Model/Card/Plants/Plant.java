@@ -4,7 +4,9 @@ import Controller.GameMode.Battle;
 import Model.Card.Action;
 import Model.Card.ActionsOfAnEvent;
 import Model.Card.Card;
-import Model.Card.Plants.PlantsActions.PlantsAction;
+import Model.Card.Event.*;
+import Model.Card.Plants.PlantsActions.*;
+import Model.Card.Zombies.Zombie;
 import Model.Player.Profile;
 import com.gilecode.yagson.YaGson;
 
@@ -21,7 +23,8 @@ public class Plant extends Card {
     private int ProducedSun;
     private int SpeedReduction;
     public boolean pea;
-    private ArrayList<ActionsOfAnEvent> actionsOfAnEvent = new ArrayList<>();
+   // private ArrayList<String> actionsOfAnEventString;
+    private ArrayList<ActionsOfAnEvent> actionsOfAnEvent = new ArrayList<>(); /// null e/////////////////////////// /todo/json
     //zombie ra chand turn negah dare
     private int freeze;
     private int turn;
@@ -37,13 +40,15 @@ public class Plant extends Card {
         String string = Card.makeString(file);
         Plant plant1 = yaGson.fromJson(string, Plant.class);
         String d = yaGson.toJson(plant1);
-//        boolean q = false;
-//        for (Plant p: plants)
-//            if (p.getName().equalsIgnoreCase(plant1.getName()))
-//                q = true;
-//        if (!q)
-//            plants.add(plant1);
-//        plant1.setPrice();
+        boolean q = false;
+        for (Plant p : plants)
+            if (p.getName().equalsIgnoreCase(plant1.getName()))
+                q = true;
+        if (!q)
+            plants.add(plant1);
+        plant1.setPrice();
+
+
 
         return plant1;
 //        System.out.println(d);
@@ -52,7 +57,7 @@ public class Plant extends Card {
 
 
     public static Plant findPlant(String name) {
-        for (Plant plant : getPlants()) {
+        for (Plant plant : plants) {
             if (plant.name.equalsIgnoreCase(name))
                 return plant;
         }
@@ -147,6 +152,6 @@ public class Plant extends Card {
 
     @Override
     public void setPrice() {
-        this.price=this.sun*this.cooldown*this.getHP()+1;
+        this.price = this.sun * this.cooldown * this.getHP() + 1;
     }
 }

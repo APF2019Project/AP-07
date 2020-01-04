@@ -82,14 +82,6 @@ public class PlantsAction {
         kernelPult.setActionsOfAnEvent(new ActionsOfAnEvent(inTheSameRow, actions) {
         });
 
-        //todo
-        //do jahate mokhtalef shelliko chert mige
-        Plant splitPea = Plant.makePlant("SplitPea");
-        actions.clear();
-        actions.add(shoot);
-        splitPea.setActionsOfAnEvent(new ActionsOfAnEvent(inTheSameRow, actions) {
-        });
-
         Plant explodeONut = Plant.makePlant("Explode-o-nut");
         actions.clear();
         actions.add(shoot);
@@ -112,6 +104,15 @@ public class PlantsAction {
         actions.add(shoot);
         winterMelon.setActionsOfAnEvent(new ActionsOfAnEvent(inTheSameRow, actions) {
         });
+
+        //todo
+        //do jahate mokhtalef shelliko chert mige
+        Plant splitPea = Plant.makePlant("SplitPea");
+        actions.clear();
+        actions.add(shoot);
+        splitPea.setActionsOfAnEvent(new ActionsOfAnEvent(inTheSameRow, actions) {
+        });
+
 
         //todo
         //what does wallNut do

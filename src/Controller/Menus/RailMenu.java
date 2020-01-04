@@ -55,4 +55,8 @@ public class RailMenu extends Menu {
         Cell cell = map.getCell(x, y);
         cell.removePlant();
     }
+
+    public void endTurn(Profile profile) {
+
+    }
 }

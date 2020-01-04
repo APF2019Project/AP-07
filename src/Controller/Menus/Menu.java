@@ -1,7 +1,15 @@
 package Controller.Menus;
 
+import Model.Card.Action;
+import Model.Card.ActionsOfAnEvent;
+import Model.Card.Event.*;
 import Model.Card.Plants.Plant;
+import Model.Card.Plants.PlantsActions.Burst;
+import Model.Card.Plants.PlantsActions.Magnet;
+import Model.Card.Plants.PlantsActions.ProduceSun;
+import Model.Card.Plants.PlantsActions.Shoot;
 import Model.Card.Zombies.Zombie;
+import Model.Player.Player;
 import Model.Player.Profile;
 import com.gilecode.yagson.YaGson;
 
@@ -24,6 +32,7 @@ public class Menu {
     public static RailMenu railMenu = new RailMenu();
     public static WaterModeMenu waterModeMenu = new WaterModeMenu();
     public static ZombieMenu zombieMenu = new ZombieMenu();
+    public static PvPMenu pvPMenu = new PvPMenu();
 
     public String[] getOrders() {
         return orders;
@@ -64,8 +73,99 @@ public class Menu {
                 "FootballZombie",
                 "Giga-gargantuar",
                 "NewspaperZombie", "PogoZombie", "ScreenDoorZombie", "SnorkelZombie", "TargetZombie", "Zombie", "Zomboni"};
-        for (String x : plants)
+        for (String x : plants) {
             Plant.makePlant(x);
+        }
+//        Event inTheSameRow = new NearRows();
+//        Event OnSpawn = new OnSpawn();
+//        Event nearest = new NearestCell();
+//        Event proximityInRadiausDistance = new ProximityInRadiousDistance();
+//        Event nearRows = new NearRows();
+//        Event valid=new Valid();
+//
+//        Action burst = new Burst();
+//        Action produceSun = new ProduceSun();
+//        Action shoot = new Shoot();
+//        Action magnet = new Magnet();
+//
+//        ArrayList<Action> actions = new ArrayList<>();
+//
+//        Plant peaShooter = Plant.makePlant("PeaShooter");
+//        actions.add(shoot);
+//        peaShooter.setActionsOfAnEvent(new ActionsOfAnEvent(OnSpawn, actions) {
+//        });
+//
+//        Plant snowPea = Plant.makePlant("SnowPea");
+//        actions.clear();
+//        actions.add(shoot);
+//        snowPea.setActionsOfAnEvent(new ActionsOfAnEvent(inTheSameRow, actions) {
+//        });
+//
+//        Plant cabbagePult = Plant.makePlant("Cabbage-pult");
+//        actions.clear();
+//        actions.add(shoot);
+//        cabbagePult.setActionsOfAnEvent(new ActionsOfAnEvent(inTheSameRow, actions) {
+//        });
+//
+//        Plant repeater = Plant.makePlant("Repeater");
+//        actions.clear();
+//        actions.add(shoot);
+//        repeater.setActionsOfAnEvent(new ActionsOfAnEvent(inTheSameRow, actions) {
+//        });
+//
+//        Plant threepeater = Plant.makePlant("Threepeater");
+//        actions.clear();
+//        actions.add(shoot);
+//        threepeater.setActionsOfAnEvent(new ActionsOfAnEvent(nearRows, actions) {
+//        });
+//
+//        Plant cactus = Plant.makePlant("Cactus");
+//        actions.clear();
+//        actions.add(shoot);
+//        cactus.setActionsOfAnEvent(new ActionsOfAnEvent(inTheSameRow, actions) {
+//        });
+//
+//        Plant gatlingPea = Plant.makePlant("GatlingPea");
+//        actions.clear();
+//        actions.add(shoot);
+//        gatlingPea.setActionsOfAnEvent(new ActionsOfAnEvent(inTheSameRow, actions) {
+//        });
+//
+//        Plant scaredyShroom = Plant.makePlant("Scaredy-shroom");
+//        actions.clear();
+//        actions.add(shoot);
+//        scaredyShroom.setActionsOfAnEvent(new ActionsOfAnEvent(inTheSameRow, actions) {
+//        });
+//
+//        Plant kernelPult = Plant.makePlant("Kernel-pult)");
+//        actions.clear();
+//        actions.add(shoot);
+//        kernelPult.setActionsOfAnEvent(new ActionsOfAnEvent(inTheSameRow, actions) {
+//        });
+//
+//        Plant explodeONut = Plant.makePlant("Explode-o-nut");
+//        actions.clear();
+//        actions.add(shoot);
+//        explodeONut.setActionsOfAnEvent(new ActionsOfAnEvent(OnSpawn, actions) {
+//        });
+//
+//        Plant melonPult = Plant.makePlant("MelonPult");
+//        actions.clear();
+//        actions.add(shoot);
+//        melonPult.setActionsOfAnEvent(new ActionsOfAnEvent(inTheSameRow, actions) {
+//        });
+//
+//        Plant lilyPad = Plant.makePlant("LilyPad");
+//        actions.clear();
+//        lilyPad.setActionsOfAnEvent(new ActionsOfAnEvent(OnSpawn, actions) {
+//        });
+//
+//        Plant winterMelon = Plant.makePlant("WinterMelon");
+//        actions.clear();
+//        actions.add(shoot);
+//        winterMelon.setActionsOfAnEvent(new ActionsOfAnEvent(inTheSameRow, actions) {
+//        });
+
         for (String x : zombies)
             Zombie.makeZombie(x);
 

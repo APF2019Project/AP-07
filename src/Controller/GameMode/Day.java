@@ -16,10 +16,11 @@ public class Day extends GameMode {
 
     public Day() {
         //player is gardner
-        getBattle().getPlayer(0).setSun(2);
+        getBattle().getPlayer(1).setSun(2);
         for (int i = 0; i < landMower.length; i++) {
             landMower[i] = true;
         }
+        this.generateMap();
     }
 
     @Override
@@ -77,10 +78,7 @@ public class Day extends GameMode {
         }
     }
 
-    @Override
-    public ArrayList<Card> getAvailableCards() {
-        return null;
-    }
+
 
     @Override
     public Map generateMap() {

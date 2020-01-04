@@ -10,8 +10,8 @@ public class Cell {
     private int x;
     private int y;
     //in each cell we have just 1 plant but not only 1 zombie
-    private Plant plant;
-    private ArrayList<Zombie> zombies;
+    private Plant plant = null;
+    private ArrayList<Zombie> zombies = new ArrayList<>();
     private ArrayList<PeaOrProjectile> peas;
     private boolean water;
     private boolean LilyPad;

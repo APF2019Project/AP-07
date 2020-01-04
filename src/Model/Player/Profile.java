@@ -46,6 +46,14 @@ public class Profile {
         return profile1;
     }
 
+    public boolean havePlant(String name) {
+        for (String p : purchasedPlants){
+            if (name.equalsIgnoreCase(p))
+                return true;
+        }
+        return false;
+    }
+
     public String getUsername() {
         return username;
     }
@@ -69,8 +77,10 @@ public class Profile {
 
     public static Profile login(String username, String password) {
         for (Profile p : profiles) {
-            if (p.password.equals(password) && p.username.equals(username))
+            if (p.password.equals(password) && p.username.equals(username)) {
+                System.out.println(p.purchasedPlants);
                 return p;
+            }
         }
         return null;
     }

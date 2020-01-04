@@ -136,28 +136,33 @@ public class MenuHandler {
                     dayMode = new Day();
                     Menu.gameMenu.battle.setMap(dayMode.generateMap());
                     Menu.collectionMenu.zombieMode = false;
+                    Menu.collectionMenu.water = false;
                 } else if (input.equalsIgnoreCase("water")) {
                     player = new Player();
                     Menu.playMenu.startWaterGame(player, bot);
                     waterMode = new Water();
                     Menu.collectionMenu.zombieMode = false;
+                    Menu.collectionMenu.water = true;
                 } else if (input.equalsIgnoreCase("rail")) {
                     player = new Player();
                     Menu.playMenu.startRailGame(player, bot);
                     railMode = new Rail();
                     Menu.collectionMenu.zombieMode = false;
+                    Menu.menuHandler.setCurrentMenu(Menu.railMenu);
                 } else if (input.equalsIgnoreCase("zombie")) {
                     player = new Player();
                     Menu.playMenu.startZombieGame(player, bot);
                     String mapType = scanner.nextLine();
                     zombieMode = new ZombieGameMode(profile, mapType);
                     Menu.collectionMenu.zombieMode = true;
+                    Menu.collectionMenu.water = false;
                 } else if (input.equalsIgnoreCase("pvp")) {
                     player = new Player();
                     player2 = new Player();
                     Menu.playMenu.startDayGame(player, player2);
                     dayMode = new Day();
                     Menu.collectionMenu.pvp = true;
+                    Menu.collectionMenu.water=false;
                 } else if (input.equalsIgnoreCase("exit")) {
                     Menu.playMenu.exit();
                 } else
@@ -226,7 +231,7 @@ public class MenuHandler {
                     int y = Integer.parseInt(splitInput[2]);
                     Menu.gameMenu.remove(x, y);
                 } else if (input.equalsIgnoreCase("End Turn")) {
-                    Menu.gameMenu.endTurn();
+                    Menu.gameMenu.endTurn(profile);
                 } else if (input.equalsIgnoreCase("show lawn")) {
                     Menu.gameMenu.showLawn();
                 } else
@@ -258,7 +263,7 @@ public class MenuHandler {
                     int y = Integer.parseInt(splitInput[2]);
                     Menu.railMenu.remove(x, y);
                 } else if (input.equalsIgnoreCase("End Turn")) {
-                    Menu.railMenu.endTurn();
+                    Menu.railMenu.endTurn(profile);
                 } else if (input.equalsIgnoreCase("show lawn")) {
                     Menu.railMenu.showLawn();
                 } else if (input.equalsIgnoreCase("record"))
@@ -299,20 +304,21 @@ public class MenuHandler {
             else if (Menu.menuHandler.getCurrentMenu() == Menu.zombieMenu) {
                 if (input.equalsIgnoreCase("show hand")) {
                     Menu.zombieMenu.showHand();
-                }  else if (zombie.matcher(input).matches()) {
+                } else if (zombie.matcher(input).matches()) {
                     String n = splitInput[1];
                     int x = Integer.parseInt(splitInput[2]);
-                    Menu.zombieMenu.putZombie(n,x);
-                }  else if (input.equalsIgnoreCase("start")) {
+                    Menu.zombieMenu.putZombie(n, x);
+                } else if (input.equalsIgnoreCase("start")) {
                     Menu.zombieMenu.start();
                 } else if (input.equalsIgnoreCase("show lanes")) {
                     Menu.zombieMenu.showLanes();
                 } else if (input.equalsIgnoreCase("show lawn")) {
                     Menu.zombieMenu.showLawn();
-                }
-                else
+                } else
                     System.out.println("invalid command");
             }
+
+            ////// PvP Mode /////
 
             else if (Menu.menuHandler.getCurrentMenu() == null)
                 break;
