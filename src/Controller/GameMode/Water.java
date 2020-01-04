@@ -5,6 +5,7 @@ import Model.Card.Zombies.Zombie;
 import Model.Map.Map;
 import Model.Player.Profile;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -14,12 +15,7 @@ public class Water extends GameMode {
     private int lastTurnlastZombieKilled;
     int random = (int) (Math.random() * ((2 - 1) + 1)) + 1;
 
-    public Water() {
-//        //player is gardner
-//        getBattle().getPlayer(1).setSun(2);
-//        for (int i=0;i<landMower.length;i++){
-//            landMower[i]=true;
-//        }
+    public Water(){
     }
 
     @Override
@@ -97,7 +93,7 @@ public class Water extends GameMode {
         if (lastTurnGivingSuns == random) {
             random= (int) (Math.random() * ((2 - 1) + 1)) + 1;
             lastTurnGivingSuns = 0;
-            battle.getPlayer(0).setSun(numberOfSuns);
+            battle.getPlayer(1).setSun(numberOfSuns+battle.getPlayer(1).getSun());
         }
     }
 

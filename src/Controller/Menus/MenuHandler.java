@@ -43,6 +43,7 @@ public class MenuHandler {
         Pattern removePlant = Pattern.compile("remove \\d* \\d*");
         Pattern select = Pattern.compile("select \\w*");
         Pattern zombie = Pattern.compile("put \\w* \\d*");
+        Pattern zombiegm = Pattern.compile("zombie \\w*");
         String name = null;
         Menu.init();
         while (true) {
@@ -50,7 +51,7 @@ public class MenuHandler {
             String[] splitInput = input.split(" ");
 
             //loginMenu//
-            //leaderboard//
+            //leaderboard // //
 
             if (Menu.menuHandler.getCurrentMenu() == Menu.loginMenu) {
                 if (input.equalsIgnoreCase("create account")) {
@@ -149,13 +150,17 @@ public class MenuHandler {
                     railMode = new Rail();
                     Menu.collectionMenu.zombieMode = false;
                     Menu.menuHandler.setCurrentMenu(Menu.railMenu);
-                } else if (input.equalsIgnoreCase("zombie")) {
+                } else if (zombiegm.matcher(input).matches()) {
                     player = new Player();
                     Menu.playMenu.startZombieGame(player, bot);
-                    String mapType = scanner.nextLine();
+                    String mapType = splitInput[1];
                     zombieMode = new ZombieGameMode(profile, mapType);
                     Menu.collectionMenu.zombieMode = true;
-                    Menu.collectionMenu.water = false;
+                    if (mapType.equalsIgnoreCase("water"))
+                        Menu.collectionMenu.water = true;
+                    else
+                        Menu.collectionMenu.water = false;
+                    Menu.menuHandler.setCurrentMenu(Menu.collectionMenu);
                 } else if (input.equalsIgnoreCase("pvp")) {
                     player = new Player();
                     player2 = new Player();
@@ -292,7 +297,7 @@ public class MenuHandler {
                     int y = Integer.parseInt(splitInput[2]);
                     Menu.waterModeMenu.remove(x, y);
                 } else if (input.equalsIgnoreCase("End Turn")) {
-                    Menu.waterModeMenu.endTurn();
+                    Menu.waterModeMenu.endTurn(profile);
                 } else if (input.equalsIgnoreCase("show lawn")) {
                     Menu.waterModeMenu.showLawn();
                 } else

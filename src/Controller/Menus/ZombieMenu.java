@@ -45,14 +45,14 @@ public class ZombieMenu extends Menu {
 
     public void start(){
         while (true){////ta zamani ke round tamom she
-            //        for (int i = 2; i < Map.getHEIGHT() + 2; i++)
-//            for (int j = 2; j < Map.getWIDTH() + 2; j++) {
-//                if (battle.getMap().getCell(i, j).getPlant() != null)
-//                    battle.getMap().getCell(i, j).getPlant().act(battle.getMap());
-//                if (battle.getMap().getCell(i, j).getZombies().size() !=0)
-//                    for (Zombie z : battle.getMap().getCell(i, j).getZombies())
-//                        z.act(battle.getMap());
-//            }
+                    for (int i = 2; i < Map.getHEIGHT() + 2; i++)
+            for (int j = 2; j < Map.getWIDTH() + 2; j++) {
+                if (battle.getMap().getCell(i, j).getPlant() != null)
+                    battle.getMap().getCell(i, j).getPlant().act(battle);
+                if (battle.getMap().getCell(i, j).getZombies().size() !=0)
+                    for (Zombie z : battle.getMap().getCell(i, j).getZombies())
+                        z.act(battle);
+            }
             for (Plant p : this.player1.getPlants()) {
                 if (p.getLoading() != 0) {
                     p.setLoading(p.getLoading()-1);

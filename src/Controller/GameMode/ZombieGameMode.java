@@ -13,55 +13,55 @@ public class ZombieGameMode extends GameMode {
     private String mapType;
     private Profile profile;
 
-    public ZombieGameMode(){}
+    public ZombieGameMode(){
+    }
 
     public ZombieGameMode(Profile profile, String mapType) {
         for (int i=0;i<landMower.length;i++){
             landMower[i]=false;
         }
-        profile.setExternalCoins(50);
         this.mapType = mapType;
         this.profile = profile;
         int size = 0;
-        ArrayList<Plant> randomPlants = new ArrayList<>();
-        randomPlants.add(Plant.findPlant("Explode-o-nut"));
-        randomPlants.add(Plant.findPlant("Explode-o-nut"));
-        randomPlants.add(Plant.findPlant("Explode-o-nut"));
-        randomPlants.add(Plant.findPlant("Scaredy-shroom"));
-        randomPlants.add(Plant.findPlant("Scaredy-shroom"));
-        randomPlants.add(Plant.findPlant("Scaredy-shroom"));
-        randomPlants.add(Plant.findPlant("Scaredy-shroom"));
-        randomPlants.add(Plant.findPlant("Scaredy-shroom"));
-        randomPlants.add(Plant.findPlant("Scaredy-shroom"));
-        randomPlants.add(Plant.findPlant("SnowPea"));
-        randomPlants.add(Plant.findPlant("SnowPea"));
-        randomPlants.add(Plant.findPlant("Cabbage-pult"));
-        randomPlants.add(Plant.findPlant("Cabbage-pult"));
-        randomPlants.add(Plant.findPlant("GatlingPea"));
-
-        if (!getBattle().getMap().getCell(0, 2).isWater()) {
-            randomPlants.add(Plant.findPlant("PotatoMine"));
-            randomPlants.add(Plant.findPlant("PotatoMine"));
-            size = randomPlants.size();
-        }
-
-        if (getBattle().getMap().getCell(0, 2).isWater()) {
-            randomPlants.add(Plant.findPlant("TangleKelp"));
-            randomPlants.add(Plant.findPlant("TangleKelp"));
-            randomPlants.add(Plant.findPlant("Cattail"));
-            randomPlants.add(Plant.findPlant("LilyPad"));
-            randomPlants.add(Plant.findPlant("LilyPad"));
-            randomPlants.add(Plant.findPlant("LilyPad"));
-            size = randomPlants.size();
-        }
-        int randomNumberOfPlants = (int) (Math.random() * ((size) + 1)) + size;
-        for (int i = 0; i < randomNumberOfPlants; i++) {
-            int randomPlant = (int) (Math.random() * ((randomPlants.size() - 4) + 1)) + 4;
-            int randomPlace = (int) (Math.random() * (Map.getHEIGHT()) + 1);
-            Plant plant = new Plant(randomPlants.get(randomPlant).getName());
-            plant.setCell(generateMap().getCell(randomPlace, Map.getWIDTH() - 1));
-            generateMap().getCell(randomPlace, 0).setPlant(plant);
-        }
+//        ArrayList<Plant> randomPlants = new ArrayList<>();
+//        randomPlants.add(Plant.findPlant("Explode-o-nut"));
+//        randomPlants.add(Plant.findPlant("Explode-o-nut"));
+//        randomPlants.add(Plant.findPlant("Explode-o-nut"));
+//        randomPlants.add(Plant.findPlant("Scaredy-shroom"));
+//        randomPlants.add(Plant.findPlant("Scaredy-shroom"));
+//        randomPlants.add(Plant.findPlant("Scaredy-shroom"));
+//        randomPlants.add(Plant.findPlant("Scaredy-shroom"));
+//        randomPlants.add(Plant.findPlant("Scaredy-shroom"));
+//        randomPlants.add(Plant.findPlant("Scaredy-shroom"));
+//        randomPlants.add(Plant.findPlant("SnowPea"));
+//        randomPlants.add(Plant.findPlant("SnowPea"));
+//        randomPlants.add(Plant.findPlant("Cabbage-pult"));
+//        randomPlants.add(Plant.findPlant("Cabbage-pult"));
+//        randomPlants.add(Plant.findPlant("GatlingPea"));
+//
+//        if (!getBattle().getMap().getCell(0, 2).isWater()) {
+//            randomPlants.add(Plant.findPlant("PotatoMine"));
+//            randomPlants.add(Plant.findPlant("PotatoMine"));
+//            size = randomPlants.size();
+//        }
+//
+//        if (getBattle().getMap().getCell(0, 2).isWater()) {
+//            randomPlants.add(Plant.findPlant("TangleKelp"));
+//            randomPlants.add(Plant.findPlant("TangleKelp"));
+//            randomPlants.add(Plant.findPlant("Cattail"));
+//            randomPlants.add(Plant.findPlant("LilyPad"));
+//            randomPlants.add(Plant.findPlant("LilyPad"));
+//            randomPlants.add(Plant.findPlant("LilyPad"));
+//            size = randomPlants.size();
+//        }
+//        int randomNumberOfPlants = (int) (Math.random() * ((size) + 1)) + size;
+//        for (int i = 0; i < randomNumberOfPlants; i++) {
+//            int randomPlant = (int) (Math.random() * ((randomPlants.size() - 4) + 1)) + 4;
+//            int randomPlace = (int) (Math.random() * (Map.getHEIGHT()) + 1);
+//            Plant plant = new Plant(randomPlants.get(randomPlant).getName());
+//            plant.setCell(generateMap().getCell(randomPlace, Map.getWIDTH() - 1));
+//            generateMap().getCell(randomPlace, 0).setPlant(plant);
+//        }
 
     }
 

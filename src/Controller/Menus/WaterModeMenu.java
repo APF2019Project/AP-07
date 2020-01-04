@@ -4,6 +4,7 @@ import Controller.GameMode.Battle;
 import Controller.GameMode.Water;
 import Controller.Menus.Menu;
 import Model.Card.Plants.Plant;
+import Model.Card.Plants.PlantsActions.ProduceSun;
 import Model.Card.Zombies.Zombie;
 import Model.Map.Cell;
 import Model.Map.Map;
@@ -11,6 +12,7 @@ import Model.Player.Player;
 import Model.Player.Profile;
 
 import java.io.IOException;
+import java.net.ProtocolFamily;
 
 public class WaterModeMenu extends Menu {
     public Water waterMode = new Water();
@@ -69,7 +71,20 @@ public class WaterModeMenu extends Menu {
         }
     }
 
-    public void endTurn() {
-
+    public void endTurn(Profile profile) {
+        waterMode.wave();
+        waterMode.setLastTurnGivingSuns(1);
+        battle.actAllMembers();
+        waterMode.generateSun(battle);
+        waterMode.handleWin(profile,battle );
+        waterMode.setLastTurnWaved(1);
+        waterMode.updateCollection();
+        battle.setCurrentTurn(1);
+        for (Plant p:player1.getPlants()) {
+            if (p.getLoading()!=0) {
+                p.setLoading(p.getLoading()-1);
+            }
+        }
+        System.out.println(player1.getSun());
     }
 }

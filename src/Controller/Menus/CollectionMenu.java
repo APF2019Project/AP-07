@@ -71,6 +71,10 @@ public class CollectionMenu extends Menu {
             if (!zombieMode) {
                 if (water){
                     Menu.menuHandler.setCurrentMenu(Menu.waterModeMenu);
+                    waterModeMenu.player1=player1;
+                    waterModeMenu.player2=player2;
+                    waterModeMenu.battle.setMap(waterModeMenu.waterMode.generateMap());
+                    waterModeMenu.player1.setSun(2);
                 }
                 else {
                     Menu.menuHandler.setCurrentMenu(Menu.gameMenu);
@@ -84,6 +88,9 @@ public class CollectionMenu extends Menu {
             }
             else {
                 Menu.menuHandler.setCurrentMenu(Menu.zombieMenu);
+                zombieMenu.player2=player2;
+                zombieMenu.player1=player1;
+                zombieMenu.battle.setMap(zombieMenu.zombieGameMode.generateMap());
             }
         }
         else {
