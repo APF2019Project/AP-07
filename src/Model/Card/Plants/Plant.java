@@ -8,7 +8,6 @@ import Model.Card.Event.*;
 import Model.Card.Plants.PlantsActions.*;
 import com.gilecode.yagson.YaGson;
 
-
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -21,8 +20,7 @@ public class Plant extends Card {
     private int ProducedSun;
     private int SpeedReduction;
     public boolean pea;
-    // private ArrayList<String> actionsOfAnEventString;
-    private ArrayList<ActionsOfAnEvent> actionsOfAnEvent; /// null e/////////////////////////// /todo/json
+    private ArrayList<ActionsOfAnEvent> actionsOfAnEvent;
     private ArrayList<Action> actionsOfAnEvent1 = new ArrayList<>();
     //zombie ra chand turn negah dare
     private int freeze;
@@ -49,15 +47,120 @@ public class Plant extends Card {
         plant1.actionsOfAnEvent1 = new ArrayList<>();
         plant1.actionsOfAnEvent = new ArrayList<>();
 
-        if (plant1.getName().equalsIgnoreCase("sunflower")) {
-            Event valid = new Valid();
-            Action produceSun = new ProduceSun();
+        Event inTheSameRow = new NearRows();
+        Event OnSpawn = new OnSpawn();
+        Event nearest = new NearestCell();
+        Event proximityInRadiausDistance = new ProximityInRadiousDistance();
+        Event nearRows = new NearRows();
+        Event valid = new Valid();
+
+        Action burst = new Burst();
+        Action produceSun = new ProduceSun();
+        Action shoot = new Shoot();
+        Action magnet = new Magnet();
+        if (plant1.getName().equalsIgnoreCase("peashooter")) {
+            plant1.actionsOfAnEvent1.add(shoot);
+            plant1.setActionsOfAnEvent(new ActionsOfAnEvent(OnSpawn, plant1.actionsOfAnEvent1) {
+            });
+        }
+        if (plant1.getName().equalsIgnoreCase("SnowPea")) {
+            plant1.actionsOfAnEvent1.add(shoot);
+            plant1.setActionsOfAnEvent(new ActionsOfAnEvent(OnSpawn, plant1.actionsOfAnEvent1) {
+            });
+        }
+        if (plant1.getName().equalsIgnoreCase("Cabbage-pult")) {
+            plant1.actionsOfAnEvent1.add(shoot);
+            plant1.setActionsOfAnEvent(new ActionsOfAnEvent(OnSpawn, plant1.actionsOfAnEvent1) {
+            });
+        }
+        if (plant1.getName().equalsIgnoreCase("Repeater")) {
+            plant1.actionsOfAnEvent1.add(shoot);
+            plant1.setActionsOfAnEvent(new ActionsOfAnEvent(OnSpawn, plant1.actionsOfAnEvent1) {
+            });
+        }
+        if (plant1.getName().equalsIgnoreCase("Threepeater")) {
+            plant1.actionsOfAnEvent1.add(shoot);
+            plant1.setActionsOfAnEvent(new ActionsOfAnEvent(OnSpawn, plant1.actionsOfAnEvent1) {
+            });
+        }
+        if (plant1.getName().equalsIgnoreCase("Cactus")) {
+            plant1.actionsOfAnEvent1.add(shoot);
+            plant1.setActionsOfAnEvent(new ActionsOfAnEvent(inTheSameRow, plant1.actionsOfAnEvent1) {
+            });
+        }
+        if (plant1.getName().equalsIgnoreCase("GatlingPea")) {
+            plant1.actionsOfAnEvent1.add(shoot);
+            plant1.setActionsOfAnEvent(new ActionsOfAnEvent(inTheSameRow, plant1.actionsOfAnEvent1) {
+            });
+        }if (plant1.getName().equalsIgnoreCase("Scaredy-shroom")) {
+            plant1.actionsOfAnEvent1.add(shoot);
+            plant1.setActionsOfAnEvent(new ActionsOfAnEvent(inTheSameRow, plant1.actionsOfAnEvent1) {
+            });
+        }if (plant1.getName().equalsIgnoreCase("Kernel-pult")) {
+            plant1.actionsOfAnEvent1.add(shoot);
+            plant1.setActionsOfAnEvent(new ActionsOfAnEvent(inTheSameRow, plant1.actionsOfAnEvent1) {
+            });
+        }if (plant1.getName().equalsIgnoreCase("Explode-o-nut")) {
+            plant1.actionsOfAnEvent1.add(shoot);
+            plant1.setActionsOfAnEvent(new ActionsOfAnEvent(OnSpawn, plant1.actionsOfAnEvent1) {
+            });
+        }if (plant1.getName().equalsIgnoreCase("MelonPult")) {
+            plant1.actionsOfAnEvent1.add(shoot);
+            plant1.setActionsOfAnEvent(new ActionsOfAnEvent(inTheSameRow, plant1.actionsOfAnEvent1) {
+            });
+        }if (plant1.getName().equalsIgnoreCase("LilyPad")) {
+            plant1.setActionsOfAnEvent(new ActionsOfAnEvent(OnSpawn, plant1.actionsOfAnEvent1) {
+            });
+        }if (plant1.getName().equalsIgnoreCase("WinterMelon")) {
+            plant1.actionsOfAnEvent1.add(shoot);
+            plant1.setActionsOfAnEvent(new ActionsOfAnEvent(inTheSameRow, plant1.actionsOfAnEvent1) {
+            });
+        }if (plant1.getName().equalsIgnoreCase("SplitPea")) {
+            plant1.actionsOfAnEvent1.add(shoot);
+            plant1.setActionsOfAnEvent(new ActionsOfAnEvent(inTheSameRow, plant1.actionsOfAnEvent1) {
+            });
+        }if (plant1.getName().equalsIgnoreCase("Wall-nut")) {
+            //plant1.actionsOfAnEvent1.add(shoot);
+            plant1.setActionsOfAnEvent(new ActionsOfAnEvent(valid, plant1.actionsOfAnEvent1) {
+            });
+        }if (plant1.getName().equalsIgnoreCase("TangleKelp")) {
+            plant1.actionsOfAnEvent1.add(shoot);
+            plant1.setActionsOfAnEvent(new ActionsOfAnEvent(OnSpawn, plant1.actionsOfAnEvent1) {
+            });
+        }if (plant1.getName().equalsIgnoreCase("Tall-nut")) {
+            //plant1.actionsOfAnEvent1.add(shoot);
+            plant1.setActionsOfAnEvent(new ActionsOfAnEvent(valid, plant1.actionsOfAnEvent1) {
+            });
+        }if (plant1.getName().equalsIgnoreCase("Cattail")) {
+            plant1.actionsOfAnEvent1.add(shoot);
+            plant1.setActionsOfAnEvent(new ActionsOfAnEvent(nearest, plant1.actionsOfAnEvent1) {
+            });
+        }if (plant1.getName().equalsIgnoreCase("PotatoMine")) {
+            plant1.actionsOfAnEvent1.add(burst);
+            plant1.setActionsOfAnEvent(new ActionsOfAnEvent(OnSpawn, plant1.actionsOfAnEvent1) {
+            });
+        }if (plant1.getName().equalsIgnoreCase("CherryBomb")) {
+            plant1.actionsOfAnEvent1.add(burst);
+            plant1.setActionsOfAnEvent(new ActionsOfAnEvent(valid, plant1.actionsOfAnEvent1) {
+            });
+        }if (plant1.getName().equalsIgnoreCase("magnet-shroom")) {
+            plant1.actionsOfAnEvent1.add(magnet);
+            plant1.setActionsOfAnEvent(new ActionsOfAnEvent(proximityInRadiausDistance, plant1.actionsOfAnEvent1) {
+            });
+        }if (plant1.getName().equalsIgnoreCase("sunflower")) {
+            plant1.actionsOfAnEvent1.add(produceSun);
+            plant1.setActionsOfAnEvent(new ActionsOfAnEvent(valid, plant1.actionsOfAnEvent1) {
+            });
+        }if (plant1.getName().equalsIgnoreCase("TwinSunFlower")) {
             plant1.actionsOfAnEvent1.add(produceSun);
             plant1.setActionsOfAnEvent(new ActionsOfAnEvent(valid, plant1.actionsOfAnEvent1) {
             });
         }
-
-
+        if (plant1.getName().equalsIgnoreCase("Jalapeno")) {
+            plant1.actionsOfAnEvent1.add(burst);
+            plant1.setActionsOfAnEvent(new ActionsOfAnEvent(valid, plant1.actionsOfAnEvent1) {
+            });
+        }
         return plant1;
 //        System.out.println(d);
 //        System.out.println(plant1.getSun());
