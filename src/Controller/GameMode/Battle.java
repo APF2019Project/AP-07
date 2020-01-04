@@ -19,6 +19,11 @@ public class Battle {
     private Map map;
     private ArrayList<Zombie> zombies;
 
+    public Battle(Player player1, Player player2) {
+        this.player2 = player2;
+        this.player1 = player1;
+    }
+
     public void actAllMembers(){
         for (int i = 0; i < Map.getHEIGHT() ; i++) {
             for (int j = 0; j < Map.getWIDTH() ; j++) {
@@ -58,10 +63,12 @@ public class Battle {
         this.map = day.generateMap();
     }
 
-    public Battle(Player player1, Player player2){
+    public Battle(Player player1, Player player2, String zom){
         this.player1 = player1;
         this.player2 = player2;
-
+        if (zom.equalsIgnoreCase("zombie"))
+            gameMode = new ZombieGameMode();
+            map = gameMode.generateMap();
     }
 
     public void setCurrentTurn(int currentTurn) {

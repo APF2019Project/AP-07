@@ -18,6 +18,7 @@ public class GameMenu extends Menu {
     public Battle battle = new Battle(player1, player2,day);
 
 
+
     public void showHand() {
         for (Plant x : player1.getPlants()) {
             System.out.println(x.getName() + "\t" + x.getSun() + "\t" + x.getCooldown());
@@ -57,12 +58,12 @@ public class GameMenu extends Menu {
               day.setLastTurnGivingSuns(1);
 //        }
 //        else if (battle.getGameMode() instanceof Water) {
-//            Water water = (Water) battle.getGameMode();
+//            Water water = (Water) battle.getGameMode(); //todo
 //            water.setLastTurnGivingSuns(1);
 //        }
 //        else if (battle.getGameMode() instanceof Rail) {
 //            Rail rail = (Rail) battle.getGameMode();
-//            rail.setLastTurnUpdatingRailCollection(1);
+//            rail.setLastTurnUpdatingRailCollection(1); // todo //
 //        }
         
         battle.actAllMembers();

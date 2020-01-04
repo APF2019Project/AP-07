@@ -56,7 +56,20 @@ public class RailMenu extends Menu {
         cell.removePlant();
     }
 
-    public void endTurn(Profile profile) {
-
+    public void endTurn(Profile profile) throws IOException {
+        rail.wave();
+        rail.setLastTurnUpdatingRailCollection(1);
+        battle.actAllMembers();
+        rail.generateSun(battle);
+        rail.handleWin(profile,battle );
+        rail.setLastTurnWaved(1);
+        rail.updateCollection();
+        battle.setCurrentTurn(1);
+        for (Plant p:player1.getPlants()) {
+            if (p.getLoading()!=0) {
+                p.setLoading(p.getLoading()-1);
+            }
+        }
+        System.out.println(player1.getSun());
     }
 }
