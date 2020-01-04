@@ -1,15 +1,7 @@
 package Controller.Menus;
 
-import Model.Card.Action;
-import Model.Card.ActionsOfAnEvent;
-import Model.Card.Event.*;
 import Model.Card.Plants.Plant;
-import Model.Card.Plants.PlantsActions.Burst;
-import Model.Card.Plants.PlantsActions.Magnet;
-import Model.Card.Plants.PlantsActions.ProduceSun;
-import Model.Card.Plants.PlantsActions.Shoot;
 import Model.Card.Zombies.Zombie;
-import Model.Player.Player;
 import Model.Player.Profile;
 import com.gilecode.yagson.YaGson;
 
@@ -75,9 +67,9 @@ public class Menu {
                 "NewspaperZombie", "PogoZombie", "ScreenDoorZombie", "SnorkelZombie", "TargetZombie", "Zombie", "Zomboni"};
         for (String x : plants) {
             Plant p = new Plant(x);
-            if(x.equalsIgnoreCase("sunflower")) {
+            if (x.equalsIgnoreCase("sunflower")) {
                 p = Plant.makePlant(x);
-                System.out.println(p.getHP() +p.getName()+ p.getTurn() + p.getSun() + p.getCooldown());
+                System.out.println(p.getHP() + p.getName() + p.getTurn() + p.getSun() + p.getCooldown());
             }
         }
 //        Event inTheSameRow = new NearRows();
