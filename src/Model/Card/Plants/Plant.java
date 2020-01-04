@@ -6,8 +6,6 @@ import Model.Card.ActionsOfAnEvent;
 import Model.Card.Card;
 import Model.Card.Event.*;
 import Model.Card.Plants.PlantsActions.*;
-import Model.Card.Zombies.Zombie;
-import Model.Player.Profile;
 import com.gilecode.yagson.YaGson;
 
 
@@ -23,11 +21,12 @@ public class Plant extends Card {
     private int ProducedSun;
     private int SpeedReduction;
     public boolean pea;
-   // private ArrayList<String> actionsOfAnEventString;
-    private ArrayList<ActionsOfAnEvent> actionsOfAnEvent = new ArrayList<>(); /// null e/////////////////////////// /todo/json
+    // private ArrayList<String> actionsOfAnEventString;
+    private ArrayList<ActionsOfAnEvent> actionsOfAnEvent; /// null e/////////////////////////// /todo/json
+    private ArrayList<Action> actionsOfAnEvent1 = new ArrayList<>();
     //zombie ra chand turn negah dare
     private int freeze;
-    private int turn;
+    private int Turn;
 
     public void setActionsOfAnEvent(ActionsOfAnEvent actionsOfAnEvent) {
         this.actionsOfAnEvent.add(actionsOfAnEvent);
@@ -47,7 +46,16 @@ public class Plant extends Card {
         if (!q)
             plants.add(plant1);
         plant1.setPrice();
+        plant1.actionsOfAnEvent1 = new ArrayList<>();
+        plant1.actionsOfAnEvent = new ArrayList<>();
 
+        if (plant1.getName().equalsIgnoreCase("sunflower")) {
+            Event valid = new Valid();
+            Action produceSun = new ProduceSun();
+            plant1.actionsOfAnEvent1.add(produceSun);
+            plant1.setActionsOfAnEvent(new ActionsOfAnEvent(valid, plant1.actionsOfAnEvent1) {
+            });
+        }
 
 
         return plant1;
@@ -70,6 +78,7 @@ public class Plant extends Card {
         this.id = uniqueId;
         uniqueId++;
         this.loading = 0;
+
     }
 
     public void act(Battle battle) {
@@ -106,11 +115,11 @@ public class Plant extends Card {
     private ArrayList<PlantsAction> plantsActions;
 
     public int getTurn() {
-        return turn;
+        return Turn;
     }
 
     public void setTurn(int turn) {
-        this.turn += turn;
+        this.Turn += turn;
     }
 
     public void addToPlantsActions(PlantsAction action) {

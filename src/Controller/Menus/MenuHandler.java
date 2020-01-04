@@ -180,7 +180,6 @@ public class MenuHandler {
                     Menu.collectionMenu.selectCollection(splitInput[1], profile);
                 } else if (input.equalsIgnoreCase("Play")) {
                     Menu.collectionMenu.play(player, bot);
-                    Menu.gameMenu.player1 = player;
                 } else if (input.equalsIgnoreCase("help")) {
                     Menu.help();
                 } else if (input.equalsIgnoreCase("Exit")) {

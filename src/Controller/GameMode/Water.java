@@ -67,13 +67,13 @@ public class Water extends GameMode {
     }
 
     @Override
-    public boolean handleWin(Profile profile) {
+    public boolean handleWin(Profile profile, Battle battle) {
         //if player lose
-        if(zombieReachedToTheEnd()){
+        if(zombieReachedToTheEnd(battle)){
             return false;
         }
         //if player win
-        if(allZombiesAreDead(profile)){
+        if(allZombiesAreDead(profile, battle)){
             return false;
         }
         //continue the game

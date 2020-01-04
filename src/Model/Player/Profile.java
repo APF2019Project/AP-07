@@ -78,7 +78,6 @@ public class Profile {
     public static Profile login(String username, String password) {
         for (Profile p : profiles) {
             if (p.password.equals(password) && p.username.equals(username)) {
-                System.out.println(p.purchasedPlants);
                 return p;
             }
         }

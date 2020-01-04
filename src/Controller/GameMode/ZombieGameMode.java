@@ -3,7 +3,6 @@ package Controller.GameMode;
 import Model.Card.Card;
 import Model.Card.Plants.Plant;
 import Model.Card.Zombies.Zombie;
-import Model.Map.Cell;
 import Model.Map.Map;
 import Model.Player.Profile;
 import java.util.ArrayList;
@@ -132,7 +131,7 @@ public class ZombieGameMode extends GameMode {
     }
 
     @Override
-    public boolean handleWin(Profile profile) {
+    public boolean handleWin(Profile profile, Battle battle) {
         boolean allPlantsAreDead=true;
         for (int i = 0; i < getBattle().getMap().getCells().length; i++) {
             for (int j = 0; j < getBattle().getMap().getCells()[i].length; j++) {

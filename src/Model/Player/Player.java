@@ -35,7 +35,7 @@ public class Player {
     }
 
     public void setSun(int sun) {
-        this.sun += sun;
+        this.sun = sun;
     }
 
     public int getNumberOfKilledZombies() {

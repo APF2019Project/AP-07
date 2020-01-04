@@ -65,15 +65,21 @@ public class CollectionMenu extends Menu {
         collection.removePlant(name);
     }
 
-    public void play(Player player, Player player2) {
+    public void play(Player player1, Player player2) {
         if (!pvp) {
-            player.setCollection(collection);
+            player1.setCollection(collection);
             if (!zombieMode) {
                 if (water){
                     Menu.menuHandler.setCurrentMenu(Menu.waterModeMenu);
                 }
                 else {
                     Menu.menuHandler.setCurrentMenu(Menu.gameMenu);
+                    gameMenu.player1 = player1;
+                    gameMenu.player2 = player2;
+                    gameMenu.battle.setPlayer(player1,1);
+                    gameMenu.battle.setPlayer(player2,2);
+                    gameMenu.battle.setMap(gameMenu.day.generateMap());
+                    gameMenu.player1.setSun(2);
                 }
             }
             else {
@@ -81,8 +87,8 @@ public class CollectionMenu extends Menu {
             }
         }
         else {
-            if(player.getPlants().size() ==0)
-                player.setCollection(collection);
+            if(player1.getPlants().size() ==0)
+                player1.setCollection(collection);
             else {
                 player2.setCollection(collection);
                 Menu.menuHandler.setCurrentMenu(Menu.pvPMenu);

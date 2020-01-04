@@ -2,8 +2,6 @@ package Controller.Menus;
 
 import Controller.GameMode.Battle;
 import Controller.GameMode.Day;
-import Controller.GameMode.Rail;
-import Controller.GameMode.Water;
 import Model.Card.Plants.Plant;
 import Model.Card.Zombies.Zombie;
 import Model.Map.Cell;
@@ -36,10 +34,11 @@ public class GameMenu extends Menu {
         if (battle.getMap().getCell(x, y).canBePlanted()) {
             for (Plant p : player1.getPlants()) {
                 if (p.getName().equalsIgnoreCase(name)) {
-                    if (p.getLoading() == 0) {
+                    if (p.getLoading() == 0 && p.getSun() <= player1.getSun()) {
                         battle.getMap().getCell(x, y).setPlant(Plant.makePlant(name));
                         p.setLoading(p.getCooldown());
                         System.out.println("plant planted:)");
+                        player1.setSun(player1.getSun()-p.getSun());
 
                     } else {
                         System.out.println("plant is not ready");
@@ -55,7 +54,7 @@ public class GameMenu extends Menu {
         day.wave();
 //        if (battle.getGameMode() instanceof Day) {
 //            Day day = (Day) battle.getGameMode();
-            day.setLastTurnGivingSuns(1);
+              day.setLastTurnGivingSuns(1);
 //        }
 //        else if (battle.getGameMode() instanceof Water) {
 //            Water water = (Water) battle.getGameMode();
@@ -68,10 +67,16 @@ public class GameMenu extends Menu {
         
         battle.actAllMembers();
         day.generateSun(battle);
-        day.handleWin(profile);
+        day.handleWin(profile,battle );
         day.setLastTurnWaved(1);
         day.updateCollection();
         battle.setCurrentTurn(1);
+        for (Plant p:player1.getPlants()) {
+            if (p.getLoading()!=0) {
+                p.setLoading(p.getLoading()-1);
+            }
+        }
+        System.out.println(player1.getSun());
     }
 
 

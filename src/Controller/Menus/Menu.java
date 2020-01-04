@@ -74,7 +74,11 @@ public class Menu {
                 "Giga-gargantuar",
                 "NewspaperZombie", "PogoZombie", "ScreenDoorZombie", "SnorkelZombie", "TargetZombie", "Zombie", "Zomboni"};
         for (String x : plants) {
-            Plant.makePlant(x);
+            Plant p = new Plant(x);
+            if(x.equalsIgnoreCase("sunflower")) {
+                p = Plant.makePlant(x);
+                System.out.println(p.getHP() +p.getName()+ p.getTurn() + p.getSun() + p.getCooldown());
+            }
         }
 //        Event inTheSameRow = new NearRows();
 //        Event OnSpawn = new OnSpawn();

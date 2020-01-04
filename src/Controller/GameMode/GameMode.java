@@ -24,7 +24,7 @@ public abstract class GameMode {
 
     public abstract boolean canWave();
 
-    public abstract boolean handleWin(Profile profile);
+    public abstract boolean handleWin(Profile profile, Battle battle);
 
     public abstract void updateCollection() throws IOException;
 
@@ -59,46 +59,39 @@ public abstract class GameMode {
     }
 
     public void setBattle(Battle battle) {
-        this.battle = battle;
+        battle = battle;
     }
 
     //chamanzan
     public boolean landMower(int i) {
         if (landMower[i]) {
             landMower[i] = false;
-            for (int k = 0; k < getBattle().getMap().cells[i].length; k++) {
+            for (int k = 0; k < battle.getMap().cells[i].length; k++) {
                 //todo
                 //maybe lead to error
-                getBattle().getMap().cells[i][k].getZombies().clear();
+                battle.getMap().cells[i][k].getZombies().clear();
             }
             return true;
         }
         return false;
     }
 
-    public boolean zombieReachedToTheEnd() {
-        for (int i = 0; i < getBattle().getMap().getCells().length; i++) {
-            for (int j = 0; j < getBattle().getMap().getCells()[i].length; i++) {
-                for (int k = 0; k < getBattle().getMap().getCells()[i][j].getZombies().size(); k++) {
-                    if (getBattle().getMap().getCells()[i][j].getZombies().get(k).getCell().x() == Map.getWIDTH() + 1) {
-                        if (landMower(i)) {
-                            return false;
-                        }
-
-                    }
-                }
-            }
+    public boolean zombieReachedToTheEnd(Battle battle) {
+        for (int i =0;i<Map.getHEIGHT();i++){
+            if (battle.getMap().getCell(i,1).getZombies().size() != 0)
+                if(!landMower[i])
+                    return true;
         }
-        return true;
+        return false;
     }
 
-    public boolean allZombiesAreDead(Profile profile) {
+    public boolean allZombiesAreDead(Profile profile, Battle battle) {
         boolean allZombisAreDead = true;
         ArrayList<Zombie> allZombies = new ArrayList<>();
-        for (int i = 0; i < getBattle().getMap().getCells().length; i++) {
-            for (int j = 0; j < getBattle().getMap().getCells()[i].length; i++) {
-                for (int k = 0; k < getBattle().getMap().getCells()[i][j].getZombies().size(); k++) {
-                    allZombies.addAll(getBattle().getMap().getCells()[i][j].getZombies());
+        for (int i = 0; i < battle.getMap().getCells().length; i++) {
+            for (int j = 0; j < battle.getMap().getCells()[i].length; j++) {
+                for (int k = 0; k < battle.getMap().getCells()[i][j].getZombies().size(); k++) {
+                    allZombies.addAll(battle.getMap().getCells()[i][j].getZombies());
                 }
             }
         }
@@ -111,7 +104,7 @@ public abstract class GameMode {
 
         //numberOfKilledZombies=external coins
         if (allZombisAreDead) {
-            profile.setExternalCoins(getBattle().getPlayer(0).getNumberOfKilledZombies() * 10);
+            profile.setExternalCoins(battle.getPlayer(1).getNumberOfKilledZombies() * 10);
             return true;
         }
         return false;
@@ -148,14 +141,15 @@ public abstract class GameMode {
     }
 
 
-    public void generateZombies(){
+    public void generateZombies() throws IOException {
         int zombieNumber = (int) (Math.random() * (12 + 1));
         int randomPlace = (int) (Math.random() * ((Map.getHEIGHT()) + 1));
-        Zombie zombie = new Zombie(Card.getZombies().get(zombieNumber).getName());
-        zombie.setCell(generateMap().getCell(randomPlace, 0));
-        generateMap().getCell(randomPlace, 0).getZombies().add(zombie);
-        getWaveZombies().add(zombie);
+        Zombie zombie = Zombie.makeZombie(Zombie.getZombies().get(zombieNumber).getName());
+        zombie.setCell(generateMap().getCell(randomPlace, 21));
+        generateMap().getCell(randomPlace, 21).addZombie(zombie);
+//        getWaveZombies().add(z);
     }
+
 
     public void setLastTurnWaved(int lastTurnWaved) {
         this.lastTurnWaved += lastTurnWaved;

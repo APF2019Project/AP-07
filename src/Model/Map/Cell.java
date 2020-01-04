@@ -11,7 +11,7 @@ public class Cell {
     private int y;
     //in each cell we have just 1 plant but not only 1 zombie
     private Plant plant = null;
-    private ArrayList<Zombie> zombies = new ArrayList<>();
+    private ArrayList<Zombie> zombies;
     private ArrayList<PeaOrProjectile> peas;
     private boolean water;
     private boolean LilyPad;
@@ -24,6 +24,7 @@ public class Cell {
     public Cell(int x, int y,boolean water) {
         this.x = x;
         this.y = y;
+        this.zombies = new ArrayList<Zombie>();
     }
 
     public Cell() {
@@ -63,7 +64,7 @@ public class Cell {
     }
 
     public void removePlant() {
-
+        plant = null;
     }
 
     public boolean canBePlanted() {

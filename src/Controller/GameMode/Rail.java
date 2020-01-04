@@ -24,7 +24,7 @@ public class Rail extends GameMode {
 
     @Override
     //dar asl wave nadare va be soorate tasadofi har chand turn zombie varede zamin mishe
-    public void wave() {
+    public void wave() throws IOException {
         //har 3 ta 5 turn
         int random = (int) (Math.random() * ((5 - 3) + 1)) + 3;
         if(lastTurnWaved ==random) {
@@ -39,13 +39,13 @@ public class Rail extends GameMode {
     }
 
     @Override
-    public boolean handleWin(Profile profile) {
+    public boolean handleWin(Profile profile, Battle battle) {
         //if player lose
-        if (zombieReachedToTheEnd()) {
+        if (zombieReachedToTheEnd(battle)) {
             return false;
         }
         //if player win
-        if (allZombiesAreDead(profile)) {
+        if (allZombiesAreDead(profile, battle)) {
             return false;
         }
         //continue the game
