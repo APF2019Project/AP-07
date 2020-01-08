@@ -52,7 +52,7 @@ public class GameMenu extends Menu {
     }
 
     public void endTurn(Profile profile) throws IOException {
-        day.wave();
+        day.wave(battle);
 //        if (battle.getGameMode() instanceof Day) {
 //            Day day = (Day) battle.getGameMode();
               day.setLastTurnGivingSuns(1);
@@ -77,7 +77,8 @@ public class GameMenu extends Menu {
                 p.setLoading(p.getLoading()-1);
             }
         }
-        System.out.println(player1.getSun());
+//        System.out.println(player1.getSun());
+        System.out.println(battle.getCurrentTurn());
     }
 
 

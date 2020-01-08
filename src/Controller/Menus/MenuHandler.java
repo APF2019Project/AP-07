@@ -5,6 +5,7 @@ import Controller.GameMode.Rail;
 import Controller.GameMode.Water;
 import Controller.GameMode.ZombieGameMode;
 import Model.Card.Card;
+import Model.Card.Plants.Plant;
 import Model.Player.Player;
 import Model.Player.Profile;
 

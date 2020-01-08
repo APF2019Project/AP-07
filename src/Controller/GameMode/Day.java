@@ -25,21 +25,23 @@ public class Day extends GameMode {
     }
 
     @Override
-    public void wave() throws IOException {
-        if (canWave()) {
+    public void wave(Battle battle) throws IOException {
+        if (canWave(battle)) {
             int numberOfZombiesInAWave = (int) (Math.random() * ((10 - 4) + 1)) + 4;
             for (int i = 0; i < numberOfZombiesInAWave; i++) {
-                generateZombies();
+                generateZombies(battle);
             }
             setWaveCounter(1);
         }
     }
 
     @Override
-    public boolean canWave() {
-        if (getBattle().getCurrentTurn() >= 3 && getWaveCounter() <= 3) {
-            if(getBattle().getCurrentTurn()==0 || (getBattle().getCurrentTurn()-lastTurnlastZombieKilled)==7)
-                lastTurnlastZombieKilled=0;
+    public boolean canWave(Battle battle) {
+        if (battle.getCurrentTurn() >= 3 && getWaveCounter() <= 3) {
+            return true;
+        }
+        if(lastTurnlastZombieKilled==7){
+            lastTurnlastZombieKilled =0;
             return true;
         }
         return false;

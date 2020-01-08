@@ -47,7 +47,7 @@ public class CollectionMenu extends Menu {
             if (collection.getPlants().size() == 7)
                 System.out.println("your collection is full");
             else if (p != null ) {
-//                System.out.println("dfvkjvbzjdkfbg");
+//                System.out.println(name);
                 if (profile.havePlant(name)) {
 //                    System.out.println("2");
                     if (!collection.getPlants().contains(p)){

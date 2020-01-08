@@ -19,6 +19,6 @@ public class Walk extends Action {
         int i =0;
         int x = zombie.getCell().x();
         int y = zombie.getCell().y();
-
+        System.out.println("walk");
     }
 }

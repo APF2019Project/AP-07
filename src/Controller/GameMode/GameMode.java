@@ -20,9 +20,9 @@ public abstract class GameMode {
     public Player player1 = new Player();
     public Player player2 = new Player();
     private Battle battle = new Battle(player1,player2);
-    public abstract void wave() throws IOException;
+    public abstract void wave(Battle battle) throws IOException;
 
-    public abstract boolean canWave();
+    public abstract boolean canWave(Battle battle);
 
     public abstract boolean handleWin(Profile profile, Battle battle);
 
@@ -86,28 +86,13 @@ public abstract class GameMode {
     }
 
     public boolean allZombiesAreDead(Profile profile, Battle battle) {
-        boolean allZombisAreDead = true;
-        ArrayList<Zombie> allZombies = new ArrayList<>();
-        for (int i = 0; i < battle.getMap().getCells().length; i++) {
-            for (int j = 0; j < battle.getMap().getCells()[i].length; j++) {
-                for (int k = 0; k < battle.getMap().getCells()[i][j].getZombies().size(); k++) {
-                    allZombies.addAll(battle.getMap().getCells()[i][j].getZombies());
-                }
+        for (int i = 0; i<Map.getHEIGHT()+4;i++){
+            for (int j =0; j <Map.getWIDTH()+4;j++){
+                if(battle.getMap().getCell(i,j).getZombies().size() !=0)
+                    return false;
             }
         }
-
-        for (int i = 0; i < allZombies.size(); i++) {
-            if (allZombies.get(i).getHP() != 0) {
-                allZombisAreDead = false;
-            }
-        }
-
-        //numberOfKilledZombies=external coins
-        if (allZombisAreDead) {
-            profile.setExternalCoins(battle.getPlayer(1).getNumberOfKilledZombies() * 10);
-            return true;
-        }
-        return false;
+        return true;
     }
 
     public Map generateLandMap() {
@@ -141,12 +126,12 @@ public abstract class GameMode {
     }
 
 
-    public void generateZombies() throws IOException {
+    public void generateZombies(Battle battle) throws IOException {
         int zombieNumber = (int) (Math.random() * (12 + 1));
         int randomPlace = (int) (Math.random() * ((Map.getHEIGHT()) + 1));
         Zombie zombie = Zombie.makeZombie(Zombie.getZombies().get(zombieNumber).getName());
-        zombie.setCell(generateMap().getCell(randomPlace, 21));
-        generateMap().getCell(randomPlace, 21).addZombie(zombie);
+        zombie.setCell(battle.getMap().getCell(randomPlace, 21));
+        battle.getMap().getCell(randomPlace, 21).addZombie(zombie);
 //        getWaveZombies().add(z);
     }
 

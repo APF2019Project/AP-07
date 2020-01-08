@@ -25,17 +25,17 @@ public class Rail extends GameMode {
 
     @Override
     //dar asl wave nadare va be soorate tasadofi har chand turn zombie varede zamin mishe
-    public void wave() throws IOException {
+    public void wave(Battle battle) throws IOException {
         //har 3 ta 5 turn
         int random = (int) (Math.random() * ((5 - 3) + 1)) + 3;
         if(lastTurnWaved ==random) {
             lastTurnWaved=0;
-            generateZombies();
+            generateZombies(battle);
         }
     }
 
     @Override
-    public boolean canWave() {
+    public boolean canWave(Battle battle) {
         return false;
     }
 

@@ -2,9 +2,7 @@ package Controller.Menus;
 
 import Controller.GameMode.Battle;
 import Controller.GameMode.Water;
-import Controller.Menus.Menu;
 import Model.Card.Plants.Plant;
-import Model.Card.Plants.PlantsActions.ProduceSun;
 import Model.Card.Zombies.Zombie;
 import Model.Map.Cell;
 import Model.Map.Map;
@@ -12,7 +10,6 @@ import Model.Player.Player;
 import Model.Player.Profile;
 
 import java.io.IOException;
-import java.net.ProtocolFamily;
 
 public class WaterModeMenu extends Menu {
     public Water waterMode = new Water();
@@ -72,7 +69,7 @@ public class WaterModeMenu extends Menu {
     }
 
     public void endTurn(Profile profile) {
-        waterMode.wave();
+        waterMode.wave(battle);
         waterMode.setLastTurnGivingSuns(1);
         battle.actAllMembers();
         waterMode.generateSun(battle);

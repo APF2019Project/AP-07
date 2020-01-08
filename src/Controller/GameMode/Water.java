@@ -5,7 +5,6 @@ import Model.Card.Zombies.Zombie;
 import Model.Map.Map;
 import Model.Player.Profile;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -19,8 +18,8 @@ public class Water extends GameMode {
     }
 
     @Override
-    public void wave() {
-        if (canWave()) {
+    public void wave(Battle battle) {
+        if (canWave(battle)) {
             int numberOfZombiesInAWave = (int) (Math.random() * ((10 - 4) + 1)) + 4;
             for (int i = 0; i < numberOfZombiesInAWave; i++) {
                 Random random = new Random();
@@ -52,7 +51,7 @@ public class Water extends GameMode {
     //todo
     //7 turn pas az marge last zombie true mishe
     @Override
-    public boolean canWave()
+    public boolean canWave(Battle battle)
     {
         if (getBattle().getCurrentTurn() >= 3 && getWaveCounter() <= 3) {
             if(getBattle().getCurrentTurn()==0 || (getBattle().getCurrentTurn()-lastTurnlastZombieKilled)==7)

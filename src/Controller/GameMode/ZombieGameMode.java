@@ -67,7 +67,7 @@ public class ZombieGameMode extends GameMode {
 
 
     @Override
-    public void wave() {
+    public void wave(Battle battle) {
         for (int i = 0; i < getBattle().getMap().getCells().length; i++) {
             ArrayList<Zombie> zombiesInRow = new ArrayList<>();
             for (int j = 0; j < getBattle().getMap().getCells()[i].length; j++) {
@@ -126,7 +126,7 @@ public class ZombieGameMode extends GameMode {
     }
 
     @Override
-    public boolean canWave() {
+    public boolean canWave(Battle battle) {
         return false;
     }
 

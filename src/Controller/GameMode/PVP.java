@@ -20,7 +20,7 @@ public class PVP extends GameMode {
     }
 
     @Override
-    public void wave() {
+    public void wave(Battle battle) {
         int randomNumberOfPlants = (int) (Math.random() * ((Plant.getPlants().size()) + 1)) + Plant.getPlants().size();
         for (int i = 0; i < randomNumberOfPlants; i++) {
             int randomPlant = (int) (Math.random() * ((Plant.getPlants().size()) + 1)) + Plant.getPlants().size();
@@ -33,11 +33,11 @@ public class PVP extends GameMode {
             }
         }
         ZombieGameMode zombieGameMode = new ZombieGameMode(profile, "Land");
-        zombieGameMode.wave();
+        zombieGameMode.wave(battle);
     }
 
     @Override
-    public boolean canWave() {
+    public boolean canWave(Battle battle) {
         return false;
     }
 

@@ -75,9 +75,7 @@ public class Menu {
                 "NewspaperZombie", "PogoZombie", "ScreenDoorZombie", "SnorkelZombie", "TargetZombie", "Zombie", "Zomboni"};
         for (String x : plants) {
             Plant p = new Plant(x);
-            if(x.equalsIgnoreCase("sunflower")) {
                 p = Plant.makePlant(x);
-            }
         }
 //        Event inTheSameRow = new NearRows();
 //        Event OnSpawn = new OnSpawn();
