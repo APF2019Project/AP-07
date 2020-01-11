@@ -3,11 +3,13 @@ package Model.Card.Event;
 import Controller.GameMode.Battle;
 import Model.Card.Plants.Plant;
 import Model.Card.Zombies.Zombie;
+import Model.Map.Map;
 
 //for checking that if the thing is in the map or not
 public class OnSpawn extends Event {
     @Override
     public boolean check(Plant plant, Battle battle, int d) {
+        System.out.println("onSpawn");
         for (int i = 0; i < battle.getMap().getCells().length; i++) {
             for (int j = 0; j < battle.getMap().getCells()[i].length; i++) {
                 if (battle.getMap().getCell(i, j).x() == plant.getCell().x()) {
@@ -22,16 +24,17 @@ public class OnSpawn extends Event {
 
         return false;
     }
+
     @Override
     public boolean check(Zombie zombie, Battle battle, int d) {
-        for (int i = 0; i < battle.getMap().getCells().length; i++) {
-            for (int j = 0; j < battle.getMap().getCells()[i].length; i++) {
-                if (battle.getMap().getCell(i, j).x() ==zombie.getCell().x()) {
-                    if (battle.getMap().getCell(i, j).x() == zombie.getCell().x()) {
-                        if (!battle.getMap().getCell(i, j).getZombies().isEmpty()) {
-                            return true;
-                        }
+        for (int i = 0; i < Map.getHEIGHT() + 4; i++) {
+            for (int j = 0; j < Map.getWIDTH() + 4; i++) {
+                if (i == zombie.getCell().x() && j == zombie.getCell().y()) {
+
+                    if (!battle.getMap().getCell(i, j).getZombies().isEmpty()) {
+                        return true;
                     }
+
                 }
             }
         }

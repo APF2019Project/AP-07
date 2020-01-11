@@ -1,6 +1,7 @@
 package Controller.Menus;
 
-import Controller.GameMode.Battle;
+import Controller.GameMode.*;
+import Model.Card.Zombies.Zombie;
 import Model.Player.Player;
 import Model.Player.Profile;
 import com.gilecode.yagson.YaGson;
@@ -13,22 +14,26 @@ public class PlayMenu extends Menu {
     }
 
     public void startDayGame(Player player1, Player player2) {
-        Battle battle = new Battle(player1, player2);
+        Day day=new Day();
+        Battle battle = new Battle(player1, player2,day);
         Menu.menuHandler.setCurrentMenu(Menu.collectionMenu);
     }
 
     public void startWaterGame(Player player1, Player player2) {
-        Battle battle = new Battle(player1, player2);
+        Water water=new Water();
+        Battle battle = new Battle(player1, player2,water);
         Menu.menuHandler.setCurrentMenu(Menu.collectionMenu);
     }
 
     public void startRailGame(Player player1, Player player2) {
-        Battle battle = new Battle(player1, player2);
+        Rail rail=new Rail();
+        Battle battle = new Battle(player1, player2,rail);
         Menu.menuHandler.setCurrentMenu(Menu.playMenu);
     }
 
     public void startZombieGame(Player player1, Player player2) {
-        Battle battle = new Battle(player1, player2);
+        ZombieGameMode zombieGameMode=new ZombieGameMode();
+        Battle battle = new Battle(player1, player2,zombieGameMode);
         Menu.menuHandler.setCurrentMenu(Menu.collectionMenu);
     }
 

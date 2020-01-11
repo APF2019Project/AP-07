@@ -16,7 +16,7 @@ public class RailMenu extends Menu {
     public Rail rail;
     public Player player1;
     public Player player2;
-    public Battle battle = new Battle(player1, player2);
+    public Battle battle = new Battle(player1, player2,rail);
 
 
     public void plant(String name, int x, int y, Rail rail) throws IOException {

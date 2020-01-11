@@ -15,7 +15,7 @@ public class WaterModeMenu extends Menu {
     public Water waterMode = new Water();
     public Player player1;
     public Player player2;
-    public Battle battle = new Battle(player1, player2);
+    public Battle battle = new Battle(player1, player2, waterMode);
 
 
     public void showHand() {
@@ -31,25 +31,23 @@ public class WaterModeMenu extends Menu {
     }
 
     public void plant(String name, int x, int y) throws IOException {
-        if (battle.getMap().getCell(x,y).canBePlanted()) {
-            for (Plant p:player1.getPlants()){
-                if (p.getName().equalsIgnoreCase(name)){
+        if (battle.getMap().getCell(x, y).canBePlanted()) {
+            for (Plant p : player1.getPlants()) {
+                if (p.getName().equalsIgnoreCase(name)) {
                     if (p.getLoading() == 0) {
-                        battle.getMap().getCell(x,y).setPlant(Plant.makePlant(name));
+                        battle.getMap().getCell(x, y).setPlant(Plant.makePlant(name));
                         p.setLoading(p.getCooldown());
                         System.out.println("plant planted:)");
 
-                    }
-                    else {
+                    } else {
                         System.out.println("plant is not ready");
                     }
 
                     break;
                 }
             }
-        }
-        else if (name.equalsIgnoreCase("lilypad"))
-            battle.getMap().getCell(x,y).setLilyPad();
+        } else if (name.equalsIgnoreCase("lilypad"))
+            battle.getMap().getCell(x, y).setLilyPad();
     }
 
     public void showLawn() {
@@ -73,13 +71,13 @@ public class WaterModeMenu extends Menu {
         waterMode.setLastTurnGivingSuns(1);
         battle.actAllMembers();
         waterMode.generateSun(battle);
-        waterMode.handleWin(profile,battle );
+        waterMode.handleWin(profile, battle);
         waterMode.setLastTurnWaved(1);
         waterMode.updateCollection();
         battle.setCurrentTurn(1);
-        for (Plant p:player1.getPlants()) {
-            if (p.getLoading()!=0) {
-                p.setLoading(p.getLoading()-1);
+        for (Plant p : player1.getPlants()) {
+            if (p.getLoading() != 0) {
+                p.setLoading(p.getLoading() - 1);
             }
         }
         System.out.println(player1.getSun());

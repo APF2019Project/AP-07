@@ -1,4 +1,5 @@
 package Controller.GameMode;
+
 import Model.Card.Card;
 import Model.Card.Zombies.Zombie;
 import Model.Map.Cell;
@@ -16,10 +17,11 @@ public abstract class GameMode {
     private boolean canWave = true;
     private ArrayList<Zombie> waveZombies = new ArrayList<>();
     protected boolean landMower[] = new boolean[6];
-    public int lastTurnWaved=0;
+    public int lastTurnWaved = 0;
     public Player player1 = new Player();
     public Player player2 = new Player();
-    private Battle battle = new Battle(player1,player2);
+    private Battle battle = new Battle(player1, player2, this);
+
     public abstract void wave(Battle battle) throws IOException;
 
     public abstract boolean canWave(Battle battle);
@@ -32,7 +34,12 @@ public abstract class GameMode {
 
     public abstract ArrayList<Card> getAvailableCards();
 
-    public abstract Map generateMap();
+    public Map generateMap() {
+        if (this instanceof Day)
+            return this.generateLandMap();
+        else
+            return this.generateWaterMap();
+    }
 
     public ArrayList<Zombie> getWaveZombies() {
         return waveZombies;
@@ -77,18 +84,18 @@ public abstract class GameMode {
     }
 
     public boolean zombieReachedToTheEnd(Battle battle) {
-        for (int i =0;i<Map.getHEIGHT();i++){
-            if (battle.getMap().getCell(i,1).getZombies().size() != 0)
-                if(!landMower[i])
+        for (int i = 0; i < Map.getHEIGHT(); i++) {
+            if (battle.getMap().getCell(i, 1).getZombies().size() != 0)
+                if (!landMower[i])
                     return true;
         }
         return false;
     }
 
     public boolean allZombiesAreDead(Profile profile, Battle battle) {
-        for (int i = 0; i<Map.getHEIGHT()+4;i++){
-            for (int j =0; j <Map.getWIDTH()+4;j++){
-                if(battle.getMap().getCell(i,j).getZombies().size() !=0)
+        for (int i = 0; i < Map.getHEIGHT() + 4; i++) {
+            for (int j = 0; j < Map.getWIDTH() + 4; j++) {
+                if (battle.getMap().getCell(i, j).getZombies().size() != 0)
                     return false;
             }
         }
@@ -97,16 +104,16 @@ public abstract class GameMode {
 
     public Map generateLandMap() {
         Map m = new Map();
-        for (int i = 0; i < Map.getHEIGHT()+4; i++) {
-            for (int j = 0; j < Map.getWIDTH()+4; j++) {
+        for (int i = 0; i < Map.getHEIGHT() + 4; i++) {
+            for (int j = 0; j < Map.getWIDTH() + 4; j++) {
                 m.setCell(i, j, new Cell(i, j, false));
             }
         }
         return m;
     }
 
-    public Map generateWaterMap(){
-        Map m=new Map();
+    public Map generateWaterMap() {
+        Map m = new Map();
         for (int i = 2; i < 4; i++) {
             for (int j = 0; j < Map.getWIDTH(); j++) {
                 m.setCell(i, j, new Cell(i, j, true));

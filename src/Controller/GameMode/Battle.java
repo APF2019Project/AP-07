@@ -19,19 +19,25 @@ public class Battle {
     private Map map;
     private ArrayList<Zombie> zombies;
 
-    public Battle(Player player1, Player player2) {
+    public Battle(Player player1, Player player2,GameMode gameMode) {
         this.player2 = player2;
         this.player1 = player1;
+        this.gameMode=gameMode;
     }
 
     public void actAllMembers(){
-        for (int i = 0; i < Map.getHEIGHT() ; i++) {
-            for (int j = 0; j < Map.getWIDTH() ; j++) {
-                if (map.getCell(i, j).getPlant() != null)
+
+        for (int i = 0; i < Map.getHEIGHT()+4 ; i++) {
+            for (int j = 0; j < Map.getWIDTH()+4 ; j++) {
+                if (map.getCell(i, j).getPlant() != null) {
                     map.getCell(i, j).getPlant().act(this);
+                }
 //                if (!battle.getMap().getCell(i, j).getZombies().isEmpty())
-                    for (Zombie z : map.getCell(i, j).getZombies())
-                            z.act(this);
+
+                    for (Zombie z : map.getCell(i, j).getZombies()) {
+                        System.out.println("before for");
+                        z.act(this);
+                    }
             }
         }
         for (Plant p : this.player1.getPlants()) {
