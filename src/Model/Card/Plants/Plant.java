@@ -50,7 +50,7 @@ public class Plant extends Card {
         Event inTheSameRow = new NearRows();
         Event OnSpawn = new OnSpawn();
         Event nearest = new NearestCell();
-        Event proximityInRadiausDistance = new ProximityInRadiousDistance();
+        Event proximityInRadiausDistance = new ProximityInRadiusDistance();
         Event nearRows = new NearRows();
         Event valid = new Valid();
 

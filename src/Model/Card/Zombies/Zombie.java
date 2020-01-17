@@ -5,12 +5,10 @@ import Model.Card.Action;
 import Model.Card.ActionsOfAnEvent;
 import Model.Card.Card;
 import Model.Card.Event.*;
-import Model.Card.Plants.Plant;
 import Model.Card.Zombies.ZombiesActions.*;
 import com.gilecode.yagson.YaGson;
 import java.io.File;
 import java.io.IOException;
-import java.sql.SQLOutput;
 import java.util.ArrayList;
 
 public class Zombie extends Card {
@@ -49,7 +47,7 @@ public class Zombie extends Card {
 
         Event OnSpawn = new OnSpawn();
         Event nearestCell = new NearestCell();
-        Event proximityInRadiousDistanceOne = new ProximityInRadiousDistance();
+        Event proximityInRadiousDistanceOne = new ProximityInRadiusDistance();
         Event nearRows = new NearRows();
 
         Action appearInCell = new AppearInCell();
