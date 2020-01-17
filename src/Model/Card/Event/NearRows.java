@@ -26,17 +26,17 @@ public class NearRows extends Event {
 
     @Override
     public boolean check(Zombie zombie, Battle battle, int d) {
-        for (int i = 0; i < Map.getHEIGHT()+4; i++) {
-            for (int j = 0; j < Map.getWIDTH()+4; i++) {
-                if (i == zombie.getCell().x()) {
-                    if (abs(j - zombie.getCell().y()) <= d) {
-                        if (!battle.getMap().getCell(i,j).getZombies().isEmpty()) {
-                            return true;
-                        }
-                    }
-                }
-            }
-        }
+//        for (int i = 0; i < Map.getHEIGHT()+4; i++) {
+//            for (int j = 0; j < Map.getWIDTH()+4; i++) {
+//                if (i == zombie.getCell().x()) {
+//                    if (abs(j - zombie.getCell().y()) <= d) {
+//                        if (!battle.getMap().getCell(i,j).getZombies().isEmpty()) {
+//                            return true;
+//                        }
+//                    }
+//                }
+//            }
+//        }
         return false;
     }
 }

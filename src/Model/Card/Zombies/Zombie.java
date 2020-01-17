@@ -49,6 +49,7 @@ public class Zombie extends Card {
         Event nearestCell = new NearestCell();
         Event proximityInRadiousDistanceOne = new ProximityInRadiusDistance();
         Event nearRows = new NearRows();
+        Event valid = new Valid();
 
         Action appearInCell = new AppearInCell();
         Action jump = new Jump();
@@ -84,12 +85,12 @@ public class Zombie extends Card {
         if (zombie1.getName().equalsIgnoreCase("Zomboni")) {
             zombie1.actionsOfAnEvent1.add(walk);
             zombie1.actionsOfAnEvent1.add(turnToNormalZombie);
-            zombie1.setActionsOfAnEvent(new ActionsOfAnEvent(nearRows, zombie1.actionsOfAnEvent1) {
+            zombie1.setActionsOfAnEvent(new ActionsOfAnEvent(valid, zombie1.actionsOfAnEvent1) {
             });
         }
         if (zombie1.getName().equalsIgnoreCase("CatapultZomboni")) {
             zombie1.actionsOfAnEvent1.add(walk);
-            zombie1.setActionsOfAnEvent(new ActionsOfAnEvent(nearRows, zombie1.actionsOfAnEvent1) {
+            zombie1.setActionsOfAnEvent(new ActionsOfAnEvent(valid, zombie1.actionsOfAnEvent1) {
             });
         }
         if (zombie1.getName().equalsIgnoreCase("BungeeZombie")) {

@@ -58,26 +58,26 @@ public class GameMenu extends Menu {
               day.setLastTurnGivingSuns(1);
 //        }
 //        else if (battle.getGameMode() instanceof Water) {
-//            Water water = (Water) battle.getGameMode(); //todo
+//            Water water = (Water) battle.getGameMode();
 //            water.setLastTurnGivingSuns(1);
 //        }
 //        else if (battle.getGameMode() instanceof Rail) {
 //            Rail rail = (Rail) battle.getGameMode();
-//            rail.setLastTurnUpdatingRailCollection(1); // todo //
+//            rail.setLastTurnUpdatingRailCollection(1);
 //        }
         
         battle.actAllMembers();
-        day.generateSun(battle);
-        day.handleWin(profile,battle );
-        day.setLastTurnWaved(1);
-        day.updateCollection();
+//        day.generateSun(battle);
+//        day.handleWin(profile,battle );
+//        day.setLastTurnWaved(1);
+//        day.updateCollection();
         battle.setCurrentTurn(1);
-        for (Plant p:player1.getPlants()) {
-            if (p.getLoading()!=0) {
-                p.setLoading(p.getLoading()-1);
-            }
-        }
-//        System.out.println(player1.getSun());
+//        for (Plant p:player1.getPlants()) {
+//            if (p.getLoading()!=0) {
+//                p.setLoading(p.getLoading()-1);
+//            }
+//        }
+////        System.out.println(player1.getSun());
         System.out.println(battle.getCurrentTurn());
     }
 

@@ -37,13 +37,13 @@ public class Day extends GameMode {
 
     @Override
     public boolean canWave(Battle battle) {
-        if (battle.getCurrentTurn() >= 3 && getWaveCounter() <= 3) {
-            return true;
+        if (battle.getCurrentTurn() >= 3 && this.getWaveCounter() <= 3) {
+//            if (lastTurnlastZombieKilled == 7) {
+                lastTurnlastZombieKilled = 0;
+                return true;
+//            }
         }
-        if(lastTurnlastZombieKilled==7){
-            lastTurnlastZombieKilled =0;
-            return true;
-        }
+
         return false;
     }
 
@@ -55,7 +55,7 @@ public class Day extends GameMode {
         }
         //if player win
         if (allZombiesAreDead(profile, battle)) {
-            lastTurnlastZombieKilled=getBattle().getCurrentTurn();
+            lastTurnlastZombieKilled = getBattle().getCurrentTurn();
             return false;
         }
         //continue the game
@@ -75,12 +75,11 @@ public class Day extends GameMode {
     public void generateSun(Battle battle) {
         int numberOfSuns = (int) (Math.random() * ((5 - 2) + 1)) + 2;
         if (lastTurnGivingSuns == random) {
-            random= (int) (Math.random() * ((2 - 1) + 1)) + 1;
+            random = (int) (Math.random() * ((2 - 1) + 1)) + 1;
             lastTurnGivingSuns = 0;
-            battle.getPlayer(1).setSun(numberOfSuns+battle.getPlayer(1).getSun());
+            battle.getPlayer(1).setSun(numberOfSuns + battle.getPlayer(1).getSun());
         }
     }
-
 
 
     @Override

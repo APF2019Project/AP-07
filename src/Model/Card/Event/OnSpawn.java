@@ -27,18 +27,11 @@ public class OnSpawn extends Event {
 
     @Override
     public boolean check(Zombie zombie, Battle battle, int d) {
-        for (int i = 0; i < Map.getHEIGHT() + 4; i++) {
-            for (int j = 0; j < Map.getWIDTH() + 4; i++) {
-                if (i == zombie.getCell().x() && j == zombie.getCell().y()) {
-
-                    if (!battle.getMap().getCell(i, j).getZombies().isEmpty()) {
-                        return true;
-                    }
-
-                }
-            }
+        int x =zombie.getCell().x();
+        int y=zombie.getCell().y();
+        if (y >0 && battle.getMap().getCell(x,y-1).getPlant() == null) {
+            return true;
         }
-
         return false;
     }
 }

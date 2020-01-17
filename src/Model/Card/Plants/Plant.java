@@ -188,6 +188,7 @@ public class Plant extends Card {
         this.actionsOfAnEvent.forEach(e -> {
             int d = 0;//bayad taeen she be ezaye har plant vali
             if (e.getEvent().check(this, battle, d)) {//age shart barqharar bood
+                System.out.println("plant check");
                 for (Action action : e.getActions()) {
                     action.doAction(this, battle, d);//action o anjam bede
                 }

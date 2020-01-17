@@ -14,19 +14,18 @@ public class StealPlant extends Action {
 
     @Override
     public void doAction(Zombie zombie, Battle battle, int d) {
+        System.out.println("steal");
         for (Cell[] i : battle.getMap().getCells()) {
             for (Cell j : i) {
                 if (j.getPlant() != null) {
                     if (j == zombie.getCell()) {
-                            if (j.getPlant().getHP() > 0) {
-                                if (zombie.getHP() > 0) {
-                                    battle.getMap().getCell(zombie.getCell().x(), zombie.getCell().y() ).setPlant(null);
-                                }
-                            }
+                        if (zombie.getHP() > 0) {
+                            battle.getMap().getCell(zombie.getCell().x(), zombie.getCell().y()).setPlant(null);
                         }
                     }
                 }
             }
+        }
 
     }
 }

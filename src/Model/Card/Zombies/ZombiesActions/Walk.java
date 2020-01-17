@@ -6,6 +6,8 @@ import Model.Card.Plants.Plant;
 import Model.Card.Zombies.Zombie;
 import Model.Map.Map;
 
+import java.util.ArrayList;
+
 public class Walk extends Action {
 
 
@@ -16,9 +18,24 @@ public class Walk extends Action {
 
     @Override
     public void doAction(Zombie zombie, Battle battle, int d) {
-        int i =0;
+        int i = 0;
         int x = zombie.getCell().x();
         int y = zombie.getCell().y();
         System.out.println("walk");
+        while (i < zombie.getSpeed()) {
+            System.out.println("while");
+            if ( y>0 && battle.getMap().getCell(x, y - 1).getPlant() == null) {
+                System.out.println("if");
+//                zombie.setCell(battle.getMap().getCell(x, y - 1));
+//                ArrayList<Zombie> zombiesToBeOmitted=new ArrayList<>();
+//                zombiesToBeOmitted.add(zombie);
+               // battle.getMap().getCell(x,y).getZombies().remove(zombie);
+               // battle.getMap().getCell(x, y - 1).getZombies().add(zombie);
+                y--;
+                i++;
+            }
+            zombie.setCell(battle.getMap().getCell(x, y));
+            battle.getMap().getCell(x, y).getZombies().add(zombie);
+        }
     }
 }

@@ -13,9 +13,10 @@ public class Jump extends Action {
 
     @Override
     public void doAction(Zombie zombie, Battle battle, int d) {
+        System.out.println("jump");
         int x = zombie.getCell().x();
         int y = zombie.getCell().y();
-        if (battle.getMap().getCell(x , y-1).getPlant() != null) {
+        if (y>0 && battle.getMap().getCell(x , y-1).getPlant() != null) {
             if (zombie.getHP() > 0) {
                 battle.getMap().getCell(zombie.getCell().x(), zombie.getCell().y() ).getZombies().remove(zombie);
                 zombie.setCell(battle.getMap().getCell(x , y -2));

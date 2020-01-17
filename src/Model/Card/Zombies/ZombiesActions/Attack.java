@@ -15,6 +15,7 @@ public class Attack extends Action {
 
     @Override
     public void doAction(Zombie zombie, Battle battle, int d) {
+        System.out.println("att");
         for (int i = 0; i < Map.getHEIGHT(); i++) {
             for (int j = 0; j < Map.getWIDTH(); j++) {
                 if (battle.getMap().cells[i][j].getPlant() != null) {

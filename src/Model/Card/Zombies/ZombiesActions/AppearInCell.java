@@ -17,10 +17,11 @@ public class AppearInCell extends Action {
 
     @Override
     public void doAction(Zombie zombie,Battle battle, int d) {
+        System.out.println("app");
         Random random = new Random();
         int x = 5;
         int y = 18;
-        while(battle.getMap().getCell(x , y).getPlant() == null)
+        if (battle.getMap().getCell(x , y).getPlant() == null)
         {
             x = random.nextInt(5);
             y = random.nextInt(18);

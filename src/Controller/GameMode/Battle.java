@@ -19,25 +19,25 @@ public class Battle {
     private Map map;
     private ArrayList<Zombie> zombies;
 
-    public Battle(Player player1, Player player2,GameMode gameMode) {
+    public Battle(Player player1, Player player2, GameMode gameMode) {
         this.player2 = player2;
         this.player1 = player1;
-        this.gameMode=gameMode;
+        this.gameMode = gameMode;
     }
 
-    public void actAllMembers(){
+    public void actAllMembers() {
 
-        for (int i = 0; i < Map.getHEIGHT()+4 ; i++) {
-            for (int j = 0; j < Map.getWIDTH()+4 ; j++) {
+        for (int i = 0; i < Map.getHEIGHT() + 4; i++) {
+            for (int j = 0; j < Map.getWIDTH() + 4; j++) {
                 if (map.getCell(i, j).getPlant() != null) {
                     map.getCell(i, j).getPlant().act(this);
                 }
-//                if (!battle.getMap().getCell(i, j).getZombies().isEmpty())
-
-                    for (Zombie z : map.getCell(i, j).getZombies()) {
-                        System.out.println("before for");
-                        z.act(this);
-                    }
+                for (Zombie z : map.getCell(i, j).getZombies()) {
+                    System.out.println("before for");
+                    z.act(this);
+                }
+                map.getCell(i, j).getZombies().clear();
+                System.out.println( "size"+map.getCell(i, j).getZombies().size());
             }
         }
         for (Plant p : this.player1.getPlants()) {
@@ -69,12 +69,12 @@ public class Battle {
         this.map = day.generateMap();
     }
 
-    public Battle(Player player1, Player player2, String zom){
+    public Battle(Player player1, Player player2, String zom) {
         this.player1 = player1;
         this.player2 = player2;
         if (zom.equalsIgnoreCase("zombie"))
             gameMode = new ZombieGameMode();
-            map = gameMode.generateMap();
+        map = gameMode.generateMap();
     }
 
     public void setCurrentTurn(int currentTurn) {
@@ -104,7 +104,7 @@ public class Battle {
     //bilche
     public void dig(Cell cell) {
         //if player 1 is gardener
-        if(player1.getPlants()!=null){
+        if (player1.getPlants() != null) {
             cell.setPlant(null);
         }
     }
