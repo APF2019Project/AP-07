@@ -18,6 +18,15 @@ public class Battle {
     private Player player2;
     private Map map;
     private ArrayList<Zombie> zombies;
+    private Map newMap;
+
+    public Map getNewMap() {
+        return newMap;
+    }
+
+    public void setNewMap(Map newMap) {
+        this.newMap = newMap;
+    }
 
     public Battle(Player player1, Player player2, GameMode gameMode) {
         this.player2 = player2;
@@ -36,8 +45,9 @@ public class Battle {
                     System.out.println("before for");
                     z.act(this);
                 }
-                map.getCell(i, j).getZombies().clear();
-                System.out.println( "size"+map.getCell(i, j).getZombies().size());
+                map.getCell(i, j).setZombies(new ArrayList<Zombie>());
+//                System.out.println( "size" + map.getCell(i, j).getZombies().size());
+//                //todo
             }
         }
         for (Plant p : this.player1.getPlants()) {
@@ -45,6 +55,13 @@ public class Battle {
                 p.setLoading(p.getLoading() - 1);
             }
         }
+
+//        for (int i = 0; i < Map.getHEIGHT() + 4; i++) {
+//            for (int j = 0; j < Map.getWIDTH() + 4; j++) {
+//                map.setCell(i, j, newMap.getCell(i, j));
+//            }
+//        }
+//        newMap = gameMode.generateMap();
     }
 
 
@@ -66,7 +83,9 @@ public class Battle {
     public Battle(Player player1, Player player2, Day day) {
         this.player1 = player1;
         this.player2 = player2;
+        this.gameMode = day;
         this.map = day.generateMap();
+        this.newMap=day.generateMap();
     }
 
     public Battle(Player player1, Player player2, String zom) {

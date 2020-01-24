@@ -4,6 +4,7 @@ import Controller.GameMode.Battle;
 import Model.Card.Action;
 import Model.Card.Plants.Plant;
 import Model.Card.Zombies.Zombie;
+import Model.Map.Cell;
 import Model.Map.Map;
 
 import java.util.ArrayList;
@@ -24,18 +25,14 @@ public class Walk extends Action {
         System.out.println("walk");
         while (i < zombie.getSpeed()) {
             System.out.println("while");
-            if ( y>0 && battle.getMap().getCell(x, y - 1).getPlant() == null) {
+            if (y > 0 && battle.getMap().getCell(x, y - 1).getPlant() == null) {
                 System.out.println("if");
-//                zombie.setCell(battle.getMap().getCell(x, y - 1));
-//                ArrayList<Zombie> zombiesToBeOmitted=new ArrayList<>();
-//                zombiesToBeOmitted.add(zombie);
-               // battle.getMap().getCell(x,y).getZombies().remove(zombie);
-               // battle.getMap().getCell(x, y - 1).getZombies().add(zombie);
                 y--;
-                i++;
             }
-            zombie.setCell(battle.getMap().getCell(x, y));
-            battle.getMap().getCell(x, y).getZombies().add(zombie);
+            i++;
         }
+        zombie.setCell(battle.getMap().getCell(x, y));
+        battle.getMap().getCell(x, y).getZombies().add(zombie);
     }
+
 }
