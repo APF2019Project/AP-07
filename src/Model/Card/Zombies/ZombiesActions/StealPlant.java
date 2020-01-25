@@ -28,7 +28,7 @@ public class StealPlant extends Action {
 //        }
         Cell c = zombie.getCell();
         if (c.getPlant() != null)
-            if (zombie.getHP() != 0) {
+            if (zombie.getHP() > 0) {
                 battle.getMap().getCell(zombie.getCell().x(), zombie.getCell().y()).setPlant(null);
                 c.setPlant(null);
             }

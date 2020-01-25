@@ -39,10 +39,12 @@ public class Battle {
         for (int i = 0; i < Map.getHEIGHT() + 4; i++) {
             for (int j = 0; j < Map.getWIDTH() + 4; j++) {
                 if (map.getCell(i, j).getPlant() != null) {
+                    //todo
+                    System.out.println(map.getCell(i, j).getPlant().getName()+ "///////////////");
                     map.getCell(i, j).getPlant().act(this);
                 }
                 for (Zombie z : map.getCell(i, j).getZombies()) {
-                    System.out.println("before for");
+                    System.out.println(z.getName() + "/////////////////");
                     z.act(this);
                 }
                 map.getCell(i, j).setZombies(new ArrayList<Zombie>());
