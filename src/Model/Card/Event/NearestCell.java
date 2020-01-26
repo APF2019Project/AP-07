@@ -10,12 +10,12 @@ public class NearestCell extends Event {
     public boolean check(Plant plant, Battle battle, int d) {
         for (Cell[] i : battle.getMap().getCells()) {
             for (Cell j : i) {
-                if (j.getZombies().size() > 0) {
+                if (!j.getZombies().isEmpty()) {
+                    System.out.println("Nearest Eventtttttttttttttttttttttttttttttttttttttttt");
                     return true;
                 }
             }
         }
-
         return false;
     }
 

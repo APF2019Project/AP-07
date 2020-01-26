@@ -11,7 +11,7 @@ public class OnSpawn extends Event {
     public boolean check(Plant plant, Battle battle, int d) {
         System.out.println("onSpawn");
         for (int i = 0; i < battle.getMap().getCells().length; i++) {
-            for (int j = 0; j < battle.getMap().getCells()[i].length; i++) {
+            for (int j = 0; j < battle.getMap().getCells()[i].length; j++) {
                 if (battle.getMap().getCell(i, j).x() == plant.getCell().x()) {
                     if (battle.getMap().getCell(i, j).y() == plant.getCell().y()) {
                         if (!battle.getMap().getCell(plant.getCell().x(), plant.getCell().y()).getZombies().isEmpty()) {

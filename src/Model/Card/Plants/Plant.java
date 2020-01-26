@@ -25,7 +25,7 @@ public class Plant extends Card {
     //zombie ra chand turn negah dare
     private int freeze;
     private int Turn;
-    private int finalTurn=0;
+    private int finalTurn = 0;
 
     public void setActionsOfAnEvent(ActionsOfAnEvent actionsOfAnEvent) {
         this.actionsOfAnEvent.add(actionsOfAnEvent);
@@ -58,9 +58,11 @@ public class Plant extends Card {
         Event valid = new Valid();
 
         Action burst = new Burst();
+        Action killNearest = new KillNearest();
         Action produceSun = new ProduceSun();
         Action shoot = new Shoot();
         Action magnet = new Magnet();
+
         if (plant1.getName().equalsIgnoreCase("peashooter")) {
             plant1.actionsOfAnEvent1.add(shoot);
             plant1.setActionsOfAnEvent(new ActionsOfAnEvent(OnSpawn, plant1.actionsOfAnEvent1) {
@@ -95,66 +97,82 @@ public class Plant extends Card {
             plant1.actionsOfAnEvent1.add(shoot);
             plant1.setActionsOfAnEvent(new ActionsOfAnEvent(inTheSameRow, plant1.actionsOfAnEvent1) {
             });
-        }if (plant1.getName().equalsIgnoreCase("ScaredyShroom")) {
+        }
+        if (plant1.getName().equalsIgnoreCase("ScaredyShroom")) {
             plant1.actionsOfAnEvent1.add(shoot);
             plant1.setActionsOfAnEvent(new ActionsOfAnEvent(inTheSameRow, plant1.actionsOfAnEvent1) {
             });
-        }if (plant1.getName().equalsIgnoreCase("KernelPult")) {
+        }
+        if (plant1.getName().equalsIgnoreCase("KernelPult")) {
             plant1.actionsOfAnEvent1.add(shoot);
             plant1.setActionsOfAnEvent(new ActionsOfAnEvent(inTheSameRow, plant1.actionsOfAnEvent1) {
             });
-        }if (plant1.getName().equalsIgnoreCase("ExplodeONut")) {
+        }
+        if (plant1.getName().equalsIgnoreCase("ExplodeONut")) {
             plant1.actionsOfAnEvent1.add(shoot);
             plant1.setActionsOfAnEvent(new ActionsOfAnEvent(OnSpawn, plant1.actionsOfAnEvent1) {
             });
-        }if (plant1.getName().equalsIgnoreCase("MelonPult")) {
+        }
+        if (plant1.getName().equalsIgnoreCase("MelonPult")) {
             plant1.actionsOfAnEvent1.add(shoot);
             plant1.setActionsOfAnEvent(new ActionsOfAnEvent(inTheSameRow, plant1.actionsOfAnEvent1) {
             });
-        }if (plant1.getName().equalsIgnoreCase("LilyPad")) {
+        }
+        if (plant1.getName().equalsIgnoreCase("LilyPad")) {
             plant1.setActionsOfAnEvent(new ActionsOfAnEvent(OnSpawn, plant1.actionsOfAnEvent1) {
             });
-        }if (plant1.getName().equalsIgnoreCase("WinterMelon")) {
+        }
+        if (plant1.getName().equalsIgnoreCase("WinterMelon")) {
             plant1.actionsOfAnEvent1.add(shoot);
             plant1.setActionsOfAnEvent(new ActionsOfAnEvent(inTheSameRow, plant1.actionsOfAnEvent1) {
             });
-        }if (plant1.getName().equalsIgnoreCase("SplitPea")) {
+        }
+        if (plant1.getName().equalsIgnoreCase("SplitPea")) {
             plant1.actionsOfAnEvent1.add(shoot);
             plant1.setActionsOfAnEvent(new ActionsOfAnEvent(inTheSameRow, plant1.actionsOfAnEvent1) {
             });
-        }if (plant1.getName().equalsIgnoreCase("WallNut")) {
+        }
+        if (plant1.getName().equalsIgnoreCase("WallNut")) {
             //plant1.actionsOfAnEvent1.add(shoot);
             plant1.setActionsOfAnEvent(new ActionsOfAnEvent(valid, plant1.actionsOfAnEvent1) {
             });
-        }if (plant1.getName().equalsIgnoreCase("TangleKelp")) {
+        }
+        if (plant1.getName().equalsIgnoreCase("TangleKelp")) {
             plant1.actionsOfAnEvent1.add(shoot);
             plant1.setActionsOfAnEvent(new ActionsOfAnEvent(OnSpawn, plant1.actionsOfAnEvent1) {
             });
-        }if (plant1.getName().equalsIgnoreCase("TallNut")) {
+        }
+        if (plant1.getName().equalsIgnoreCase("TallNut")) {
             //plant1.actionsOfAnEvent1.add(shoot);
             plant1.setActionsOfAnEvent(new ActionsOfAnEvent(valid, plant1.actionsOfAnEvent1) {
             });
-        }if (plant1.getName().equalsIgnoreCase("Cattail")) {
-            plant1.actionsOfAnEvent1.add(shoot);
+        }
+        if (plant1.getName().equalsIgnoreCase("Cattail")) {
+            plant1.actionsOfAnEvent1.add(killNearest);
             plant1.setActionsOfAnEvent(new ActionsOfAnEvent(nearest, plant1.actionsOfAnEvent1) {
             });
-        }if (plant1.getName().equalsIgnoreCase("PotatoMine")) {
+        }
+        if (plant1.getName().equalsIgnoreCase("PotatoMine")) {
             plant1.actionsOfAnEvent1.add(burst);
             plant1.setActionsOfAnEvent(new ActionsOfAnEvent(OnSpawn, plant1.actionsOfAnEvent1) {
             });
-        }if (plant1.getName().equalsIgnoreCase("CherryBomb")) {
+        }
+        if (plant1.getName().equalsIgnoreCase("CherryBomb")) {
             plant1.actionsOfAnEvent1.add(burst);
             plant1.setActionsOfAnEvent(new ActionsOfAnEvent(valid, plant1.actionsOfAnEvent1) {
             });
-        }if (plant1.getName().equalsIgnoreCase("magnetShroom")) {
+        }
+        if (plant1.getName().equalsIgnoreCase("magnetShroom")) {
             plant1.actionsOfAnEvent1.add(magnet);
             plant1.setActionsOfAnEvent(new ActionsOfAnEvent(proximityInRadiausDistance, plant1.actionsOfAnEvent1) {
             });
-        }if (plant1.getName().equalsIgnoreCase("sunflower")) {
+        }
+        if (plant1.getName().equalsIgnoreCase("sunflower")) {
             plant1.actionsOfAnEvent1.add(produceSun);
             plant1.setActionsOfAnEvent(new ActionsOfAnEvent(valid, plant1.actionsOfAnEvent1) {
             });
-        }if (plant1.getName().equalsIgnoreCase("TwinSunFlower")) {
+        }
+        if (plant1.getName().equalsIgnoreCase("TwinSunFlower")) {
             plant1.actionsOfAnEvent1.add(produceSun);
             plant1.setActionsOfAnEvent(new ActionsOfAnEvent(valid, plant1.actionsOfAnEvent1) {
             });

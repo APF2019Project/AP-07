@@ -7,7 +7,7 @@ import com.gilecode.yagson.YaGson;
 import java.util.ArrayList;
 
 public class Profile {
-    private ArrayList<String> purchasedZombies ;
+    private ArrayList<String> purchasedZombies;
     private ArrayList<String> purchasedPlants;
     private static ArrayList<Profile> profiles = new ArrayList<Profile>();
     private String username;
@@ -28,9 +28,9 @@ public class Profile {
         purchasedPlants.add("KernelPult");
         purchasedPlants.add("SunFlower");
         purchasedPlants.add("CherryBomb");
-       //purchasedPlants.add("Jalapeno");
-        purchasedPlants.add("MagnetShroom");
-
+        //purchasedPlants.add("Jalapeno");
+        //purchasedPlants.add("MagnetShroom");
+        purchasedPlants.add("Cattail");
 
         purchasedZombies.add("Zombie");
         purchasedZombies.add("Zomboni");
@@ -50,7 +50,7 @@ public class Profile {
     }
 
     public boolean havePlant(String name) {
-        for (String p : purchasedPlants){
+        for (String p : purchasedPlants) {
             if (name.equalsIgnoreCase(p))
                 return true;
         }
@@ -124,7 +124,7 @@ public class Profile {
     }
 
     public static boolean validUsername(String username) {
-        if (profiles.size()!=0) {
+        if (profiles.size() != 0) {
             for (Profile x : profiles)
                 if (x.getUsername().equals(username))
                     return false;

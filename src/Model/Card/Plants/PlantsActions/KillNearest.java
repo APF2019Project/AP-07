@@ -12,6 +12,7 @@ public class KillNearest extends Action {
 
     @Override
     public void doAction(Plant plant, Battle battle, int d) {
+        System.out.println("kill Nearest Action Avvaleshhhhhhhhhhhhhhhhhhhhhhhhh");
         int MinRad = 19;
         int X = 0;
         int Y = 19;
@@ -30,7 +31,11 @@ public class KillNearest extends Action {
         }
         //todo
         battle.getMap().getCell(plant.getCell().x(), plant.getCell().y()).getZombies().remove(battle.getMap().getCell(X, Y));
-        battle.getMap().getCell(X, Y).getZombies().set(0, null);
+        //battle.getMap().getCell(X, Y).getZombies().set(0, null);
+        for(Zombie z:battle.getMap().getCell(X,Y).getZombies())
+        {
+            z.setHealthPoint(0);
+        }
     }
 
     @Override
