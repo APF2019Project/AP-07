@@ -1,6 +1,7 @@
 package View;
 
 import Controller.Menus.Menu;
+import Controller.Menus.MenuHandler;
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
@@ -21,39 +22,41 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Group root = new Group();
-        Scene scene = new Scene(root, sceneWitdh, sceneWitdh);
-        Image image = new Image(new FileInputStream("C:\\Users\\asus\\IdeaProjects\\APFUQ\\src\\Images\\LoginMenu.png"));
-        ImageView imageView1 = new ImageView(image);
-        imageView1.setX(0);
-        imageView1.setY(0);
-        imageView1.setFitHeight(sceneHeight);
-        imageView1.setFitWidth(sceneWitdh);
-        root.getChildren().add(imageView1);
+//        Group root = new Group();
+//        Scene scene = new Scene(root, sceneWitdh, sceneWitdh);
+//        Image image = new Image(new FileInputStream("C:\\Users\\asus\\IdeaProjects\\AP-07\\AP-07-1\\src\\Images\\LoginMenu.png"));
+//        ImageView imageView1 = new ImageView(image);
+//        imageView1.setX(0);
+//        imageView1.setY(0);
+//        imageView1.setFitHeight(sceneHeight);
+//        imageView1.setFitWidth(sceneWitdh);
+//        root.getChildren().add(imageView1);
+//
+//        Button quitButton = new Button();
+//        root.getChildren().add(quitButton);
+//        quitButton.relocate(720, 680);
+//        quitButton.setMinHeight(50);
+//        quitButton.setMinWidth(50);
+//        quitButton.setOpacity(0);
+//        quitButton.setOnMouseClicked(event -> {
+//            exit();
+//        });
+//
+//        Button helpButton = new Button();
+//        root.getChildren().add(helpButton);
+//        helpButton.relocate(650, 680);
+//        helpButton.setMinHeight(50);
+//        helpButton.setMinWidth(50);
+//        helpButton.setOpacity(0);
+//        helpButton.setOnMouseClicked(event -> {
+//
+//        });
+//
+//        primaryStage.setScene(scene);
+//        primaryStage.show();
 
-        Button quitButton = new Button();
-        root.getChildren().add(quitButton);
-        quitButton.relocate(720, 680);
-        quitButton.setMinHeight(50);
-        quitButton.setMinWidth(50);
-        quitButton.setOpacity(0);
-        quitButton.setOnMouseClicked(event -> {
-            exit();
-        });
-
-        Button helpButton = new Button();
-        root.getChildren().add(helpButton);
-        helpButton.relocate(650, 680);
-        helpButton.setMinHeight(50);
-        helpButton.setMinWidth(50);
-        helpButton.setOpacity(100);
-        helpButton.setOnMouseClicked(event -> {
-
-        });
-
-        primaryStage.setScene(scene);
-        primaryStage.show();
-
+        MenuHandler menuHandler=new MenuHandler();
+        menuHandler.run();
 
     }
 
