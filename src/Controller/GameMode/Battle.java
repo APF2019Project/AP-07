@@ -38,17 +38,16 @@ public class Battle {
         for (int i = 0; i < Map.getHEIGHT() + 4; i++) {
             for (int j = 0; j < Map.getWIDTH() + 4; j++) {
                 if (map.getCell(i, j).getPlant() != null) {
-                    System.out.println(map.getCell(i, j).getPlant().getName()+ "///////////////");
+                    System.out.println(map.getCell(i, j).getPlant().getName() + "///////////////");
                     map.getCell(i, j).getPlant().act(this);
                 }
                 //todo
-                try{
+                try {
                     for (Zombie z : map.getCell(i, j).getZombies()) {
                         System.out.println(z.getName() + "/////////////////");
                         z.act(this);
                     }
-                }
-                catch (Exception e){
+                } catch (Exception e) {
                     System.out.println("exeption");
                 }
 
@@ -92,7 +91,7 @@ public class Battle {
         this.player2 = player2;
         this.gameMode = day;
         this.map = day.generateMap();
-        this.newMap=day.generateMap();
+        this.newMap = day.generateMap();
     }
 
     public Battle(Player player1, Player player2, String zom) {

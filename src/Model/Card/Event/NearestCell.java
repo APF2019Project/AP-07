@@ -11,7 +11,6 @@ public class NearestCell extends Event {
         for (Cell[] i : battle.getMap().getCells()) {
             for (Cell j : i) {
                 if (!j.getZombies().isEmpty()) {
-                    System.out.println("Nearest Eventtttttttttttttttttttttttttttttttttttttttt");
                     return true;
                 }
             }

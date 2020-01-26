@@ -12,8 +12,8 @@ public class KillNearest extends Action {
 
     @Override
     public void doAction(Plant plant, Battle battle, int d) {
-        System.out.println("kill Nearest Action Avvaleshhhhhhhhhhhhhhhhhhhhhhhhh");
-        int MinRad = 19;
+        double MinRad = 100;
+        Cell nearestCell=null;
         int X = 0;
         int Y = 19;
         if (plant.getHP() > 0) {
@@ -24,18 +24,13 @@ public class KillNearest extends Action {
                             X = cell.x();
                             Y = cell.y();
                             MinRad = calculateDistance(plant.getCell(), cell);
+                            nearestCell=cell;
                         }
                     }
                 }
             }
         }
-        //todo
-        battle.getMap().getCell(plant.getCell().x(), plant.getCell().y()).getZombies().remove(battle.getMap().getCell(X, Y));
-        //battle.getMap().getCell(X, Y).getZombies().set(0, null);
-        for(Zombie z:battle.getMap().getCell(X,Y).getZombies())
-        {
-            z.setHealthPoint(0);
-        }
+        nearestCell.getZombies().get(0).setHealthPoint(0);
     }
 
     @Override
@@ -43,8 +38,8 @@ public class KillNearest extends Action {
 
     }
 
-    public int calculateDistance(Cell cell, Cell cell1) {
-        return (int) Math.sqrt(((cell.y() - cell1.y()) * (cell.x() - cell1.x())) +
+    public double calculateDistance(Cell cell, Cell cell1) {
+        return  Math.sqrt(((cell.y() - cell1.y()) * (cell.x() - cell1.x())) +
                 ((cell.y() - cell1.y()) * (cell.x() - cell1.x())));
     }
 

@@ -16,7 +16,7 @@ public class AppearInCell extends Action {
 
     @Override
     public void doAction(Zombie zombie, Battle battle, int d) {
-        System.out.println("app");
+        System.out.println("appear in celllllllllllllllllllllllllllllllllllllllllllllllllllllllllll");
         Random random = new Random();
         int x = 5;
         int y = 18;
@@ -28,7 +28,6 @@ public class AppearInCell extends Action {
         System.out.println("here");
         if (zombie.getHP() > 0) {
             battle.getMap().getCell(x, y).setPlant(null);
-            battle.getMap().getCell(x, y).getZombies().remove(zombie);
         }
     }
 }

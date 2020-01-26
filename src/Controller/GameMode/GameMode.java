@@ -137,10 +137,10 @@ public abstract class GameMode {
         int zombieNumber = (int) (Math.random() * (12 + 1));
         int randomPlace = (int) (Math.random() * ((Map.getHEIGHT()) + 1));
         Zombie zombie = Zombie.makeZombie(Zombie.getZombies().get(zombieNumber).getName());
-        if (!zombie.getName().equals("BungeeZombie")) {
-            zombie.setCell(battle.getMap().getCell(randomPlace, 21));
-            battle.getMap().getCell(randomPlace, 21).addZombie(zombie);
-        }
+        // if (!zombie.getName().equals("BungeeZombie")) {
+        zombie.setCell(battle.getMap().getCell(randomPlace, 21));
+        battle.getMap().getCell(randomPlace, 21).addZombie(zombie);
+        //}
 //        getWaveZombies().add(z);
     }
 

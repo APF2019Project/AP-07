@@ -4,7 +4,7 @@ import Controller.GameMode.Battle;
 import Model.Card.Action;
 import Model.Card.Plants.Plant;
 import Model.Card.Zombies.Zombie;
-import Model.Map.*;
+import Model.Map.Cell;
 
 public class StealPlant extends Action {
     @Override
@@ -14,23 +14,17 @@ public class StealPlant extends Action {
 
     @Override
     public void doAction(Zombie zombie, Battle battle, int d) {
-        System.out.println("steal");
-        for (Cell[] i : battle.getMap().getCells()) {
-            for (Cell j : i) {
-                if (j.getPlant() != null) {
-                    if (j == zombie.getCell()) {
-                        if (zombie.getHP() > 0) {
-                            battle.getMap().getCell(zombie.getCell().x(), zombie.getCell().y()).setPlant(null);
-                        }
-                    }
-                }
+        System.out.println("steal@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+        int x = zombie.getCell().x();
+        int y = zombie.getCell().y();
+        Cell c = battle.getMap().getCell(x,y-1);
+        if (c.getPlant() != null) {
+            System.out.println("bbsjvvhsjhdslkvvvvsvdliehviakekafafljajfakwjfc");
+            if (zombie.getHP() > 0) {
+                battle.getMap().getCell(c.x(), c.y() - 1).getPlant().setHealthPoint(0);
+                c.getPlant().setHealthPoint(0);
+                System.out.println("Vayyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy");
             }
         }
-        Cell c = zombie.getCell();
-        if (c.getPlant() != null)
-            if (zombie.getHP() > 0) {
-                battle.getMap().getCell(zombie.getCell().x(), zombie.getCell().y()).setPlant(null);
-                c.setPlant(null);
-            }
     }
 }

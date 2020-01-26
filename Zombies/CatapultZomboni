@@ -3,7 +3,7 @@
   "@val": {
     "name": "CatapultZomboni",
     "id":"6",
-    "AP": "10000",
+    "AP": "0",
     "HP": "3",
     "speed": "2",
     "armour": "0",
