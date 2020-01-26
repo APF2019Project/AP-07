@@ -33,6 +33,7 @@ public class Walk extends Action {
         }
         zombie.setCell(battle.getMap().getCell(x, y));
         battle.getMap().getCell(x, y).getZombies().add(zombie);
+        System.out.println("endWhile");
     }
 
 }

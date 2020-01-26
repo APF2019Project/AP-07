@@ -56,7 +56,7 @@ public class Zombie extends Card {
         Action shieldDefend = new ShieldDefend();
         Action turnToNormalZombie = new TurnToNormalZombie();
         Action walk = new Walk();
-        Action stealPlant = new StealPlant();
+        //Action stealPlant = new StealPlant();
         Action attack = new Attack();
 
         if (zombie1.getName().equalsIgnoreCase("zombie")) {
@@ -96,8 +96,8 @@ public class Zombie extends Card {
         if (zombie1.getName().equalsIgnoreCase("BungeeZombie")) {
             zombie1.actionsOfAnEvent1.add(walk);
             zombie1.actionsOfAnEvent1.add(appearInCell);
-            zombie1.actionsOfAnEvent1.add(stealPlant);
-            zombie1.setActionsOfAnEvent(new ActionsOfAnEvent(OnSpawn, zombie1.actionsOfAnEvent1) {
+            //zombie1.actionsOfAnEvent1.add(stealPlant);
+            zombie1.setActionsOfAnEvent(new ActionsOfAnEvent(valid, zombie1.actionsOfAnEvent1) {
             });
         }
         if (zombie1.getName().equalsIgnoreCase("BalloonZombie")) {
@@ -144,7 +144,7 @@ public class Zombie extends Card {
         }
         if (zombie1.getName().equalsIgnoreCase("DolphinRiderZombie")) {
             zombie1.actionsOfAnEvent1.add(walk);
-            zombie1.actionsOfAnEvent1.add(attack);
+           // zombie1.actionsOfAnEvent1.add(attack);
             zombie1.setActionsOfAnEvent(new ActionsOfAnEvent(OnSpawn, zombie1.actionsOfAnEvent1) {
             });
         }

@@ -17,7 +17,7 @@ public class ShieldDefend extends Action {
     @Override
     public void doAction(Zombie zombie, Battle battle, int d) {
 //        if (zombie.getArmour() > 0 && zombie.getHP()>0) {
-        System.out.println("sd");
+//        System.out.println("sd");
 //            for (int i = 0; i < battle.getMap().cells.length; i++) {
 //                for (int j = 0; j < battle.getMap().cells[i].length; j++) {
 //                    if (battle.getMap().cells[i][j].getPlant() != null) {
