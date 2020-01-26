@@ -23,11 +23,14 @@ public class Profile {
 
         purchasedPlants.add("PeaShooter");
         purchasedPlants.add("SnowPea");
-        purchasedPlants.add("Explode-o-nut");
-        purchasedPlants.add("Scaredy-shroom");
-        purchasedPlants.add("Kernel-pult");
+        purchasedPlants.add("ExplodeONut");
+        purchasedPlants.add("ScaredyShroom");
+        purchasedPlants.add("KernelPult");
         purchasedPlants.add("SunFlower");
         purchasedPlants.add("CherryBomb");
+       //purchasedPlants.add("Jalapeno");
+        purchasedPlants.add("MagnetShroom");
+
 
         purchasedZombies.add("Zombie");
         purchasedZombies.add("Zomboni");

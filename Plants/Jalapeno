@@ -1,15 +1,15 @@
 {
-  "@type":"Model.Card.Plants.Plant",
-  "@val":{
-    "sun":"4",
-    "cooldown":"5",
-    "ProducedSun":"0",
-    "SpeedReduction":"1",
-    "Turn":"0",
-    "name":"Cactus",
-    "id":"24",
-    "AP":"0",
-    "HP":"0",
+  "@type": "Model.Card.Plants.Plant",
+  "@val": {
+    "name": "Jalapeno",
+    "id":"7",
+    "AP": "1",
+    "HP": "3",
+    "sun": "5",
+    "Turn": "5",
+    "cooldown": "4",
+    "ProducedSun": "0",
+    "SpeedReduction": "1",
     "price":0
   }
 }

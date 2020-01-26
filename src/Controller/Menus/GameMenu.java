@@ -8,6 +8,7 @@ import Model.Map.Cell;
 import Model.Map.Map;
 import Model.Player.Player;
 import Model.Player.Profile;
+import com.oracle.tools.packager.Platform;
 
 import java.io.IOException;
 
@@ -32,11 +33,13 @@ public class GameMenu extends Menu {
     }
 
     public void plant(String name, int x, int y) throws IOException {
+        Plant p1 =Plant.makePlant(name);
         if (battle.getMap().getCell(x, y).canBePlanted()) {
             for (Plant p : player1.getPlants()) {
                 if (p.getName().equalsIgnoreCase(name)) {
                     if (p.getLoading() == 0 && p.getSun() <= player1.getSun()) {
-                        battle.getMap().getCell(x, y).setPlant(Plant.makePlant(name));
+                        battle.getMap().getCell(x, y).setPlant(p1);
+                        p1.setCell(battle.getMap().getCell(x, y));
                         p.setLoading(p.getCooldown());
                         System.out.println("plant planted:)");
                         player1.setSun(player1.getSun()-p.getSun());
@@ -67,7 +70,7 @@ public class GameMenu extends Menu {
 //        }
         
         battle.actAllMembers();
-//        day.generateSun(battle);
+        day.generateSun(battle);
 //        day.handleWin(profile,battle );
 //        day.setLastTurnWaved(1);
 //        day.updateCollection();
@@ -87,7 +90,7 @@ public class GameMenu extends Menu {
             for (Cell cell : cells) {
                 if (cell.getZombies().size() != 0) {
                     for (Zombie z : cell.getZombies()) {
-                        System.out.println(z.getName() + "\t" + cell.x() + "," + cell.y() + "\t" + z.getHP());
+                        System.out.println(z.getName() + "\t" + cell.x() + "," + cell.y() + "\t" + z.getHP()+ z.showIronHat());
                     }
                 }
                 if (cell.getPlant() != null) {

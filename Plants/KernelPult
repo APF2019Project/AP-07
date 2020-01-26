@@ -1,7 +1,7 @@
 {
   "@type": "Model.Card.Plants.Plant",
   "@val": {
-    "name": "Kernel-pult",
+    "name": "KernelPult",
     "id":"9",
     "AP": "0",
     "HP": "2",

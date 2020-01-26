@@ -114,7 +114,7 @@ public class ZombiesAction {
 //        screenDoorZombie.setActionsOfAnEvent(new ActionsOfAnEvent(onSpawn, actions) {
 //        });
 //
-//        Zombie gigaGargantuar = Zombie.makeZombie("Giga-gargantuar");
+//        Zombie gigaGargantuar = Zombie.makeZombie("GigaGargantuar");
 //        actions.clear();
 //        actions.add(walk);
 //        actions.add(attack);

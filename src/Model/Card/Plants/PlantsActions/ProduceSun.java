@@ -11,6 +11,7 @@ public class ProduceSun extends Action {
     public void doAction(Plant plant, Battle battle, int d) {
         if (battle.getCurrentTurn() % plant.getTurn() == 0) {
             battle.getPlayer(1).setSun(battle.getPlayer(1).getSun() + plant.getProducedSun());
+            System.out.println("suns" + battle.getPlayer(1).getSun());
         }
     }
 

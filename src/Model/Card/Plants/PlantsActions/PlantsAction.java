@@ -40,7 +40,7 @@ public class PlantsAction {
 //        snowPea.setActionsOfAnEvent(new ActionsOfAnEvent(OnSpawn, actions) {
 //        });
 //
-//        Plant cabbagePult = Plant.makePlant("Cabbage-pult");
+//        Plant cabbagePult = Plant.makePlant("CabbagePult");
 //        actions.clear();
 //        actions.add(shoot);
 //        cabbagePult.setActionsOfAnEvent(new ActionsOfAnEvent(OnSpawn, actions) {
@@ -70,19 +70,19 @@ public class PlantsAction {
 //        gatlingPea.setActionsOfAnEvent(new ActionsOfAnEvent(inTheSameRow, actions) {
 //        });
 //
-//        Plant scaredyShroom = Plant.makePlant("Scaredy-shroom");
+//        Plant scaredyShroom = Plant.makePlant("ScaredyShroom");
 //        actions.clear();
 //        actions.add(shoot);
 //        scaredyShroom.setActionsOfAnEvent(new ActionsOfAnEvent(inTheSameRow, actions) {
 //        });
 //
-//        Plant kernelPult = Plant.makePlant("Kernel-pult");
+//        Plant kernelPult = Plant.makePlant("KernelPult");
 //        actions.clear();
 //        actions.add(shoot);
 //        kernelPult.setActionsOfAnEvent(new ActionsOfAnEvent(inTheSameRow, actions) {
 //        });
 //
-//        Plant explodeONut = Plant.makePlant("Explode-o-nut");
+//        Plant explodeONut = Plant.makePlant("ExplodeONut");
 //        actions.clear();
 //        actions.add(shoot);
 //        explodeONut.setActionsOfAnEvent(new ActionsOfAnEvent(OnSpawn, actions) {

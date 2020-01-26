@@ -8,6 +8,7 @@
     "speed": "2",
     "armour": "2",
     "pea": "true",
-    "price": "0"
+    "price": "0",
+    "IronHat":"true"
   }
 }

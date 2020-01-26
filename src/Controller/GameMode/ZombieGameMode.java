@@ -24,19 +24,19 @@ public class ZombieGameMode extends GameMode {
         this.profile = profile;
         int size = 0;
 //        ArrayList<Plant> randomPlants = new ArrayList<>();
-//        randomPlants.add(Plant.findPlant("Explode-o-nut"));
-//        randomPlants.add(Plant.findPlant("Explode-o-nut"));
-//        randomPlants.add(Plant.findPlant("Explode-o-nut"));
-//        randomPlants.add(Plant.findPlant("Scaredy-shroom"));
-//        randomPlants.add(Plant.findPlant("Scaredy-shroom"));
-//        randomPlants.add(Plant.findPlant("Scaredy-shroom"));
-//        randomPlants.add(Plant.findPlant("Scaredy-shroom"));
-//        randomPlants.add(Plant.findPlant("Scaredy-shroom"));
-//        randomPlants.add(Plant.findPlant("Scaredy-shroom"));
+//        randomPlants.add(Plant.findPlant("ExplodeONut"));
+//        randomPlants.add(Plant.findPlant("ExplodeONut"));
+//        randomPlants.add(Plant.findPlant("ExplodeONut"));
+//        randomPlants.add(Plant.findPlant("ScaredyShroom"));
+//        randomPlants.add(Plant.findPlant("ScaredyShroom"));
+//        randomPlants.add(Plant.findPlant("ScaredyShroom"));
+//        randomPlants.add(Plant.findPlant("ScaredyShroom"));
+//        randomPlants.add(Plant.findPlant("ScaredyShroom"));
+//        randomPlants.add(Plant.findPlant("ScaredyShroom"));
 //        randomPlants.add(Plant.findPlant("SnowPea"));
 //        randomPlants.add(Plant.findPlant("SnowPea"));
-//        randomPlants.add(Plant.findPlant("Cabbage-pult"));
-//        randomPlants.add(Plant.findPlant("Cabbage-pult"));
+//        randomPlants.add(Plant.findPlant("CabbagePult"));
+//        randomPlants.add(Plant.findPlant("CabbagePult"));
 //        randomPlants.add(Plant.findPlant("GatlingPea"));
 //
 //        if (!getBattle().getMap().getCell(0, 2).isWater()) {

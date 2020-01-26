@@ -63,7 +63,7 @@ public class Menu {
         ArrayList<Profile> profiles = yaGson.fromJson(string, ArrayList.class);
         Profile.setProfiles(profiles);
 
-        String[] plants = new String[]{"Cabbage-pult", "Cactus", "Cattail", "CherryBomb", "Explode-o-nut", "GatlingPea", "Kernel-pult", "LilyPad", "Magnet-shroom", "Melon-pult", "PeaShooter", "PotatoMine", "Repeater", "Scaredy-shroom", "SnowPea", "SplitPea", "SunFlower", "Tall-nut", "TangleKelp", "ThreePeater", "TwinSunFlower", "Wall-nut", "WinterMelon"};
+        String[] plants = new String[]{"CabbagePult", "Cactus", "Cattail", "CherryBomb", "ExplodeONut", "GatlingPea", "KernelPult", "LilyPad","Jalapeno", "MagnetShroom", "Melon-pult", "PeaShooter", "PotatoMine", "Repeater", "ScaredyShroom", "SnowPea", "SplitPea", "SunFlower", "Tall-nut", "TangleKelp", "ThreePeater", "TwinSunFlower", "Wall-nut", "WinterMelon"};
         String[] zombies = new String[]{"BalloonZombie",
                 "BucketheadZombie",
                 "BungeeZombie",
@@ -71,7 +71,7 @@ public class Menu {
                 "ConeheadZombie",
                 "DolphinRiderZombie",
                 "FootballZombie",
-                "Giga-gargantuar",
+                "GigaGargantuar",
                 "NewspaperZombie", "PogoZombie", "ScreenDoorZombie", "SnorkelZombie", "TargetZombie", "Zombie", "Zomboni"};
         for (String x : plants) {
             Plant p = new Plant(x);
@@ -102,7 +102,7 @@ public class Menu {
 //        snowPea.setActionsOfAnEvent(new ActionsOfAnEvent(inTheSameRow, actions) {
 //        });
 //
-//        Plant cabbagePult = Plant.makePlant("Cabbage-pult");
+//        Plant cabbagePult = Plant.makePlant("CabbagePult");
 //        actions.clear();
 //        actions.add(shoot);
 //        cabbagePult.setActionsOfAnEvent(new ActionsOfAnEvent(inTheSameRow, actions) {
@@ -132,19 +132,19 @@ public class Menu {
 //        gatlingPea.setActionsOfAnEvent(new ActionsOfAnEvent(inTheSameRow, actions) {
 //        });
 //
-//        Plant scaredyShroom = Plant.makePlant("Scaredy-shroom");
+//        Plant scaredyShroom = Plant.makePlant("ScaredyShroom");
 //        actions.clear();
 //        actions.add(shoot);
 //        scaredyShroom.setActionsOfAnEvent(new ActionsOfAnEvent(inTheSameRow, actions) {
 //        });
 //
-//        Plant kernelPult = Plant.makePlant("Kernel-pult)");
+//        Plant kernelPult = Plant.makePlant("KernelPult)");
 //        actions.clear();
 //        actions.add(shoot);
 //        kernelPult.setActionsOfAnEvent(new ActionsOfAnEvent(inTheSameRow, actions) {
 //        });
 //
-//        Plant explodeONut = Plant.makePlant("Explode-o-nut");
+//        Plant explodeONut = Plant.makePlant("ExplodeONut");
 //        actions.clear();
 //        actions.add(shoot);
 //        explodeONut.setActionsOfAnEvent(new ActionsOfAnEvent(OnSpawn, actions) {

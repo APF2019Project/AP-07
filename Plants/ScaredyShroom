@@ -1,7 +1,7 @@
 {
   "@type": "Model.Card.Plants.Plant",
   "@val": {
-    "name": "Scaredy-shroom",
+    "name": "ScaredyShroom",
     "id":"8",
     "AP": "1",
     "HP": "1",

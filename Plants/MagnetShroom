@@ -1,7 +1,7 @@
 {
   "@type": "Model.Card.Plants.Plant",
   "@val": {
-    "name": "Magnet-shroom",
+    "name": "MagnetShroom",
     "id":"21",
     "AP": "0",
     "HP": "2",

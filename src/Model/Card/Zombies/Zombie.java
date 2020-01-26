@@ -18,7 +18,7 @@ public class Zombie extends Card {
     private int speed;
     private boolean pea;
     private int freezeTurns =0;
-    private boolean IronHat=false;
+    private boolean IronHat;
     private ArrayList<ActionsOfAnEvent> actionsOfAnEvent = new ArrayList<>();
     private ArrayList<Action> actionsOfAnEvent1 = new ArrayList<>();
     public Zombie() {
@@ -124,7 +124,7 @@ public class Zombie extends Card {
             zombie1.setActionsOfAnEvent(new ActionsOfAnEvent(OnSpawn, zombie1.actionsOfAnEvent1) {
             });
         }
-        if (zombie1.getName().equalsIgnoreCase("Giga-gargantuar")) {
+        if (zombie1.getName().equalsIgnoreCase("GigaGargantuar")) {
             zombie1.actionsOfAnEvent1.add(walk);
             zombie1.actionsOfAnEvent1.add(attack);
             zombie1.setActionsOfAnEvent(new ActionsOfAnEvent(OnSpawn, zombie1.actionsOfAnEvent1) {
@@ -208,7 +208,7 @@ public class Zombie extends Card {
         this.armour += armour;
     }
 
-    public boolean isIronHat() {
+    public boolean showIronHat() {
         return IronHat;
     }
 

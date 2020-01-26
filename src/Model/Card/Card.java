@@ -62,6 +62,10 @@ public abstract class Card {
         this.HP += HP;
     }
 
+    public void setHealthPoint(int healthPoint){
+        this.HP=healthPoint;
+    }
+
     public void setCell(Cell cell) {
         this.cell = cell;
     }

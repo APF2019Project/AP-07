@@ -8,6 +8,8 @@ import Model.Map.Cell;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import static java.lang.Math.abs;
+
 public class Magnet extends Action {
     @Override
     public void doAction(Plant plant, Battle battle, int d) {
@@ -16,17 +18,18 @@ public class Magnet extends Action {
         {
             for(Cell j : i)
             {
-                if(j.x() == plant.getCell().x() && j.y() - plant.getCell().y() <8)
-                {
+//                if(abs(j.x() - plant.getCell().x())<=1 && abs(j.y() - plant.getCell().y())<=1)
+//                {
                     zombies.addAll(j.getZombies());
-                }
+                //}
             }
         }
         for(int i=0;i<zombies.size();i++){
-            if(zombies.get(i).isIronHat()){
+            if(zombies.get(i).showIronHat()){
                 zombies.get(i).setIronHat(false);
             }
         }
+        plant.setTurn(3);
     }
 
 

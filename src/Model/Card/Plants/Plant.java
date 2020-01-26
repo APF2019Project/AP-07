@@ -25,6 +25,7 @@ public class Plant extends Card {
     //zombie ra chand turn negah dare
     private int freeze;
     private int Turn;
+    private int finalTurn=0;
 
     public void setActionsOfAnEvent(ActionsOfAnEvent actionsOfAnEvent) {
         this.actionsOfAnEvent.add(actionsOfAnEvent);
@@ -46,6 +47,8 @@ public class Plant extends Card {
         plant1.setPrice();
         plant1.actionsOfAnEvent1 = new ArrayList<>();
         plant1.actionsOfAnEvent = new ArrayList<>();
+        //plant1.setTurn(0);
+
 
         Event inTheSameRow = new NearRows();
         Event OnSpawn = new OnSpawn();
@@ -68,7 +71,7 @@ public class Plant extends Card {
             plant1.setActionsOfAnEvent(new ActionsOfAnEvent(OnSpawn, plant1.actionsOfAnEvent1) {
             });
         }
-        if (plant1.getName().equalsIgnoreCase("Cabbage-pult")) {
+        if (plant1.getName().equalsIgnoreCase("CabbagePult")) {
             plant1.actionsOfAnEvent1.add(shoot);
             plant1.setActionsOfAnEvent(new ActionsOfAnEvent(OnSpawn, plant1.actionsOfAnEvent1) {
             });
@@ -92,15 +95,15 @@ public class Plant extends Card {
             plant1.actionsOfAnEvent1.add(shoot);
             plant1.setActionsOfAnEvent(new ActionsOfAnEvent(inTheSameRow, plant1.actionsOfAnEvent1) {
             });
-        }if (plant1.getName().equalsIgnoreCase("Scaredy-shroom")) {
+        }if (plant1.getName().equalsIgnoreCase("ScaredyShroom")) {
             plant1.actionsOfAnEvent1.add(shoot);
             plant1.setActionsOfAnEvent(new ActionsOfAnEvent(inTheSameRow, plant1.actionsOfAnEvent1) {
             });
-        }if (plant1.getName().equalsIgnoreCase("Kernel-pult")) {
+        }if (plant1.getName().equalsIgnoreCase("KernelPult")) {
             plant1.actionsOfAnEvent1.add(shoot);
             plant1.setActionsOfAnEvent(new ActionsOfAnEvent(inTheSameRow, plant1.actionsOfAnEvent1) {
             });
-        }if (plant1.getName().equalsIgnoreCase("Explode-o-nut")) {
+        }if (plant1.getName().equalsIgnoreCase("ExplodeONut")) {
             plant1.actionsOfAnEvent1.add(shoot);
             plant1.setActionsOfAnEvent(new ActionsOfAnEvent(OnSpawn, plant1.actionsOfAnEvent1) {
             });
@@ -119,7 +122,7 @@ public class Plant extends Card {
             plant1.actionsOfAnEvent1.add(shoot);
             plant1.setActionsOfAnEvent(new ActionsOfAnEvent(inTheSameRow, plant1.actionsOfAnEvent1) {
             });
-        }if (plant1.getName().equalsIgnoreCase("Wall-nut")) {
+        }if (plant1.getName().equalsIgnoreCase("WallNut")) {
             //plant1.actionsOfAnEvent1.add(shoot);
             plant1.setActionsOfAnEvent(new ActionsOfAnEvent(valid, plant1.actionsOfAnEvent1) {
             });
@@ -127,7 +130,7 @@ public class Plant extends Card {
             plant1.actionsOfAnEvent1.add(shoot);
             plant1.setActionsOfAnEvent(new ActionsOfAnEvent(OnSpawn, plant1.actionsOfAnEvent1) {
             });
-        }if (plant1.getName().equalsIgnoreCase("Tall-nut")) {
+        }if (plant1.getName().equalsIgnoreCase("TallNut")) {
             //plant1.actionsOfAnEvent1.add(shoot);
             plant1.setActionsOfAnEvent(new ActionsOfAnEvent(valid, plant1.actionsOfAnEvent1) {
             });
@@ -143,7 +146,7 @@ public class Plant extends Card {
             plant1.actionsOfAnEvent1.add(burst);
             plant1.setActionsOfAnEvent(new ActionsOfAnEvent(valid, plant1.actionsOfAnEvent1) {
             });
-        }if (plant1.getName().equalsIgnoreCase("magnet-shroom")) {
+        }if (plant1.getName().equalsIgnoreCase("magnetShroom")) {
             plant1.actionsOfAnEvent1.add(magnet);
             plant1.setActionsOfAnEvent(new ActionsOfAnEvent(proximityInRadiausDistance, plant1.actionsOfAnEvent1) {
             });
