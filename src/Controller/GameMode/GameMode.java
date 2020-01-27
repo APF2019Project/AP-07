@@ -102,12 +102,12 @@ public abstract class GameMode {
         for (Cell[] i : battle.getMap().getCells()) {
             for (Cell j : i) {
                 if (!j.getZombies().isEmpty()) {
-                    System.err.println("continue  size    " +j.getZombies().size());
+                    System.err.println("finish  size    " +j.getZombies().size());
                     return false;
                 }
             }
         }
-        System.err.println("finish");
+        System.err.println("continue");
         return true;
     }
 

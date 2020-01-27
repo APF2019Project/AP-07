@@ -26,7 +26,7 @@ public class Walk extends Action {
         while (i < zombie.getSpeed()) {
             System.out.println("while");
             if ((y > 0 && battle.getMap().getCell(x, y - 1).getPlant() == null)||
-                    (y>0 && battle.getMap().getCell(x,y-1).getPlant()==null && zombie.getActionsOfAnEvent().contains(new StealPlant()))) {
+                    (y>0 && battle.getMap().getCell(x,y-1).getPlant()!=null && zombie.getActionsOfAnEvent().contains(new StealPlant()))) {
                 System.out.println("if");
                 y--;
             }
