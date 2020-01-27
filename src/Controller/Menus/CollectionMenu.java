@@ -1,5 +1,6 @@
 package Controller.Menus;
 
+import Controller.GameMode.GameMode;
 import Model.Card.Plants.Plant;
 import Model.Player.Player;
 import Model.Player.Profile;
@@ -73,9 +74,9 @@ public class CollectionMenu extends Menu {
                     Menu.menuHandler.setCurrentMenu(Menu.waterModeMenu);
                     waterModeMenu.player1=player1;
                     waterModeMenu.player2=player2;
-                    gameMenu.battle.setPlayer(player1,1);
-                    gameMenu.battle.setPlayer(player2,2);
-                    waterModeMenu.battle.setMap(waterModeMenu.waterMode.generateMap());
+                    waterModeMenu.battle.setPlayer(player1,1);
+                    waterModeMenu.battle.setPlayer(player2,2);
+                    waterModeMenu.battle.setMap(GameMode.generateMap(waterModeMenu.waterMode));
                     waterModeMenu.player1.setSun(2);
                 }
                 else {
@@ -84,7 +85,7 @@ public class CollectionMenu extends Menu {
                     gameMenu.player2 = player2;
                     gameMenu.battle.setPlayer(player1,1);
                     gameMenu.battle.setPlayer(player2,2);
-                    gameMenu.battle.setMap(gameMenu.day.generateMap());
+                    gameMenu.battle.setMap(GameMode.generateMap(gameMenu.day));
                     gameMenu.player1.setSun(2);
                 }
             }
@@ -92,7 +93,7 @@ public class CollectionMenu extends Menu {
                 Menu.menuHandler.setCurrentMenu(Menu.zombieMenu);
                 zombieMenu.player2=player2;
                 zombieMenu.player1=player1;
-                zombieMenu.battle.setMap(zombieMenu.zombieGameMode.generateMap());
+                zombieMenu.battle.setMap(GameMode.generateMap(zombieMenu.zombieGameMode));
             }
         }
         else {

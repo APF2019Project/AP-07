@@ -32,6 +32,7 @@ public class Battle {
         this.player2 = player2;
         this.player1 = player1;
         this.gameMode = gameMode;
+        this.map = GameMode.generateMap(gameMode);
     }
 
     public void actAllMembers() {
@@ -90,8 +91,16 @@ public class Battle {
         this.player1 = player1;
         this.player2 = player2;
         this.gameMode = day;
-        this.map = day.generateMap();
-        this.newMap = day.generateMap();
+        this.map = GameMode.generateMap(day);
+        this.newMap = GameMode.generateMap(day);
+    }
+
+    public Battle(Player player1, Player player2, Water water) {
+        this.player1 = player1;
+        this.player2 = player2;
+        this.gameMode = water;
+        this.map = GameMode.generateMap(water);
+        this.newMap = GameMode.generateMap(water);
     }
 
     public Battle(Player player1, Player player2, String zom) {
@@ -99,7 +108,7 @@ public class Battle {
         this.player2 = player2;
         if (zom.equalsIgnoreCase("zombie"))
             gameMode = new ZombieGameMode();
-        map = gameMode.generateMap();
+        map = GameMode.generateMap(gameMode);
     }
 
     public void setCurrentTurn(int currentTurn) {
@@ -115,7 +124,7 @@ public class Battle {
     }
 
     public void init() {
-        this.map = gameMode.generateMap();
+        this.map = GameMode.generateMap(gameMode);
     }
 
     public void PlayTurn() {

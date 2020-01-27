@@ -66,9 +66,12 @@ public class GameMenu extends Menu {
             day.setLastTurnGivingSuns(1);
             battle.actAllMembers();
             day.generateSun(battle);
-            day.handleWin(profile, battle);
+            if (!day.handleWin(profile, battle)) {
+                //Menu.menuHandler.setCurrentMenu(Menu.mainMenu);
+            }
             day.setLastTurnWaved(1);
             day.updateCollection(battle);
+
         }
         if (battle.getGameMode() instanceof Water) {
             water.wave(battle);

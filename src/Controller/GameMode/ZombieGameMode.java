@@ -84,8 +84,8 @@ public class ZombieGameMode extends GameMode {
                         Zombie zombie = new Zombie(Card.getZombies().get(zombieNumber).getName());
                         if (profile.getExternalCoins() >= zombie.getPrice() * 10) {
                             profile.setExternalCoins(-zombie.getPrice() * 10);
-                            zombie.setCell(generateMap().getCell(randomPlace, 0));
-                            generateMap().getCell(randomPlace, 0).getZombies().add(zombie);
+                            zombie.setCell(GameMode.generateMap(this).getCell(randomPlace, 0));
+                            GameMode.generateMap(this).getCell(randomPlace, 0).getZombies().add(zombie);
                             getWaveZombies().add(zombie);
                         }
                     }
@@ -95,8 +95,8 @@ public class ZombieGameMode extends GameMode {
                         Zombie zombie = new Zombie(Card.getZombies().get(zombieNumber).getName());
                         if (profile.getExternalCoins() >= zombie.getPrice() * 10) {
                             profile.setExternalCoins(-zombie.getPrice() * 10);
-                            zombie.setCell(generateMap().getCell(randomPlace, 0));
-                            generateMap().getCell(randomPlace, 0).getZombies().add(zombie);
+                            zombie.setCell(GameMode.generateMap(this).getCell(randomPlace, 0));
+                            GameMode.generateMap(this).getCell(randomPlace, 0).getZombies().add(zombie);
                             getWaveZombies().add(zombie);
                         }
                     }
@@ -107,8 +107,8 @@ public class ZombieGameMode extends GameMode {
                     Zombie zombie = new Zombie(Card.getZombies().get(zombieNumber).getName());
                     if (profile.getExternalCoins() >= zombie.getPrice() * 10) {
                         profile.setExternalCoins(-zombie.getPrice() * 10);
-                        zombie.setCell(generateMap().getCell(randomPlace, 0));
-                        generateMap().getCell(randomPlace, 0).getZombies().add(zombie);
+                        zombie.setCell(GameMode.generateMap(this).getCell(randomPlace, 0));
+                        GameMode.generateMap(this).getCell(randomPlace, 0).getZombies().add(zombie);
                         getWaveZombies().add(zombie);
                     }
                 }
@@ -172,18 +172,5 @@ public class ZombieGameMode extends GameMode {
 
     }
 
-
-
-    @Override
-    public Map generateMap() {
-        Map m = new Map();
-        if (mapType.equals("Water")) {
-
-        }
-        if (mapType.equals("Land")) {
-            return generateLandMap();
-        }
-       return null;
-    }
 
 }

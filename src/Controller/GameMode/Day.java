@@ -21,7 +21,7 @@ public class Day extends GameMode {
         for (int i = 0; i < landMower.length; i++) {
             landMower[i] = true;
         }
-        this.generateMap();
+        GameMode.generateMap(this);
     }
 
     @Override
@@ -51,12 +51,12 @@ public class Day extends GameMode {
     public boolean handleWin(Profile profile, Battle battle) {
         //if player lose
         if (zombieReachedToTheEnd(battle)) {
-            System.out.println("handleWin1");
+            System.out.println("OOOOOOOOOOOOOOOOOOOOOOOOOOOOOPS! YOU LOST");
             return false;
         }
         //if player win
         if (allZombiesAreDead(profile, battle)) {
-            System.out.println("handleWin2");
+            System.out.println("Player WOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOON");
             lastTurnlastZombieKilled = getBattle().getCurrentTurn();
             return false;
         }
@@ -88,10 +88,7 @@ public class Day extends GameMode {
     }
 
 
-    @Override
-    public Map generateMap() {
-        return generateLandMap();
-    }
+
 
     public void setLastTurnGivingSuns(int lastTurnUpdatingDarSuns) {
         this.lastTurnGivingSuns += lastTurnUpdatingDarSuns;

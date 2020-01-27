@@ -27,8 +27,8 @@ public class PVP extends GameMode {
             int randomPlace = (int) (Math.random() * (Map.getHEIGHT()) + 1);
             Plant plant = new Plant(Plant.getPlants().get(randomPlant).getName());
             if (plant.getPrice() <= getBattle().getPlayer(0).getSun()) {
-                plant.setCell(generateMap().getCell(randomPlace, Map.getWIDTH() - 1));
-                generateMap().getCell(randomPlace, 0).setPlant(plant);
+                plant.setCell(GameMode.generateMap(this).getCell(randomPlace, Map.getWIDTH() - 1));
+                GameMode.generateMap(this).getCell(randomPlace, 0).setPlant(plant);
                 getBattle().getPlayer(0).setSun(-plant.getPrice());
             }
         }
@@ -76,8 +76,5 @@ public class PVP extends GameMode {
 
 
 
-    @Override
-    public Map generateMap() {
-        return generateLandMap();
-    }
+
 }

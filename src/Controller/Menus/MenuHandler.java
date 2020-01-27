@@ -1,11 +1,7 @@
 package Controller.Menus;
 
-import Controller.GameMode.Day;
-import Controller.GameMode.Rail;
-import Controller.GameMode.Water;
-import Controller.GameMode.ZombieGameMode;
+import Controller.GameMode.*;
 import Model.Card.Card;
-import Model.Card.Plants.Plant;
 import Model.Player.Player;
 import Model.Player.Profile;
 
@@ -136,16 +132,16 @@ public class MenuHandler {
                     player = new Player();
                     Menu.playMenu.startDayGame(player, bot);
                     dayMode = new Day();
-                    Menu.gameMenu.battle.setMap(dayMode.generateMap());
+                    Menu.gameMenu.battle.setMap(GameMode.generateMap(dayMode));
                     Menu.collectionMenu.zombieMode = false;
                     Menu.collectionMenu.water = false;
                 } else if (input.equalsIgnoreCase("water")) {
                     player = new Player();
-                    Menu.playMenu.startWaterGame(player, bot);
                     waterMode = new Water();
-                    Menu.gameMenu.battle.setMap(waterMode.generateMap());
+                    Menu.gameMenu.battle.setMap(GameMode.generateMap(waterMode));
                     Menu.collectionMenu.zombieMode = false;
                     Menu.collectionMenu.water = true;
+                    Menu.playMenu.startWaterGame(player, bot);
                 } else if (input.equalsIgnoreCase("rail")) {
                     player = new Player();
                     Menu.playMenu.startRailGame(player, bot);

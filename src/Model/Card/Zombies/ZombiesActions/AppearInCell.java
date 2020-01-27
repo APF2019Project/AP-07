@@ -18,16 +18,9 @@ public class AppearInCell extends Action {
     public void doAction(Zombie zombie, Battle battle, int d) {
         System.out.println("appear in celllllllllllllllllllllllllllllllllllllllllllllllllllllllllll");
         Random random = new Random();
-        int x = 5;
-        int y = 18;
-        if (battle.getMap().getCell(x, y).getPlant() == null) {
-            x = (int) (Math.random() * ((5) + 1));
-            y = (int) (Math.random() * ((18) + 1));
-        }
-        battle.getMap().getCell(x, y).getZombies().add(zombie);
-        System.out.println("here");
-        if (zombie.getHP() > 0) {
-            battle.getMap().getCell(x, y).setPlant(null);
-        }
+        int x = (int) (Math.random() * (7) )+2;
+        int y = (int) (Math.random() * (20)) +2;
+        battle.getMap().getCell(x,y).getPlant().setHealthPoint(0);
+        zombie.setHealthPoint(0);
     }
 }

@@ -35,11 +35,11 @@ public abstract class GameMode {
 
     public abstract ArrayList<Card> getAvailableCards();
 
-    public Map generateMap() {
-        if (this instanceof Day)
-            return this.generateLandMap();
+    public static Map generateMap(GameMode gameMode) {
+        if (gameMode instanceof Water)
+            return generateLandMap();//todo
         else
-            return this.generateWaterMap();
+            return generateLandMap();
     }
 
     public ArrayList<Zombie> getWaveZombies() {
@@ -102,7 +102,7 @@ public abstract class GameMode {
         for (Cell[] i : battle.getMap().getCells()) {
             for (Cell j : i) {
                 if (!j.getZombies().isEmpty()) {
-                    System.err.println("finish  size    " +j.getZombies().size());
+                    System.err.println("finish  size  allzombiesAreDead  " +j.getZombies().size());
                     return false;
                 }
             }
@@ -111,7 +111,7 @@ public abstract class GameMode {
         return true;
     }
 
-    public Map generateLandMap() {
+    public static Map generateLandMap() {
         Map m = new Map();
         for (int i = 0; i < Map.getHEIGHT() + 4; i++) {
             for (int j = 0; j < Map.getWIDTH() + 4; j++) {
@@ -121,7 +121,7 @@ public abstract class GameMode {
         return m;
     }
 
-    public Map generateWaterMap() {
+    public static Map generateWaterMap() {
         Map m = new Map();
         for (int i = 2; i < 4; i++) {
             for (int j = 0; j < Map.getWIDTH(); j++) {

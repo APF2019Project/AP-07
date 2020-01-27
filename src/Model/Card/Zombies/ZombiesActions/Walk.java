@@ -4,10 +4,6 @@ import Controller.GameMode.Battle;
 import Model.Card.Action;
 import Model.Card.Plants.Plant;
 import Model.Card.Zombies.Zombie;
-import Model.Map.Cell;
-import Model.Map.Map;
-
-import java.util.ArrayList;
 
 public class Walk extends Action {
 
@@ -25,10 +21,14 @@ public class Walk extends Action {
         System.out.println("walk");
         while (i < zombie.getSpeed()) {
             System.out.println("while");
-            if ((y > 0 && battle.getMap().getCell(x, y - 1).getPlant() == null)||
-                    (y>0 && battle.getMap().getCell(x,y-1).getPlant()!=null && zombie.getActionsOfAnEvent().contains(new StealPlant()))) {
+            if ((y > 0 && battle.getMap().getCell(x, y - 1).getPlant() == null)) {
                 System.out.println("if");
                 y--;
+            }
+            if (y>0 && battle.getMap().getCell(x,y-1).getPlant()!=null && zombie.getActionsOfAnEvent().contains(new StealPlant())){
+                System.out.println("if2 instant killllllllll");
+                y--;
+                battle.getMap().getCell(x,y).getPlant().setHealthPoint(0);
             }
             i++;
         }

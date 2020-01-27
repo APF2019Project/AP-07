@@ -15,6 +15,11 @@ public class Water extends GameMode {
     int random = (int) (Math.random() * ((2 - 1) + 1)) + 1;
 
     public Water() {
+        getBattle().getPlayer(1).setSun(2);
+        for (int i = 0; i < landMower.length; i++) {
+            landMower[i] = true;
+        }
+        GameMode.generateMap(this);
     }
 
     @Override
@@ -29,8 +34,8 @@ public class Water extends GameMode {
                     //zombies number 0 to 12 can be in landCell
                     int zombieNumber = (int) (Math.random() * (12 + 1));
                     Zombie zombie = new Zombie(Card.getZombies().get(zombieNumber).getName());
-                    zombie.setCell(generateMap().getCell(randomPlace, 0));
-                    generateMap().getCell(randomPlace, 0).getZombies().add(zombie);
+                    zombie.setCell(GameMode.generateMap(this).getCell(randomPlace, 0));
+                    GameMode.generateMap(this).getCell(randomPlace, 0).getZombies().add(zombie);
                     getWaveZombies().add(zombie);
                 }
 
@@ -38,8 +43,8 @@ public class Water extends GameMode {
                 if (randomPlace == 2 || randomPlace == 3) {
                     int zombieNumber = (int) (Math.random() * ((14 - 13) + 1)) + 13;
                     Zombie zombie = new Zombie(Card.getZombies().get(zombieNumber).getName());
-                    zombie.setCell(generateMap().getCell(randomPlace, 0));
-                    generateMap().getCell(randomPlace, 0).getZombies().add(zombie);
+                    zombie.setCell(GameMode.generateMap(this).getCell(randomPlace, 0));
+                    GameMode.generateMap(this).getCell(randomPlace, 0).getZombies().add(zombie);
                     getWaveZombies().add(zombie);
                 }
             }
@@ -96,11 +101,6 @@ public class Water extends GameMode {
         }
     }
 
-
-    @Override
-    public Map generateMap() {
-        return generateWaterMap();
-    }
 
     public void setLastTurnGivingSuns(int lastTurnUpdatingDarSuns) {
         this.lastTurnGivingSuns += lastTurnUpdatingDarSuns;

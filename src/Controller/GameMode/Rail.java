@@ -2,8 +2,6 @@ package Controller.GameMode;
 
 import Model.Card.Card;
 import Model.Card.Plants.Plant;
-import Model.Card.Zombies.Zombie;
-import Model.Map.Cell;
 import Model.Map.Map;
 import Model.Player.Profile;
 
@@ -97,10 +95,6 @@ public class Rail extends GameMode {
         return null;
     }
 
-    @Override
-    public Map generateMap() {
-        return generateLandMap();
-    }
 
     public void addPlant(Battle battle) {
         if (battle.getCurrentTurn() % 5 == 0 && plants.size() < 10) {
