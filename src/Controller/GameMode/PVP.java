@@ -32,7 +32,7 @@ public class PVP extends GameMode {
                 getBattle().getPlayer(0).setSun(-plant.getPrice());
             }
         }
-        ZombieGameMode zombieGameMode = new ZombieGameMode(profile, "Land");
+        ZombieGameMode zombieGameMode = new ZombieGameMode(profile);
         zombieGameMode.wave(battle);
     }
 

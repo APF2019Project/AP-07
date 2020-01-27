@@ -16,11 +16,11 @@ public class ZombieGameMode extends GameMode {
     public ZombieGameMode(){
     }
 
-    public ZombieGameMode(Profile profile, String mapType) {
+    public ZombieGameMode(Profile profile) {
         for (int i=0;i<landMower.length;i++){
             landMower[i]=false;
         }
-        this.mapType = mapType;
+        this.mapType = "day";
         this.profile = profile;
         int size = 0;
 //        ArrayList<Plant> randomPlants = new ArrayList<>();

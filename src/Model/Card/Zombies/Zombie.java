@@ -217,15 +217,9 @@ public class Zombie extends Card {
     }
 
     public void act(Battle battle) {
-        System.out.println("act it");
-        //todo
         for (ActionsOfAnEvent e : this.actionsOfAnEvent){
             int d = 0;//bayad taeen she be ezaye har plant vali
-            System.out.println("before act");
-            //todo
             if (e.getEvent().check(this, battle, d)) {//age shart barqarar bood
-                System.out.println("Act");
-                //todo
                 for (Action action : e.getActions()) {
                     try {
                         action.doAction(this, battle, d);//action o anjam bede

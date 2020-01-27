@@ -16,7 +16,6 @@ public class AppearInCell extends Action {
 
     @Override
     public void doAction(Zombie zombie, Battle battle, int d) {
-        System.out.println("appear in celllllllllllllllllllllllllllllllllllllllllllllllllllllllllll");
         Random random = new Random();
         int x = (int) (Math.random() * (7) )+2;
         int y = (int) (Math.random() * (20)) +2;
