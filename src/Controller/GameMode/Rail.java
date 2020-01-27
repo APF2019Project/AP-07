@@ -81,42 +81,10 @@ public class Rail extends GameMode {
         }
 
         //deleting dead zombies
-        ArrayList<Zombie> zombiesToBeDeleted = new ArrayList<>();
-        for (Cell[] i : battle.getMap().getCells()) {
-            for (Cell j : i) {
-                for (Zombie z : j.getZombies()) {
-                    if (z.getHP() == 0) {
-                        zombiesToBeDeleted.add(z);
-                    }
-                }
-            }
-        }
-
-        for (int k = 0; k < zombiesToBeDeleted.size(); k++) {
-            int x = zombiesToBeDeleted.get(k).getCell().x();
-            int y = zombiesToBeDeleted.get(k).getCell().y();
-            battle.getMap().getCell(x, y).getZombies().remove(zombiesToBeDeleted.get(k));
-        }
-        record+=zombiesToBeDeleted.size();
+        record+=removeDeadZombies(battle);
 
         //deleting dead plants
-        System.out.println("update coleectionnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn");
-        ArrayList<Plant> plantsToBeDeleted = new ArrayList<>();
-        for (Cell[] i : battle.getMap().getCells()) {
-            for (Cell j : i) {
-                if (j.getPlant()!=null && j.getPlant().getHP() == 0) {
-                    plantsToBeDeleted.add(j.getPlant());
-                }
-            }
-        }
-        for (int k = 0; k < plantsToBeDeleted.size(); k++) {
-            int x = plantsToBeDeleted.get(k).getCell().x();
-            int y = plantsToBeDeleted.get(k).getCell().y();
-            battle.getMap().getCell(x, y).setPlant(null);
-            System.out.println("size    "+battle.getMap().getCell(x,y).getZombies().size());
-        }
-        System.out.println("finitoooooooooooooooooooooooooooooooooooooooooooooooooo");
-        record+=plantsToBeDeleted.size();
+        record+=removeDeadPlants(battle);
     }
 
     @Override

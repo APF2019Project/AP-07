@@ -21,8 +21,8 @@ public class GameMenu extends Menu {
     public Player player1;
     public Player player2;
     //todo
-    //public Battle battle = new Battle(player1, player2,day);
-    public Battle battle = new Battle(player1, player2,water);
+    public Battle battle = new Battle(player1, player2,day);
+    //public Battle battle = new Battle(player1, player2,water);
 
 
     public void showHand() {

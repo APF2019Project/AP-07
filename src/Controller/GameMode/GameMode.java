@@ -1,6 +1,7 @@
 package Controller.GameMode;
 
 import Model.Card.Card;
+import Model.Card.Plants.Plant;
 import Model.Card.Zombies.Zombie;
 import Model.Map.Cell;
 import Model.Map.Map;
@@ -84,21 +85,29 @@ public abstract class GameMode {
     }
 
     public boolean zombieReachedToTheEnd(Battle battle) {
+        System.err.println("IN zombieReachedToTheEnd");
         for (int i = 0; i < Map.getHEIGHT(); i++) {
-            if (battle.getMap().getCell(i, 1).getZombies().size() != 0)
+            if (battle.getMap().getCell(i, 1).getZombies().size() != 0) {
+                System.err.println("finish  size    " + battle.getMap().getCell(i, 1).getZombies().size());
                 if (!landMower[i])
                     return true;
+            }
         }
+        System.err.println("continue");
         return false;
     }
 
     public boolean allZombiesAreDead(Profile profile, Battle battle) {
-        for (int i = 0; i < Map.getHEIGHT() + 4; i++) {
-            for (int j = 0; j < Map.getWIDTH() + 4; j++) {
-                if (battle.getMap().getCell(i, j).getZombies().size() != 0)
+        System.err.println("IN allZombiesAreDead");
+        for (Cell[] i : battle.getMap().getCells()) {
+            for (Cell j : i) {
+                if (!j.getZombies().isEmpty()) {
+                    System.err.println("continue  size    " +j.getZombies().size());
                     return false;
+                }
             }
         }
+        System.err.println("finish");
         return true;
     }
 
@@ -135,16 +144,16 @@ public abstract class GameMode {
 
     public void generateZombies(Battle battle) throws IOException {
         int randomPlace = (int) (Math.random() * ((Map.getHEIGHT()) + 1));
-        boolean zombieIsMade=false;
-        Zombie zombie=null;
-        while(!zombieIsMade){
+        boolean zombieIsMade = false;
+        Zombie zombie = null;
+        while (!zombieIsMade) {
             int zombieNumber = (int) (Math.random() * (12 + 1));
             zombie = Zombie.makeZombie(Zombie.getZombies().get(zombieNumber).getName());
-            if (zombie.getName().equalsIgnoreCase("SnorkelZombie")||
-                    zombie.getName().equalsIgnoreCase("DolphinRiderZombie")){
-                zombieIsMade=false;
-            }else{
-                zombieIsMade=true;
+            if (zombie.getName().equalsIgnoreCase("SnorkelZombie") ||
+                    zombie.getName().equalsIgnoreCase("DolphinRiderZombie")) {
+                zombieIsMade = false;
+            } else {
+                zombieIsMade = true;
             }
         }
         zombie.setCell(battle.getMap().getCell(randomPlace, 21));
@@ -156,12 +165,44 @@ public abstract class GameMode {
         this.lastTurnWaved += lastTurnWaved;
     }
 
-    public void removeDeadZombies(Battle battle){
+    public int removeDeadZombies(Battle battle) {
+        ArrayList<Zombie> zombiesToBeDeleted = new ArrayList<>();
+        for (Cell[] i : battle.getMap().getCells()) {
+            for (Cell j : i) {
+                for (Zombie z : j.getZombies()) {
+                    if (z.getHP() == 0) {
+                        zombiesToBeDeleted.add(z);
+                    }
+                }
+            }
+        }
 
+        for (int k = 0; k < zombiesToBeDeleted.size(); k++) {
+            int x = zombiesToBeDeleted.get(k).getCell().x();
+            int y = zombiesToBeDeleted.get(k).getCell().y();
+            battle.getMap().getCell(x, y).getZombies().remove(zombiesToBeDeleted.get(k));
+        }
+        return zombiesToBeDeleted.size();
     }
 
-    public void removeDeadPlants(Battle battle){
-
+    public int removeDeadPlants(Battle battle) {
+        System.out.println("update coleectionnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn");
+        ArrayList<Plant> plantsToBeDeleted = new ArrayList<>();
+//        for (Cell[] i : battle.getMap().getCells()) {
+//            for (Cell j : i) {
+//                if (j.getPlant()!=null && j.getPlant().getHP() == 0) {
+//                    plantsToBeDeleted.add(j.getPlant());
+//                }
+//            }
+//        }
+//        for (int k = 0; k < plantsToBeDeleted.size(); k++) {
+//            int x = plantsToBeDeleted.get(k).getCell().x();
+//            int y = plantsToBeDeleted.get(k).getCell().y();
+//            battle.getMap().getCell(x, y).setPlant(null);
+//            System.out.println("size    "+battle.getMap().getCell(x,y).getZombies().size());
+//        }
+        System.out.println("finitoooooooooooooooooooooooooooooooooooooooooooooooooo");
+        return plantsToBeDeleted.size();
     }
 
 }

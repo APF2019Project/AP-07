@@ -1,9 +1,7 @@
 package Controller.GameMode;
 
 import Model.Card.Card;
-import Model.Card.Plants.Plant;
 import Model.Card.Zombies.Zombie;
-import Model.Map.Cell;
 import Model.Map.Map;
 import Model.Player.Profile;
 
@@ -16,7 +14,7 @@ public class Water extends GameMode {
     private int lastTurnlastZombieKilled;
     int random = (int) (Math.random() * ((2 - 1) + 1)) + 1;
 
-    public Water(){
+    public Water() {
     }
 
     @Override
@@ -53,11 +51,10 @@ public class Water extends GameMode {
     //todo
     //7 turn pas az marge last zombie true mishe
     @Override
-    public boolean canWave(Battle battle)
-    {
+    public boolean canWave(Battle battle) {
         if (getBattle().getCurrentTurn() >= 3 && getWaveCounter() <= 3) {
-            if(getBattle().getCurrentTurn()==0 || (getBattle().getCurrentTurn()-lastTurnlastZombieKilled)==7)
-                lastTurnlastZombieKilled=0;
+            if (getBattle().getCurrentTurn() == 0 || (getBattle().getCurrentTurn() - lastTurnlastZombieKilled) == 7)
+                lastTurnlastZombieKilled = 0;
             return true;
         }
         return false;
@@ -66,11 +63,11 @@ public class Water extends GameMode {
     @Override
     public boolean handleWin(Profile profile, Battle battle) {
         //if player lose
-        if(zombieReachedToTheEnd(battle)){
+        if (zombieReachedToTheEnd(battle)) {
             return false;
         }
         //if player win
-        if(allZombiesAreDead(profile, battle)){
+        if (allZombiesAreDead(profile, battle)) {
             return false;
         }
         //continue the game
@@ -79,39 +76,8 @@ public class Water extends GameMode {
 
     @Override
     public void updateCollection(Battle battle) {
-        ArrayList<Zombie> zombiesToBeDeleted = new ArrayList<>();
-        for (Cell[] i : battle.getMap().getCells()) {
-            for (Cell j : i) {
-                for (Zombie z : j.getZombies()) {
-                    if (z.getHP() == 0) {
-                        zombiesToBeDeleted.add(z);
-                    }
-                }
-            }
-        }
-
-        for (int k = 0; k < zombiesToBeDeleted.size(); k++) {
-            int x = zombiesToBeDeleted.get(k).getCell().x();
-            int y = zombiesToBeDeleted.get(k).getCell().y();
-            battle.getMap().getCell(x, y).getZombies().remove(zombiesToBeDeleted.get(k));
-        }
-
-        System.out.println("update coleectionnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn");
-        ArrayList<Plant> plantsToBeDeleted = new ArrayList<>();
-        for (Cell[] i : battle.getMap().getCells()) {
-            for (Cell j : i) {
-                if (j.getPlant()!=null && j.getPlant().getHP() == 0) {
-                    plantsToBeDeleted.add(j.getPlant());
-                }
-            }
-        }
-        for (int k = 0; k < plantsToBeDeleted.size(); k++) {
-            int x = plantsToBeDeleted.get(k).getCell().x();
-            int y = plantsToBeDeleted.get(k).getCell().y();
-            battle.getMap().getCell(x, y).setPlant(null);
-            System.out.println("size    "+battle.getMap().getCell(x,y).getZombies().size());
-        }
-        System.out.println("finitoooooooooooooooooooooooooooooooooooooooooooooooooo");
+        removeDeadZombies(battle);
+        removeDeadPlants(battle);
     }
 
     @Override
@@ -124,9 +90,9 @@ public class Water extends GameMode {
     public void generateSun(Battle battle) {
         int numberOfSuns = (int) (Math.random() * ((5 - 2) + 1)) + 2;
         if (lastTurnGivingSuns == random) {
-            random= (int) (Math.random() * ((2 - 1) + 1)) + 1;
+            random = (int) (Math.random() * ((2 - 1) + 1)) + 1;
             lastTurnGivingSuns = 0;
-            battle.getPlayer(1).setSun(numberOfSuns+battle.getPlayer(1).getSun());
+            battle.getPlayer(1).setSun(numberOfSuns + battle.getPlayer(1).getSun());
         }
     }
 
