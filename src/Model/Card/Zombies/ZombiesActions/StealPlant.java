@@ -17,7 +17,7 @@ public class StealPlant extends Action {
         System.out.println("steal@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
         int x = zombie.getCell().x();
         int y = zombie.getCell().y();
-        Cell c = battle.getMap().getCell(x,y-1);
+        Cell c = battle.getMap().getCell(x, y - 1);
         if (c.getPlant() != null) {
             System.out.println("bbsjvvhsjhdslkvvvvsvdliehviakekafafljajfakwjfc");
             if (zombie.getHP() > 0) {

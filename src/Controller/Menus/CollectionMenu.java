@@ -73,6 +73,8 @@ public class CollectionMenu extends Menu {
                     Menu.menuHandler.setCurrentMenu(Menu.waterModeMenu);
                     waterModeMenu.player1=player1;
                     waterModeMenu.player2=player2;
+                    gameMenu.battle.setPlayer(player1,1);
+                    gameMenu.battle.setPlayer(player2,2);
                     waterModeMenu.battle.setMap(waterModeMenu.waterMode.generateMap());
                     waterModeMenu.player1.setSun(2);
                 }

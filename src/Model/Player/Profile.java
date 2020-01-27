@@ -28,7 +28,7 @@ public class Profile {
         purchasedPlants.add("KernelPult");
         purchasedPlants.add("SunFlower");
         purchasedPlants.add("CherryBomb");
-        //purchasedPlants.add("Jalapeno");
+        purchasedPlants.add("Jalapeno");
         //purchasedPlants.add("MagnetShroom");
         purchasedPlants.add("Cattail");
 
@@ -39,6 +39,7 @@ public class Profile {
         purchasedZombies.add("ConeheadZombie");
         purchasedZombies.add("BalloonZombie");
         purchasedZombies.add("BungeeZombie");
+
     }
 
     public static Profile makeProfile(Profile profile) {

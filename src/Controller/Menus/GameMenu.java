@@ -1,23 +1,28 @@
 package Controller.Menus;
 
-import Controller.GameMode.Battle;
-import Controller.GameMode.Day;
+import Controller.GameMode.*;
 import Model.Card.Plants.Plant;
 import Model.Card.Zombies.Zombie;
 import Model.Map.Cell;
 import Model.Map.Map;
 import Model.Player.Player;
 import Model.Player.Profile;
-import com.oracle.tools.packager.Platform;
 
 import java.io.IOException;
 
 public class GameMenu extends Menu {
+    //todo
     public Day day = new Day();
+    public Water water=new Water();
+    public Rail rail=new Rail();
+    public ZombieGameMode zombieGameMode=new ZombieGameMode();
+    //public PVP pvp=new PVP();
+
     public Player player1;
     public Player player2;
-    public Battle battle = new Battle(player1, player2,day);
-
+    //todo
+    //public Battle battle = new Battle(player1, player2,day);
+    public Battle battle = new Battle(player1, player2,water);
 
 
     public void showHand() {
@@ -55,10 +60,27 @@ public class GameMenu extends Menu {
     }
 
     public void endTurn(Profile profile) throws IOException {
-        day.wave(battle);
-//        if (battle.getGameMode() instanceof Day) {
+
+        if (battle.getGameMode() instanceof Day) {
+            day.wave(battle);
+            day.setLastTurnGivingSuns(1);
+            battle.actAllMembers();
+            day.generateSun(battle);
+            day.handleWin(profile, battle);
+            day.setLastTurnWaved(1);
+            day.updateCollection(battle);
+        }
+        if (battle.getGameMode() instanceof Water) {
+            water.wave(battle);
+            water.setLastTurnGivingSuns(1);
+            battle.actAllMembers();
+            water.generateSun(battle);
+            water.handleWin(profile, battle);
+            water.setLastTurnWaved(1);
+            water.updateCollection(battle);
+        }
 //            Day day = (Day) battle.getGameMode();
-              day.setLastTurnGivingSuns(1);
+
 //        }
 //        else if (battle.getGameMode() instanceof Water) {
 //            Water water = (Water) battle.getGameMode();
@@ -68,12 +90,8 @@ public class GameMenu extends Menu {
 //            Rail rail = (Rail) battle.getGameMode();
 //            rail.setLastTurnUpdatingRailCollection(1);
 //        }
-        
-        battle.actAllMembers();
-        day.generateSun(battle);
-//        day.handleWin(profile,battle );
-//        day.setLastTurnWaved(1);
-//        day.updateCollection();
+
+
         battle.setCurrentTurn(1);
 //        for (Plant p:player1.getPlants()) {
 //            if (p.getLoading()!=0) {

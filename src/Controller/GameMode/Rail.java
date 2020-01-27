@@ -55,7 +55,7 @@ public class Rail extends GameMode {
 
 
     @Override
-    public void updateCollection() throws IOException {
+    public void updateCollection(Battle battle) throws IOException {
         //har 2 ta 4 turn
         if(lastTurnUpdatingRailCollection ==random){
             lastTurnUpdatingRailCollection =0;
@@ -77,6 +77,10 @@ public class Rail extends GameMode {
         for (int i = 0; i < plantsToBeOmitted.size(); i++) {
             plants.remove(plantsToBeOmitted.get(i));
         }
+
+        //todo
+        //deleting dead zombies
+
     }
 
     @Override

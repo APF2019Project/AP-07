@@ -28,7 +28,7 @@ public abstract class GameMode {
 
     public abstract boolean handleWin(Profile profile, Battle battle);
 
-    public abstract void updateCollection() throws IOException;
+    public abstract void updateCollection(Battle battle) throws IOException;
 
     public abstract void generateSun(Battle battle);
 
@@ -134,14 +134,21 @@ public abstract class GameMode {
 
 
     public void generateZombies(Battle battle) throws IOException {
-        int zombieNumber = (int) (Math.random() * (12 + 1));
         int randomPlace = (int) (Math.random() * ((Map.getHEIGHT()) + 1));
-        Zombie zombie = Zombie.makeZombie(Zombie.getZombies().get(zombieNumber).getName());
-        // if (!zombie.getName().equals("BungeeZombie")) {
+        boolean zombieIsMade=false;
+        Zombie zombie=null;
+        while(!zombieIsMade){
+            int zombieNumber = (int) (Math.random() * (12 + 1));
+            zombie = Zombie.makeZombie(Zombie.getZombies().get(zombieNumber).getName());
+            if (zombie.getName().equalsIgnoreCase("SnorkelZombie")||
+                    zombie.getName().equalsIgnoreCase("DolphinRiderZombie")){
+                zombieIsMade=false;
+            }else{
+                zombieIsMade=true;
+            }
+        }
         zombie.setCell(battle.getMap().getCell(randomPlace, 21));
         battle.getMap().getCell(randomPlace, 21).addZombie(zombie);
-        //}
-//        getWaveZombies().add(z);
     }
 
 
