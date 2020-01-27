@@ -57,7 +57,7 @@ public class PVP extends GameMode {
     }
 
     @Override
-    public void updateCollection() {
+    public void updateCollection(Battle battle) {
 
     }
 

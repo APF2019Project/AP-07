@@ -39,8 +39,8 @@ public class Day extends GameMode {
     public boolean canWave(Battle battle) {
         if (battle.getCurrentTurn() >= 3 && this.getWaveCounter() <= 3) {
 //            if (lastTurnlastZombieKilled == 7) {
-                lastTurnlastZombieKilled = 0;
-                return true;
+            lastTurnlastZombieKilled = 0;
+            return true;
 //            }
         }
 
@@ -51,19 +51,25 @@ public class Day extends GameMode {
     public boolean handleWin(Profile profile, Battle battle) {
         //if player lose
         if (zombieReachedToTheEnd(battle)) {
+            System.out.println("handleWin1");
             return false;
         }
         //if player win
         if (allZombiesAreDead(profile, battle)) {
+            System.out.println("handleWin2");
             lastTurnlastZombieKilled = getBattle().getCurrentTurn();
             return false;
         }
         //continue the game
+        System.out.println("handleWin3");
         return true;
     }
 
+    //removing dead zombies and plants
     @Override
-    public void updateCollection() {
+    public void updateCollection(Battle battle) {
+        removeDeadZombies(battle);
+        removeDeadPlants(battle);
     }
 
     @Override
@@ -76,8 +82,8 @@ public class Day extends GameMode {
         int numberOfSuns = (int) (Math.random() * ((5 - 2) + 1)) + 2;
         if (lastTurnGivingSuns == random) {
             random = (int) (Math.random() * ((2 - 1) + 1)) + 1;
-            lastTurnGivingSuns = 0;
             battle.getPlayer(1).setSun(numberOfSuns + battle.getPlayer(1).getSun());
+            lastTurnGivingSuns = 0;
         }
     }
 

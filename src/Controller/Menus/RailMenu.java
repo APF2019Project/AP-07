@@ -63,7 +63,7 @@ public class RailMenu extends Menu {
         rail.generateSun(battle);
         rail.handleWin(profile,battle );
         rail.setLastTurnWaved(1);
-        rail.updateCollection();
+        rail.updateCollection(battle);
         battle.setCurrentTurn(1);
         for (Plant p:player1.getPlants()) {
             if (p.getLoading()!=0) {

@@ -143,6 +143,7 @@ public class MenuHandler {
                     player = new Player();
                     Menu.playMenu.startWaterGame(player, bot);
                     waterMode = new Water();
+                    Menu.gameMenu.battle.setMap(waterMode.generateMap());
                     Menu.collectionMenu.zombieMode = false;
                     Menu.collectionMenu.water = true;
                 } else if (input.equalsIgnoreCase("rail")) {

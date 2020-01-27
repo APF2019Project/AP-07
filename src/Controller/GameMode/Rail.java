@@ -2,6 +2,8 @@ package Controller.GameMode;
 
 import Model.Card.Card;
 import Model.Card.Plants.Plant;
+import Model.Card.Zombies.Zombie;
+import Model.Map.Cell;
 import Model.Map.Map;
 import Model.Player.Profile;
 
@@ -13,7 +15,7 @@ public class Rail extends GameMode {
 
     private ArrayList<Plant> plants = new ArrayList<>();
     private ArrayList<Plant> list = new ArrayList<>();
-    private int record;
+    private int record=0;
     private int lastTurnUpdatingRailCollection =0;
     int random = (int) (Math.random() * ((4 - 2) + 1)) + 2;
 
@@ -55,7 +57,7 @@ public class Rail extends GameMode {
 
 
     @Override
-    public void updateCollection() throws IOException {
+    public void updateCollection(Battle battle) throws IOException {
         //har 2 ta 4 turn
         if(lastTurnUpdatingRailCollection ==random){
             lastTurnUpdatingRailCollection =0;
@@ -77,6 +79,12 @@ public class Rail extends GameMode {
         for (int i = 0; i < plantsToBeOmitted.size(); i++) {
             plants.remove(plantsToBeOmitted.get(i));
         }
+
+        //deleting dead zombies
+        record+=removeDeadZombies(battle);
+
+        //deleting dead plants
+        record+=removeDeadPlants(battle);
     }
 
     @Override

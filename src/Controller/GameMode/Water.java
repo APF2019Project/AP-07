@@ -14,7 +14,7 @@ public class Water extends GameMode {
     private int lastTurnlastZombieKilled;
     int random = (int) (Math.random() * ((2 - 1) + 1)) + 1;
 
-    public Water(){
+    public Water() {
     }
 
     @Override
@@ -51,11 +51,10 @@ public class Water extends GameMode {
     //todo
     //7 turn pas az marge last zombie true mishe
     @Override
-    public boolean canWave(Battle battle)
-    {
+    public boolean canWave(Battle battle) {
         if (getBattle().getCurrentTurn() >= 3 && getWaveCounter() <= 3) {
-            if(getBattle().getCurrentTurn()==0 || (getBattle().getCurrentTurn()-lastTurnlastZombieKilled)==7)
-                lastTurnlastZombieKilled=0;
+            if (getBattle().getCurrentTurn() == 0 || (getBattle().getCurrentTurn() - lastTurnlastZombieKilled) == 7)
+                lastTurnlastZombieKilled = 0;
             return true;
         }
         return false;
@@ -64,11 +63,11 @@ public class Water extends GameMode {
     @Override
     public boolean handleWin(Profile profile, Battle battle) {
         //if player lose
-        if(zombieReachedToTheEnd(battle)){
+        if (zombieReachedToTheEnd(battle)) {
             return false;
         }
         //if player win
-        if(allZombiesAreDead(profile, battle)){
+        if (allZombiesAreDead(profile, battle)) {
             return false;
         }
         //continue the game
@@ -76,8 +75,9 @@ public class Water extends GameMode {
     }
 
     @Override
-    public void updateCollection() {
-
+    public void updateCollection(Battle battle) {
+        removeDeadZombies(battle);
+        removeDeadPlants(battle);
     }
 
     @Override
@@ -90,12 +90,11 @@ public class Water extends GameMode {
     public void generateSun(Battle battle) {
         int numberOfSuns = (int) (Math.random() * ((5 - 2) + 1)) + 2;
         if (lastTurnGivingSuns == random) {
-            random= (int) (Math.random() * ((2 - 1) + 1)) + 1;
+            random = (int) (Math.random() * ((2 - 1) + 1)) + 1;
             lastTurnGivingSuns = 0;
-            battle.getPlayer(1).setSun(numberOfSuns+battle.getPlayer(1).getSun());
+            battle.getPlayer(1).setSun(numberOfSuns + battle.getPlayer(1).getSun());
         }
     }
-
 
 
     @Override

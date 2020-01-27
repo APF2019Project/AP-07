@@ -158,7 +158,7 @@ public class ZombieGameMode extends GameMode {
     }
 
     @Override
-    public void updateCollection() {
+    public void updateCollection(Battle battle) {
 
     }
 

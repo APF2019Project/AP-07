@@ -73,7 +73,7 @@ public class WaterModeMenu extends Menu {
         waterMode.generateSun(battle);
         waterMode.handleWin(profile, battle);
         waterMode.setLastTurnWaved(1);
-        waterMode.updateCollection();
+        waterMode.updateCollection(battle);
         battle.setCurrentTurn(1);
         for (Plant p : player1.getPlants()) {
             if (p.getLoading() != 0) {
