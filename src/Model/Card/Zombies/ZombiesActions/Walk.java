@@ -23,13 +23,15 @@ public class Walk extends Action {
         int x = zombie.getCell().x();
         int y = zombie.getCell().y();
         System.out.println("walk");
-        while (i < zombie.getSpeed()) {
-            System.out.println("while");
-            if (y > 0 && battle.getMap().getCell(x, y - 1).getPlant() == null) {
-                System.out.println("if");
-                y--;
+        if (zombie.getHP() > 0) {
+            while (i < zombie.getSpeed()) {
+                System.out.println("while");
+                if (y > 0 && battle.getMap().getCell(x, y - 1).getPlant() == null) {
+                    System.out.println("if");
+                    y--;
+                }
+                i++;
             }
-            i++;
         }
         zombie.setCell(battle.getMap().getCell(x, y));
         battle.getMap().getCell(x, y).getZombies().add(zombie);

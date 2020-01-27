@@ -23,12 +23,14 @@ public class TurnToNormalZombie extends Action {
         if(!zombie.getName().equals("Zombie"))
         {
             Cell cell= zombie.getCell();
-            if(zombie.getHP()>0) {
-                Zombie.getZombies().remove(zombie);
+            if(zombie.getHP()==0) {
+                //Zombie.getZombies().remove(zombie);
                 //todo
                 //this new ZombieGameMode should be added to player hand
-                Zombie zombie1 = new Zombie("Zombie");
-                cell.getZombies().add(zombie1);
+                Zombie zombie1 = Zombie.makeZombie("Zombie");
+                //cell.getZombies().add(zombie1);
+                zombie.getCell().addZombie(zombie1);
+                zombie1.setCell(zombie.getCell());
             }
         }
     }
