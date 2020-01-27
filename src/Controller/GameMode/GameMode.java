@@ -155,4 +155,13 @@ public abstract class GameMode {
     public void setLastTurnWaved(int lastTurnWaved) {
         this.lastTurnWaved += lastTurnWaved;
     }
+
+    public void removeDeadZombies(Battle battle){
+
+    }
+
+    public void removeDeadPlants(Battle battle){
+
+    }
+
 }

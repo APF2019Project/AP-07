@@ -85,7 +85,7 @@ public class Day extends GameMode {
             battle.getMap().getCell(x, y).getZombies().remove(zombiesToBeDeleted.get(k));
         }
 
-        System.out.println("update coleectionnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn");
+        System.err.println("update coleectionnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn");
         ArrayList<Plant> plantsToBeDeleted = new ArrayList<>();
         for (Cell[] i : battle.getMap().getCells()) {
             for (Cell j : i) {
