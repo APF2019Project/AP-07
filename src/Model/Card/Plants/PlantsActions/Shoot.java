@@ -9,19 +9,19 @@ import Model.Card.Zombies.Zombie;
 public class Shoot extends Action {
     @Override
     public void doAction(Plant plant, Battle battle, int d) {
+        PeaOrProjectile pea;
         if (plant.getHP() > 0) {
-            if(plant.pea)
-            {
-                PeaOrProjectile pea = new PeaOrProjectile(plant.getAP() , false);
-                pea.setX(plant.getCell().x());
-                pea.setY(plant.getCell().y());
 
+            if(plant.getName().equalsIgnoreCase("split pea")) {
+                battle.getPeas().add(new PeaOrProjectile(plant));
+                pea = new PeaOrProjectile(plant);
+                pea.setBackward(true);
+                battle.getPeas().add(pea);
             }
-            else
-            {
-                PeaOrProjectile projectile = new PeaOrProjectile(plant.getAP() , true);
-                projectile.setX(plant.getCell().x());
-                projectile.setY(plant.getCell().y());
+            else {
+                for (int i=0;i<plant.getPeaAmount();i++){
+                    battle.getPeas().add(new PeaOrProjectile(plant));
+                }
             }
         }
     }

@@ -38,10 +38,10 @@ public class Day extends GameMode {
     @Override
     public boolean canWave(Battle battle) {
         if (battle.getCurrentTurn() >= 3 && this.getWaveCounter() <= 3) {
-//            if (lastTurnlastZombieKilled == 7) {
+            if (lastTurnlastZombieKilled == 7) {
             lastTurnlastZombieKilled = 0;
             return true;
-//            }
+            }
         }
 
         return false;
@@ -56,9 +56,13 @@ public class Day extends GameMode {
         }
         //if player win
         if (allZombiesAreDead(profile, battle)) {
-            System.out.println("Player WOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOON");
-            lastTurnlastZombieKilled = getBattle().getCurrentTurn();
-            return false;
+            if (this.getWaveCounter() == 3) {
+                System.out.println("Player WOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOON");
+                return false;
+            }
+            else if (!(battle.getCurrentTurn() - lastTurnlastZombieKilled <=7))
+                lastTurnlastZombieKilled = battle.getCurrentTurn();
+            return true;
         }
         //continue the game
         System.out.println("handleWin3");

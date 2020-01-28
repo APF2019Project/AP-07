@@ -191,7 +191,7 @@ public abstract class GameMode {
             for (Cell j : i) {
                 if (j.getPlant() != null && j.getPlant().getHP() <= 0) {
                     j.setPlant(null);
-                    System.out.println("Khoradneshhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh");
+                    System.out.println("Khordaneshhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh");
                 }
             }
         }

@@ -13,9 +13,18 @@ import Model.Player.Profile;
 import java.io.IOException;
 
 public class RailMenu extends Menu {
-    public Rail rail;
+    public Rail rail = new Rail();
     public Player player1;
     public Player player2;
+
+    public Battle getBattle() {
+        return battle;
+    }
+
+    public void setBattle(Battle battle) {
+        this.battle = battle;
+    }
+
     public Battle battle = new Battle(player1, player2,rail);
 
 
@@ -56,20 +65,20 @@ public class RailMenu extends Menu {
         cell.removePlant();
     }
 
-    public void endTurn(Profile profile) throws IOException {
+    public void endTurn(Profile profile, Battle battle) throws IOException {
         rail.wave(battle);
         rail.setLastTurnUpdatingRailCollection(1);
-        battle.actAllMembers();
+        rail.actAllMembers(battle);
         rail.generateSun(battle);
         rail.handleWin(profile,battle );
         rail.setLastTurnWaved(1);
         rail.updateCollection(battle);
         battle.setCurrentTurn(1);
-        for (Plant p:player1.getPlants()) {
-            if (p.getLoading()!=0) {
-                p.setLoading(p.getLoading()-1);
-            }
-        }
-        System.out.println(player1.getSun());
+//        for (Plant p:player1.getPlants()) {
+//            if (p.getLoading()!=0) {
+//                p.setLoading(p.getLoading()-1);
+//            }
+//        }
+//        System.out.println(player1.getSun());
     }
 }

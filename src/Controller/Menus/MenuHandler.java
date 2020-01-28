@@ -2,6 +2,7 @@ package Controller.Menus;
 
 import Controller.GameMode.*;
 import Model.Card.Card;
+import Model.Card.Plants.Plant;
 import Model.Player.Player;
 import Model.Player.Profile;
 
@@ -144,8 +145,8 @@ public class MenuHandler {
                     Menu.playMenu.startWaterGame(player, bot);
                 } else if (input.equalsIgnoreCase("rail")) {
                     player = new Player();
-                    Menu.playMenu.startRailGame(player, bot);
                     railMode = new Rail();
+                    Menu.playMenu.startRailGame(player, bot);
                     Menu.collectionMenu.zombieMode = false;
                     Menu.menuHandler.setCurrentMenu(Menu.railMenu);
                 } else if (input.equalsIgnoreCase("Zombie")) {
@@ -239,8 +240,8 @@ public class MenuHandler {
 
             else if (Menu.menuHandler.getCurrentMenu() == Menu.railMenu) {
                 if (input.equalsIgnoreCase("List")) {
-                    for (Card card : railMode.getAvailableCards()) {
-                        System.out.println(card.getName());
+                    for (Plant plant : railMode.getAvailablePlants()) {
+                        System.out.println(plant.getName());
                     }
                 } else if (select.matcher(input).matches()) {
                     name = splitInput[1];
@@ -260,7 +261,7 @@ public class MenuHandler {
                     int y = Integer.parseInt(splitInput[2]);
                     Menu.railMenu.remove(x, y);
                 } else if (input.equalsIgnoreCase("End Turn")) {
-                    Menu.railMenu.endTurn(profile);
+                    Menu.railMenu.endTurn(profile, Menu.railMenu.getBattle());
                 } else if (input.equalsIgnoreCase("show lawn")) {
                     Menu.railMenu.showLawn();
                 } else if (input.equalsIgnoreCase("record"))

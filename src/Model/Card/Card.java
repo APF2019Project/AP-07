@@ -122,4 +122,5 @@ public abstract class Card {
     public static void addToZombies(Zombie zombie) {
         zombies.add(zombie);
     }
+
 }
