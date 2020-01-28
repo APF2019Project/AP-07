@@ -2,7 +2,6 @@ package Controller.GameMode;
 
 import Model.Card.Card;
 import Model.Card.Plants.Plant;
-import Model.Map.Map;
 import Model.Player.Profile;
 
 import java.io.IOException;
@@ -114,6 +113,10 @@ public class Rail extends GameMode {
     }
     public void addRecord(int record) {
         this.record +=record;
+    }
+
+    public ArrayList<Plant> getAvailablePlants() {
+        return this.plants;
     }
 }
 
