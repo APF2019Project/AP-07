@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class Rail extends GameMode {
 
     private ArrayList<Plant> plants = new ArrayList<>();
-    private ArrayList<Plant> list = new ArrayList<>();
+    private ArrayList<Plant> plant = new ArrayList<>();
     private int record=0;
     private int lastTurnUpdatingRailCollection =0;
     int random = (int) (Math.random() * ((4 - 2) + 1)) + 2;
@@ -62,7 +62,7 @@ public class Rail extends GameMode {
             int randomPlant = (int) (Math.random() * ((plants.size()) + 1));
             Plant newPlant = Plant.makePlant(Plant.getPlants().get(randomPlant).getName());
             if (plants.size() < 10) {
-                getBattle().getPlayer(0).getPlants().add(newPlant);
+                battle.getPlayer(1).getPlants().add(newPlant);
             }
         }
         //if plant the zombie remove it from playerPlants
@@ -96,12 +96,12 @@ public class Rail extends GameMode {
     public void addPlant(Battle battle) {
         if (battle.getCurrentTurn() % 5 == 0 && plants.size() < 10) {
             int rnd = (int) (Math.random() * (plants.size() + 1));
-            plants.add(plants.get(rnd));
+            plants.add(Card.getPlants().get(rnd));
         }
     }
 
     public ArrayList<Plant> showList() {
-        return list;
+        return plant;
     }
 
     public void setLastTurnUpdatingRailCollection(int lastTurnUpdatingRailCollection) {
