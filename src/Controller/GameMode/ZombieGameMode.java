@@ -65,20 +65,7 @@ public class ZombieGameMode extends GameMode {
 //            generateMap().getCell(randomPlace, 0).setPlant(plant);
 //        }
 
-        int num = (int) (Math.random()*3) + 8;
-        int used =0;
-        int plantNum;
-        int x ;
-        int y ;
-        while (used < num) {
-            plantNum = (int) (Math.random()*(Card.getPlants().size()+1));
-            x = (int) (Math.random()*(Map.getHEIGHT()+1));
-            y = (int) (Math.random()*(Map.getWIDTH()+1));
-            if (battle.getMap().getCell(x,y).getPlant() !=null) {
-                battle.getMap().getCell(x,y).setPlant(Plant.makePlant(Card.getPlants().get(plantNum).getName()));
-                used ++;
-            }
-        }
+
     }
 
 

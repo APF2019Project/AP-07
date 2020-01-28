@@ -2,6 +2,7 @@ package Controller.Menus;
 
 import Controller.GameMode.Battle;
 import Controller.GameMode.ZombieGameMode;
+import Model.Card.Card;
 import Model.Card.Plants.Plant;
 import Model.Card.Zombies.Zombie;
 import Model.Map.Cell;
@@ -62,6 +63,22 @@ public class ZombieMenu extends Menu {
         }
     }
 
+    public void ss() throws IOException {
+        int num = (int) (Math.random()*3) + 8;
+        int used =0;
+        int plantNum;
+        int x ;
+        int y ;
+        while (used < num) {
+            plantNum = (int) (Math.random()*(Card.getPlants().size()+1));
+            x = (int) (Math.random()*(Map.getHEIGHT()+1));
+            y = (int) (Math.random()*(Map.getWIDTH()+1));
+            if (battle.getMap().getCell(x,y).getPlant() !=null) {
+                battle.getMap().getCell(x,y).setPlant(Plant.makePlant(Card.getPlants().get(plantNum).getName()));
+                used ++;
+            }
+
+        }}
     public void showLawn(){
         for (Cell[] cells : battle.getMap().getCells()) {
             for (Cell cell : cells) {
