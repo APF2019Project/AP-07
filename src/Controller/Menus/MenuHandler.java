@@ -152,7 +152,8 @@ public class MenuHandler {
                 } else if (input.equalsIgnoreCase("Zombie")) {
                     player = new Player();
                     Menu.playMenu.startZombieGame(player, bot);
-                    zombieMode = new ZombieGameMode(profile);
+                    Battle battle = new Battle();
+                    zombieMode = new ZombieGameMode(profile,battle);
                     Menu.collectionMenu.zombieMode = true;
                     Menu.menuHandler.setCurrentMenu(Menu.collectionMenu);
                 } else if (input.equalsIgnoreCase("pvp")) {

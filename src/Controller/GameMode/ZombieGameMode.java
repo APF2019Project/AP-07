@@ -5,6 +5,9 @@ import Model.Card.Plants.Plant;
 import Model.Card.Zombies.Zombie;
 import Model.Map.Map;
 import Model.Player.Profile;
+
+import java.awt.event.MouseAdapter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -15,7 +18,7 @@ public class ZombieGameMode extends GameMode {
 
     public ZombieGameMode(){}
 
-    public ZombieGameMode(Profile profile) {
+    public ZombieGameMode(Profile profile, Battle battle) throws IOException {
         for (int i=0;i<landMower.length;i++){
             landMower[i]=false;
         }
@@ -62,66 +65,80 @@ public class ZombieGameMode extends GameMode {
 //            generateMap().getCell(randomPlace, 0).setPlant(plant);
 //        }
 
+        int num = (int) (Math.random()*3) + 8;
+        int used =0;
+        int plantNum;
+        int x ;
+        int y ;
+        while (used < num) {
+            plantNum = (int) (Math.random()*(Card.getPlants().size()+1));
+            x = (int) (Math.random()*(Map.getHEIGHT()+1));
+            y = (int) (Math.random()*(Map.getWIDTH()+1));
+            if (battle.getMap().getCell(x,y).getPlant() !=null) {
+                battle.getMap().getCell(x,y).setPlant(Plant.makePlant(Card.getPlants().get(plantNum).getName()));
+                used ++;
+            }
+        }
     }
 
 
     @Override
     public void wave(Battle battle) {
-        for (int i = 0; i < getBattle().getMap().getCells().length; i++) {
-            ArrayList<Zombie> zombiesInRow = new ArrayList<>();
-            for (int j = 0; j < getBattle().getMap().getCells()[i].length; j++) {
-                zombiesInRow.addAll(getBattle().getMap().getCells()[i][j].getZombies());
-            }
-            if (zombiesInRow.size() <= 2) {
-                if (mapType.equals("Water")) {
-                    Random random = new Random();
-                    int randomPlace = (int) (Math.random() * ((Map.getHEIGHT()) + 1));
-                    //if in landCell
-                    if (randomPlace != 4 && randomPlace != 5) {
-                        //zombies number 0 to 12 can be in landCell
-                        int zombieNumber = (int) (Math.random() * (12 + 1));
-                        Zombie zombie = new Zombie(Card.getZombies().get(zombieNumber).getName());
-                        if (profile.getExternalCoins() >= zombie.getPrice() * 10) {
-                            profile.setExternalCoins(-zombie.getPrice() * 10);
-                            zombie.setCell(GameMode.generateMap(this).getCell(randomPlace, 0));
-                            GameMode.generateMap(this).getCell(randomPlace, 0).getZombies().add(zombie);
-                            getWaveZombies().add(zombie);
-                        }
-                    }
-                    //if in water cell
-                    if (randomPlace == 4 || randomPlace == 5) {
-                        int zombieNumber = (int) (Math.random() * ((14 - 13) + 1)) + 13;
-                        Zombie zombie = new Zombie(Card.getZombies().get(zombieNumber).getName());
-                        if (profile.getExternalCoins() >= zombie.getPrice() * 10) {
-                            profile.setExternalCoins(-zombie.getPrice() * 10);
-                            zombie.setCell(GameMode.generateMap(this).getCell(randomPlace, 0));
-                            GameMode.generateMap(this).getCell(randomPlace, 0).getZombies().add(zombie);
-                            getWaveZombies().add(zombie);
-                        }
-                    }
-                }
-                if (mapType.equals("Land")) {
-                    int zombieNumber = (int) (Math.random() * (12 + 1));
-                    int randomPlace = (int) (Math.random() * ((Map.getHEIGHT()) + 1));
-                    Zombie zombie = new Zombie(Card.getZombies().get(zombieNumber).getName());
-                    if (profile.getExternalCoins() >= zombie.getPrice() * 10) {
-                        profile.setExternalCoins(-zombie.getPrice() * 10);
-                        zombie.setCell(GameMode.generateMap(this).getCell(randomPlace, 0));
-                        GameMode.generateMap(this).getCell(randomPlace, 0).getZombies().add(zombie);
-                        getWaveZombies().add(zombie);
-                    }
-                }
-            }
-        }
-
-        for (int i = 0; i < getBattle().getMap().getCells().length; i++) {
-            for (int j = 0; j < getBattle().getMap().getCells()[i].length; i++) {
-                if (getBattle().getMap().getCells()[i][j].getPlant().getHP() == 0) {
-                    Plant p = new Plant(getBattle().getMap().getCells()[i][j].getPlant().getName());
-                    profile.setExternalCoins(10 * p.getHP());
-                }
-            }
-        }
+//        for (int i = 0; i < getBattle().getMap().getCells().length; i++) {
+//            ArrayList<Zombie> zombiesInRow = new ArrayList<>();
+//            for (int j = 0; j < getBattle().getMap().getCells()[i].length; j++) {
+//                zombiesInRow.addAll(getBattle().getMap().getCells()[i][j].getZombies());
+//            }
+//            if (zombiesInRow.size() <= 2) {
+//                if (mapType.equals("Water")) {
+//                    Random random = new Random();
+//                    int randomPlace = (int) (Math.random() * ((Map.getHEIGHT()) + 1));
+//                    //if in landCell
+//                    if (randomPlace != 4 && randomPlace != 5) {
+//                        //zombies number 0 to 12 can be in landCell
+//                        int zombieNumber = (int) (Math.random() * (12 + 1));
+//                        Zombie zombie = new Zombie(Card.getZombies().get(zombieNumber).getName());
+//                        if (profile.getExternalCoins() >= zombie.getPrice() * 10) {
+//                            profile.setExternalCoins(-zombie.getPrice() * 10);
+//                            zombie.setCell(GameMode.generateMap(this).getCell(randomPlace, 0));
+//                            GameMode.generateMap(this).getCell(randomPlace, 0).getZombies().add(zombie);
+//                            getWaveZombies().add(zombie);
+//                        }
+//                    }
+//                    //if in water cell
+//                    if (randomPlace == 4 || randomPlace == 5) {
+//                        int zombieNumber = (int) (Math.random() * ((14 - 13) + 1)) + 13;
+//                        Zombie zombie = new Zombie(Card.getZombies().get(zombieNumber).getName());
+//                        if (profile.getExternalCoins() >= zombie.getPrice() * 10) {
+//                            profile.setExternalCoins(-zombie.getPrice() * 10);
+//                            zombie.setCell(GameMode.generateMap(this).getCell(randomPlace, 0));
+//                            GameMode.generateMap(this).getCell(randomPlace, 0).getZombies().add(zombie);
+//                            getWaveZombies().add(zombie);
+//                        }
+//                    }
+//                }
+//                if (mapType.equals("Land")) {
+//                    int zombieNumber = (int) (Math.random() * (12 + 1));
+//                    int randomPlace = (int) (Math.random() * ((Map.getHEIGHT()) + 1));
+//                    Zombie zombie = new Zombie(Card.getZombies().get(zombieNumber).getName());
+//                    if (profile.getExternalCoins() >= zombie.getPrice() * 10) {
+//                        profile.setExternalCoins(-zombie.getPrice() * 10);
+//                        zombie.setCell(GameMode.generateMap(this).getCell(randomPlace, 0));
+//                        GameMode.generateMap(this).getCell(randomPlace, 0).getZombies().add(zombie);
+//                        getWaveZombies().add(zombie);
+//                    }
+//                }
+//            }
+//        }
+//
+//        for (int i = 0; i < getBattle().getMap().getCells().length; i++) {
+//            for (int j = 0; j < getBattle().getMap().getCells()[i].length; i++) {
+//                if (getBattle().getMap().getCells()[i][j].getPlant().getHP() == 0) {
+//                    Plant p = new Plant(getBattle().getMap().getCells()[i][j].getPlant().getName());
+//                    profile.setExternalCoins(10 * p.getHP());
+//                }
+//            }
+//        }
     }
 
     @Override

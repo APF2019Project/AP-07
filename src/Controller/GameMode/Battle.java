@@ -30,6 +30,8 @@ public class Battle {
         this.newMap = newMap;
     }
 
+    public Battle(){}
+
     public Battle(Player player1, Player player2, GameMode gameMode) {
         this.player2 = player2;
         this.player1 = player1;
