@@ -5,8 +5,8 @@ import Model.Card.Zombies.Zombie;
 import Model.Map.Map;
 import Model.Player.Profile;
 
+import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Random;
 
 public class Water extends GameMode {
 
@@ -23,30 +23,34 @@ public class Water extends GameMode {
     }
 
     @Override
-    public void wave(Battle battle) {
+    public void wave(Battle battle) throws IOException {
         if (canWave(battle)) {
             int numberOfZombiesInAWave = (int) (Math.random() * ((10 - 4) + 1)) + 4;
             for (int i = 0; i < numberOfZombiesInAWave; i++) {
-                Random random = new Random();
                 int randomPlace = (int) (Math.random() * ((Map.getHEIGHT()) + 1));
-                //if in landCell
-                if (randomPlace != 2 && randomPlace != 3) {
-                    //zombies number 0 to 12 can be in landCell
+                boolean zombieIsMade = false;
+                Zombie zombie = null;
+                while (!zombieIsMade) {
                     int zombieNumber = (int) (Math.random() * (12 + 1));
-                    Zombie zombie = new Zombie(Card.getZombies().get(zombieNumber).getName());
-                    zombie.setCell(GameMode.generateMap(this).getCell(randomPlace, 0));
-                    GameMode.generateMap(this).getCell(randomPlace, 0).getZombies().add(zombie);
-                    getWaveZombies().add(zombie);
+                    zombie = Zombie.makeZombie(Zombie.getZombies().get(zombieNumber).getName());
+                    if (zombie.getName().equalsIgnoreCase("SnorkelZombie") ||
+                            zombie.getName().equalsIgnoreCase("DolphinRiderZombie")) {
+                        if (randomPlace == 2 || randomPlace == 3) {
+                            zombieIsMade = true;
+                            System.err.println(zombie.getName());
+                        }
+                    } else if (!zombie.getName().equalsIgnoreCase("SnorkelZombie") &&
+                            !zombie.getName().equalsIgnoreCase("DolphinRiderZombie")) {
+                        if (randomPlace != 2 && randomPlace != 3) {
+                            zombieIsMade = true;
+                            System.err.println(zombie.getName());
+                        }
+                    } else {
+                        zombieIsMade = false;
+                    }
                 }
-
-                //if in water cell
-                if (randomPlace == 2 || randomPlace == 3) {
-                    int zombieNumber = (int) (Math.random() * ((14 - 13) + 1)) + 13;
-                    Zombie zombie = new Zombie(Card.getZombies().get(zombieNumber).getName());
-                    zombie.setCell(GameMode.generateMap(this).getCell(randomPlace, 0));
-                    GameMode.generateMap(this).getCell(randomPlace, 0).getZombies().add(zombie);
-                    getWaveZombies().add(zombie);
-                }
+                zombie.setCell(battle.getMap().getCell(randomPlace, 21));
+                battle.getMap().getCell(randomPlace, 21).addZombie(zombie);
             }
             setWaveCounter(1);
         }
@@ -57,11 +61,13 @@ public class Water extends GameMode {
     //7 turn pas az marge last zombie true mishe
     @Override
     public boolean canWave(Battle battle) {
-        if (getBattle().getCurrentTurn() >= 3 && getWaveCounter() <= 3) {
-            if (getBattle().getCurrentTurn() == 0 || (getBattle().getCurrentTurn() - lastTurnlastZombieKilled) == 7)
-                lastTurnlastZombieKilled = 0;
+        if (battle.getCurrentTurn() >= 3 && this.getWaveCounter() <= 3) {
+//            if (lastTurnlastZombieKilled == 7) {
+            lastTurnlastZombieKilled = 0;
             return true;
+//            }
         }
+
         return false;
     }
 

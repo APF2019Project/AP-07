@@ -84,6 +84,7 @@ public class Zombie extends Card {
         if (zombie1.getName().equalsIgnoreCase("Zomboni")) {
             zombie1.actionsOfAnEvent1.add(walk);
             zombie1.actionsOfAnEvent1.add(turnToNormalZombie);
+            zombie1.actionsOfAnEvent1.add(stealPlant);
             zombie1.setActionsOfAnEvent(new ActionsOfAnEvent(valid, zombie1.actionsOfAnEvent1) {
             });
         }

@@ -66,20 +66,27 @@ public class WaterModeMenu extends Menu {
         }
     }
 
-    public void endTurn(Profile profile) {
-        waterMode.wave(battle);
-        //waterMode.setLastTurnGivingSuns(1);
-        battle.actAllMembers();
-        //waterMode.generateSun(battle);
-        //waterMode.handleWin(profile, battle);
-        //waterMode.setLastTurnWaved(1);
-        //waterMode.updateCollection(battle);
-        battle.setCurrentTurn(1);
+    public void endTurn(Profile profile) throws IOException {
+        if (battle.getGameMode() instanceof Water) {
+            waterMode.wave(battle);
+            waterMode.setLastTurnGivingSuns(1);
+            battle.actAllMembers();
+            waterMode.generateSun(battle);
+            if (!waterMode.handleWin(profile, battle)) {
+                //Menu.menuHandler.setCurrentMenu(Menu.mainMenu);
+            }
+            waterMode.setLastTurnWaved(1);
+            waterMode.updateCollection(battle);
+            battle.setCurrentTurn(1);
+        }
+
+
         for (Plant p : player1.getPlants()) {
             if (p.getLoading() != 0) {
                 p.setLoading(p.getLoading() - 1);
             }
         }
-        System.out.println(player1.getSun());
+        System.out.println(battle.getCurrentTurn());
+        System.out.println("suns: " + player1.getSun());
     }
 }

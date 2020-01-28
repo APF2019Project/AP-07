@@ -87,9 +87,6 @@ public class Day extends GameMode {
         }
     }
 
-
-
-
     public void setLastTurnGivingSuns(int lastTurnUpdatingDarSuns) {
         this.lastTurnGivingSuns += lastTurnUpdatingDarSuns;
     }

@@ -13,8 +13,7 @@ public class ZombieGameMode extends GameMode {
     private String mapType;
     private Profile profile;
 
-    public ZombieGameMode(){
-    }
+    public ZombieGameMode(){}
 
     public ZombieGameMode(Profile profile, String mapType) {
         for (int i=0;i<landMower.length;i++){
