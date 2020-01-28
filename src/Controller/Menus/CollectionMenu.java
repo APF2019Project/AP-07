@@ -6,6 +6,7 @@ import Model.Player.Player;
 import Model.Player.Profile;
 import Model.Shop.Collection;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class CollectionMenu extends Menu {
@@ -66,7 +67,7 @@ public class CollectionMenu extends Menu {
         collection.removePlant(name);
     }
 
-    public void play(Player player1, Player player2) {
+    public void play(Player player1, Player player2) throws IOException {
         if (!pvp) {
             player1.setCollection(collection);
             if (!zombieMode) {
@@ -93,6 +94,7 @@ public class CollectionMenu extends Menu {
                 Menu.menuHandler.setCurrentMenu(Menu.zombieMenu);
                 zombieMenu.player2=player2;
                 zombieMenu.player1=player1;
+                zombieMenu.ss();
                 zombieMenu.battle.setMap(GameMode.generateMap(zombieMenu.zombieGameMode));
             }
         }
