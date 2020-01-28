@@ -81,8 +81,6 @@ public class Rail extends GameMode {
         //deleting dead zombies
         record+=removeDeadZombies(battle);
 
-        //deleting dead plants
-        record+=removeDeadPlants(battle);
     }
 
     @Override

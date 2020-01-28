@@ -19,7 +19,6 @@ public class TurnToNormalZombie extends Action {
 
     @Override
     public void doAction(Zombie zombie, Battle battle, int d) throws IOException {
-        System.out.println("turnTo");
         if(!zombie.getName().equals("Zombie"))
         {
             Cell cell= zombie.getCell();

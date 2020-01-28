@@ -148,16 +148,11 @@ public class MenuHandler {
                     railMode = new Rail();
                     Menu.collectionMenu.zombieMode = false;
                     Menu.menuHandler.setCurrentMenu(Menu.railMenu);
-                } else if (zombiegm.matcher(input).matches()) {
+                } else if (input.equalsIgnoreCase("Zombie")) {
                     player = new Player();
                     Menu.playMenu.startZombieGame(player, bot);
-                    String mapType = splitInput[1];
-                    zombieMode = new ZombieGameMode(profile, mapType);
+                    zombieMode = new ZombieGameMode(profile);
                     Menu.collectionMenu.zombieMode = true;
-                    if (mapType.equalsIgnoreCase("water"))
-                        Menu.collectionMenu.water = true;
-                    else
-                        Menu.collectionMenu.water = false;
                     Menu.menuHandler.setCurrentMenu(Menu.collectionMenu);
                 } else if (input.equalsIgnoreCase("pvp")) {
                     player = new Player();
