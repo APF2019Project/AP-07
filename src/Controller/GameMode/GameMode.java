@@ -227,8 +227,8 @@ public abstract class GameMode {
         return record;
     }
 
-    public void addToRecord(int record) {
-        this.record += record;
+    public void setRecord(int i) {
+        record+=i;
     }
 }
 

@@ -10,6 +10,9 @@
     "cooldown": "2",
     "ProducedSun": "0",
     "SpeedReduction": "1",
-    "price":0
+    "price":0,
+    "speedReduction":"0",
+        "pea":"true",
+        "peaAmount":"1"
   }
 }

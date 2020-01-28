@@ -11,8 +11,6 @@ import java.util.ArrayList;
 public class Rail extends GameMode {
 
     private ArrayList<Plant> plants = new ArrayList<>();
-    private ArrayList<Plant> list = new ArrayList<>();
-    private int record=0;
     private int lastTurnUpdatingRailCollection =0;
     int random = (int) (Math.random() * ((4 - 2) + 1)) + 2;
 
@@ -62,10 +60,10 @@ public class Rail extends GameMode {
             int randomPlant = (int) (Math.random() * ((plants.size()) + 1));
             Plant newPlant = Plant.makePlant(Plant.getPlants().get(randomPlant).getName());
             if (plants.size() < 10) {
-                getBattle().getPlayer(0).getPlants().add(newPlant);
+               this.plants.add(newPlant);
             }
         }
-        //if plant the zombie remove it from playerPlants
+        //if plant the card remove it from playerPlants
         ArrayList<Plant> plantsToBeOmitted = new ArrayList<>();
         for (int i = 0; i < plants.size(); i++) {
             if (plants.get(i).getCell() != null) {
@@ -78,8 +76,7 @@ public class Rail extends GameMode {
         }
 
         //deleting dead zombies
-        record+=removeDeadZombies(battle);
-
+        setRecord(getRecord()+removeDeadZombies(battle));
     }
 
     @Override
@@ -100,19 +97,8 @@ public class Rail extends GameMode {
         }
     }
 
-    public ArrayList<Plant> showList() {
-        return list;
-    }
-
     public void setLastTurnUpdatingRailCollection(int lastTurnUpdatingRailCollection) {
         this.lastTurnUpdatingRailCollection += lastTurnUpdatingRailCollection;
-    }
-
-    public int getRecord() {
-        return record;
-    }
-    public void addRecord(int record) {
-        this.record +=record;
     }
 
     public ArrayList<Plant> getAvailablePlants() {

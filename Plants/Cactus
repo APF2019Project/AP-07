@@ -10,7 +10,10 @@
 "id":"6",
 "AP":"1",
 "HP":"3",
-"price":0
+"price":0,
+"speedReduction":"0",
+"pea":"true",
+"peaAmount":1
 
 }
 }

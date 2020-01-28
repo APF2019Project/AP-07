@@ -18,6 +18,7 @@ public class Plant extends Card {
     private int cooldown;
     private int loading;
     private int ProducedSun;
+    private int speedReduction;
     private int SpeedReduction;
     public boolean pea;
     private ArrayList<ActionsOfAnEvent> actionsOfAnEvent;
@@ -219,11 +220,11 @@ public class Plant extends Card {
     }
 
     public int getSpeedReduction() {
-        return SpeedReduction;
+        return speedReduction;
     }
 
     public void setSpeedReduction(int speedReduction) {
-        SpeedReduction = speedReduction;
+        this.speedReduction = speedReduction;
     }
 
     public int getProducedSun() {
