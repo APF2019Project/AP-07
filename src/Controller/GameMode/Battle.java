@@ -1,5 +1,6 @@
 package Controller.GameMode;
 
+import Model.Card.Plants.PeaOrProjectile;
 import Model.Card.Plants.Plant;
 import Model.Card.Zombies.Zombie;
 import Model.Map.Cell;
@@ -7,6 +8,7 @@ import Model.Map.Map;
 import Model.Player.Player;
 
 import java.util.ArrayList;
+import java.util.Collection;
 
 
 public class Battle {
@@ -19,7 +21,7 @@ public class Battle {
     private Map map;
     private ArrayList<Zombie> zombies;
     private Map newMap;
-
+    private ArrayList<PeaOrProjectile> peas = new ArrayList<>();
     public Map getNewMap() {
         return newMap;
     }
@@ -71,6 +73,11 @@ public class Battle {
 //        newMap = gameMode.generateMap();
     }
 
+    public void peaMove() {
+        for (PeaOrProjectile pea : this.peas) {
+            pea.peaMove(this);
+        }
+    }
 
     public Player getPlayer(int i) {
         if (i == 1)
@@ -95,6 +102,13 @@ public class Battle {
         this.newMap = GameMode.generateMap(day);
     }
 
+    public Battle(Player player1, Player player2, Rail rail) {
+        this.player1 = player1;
+        this.player2 = player2;
+        this.gameMode = rail;
+        this.map = GameMode.generateMap(rail);
+        this.newMap = GameMode.generateMap(rail);
+    }
     public Battle(Player player1, Player player2, Water water) {
         this.player1 = player1;
         this.player2 = player2;
@@ -164,4 +178,7 @@ public class Battle {
     }
 
 
+    public ArrayList<PeaOrProjectile> getPeas() {
+        return peas;
+    }
 }

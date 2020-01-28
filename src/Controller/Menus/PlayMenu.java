@@ -26,9 +26,13 @@ public class PlayMenu extends Menu {
     }
 
     public void startRailGame(Player player1, Player player2) {
-        Rail rail=new Rail();
+        Rail rail = new Rail();
         Battle battle = new Battle(player1, player2,rail);
-        Menu.menuHandler.setCurrentMenu(Menu.playMenu);
+        Menu.menuHandler.setCurrentMenu(Menu.railMenu);
+        Menu.railMenu.player1 = player1;
+        Menu.railMenu.player2 = player2;
+        Menu.railMenu.rail = rail;
+        Menu.railMenu.battle = battle;
     }
 
     public void startZombieGame(Player player1, Player player2) {

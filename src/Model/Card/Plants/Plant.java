@@ -26,6 +26,7 @@ public class Plant extends Card {
     private int freeze;
     private int Turn;
     private int finalTurn = 0;
+    private int peaAmount;
 
     public void setActionsOfAnEvent(ActionsOfAnEvent actionsOfAnEvent) {
         this.actionsOfAnEvent.add(actionsOfAnEvent);
@@ -287,5 +288,9 @@ public class Plant extends Card {
     @Override
     public void setPrice() {
         this.price = this.sun * this.cooldown * this.getHP() + 1;
+    }
+
+    public int getPeaAmount() {
+        return this.peaAmount;
     }
 }
