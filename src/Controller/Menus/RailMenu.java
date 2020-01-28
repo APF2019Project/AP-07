@@ -75,6 +75,7 @@ public class RailMenu extends Menu {
         rail.addPlant(battle);
         rail.updateCollection(battle);
         battle.setCurrentTurn(1);
+        System.out.println(battle.getCurrentTurn());
 //        for (Plant p:player1.getPlants()) {
 //            if (p.getLoading()!=0) {
 //                p.setLoading(p.getLoading()-1);
@@ -82,4 +83,5 @@ public class RailMenu extends Menu {
 //        }
 //        System.out.println(player1.getSun());
     }
+
 }

@@ -14,7 +14,7 @@ public class MenuHandler {
     private Menu currentMenu;
 
     public Day dayMode = null;
-    public Rail railMode = null;
+    public Rail railMode = new Rail();
     public Water waterMode = null;
     public ZombieGameMode zombieMode = null;
 
@@ -241,7 +241,7 @@ public class MenuHandler {
 
             else if (Menu.menuHandler.getCurrentMenu() == Menu.railMenu) {
                 if (input.equalsIgnoreCase("List")) {
-                    for (Plant plant : railMode.getAvailablePlants()) {
+                    for (Plant plant : Menu.railMenu.rail.showList()) {
                         System.out.println(plant.getName());
                     }
                 } else if (select.matcher(input).matches()) {
