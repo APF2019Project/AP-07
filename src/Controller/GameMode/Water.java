@@ -35,13 +35,13 @@ public class Water extends GameMode {
                     zombie = Zombie.makeZombie(Zombie.getZombies().get(zombieNumber).getName());
                     if (zombie.getName().equalsIgnoreCase("SnorkelZombie") ||
                             zombie.getName().equalsIgnoreCase("DolphinRiderZombie")) {
-                        if (randomPlace == 2 || randomPlace == 3) {
+                        if (randomPlace == 4 || randomPlace == 5) {
                             zombieIsMade = true;
                             System.err.println(zombie.getName());
                         }
                     } else if (!zombie.getName().equalsIgnoreCase("SnorkelZombie") &&
                             !zombie.getName().equalsIgnoreCase("DolphinRiderZombie")) {
-                        if (randomPlace != 2 && randomPlace != 3) {
+                        if (randomPlace != 4 && randomPlace != 5) {
                             zombieIsMade = true;
                             System.err.println(zombie.getName());
                         }

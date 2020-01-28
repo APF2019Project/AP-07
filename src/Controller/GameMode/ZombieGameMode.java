@@ -77,7 +77,7 @@ public class ZombieGameMode extends GameMode {
                     Random random = new Random();
                     int randomPlace = (int) (Math.random() * ((Map.getHEIGHT()) + 1));
                     //if in landCell
-                    if (randomPlace != 2 && randomPlace != 3) {
+                    if (randomPlace != 4 && randomPlace != 5) {
                         //zombies number 0 to 12 can be in landCell
                         int zombieNumber = (int) (Math.random() * (12 + 1));
                         Zombie zombie = new Zombie(Card.getZombies().get(zombieNumber).getName());
@@ -89,7 +89,7 @@ public class ZombieGameMode extends GameMode {
                         }
                     }
                     //if in water cell
-                    if (randomPlace == 2 || randomPlace == 3) {
+                    if (randomPlace == 4 || randomPlace == 5) {
                         int zombieNumber = (int) (Math.random() * ((14 - 13) + 1)) + 13;
                         Zombie zombie = new Zombie(Card.getZombies().get(zombieNumber).getName());
                         if (profile.getExternalCoins() >= zombie.getPrice() * 10) {

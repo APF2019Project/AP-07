@@ -1,5 +1,6 @@
 package Controller.GameMode;
 
+import Controller.Menus.Menu;
 import Model.Card.Card;
 import Model.Card.Plants.Plant;
 import Model.Card.Zombies.Zombie;
@@ -17,11 +18,19 @@ public abstract class GameMode {
     private int waveCounter = 0;
     private boolean canWave = true;
     private ArrayList<Zombie> waveZombies = new ArrayList<>();
-    protected boolean[] landMower = new boolean[6];
+    protected boolean[] landMower = new boolean[Map.getHEIGHT() + 4];
+
+    {
+        for (int i = 0; i < 6; i++) {
+            landMower[i] = false;
+        }
+    }
+
     public int lastTurnWaved = 0;
     public Player player1 = new Player();
     public Player player2 = new Player();
     private Battle battle = new Battle(player1, player2, this);
+    private int record = 0;
 
     public abstract void wave(Battle battle) throws IOException;
 
@@ -37,7 +46,7 @@ public abstract class GameMode {
 
     public static Map generateMap(GameMode gameMode) {
         if (gameMode instanceof Water)
-            return generateLandMap();//todo
+            return generateWaterMap();
         else
             return generateLandMap();
     }
@@ -72,12 +81,17 @@ public abstract class GameMode {
 
     //chamanzan
     public boolean landMower(int i) {
+        System.err.println("in method");
         if (landMower[i]) {
             landMower[i] = false;
-            for (int k = 0; k < battle.getMap().cells[i].length; k++) {
-                //todo
-                //maybe lead to error
-                battle.getMap().cells[i][k].getZombies().clear();
+            System.err.println("landMower");
+            for (int k = 0; k < Map.getWIDTH() + 4; k++) {
+                System.err.println("ahmaq" + battle.getMap().getCell(i, k).getZombies().size());
+                for (int a = 0; a < battle.getMap().getCell(i, k).getZombies().size(); a++) {
+                    System.err.println("khodeti");
+                    battle.getMap().getCell(i, k).getZombies().get(a).setHP(0);
+                }
+
             }
             return true;
         }
@@ -85,29 +99,32 @@ public abstract class GameMode {
     }
 
     public boolean zombieReachedToTheEnd(Battle battle) {
-//        System.err.println("IN zombieReachedToTheEnd");
-        for (int i = 0; i < Map.getWIDTH(); i++) {
-            if (battle.getMap().getCell(1,i).getZombies().size() != 0) {
-//                System.err.println("finish  size    " + battle.getMap().getCell(1,i).getZombies().size());
-                if (!landMower[i])
-                    return true;
+        for (int i = 0; i < Map.getHEIGHT() + 4; i++) {
+            if (!battle.getMap().getCell(i, 0).getZombies().isEmpty() || !battle.getMap().getCell(i, 1).getZombies().isEmpty()) {
+                System.err.println("finish");
+                Menu.menuHandler.setCurrentMenu(Menu.mainMenu);
+//                if (!landMower[i])
+                return true;
+//                if(landMower[i]){
+//                    System.err.println("before method landMower");
+//                    landMower(i);
+//                }
             }
         }
-//        System.err.println("continue");
+        System.err.println("continue the game");
         return false;
     }
 
     public boolean allZombiesAreDead(Profile profile, Battle battle) {
-//        System.err.println("IN allZombiesAreDead");
         for (Cell[] i : battle.getMap().getCells()) {
             for (Cell j : i) {
                 if (!j.getZombies().isEmpty()) {
-//                    System.err.println("finish  size  allzombiesAreDead  " +j.getZombies().size());
+                    System.err.println("all zombies Are NOT Dead     size     " + j.getZombies().size());
                     return false;
                 }
             }
         }
-        //System.err.println("continue");
+        System.err.println("all zombies are dead");
         return true;
     }
 
@@ -123,18 +140,18 @@ public abstract class GameMode {
 
     public static Map generateWaterMap() {
         Map m = new Map();
-        for (int i = 2; i < 4; i++) {
-            for (int j = 0; j < Map.getWIDTH(); j++) {
+        for (int i = 4; i < 6; i++) {
+            for (int j = 0; j < Map.getWIDTH()+4; j++) {
                 m.setCell(i, j, new Cell(i, j, true));
             }
         }
-        for (int i = 4; i < 6; i++) {
-            for (int j = 0; j < Map.getWIDTH(); j++) {
+        for (int i = 6; i < 10; i++) {
+            for (int j = 0; j < Map.getWIDTH()+4; j++) {
                 m.setCell(i, j, new Cell(i, j, false));
             }
         }
-        for (int i = 0; i < 2; i++) {
-            for (int j = 0; j < Map.getWIDTH(); j++) {
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < Map.getWIDTH()+4; j++) {
                 m.setCell(i, j, new Cell(i, j, false));
             }
         }
@@ -182,6 +199,7 @@ public abstract class GameMode {
             int y = zombiesToBeDeleted.get(k).getCell().y();
             battle.getMap().getCell(x, y).getZombies().remove(zombiesToBeDeleted.get(k));
         }
+        record+=zombiesToBeDeleted.size();
         return zombiesToBeDeleted.size();
     }
 
@@ -201,9 +219,17 @@ public abstract class GameMode {
             battle.getMap().getCell(x, y).setPlant(null);
             System.out.println("size    " + battle.getMap().getCell(x, y).getZombies().size());
         }
-            System.out.println("finitoooooooooooooooooooooooooooooooooooooooooooooooooo");
-            return plantsToBeDeleted.size();
-        }
+        System.out.println("finitoooooooooooooooooooooooooooooooooooooooooooooooooo");
+        return plantsToBeDeleted.size();
+    }
+
+    public int getRecord() {
+        return record;
+    }
+
+    public void addToRecord(int record) {
+        this.record += record;
+    }
 }
 
 

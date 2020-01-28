@@ -57,11 +57,12 @@ public class Day extends GameMode {
         //if player win
         if (allZombiesAreDead(profile, battle)) {
             System.out.println("Player WOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOON");
+            profile.setExternalCoins(10*getRecord());
             lastTurnlastZombieKilled = getBattle().getCurrentTurn();
             return false;
         }
         //continue the game
-        System.out.println("handleWin3");
+        System.out.println("Continue");
         return true;
     }
 
