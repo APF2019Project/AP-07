@@ -1,15 +1,22 @@
 package Controller.Menus;
 
 import Controller.GameMode.*;
-import Model.Card.Zombies.Zombie;
 import Model.Player.Player;
-import Model.Player.Profile;
-import com.gilecode.yagson.YaGson;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.control.Button;
 
-import java.util.ArrayList;
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class PlayMenu extends Menu {
-    public PlayMenu() {
+public class PlayMenu extends Menu implements Initializable {
+    public Button start;
+    public Parent root = FXMLLoader.load(getClass().getResource("MainMenu.fxml"));
+
+    public PlayMenu() throws IOException {
         this.orders = new String[]{"Day", "Water", "Rail", "ZombieGameMode", "PvP"};
     }
 
@@ -17,6 +24,7 @@ public class PlayMenu extends Menu {
         Day day=new Day();
         Battle battle = new Battle(player1, player2,day);
         Menu.menuHandler.setCurrentMenu(Menu.collectionMenu);
+
     }
 
     public void startWaterGame(Player player1, Player player2) {
@@ -41,7 +49,17 @@ public class PlayMenu extends Menu {
         Menu.menuHandler.setCurrentMenu(Menu.collectionMenu);
     }
 
-    public void exit() {
+    public void jhajCJUK() {
         Menu.menuHandler.setCurrentMenu(Menu.mainMenu);
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        setStart();
+    }
+
+    @FXML
+    public void setStart() {
+        start.setOnAction(actionEvent -> jhajCJUK());
     }
 }

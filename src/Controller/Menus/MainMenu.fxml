@@ -61,22 +61,16 @@
             <Font size="18.0" />
           </font>
         </Label>
-            <ImageView fitHeight="382.0" fitWidth="644.0" layoutY="-2.0">
+            <ImageView fx:id="startButton" fitHeight="600.0" fitWidth="800.0" layoutY="-2.0">
                <image>
                   <Image url="@../../Images/LoginMenu.png" />
                </image>
             </ImageView>
-            <ButtonBar layoutX="330.0" layoutY="68.0" opacity="0.0" prefHeight="48.0" prefWidth="256.0" rotate="4.4">
-              <buttons>
-                <Button mnemonicParsing="false" text="Button" />
-              </buttons>
-            </ButtonBar>
             <ButtonBar layoutX="380.0" layoutY="41.0" opacity="0.0" prefHeight="25.0" prefWidth="145.0" rotate="3.6999999999999993">
               <buttons>
                 <Button mnemonicParsing="false" text="Button" />
               </buttons>
             </ButtonBar>
-            <ButtonBar layoutX="333.0" layoutY="125.0" prefHeight="48.0" prefWidth="239.0" rotate="6.3" />
             <Button layoutX="569.0" layoutY="306.0" mnemonicParsing="false" opacity="0.0" prefHeight="42.0" prefWidth="57.0" text="Button" />
             <ButtonBar layoutX="180.0" prefHeight="40.0" prefWidth="20.0" />
             <Button layoutX="516.0" layoutY="306.0" mnemonicParsing="false" opacity="0.0" prefHeight="42.0" prefWidth="51.0" text="Button" />
@@ -101,6 +95,7 @@
                 <Button minWidth="56.0" mnemonicParsing="false" opacity="0.0" prefHeight="25.0" text="Button" />
               </buttons>
             </ButtonBar>
+            <Button id="start" fx:id="start" layoutX="522.0" layoutY="120.0" mnemonicParsing="false" text="Button" />
       </children>
     </AnchorPane>
   </children>
