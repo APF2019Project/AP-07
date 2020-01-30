@@ -230,6 +230,7 @@ public abstract class GameMode {
     public void setRecord(int i) {
         record+=i;
     }
+
 }
 
 
