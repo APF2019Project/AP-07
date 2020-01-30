@@ -1,11 +1,9 @@
 package Controller.Menus;
 
 import Controller.GameMode.*;
-import Model.Card.Card;
 import Model.Card.Plants.Plant;
 import Model.Player.Player;
 import Model.Player.Profile;
-
 import java.io.IOException;
 import java.util.Scanner;
 import java.util.regex.Pattern;

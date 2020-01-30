@@ -94,7 +94,7 @@ public class CollectionMenu extends Menu {
                 Menu.menuHandler.setCurrentMenu(Menu.zombieMenu);
                 zombieMenu.player2=player2;
                 zombieMenu.player1=player1;
-                zombieMenu.ss();
+                zombieMenu.secondStart();
                 zombieMenu.battle.setMap(GameMode.generateMap(zombieMenu.zombieGameMode));
             }
         }

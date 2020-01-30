@@ -1,6 +1,7 @@
 package Controller.Menus;
 
-import Controller.GameMode.*;
+import Controller.GameMode.Battle;
+import Controller.GameMode.Day;
 import Model.Card.Plants.Plant;
 import Model.Card.Zombies.Zombie;
 import Model.Map.Cell;
@@ -38,21 +39,23 @@ public class GameMenu extends Menu {
             for (Plant p : player1.getPlants()) {
                 if (p.getName().equalsIgnoreCase(name)) {
                     if (p.getLoading() == 0 && p.getSun() <= player1.getSun()) {
+                        if (!name.equalsIgnoreCase("lilypad") && !name.equalsIgnoreCase("tanglekelp") && !name.equalsIgnoreCase("cattail") ){
                         battle.getMap().getCell(x, y).setPlant(p1);
                         p1.setCell(battle.getMap().getCell(x, y));
                         p.setLoading(p.getCooldown());
                         System.out.println("plant planted:)");
                         player1.setSun(player1.getSun() - p.getSun());
-
-                    } else {
-                        System.out.println("plant is not ready");
                     }
-
-                    break;
+                } else {
+                    System.out.println("plant is not ready");
                 }
+
+                break;
             }
         }
     }
+
+}
 
     public void endTurn(Profile profile) throws IOException {
 
@@ -81,6 +84,7 @@ public class GameMenu extends Menu {
 
 
     public void showLawn() {
+        System.out.println("Zombies And Plants");
         for (Cell[] cells : battle.getMap().getCells()) {
             for (Cell cell : cells) {
                 if (cell.getZombies().size() != 0) {
@@ -92,6 +96,17 @@ public class GameMenu extends Menu {
                     Plant z = cell.getPlant();
                     System.out.println(z.getName() + "\t" + cell.x() + "," + cell.y() + "\t" + z.getHP());
                 }
+            }
+        }
+        System.out.println("Map");
+        int p;
+        for (Cell[] cells : battle.getMap().getCells()) {
+            System.out.println(cells[0].x() + "\t");
+            for (Cell cell : cells) {
+                if (cell.getPlant() != null)
+                    p = 1;
+                else p = 0;
+                System.out.print(cell.getZombies().size() + "" + p + "" + cell.getPeas().size() + "\t");
             }
         }
     }
