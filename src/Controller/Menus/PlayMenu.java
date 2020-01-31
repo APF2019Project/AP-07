@@ -6,15 +6,15 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
-import javafx.scene.control.Button;
 
+import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class PlayMenu extends Menu implements Initializable {
-    public Button start;
-    public Parent root = FXMLLoader.load(getClass().getResource("MainMenu.fxml"));
+
+
 
     public PlayMenu() throws IOException {
         this.orders = new String[]{"Day", "Water", "Rail", "ZombieGameMode", "PvP"};
@@ -55,11 +55,7 @@ public class PlayMenu extends Menu implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        setStart();
+        System.out.println("Initialize");
     }
 
-    @FXML
-    public void setStart() {
-        start.setOnAction(actionEvent -> jhajCJUK());
-    }
 }

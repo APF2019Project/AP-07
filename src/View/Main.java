@@ -26,7 +26,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
 
-        primaryStage.setScene(new Scene(Menu.playMenu.root));
+        primaryStage.setScene(new Scene(Menu.mainMenu.root));
         primaryStage.show();
 
 //        Button quitButton = new Button();

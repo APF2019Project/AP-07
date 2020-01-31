@@ -33,7 +33,16 @@ public class Menu {
     }
 
     public static LeaderBoard leaderBoard = new LeaderBoard();
-    public static MainMenu mainMenu = new MainMenu();
+    public static MainMenu mainMenu;
+
+    static {
+        try {
+            mainMenu = new MainMenu();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public static ProfileMenu profileMenu = new ProfileMenu();
     public static ShopMenu shopMenu = new ShopMenu();
     public static MenuHandler menuHandler = new MenuHandler();
