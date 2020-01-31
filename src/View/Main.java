@@ -1,33 +1,25 @@
 package View;
 
-import Controller.Menus.Menu;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Pos;
-import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
-import java.io.FileInputStream;
-
-import static Controller.Menus.Menu.menuHandler;
-import static Controller.Menus.Menu.playMenu;
-import static javafx.application.Platform.exit;
 
 
 public class Main extends Application {
     public final static int sceneHeight = 800;
     public final static int sceneWitdh = 800;
 
+
     @Override
     public void start(Stage primaryStage) throws Exception {
-
-        primaryStage.setScene(new Scene(Menu.mainMenu.root));
+        FXMLLoader loader = new FXMLLoader();
+        Parent root = loader.load(getClass().getResource("../Controller/Menus/MainMenu.fxml"));
+        primaryStage.setTitle("Hello World");
+        primaryStage.setScene(new Scene(root));
         primaryStage.show();
+
 
 //        Button quitButton = new Button();
 //        root.getChildren().add(quitButton);
@@ -78,6 +70,9 @@ public class Main extends Application {
 //        textField.setStyle("");
 //
 
+    }
+    public static void main(String[] args){
+        launch(args);
     }
 
 

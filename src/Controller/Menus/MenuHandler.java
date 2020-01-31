@@ -79,7 +79,7 @@ public class MenuHandler {
                 else if (input.equalsIgnoreCase("Shop"))
                     Menu.menuHandler.setCurrentMenu(Menu.shopMenu);
                 else if (input.equalsIgnoreCase("Exit"))
-                    Menu.mainMenu.Exit();
+                    Menu.mainMenu.exit();
                 else if (input.equalsIgnoreCase("help"))
                     Menu.help();
                 else
