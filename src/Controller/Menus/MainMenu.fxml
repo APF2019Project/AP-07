@@ -53,12 +53,12 @@
     </MenuBar>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
          <children>
-            <ImageView fitHeight="570.0" fitWidth="760.0" layoutX="1.0" layoutY="-1.0">
+            <ImageView fitHeight="506.0" fitWidth="730.0" layoutX="3.0" layoutY="-2.0">
                <image>
-                  <Image url="@../../Images/LoginMenu.png" />
+                  <Image url="@../../resources/LoginMenu.png" />
                </image>
             </ImageView>
-            <Button fx:id="exiit" layoutX="678.0" layoutY="480.0" mnemonicParsing="false" text="Button" />
+            <Button fx:id="exiit" layoutX="650.0" layoutY="423.0" mnemonicParsing="false" text="Button" />
          </children>
     </AnchorPane>
   </children>
