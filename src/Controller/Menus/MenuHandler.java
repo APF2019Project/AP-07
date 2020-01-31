@@ -1,7 +1,6 @@
 package Controller.Menus;
 
 import Controller.GameMode.*;
-import Model.Card.Card;
 import Model.Card.Plants.Plant;
 import Model.Player.Player;
 import Model.Player.Profile;
@@ -81,7 +80,7 @@ public class MenuHandler {
                 else if (input.equalsIgnoreCase("Shop"))
                     Menu.menuHandler.setCurrentMenu(Menu.shopMenu);
                 else if (input.equalsIgnoreCase("Exit"))
-                    Menu.mainMenu.exit();
+                    Menu.mainMenu.Exit();
                 else if (input.equalsIgnoreCase("help"))
                     Menu.help();
                 else

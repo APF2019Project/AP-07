@@ -11,6 +11,7 @@ import Model.Card.Plants.PlantsActions.Shoot;
 import Model.Card.Zombies.Zombie;
 import Model.Player.Player;
 import Model.Player.Profile;
+import View.Main;
 import com.gilecode.yagson.YaGson;
 
 import java.io.BufferedReader;
