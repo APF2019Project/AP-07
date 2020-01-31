@@ -12,7 +12,7 @@ public class Cell {
     //in each cell we have just 1 plant but not only 1 zombie
     private Plant plant = null;
     private ArrayList<Zombie> zombies;
-    private ArrayList<PeaOrProjectile> peas;
+    private ArrayList<PeaOrProjectile> peas = new ArrayList<>();
     private boolean water;
     private boolean LilyPad;
 
@@ -69,7 +69,9 @@ public class Cell {
 
     public boolean canBePlanted() {
         if (this.water) {
-            if (this.LilyPad) {
+            if (this.LilyPad || plant.getName().equalsIgnoreCase("lilypad") ||
+                    plant.getName().equalsIgnoreCase("tanglekelp") ||
+                    plant.getName().equalsIgnoreCase("cattail") ) {
                 if (this.plant == null)
                     return true;
             }

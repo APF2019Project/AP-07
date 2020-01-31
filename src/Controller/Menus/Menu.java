@@ -23,9 +23,27 @@ import java.util.ArrayList;
 public class Menu {
     public static LoginMenu loginMenu = new LoginMenu();
     public static CollectionMenu collectionMenu = new CollectionMenu();
-    public static PlayMenu playMenu = new PlayMenu();
+    public static PlayMenu playMenu;
+
+    static {
+        try {
+            playMenu = new PlayMenu();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public static LeaderBoard leaderBoard = new LeaderBoard();
-    public static MainMenu mainMenu = new MainMenu();
+    public static MainMenu mainMenu;
+
+    static {
+        try {
+            mainMenu = new MainMenu();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public static ProfileMenu profileMenu = new ProfileMenu();
     public static ShopMenu shopMenu = new ShopMenu();
     public static MenuHandler menuHandler = new MenuHandler();

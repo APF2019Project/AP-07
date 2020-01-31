@@ -4,7 +4,6 @@ import Controller.GameMode.*;
 import Model.Card.Plants.Plant;
 import Model.Player.Player;
 import Model.Player.Profile;
-
 import java.io.IOException;
 import java.util.Scanner;
 import java.util.regex.Pattern;
@@ -114,7 +113,7 @@ public class MenuHandler {
                     profile.delete_account(username, password);
                     profile = null;
                     Menu.menuHandler.setCurrentMenu(Menu.loginMenu);
-                } else if (input.equalsIgnoreCase("exit")) {
+                } else if (input.equalsIgnoreCase("jhajCJUK")) {
                     Menu.profileMenu.exit();
                 } else if (input.equalsIgnoreCase("show")) {
                     System.out.println(profile.getUsername());
@@ -162,8 +161,8 @@ public class MenuHandler {
                     dayMode = new Day();
                     Menu.collectionMenu.pvp = true;
                     Menu.collectionMenu.water=false;
-                } else if (input.equalsIgnoreCase("exit")) {
-                    Menu.playMenu.exit();
+                } else if (input.equalsIgnoreCase("jhajCJUK")) {
+                    Menu.playMenu.jhajCJUK();
                 } else
                     System.out.println("invalid command");
             }

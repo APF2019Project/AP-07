@@ -1,5 +1,6 @@
 package Controller.Menus;
 
+import Model.Card.Card;
 import Model.Card.Plants.Plant;
 import Model.Card.Zombies.Zombie;
 import Model.Player.Player;
@@ -15,18 +16,18 @@ public class ShopMenu extends Menu {
     }
 
     public void showShop(Profile profile) {
-        ArrayList<Plant> plants = Plant.getPlants();
+        ArrayList<Plant> plants = Card.getPlants();
         System.out.println("Plants");
         System.out.println("----------------------");
         for (Plant x : plants)
             if (!profile.getPurchasedPlants().contains(x))
-                System.out.println(x.getName() + "\t" + x.getCoin());
+                System.out.println(x.getName() + "\t" + x.getPrice());
         System.out.println("----------------------");
         System.out.println("Zombies");
         System.out.println("----------------------");
-        for (Zombie x : Zombie.getZombies())
+        for (Zombie x : Card.getZombies())
             if (!profile.getPurchasedZombies().contains(x))
-                System.out.println(x.getName() + "\t" + x.getCoin());
+                System.out.println(x.getName() + "\t" + x.getPrice());
         System.out.println("----------------------");
     }
 
@@ -40,10 +41,17 @@ public class ShopMenu extends Menu {
     public void buy(String name, Profile profile) {
         Zombie z = Zombie.findZombie(name);
         Plant p = Plant.findPlant(name);
-        if (z != null && z.getCoin() <= profile.getExternalCoins())
+        if (z != null && !profile.getPurchasedZombies().contains(z.getName())&& z.getPrice() <= profile.getExternalCoins()){
+            System.out.println("kharid");
             profile.addZombie(z);
-        if (p != null && p.getCoin() <= profile.getExternalCoins())
-            profile.addPlant(p);
+            profile.setExternalCoins(-z.getPrice());
+        }
+        else if (p != null &&!profile.getPurchasedPlants().contains(p.getName()) && p.getPrice() <= profile.getExternalCoins()){
+            System.out.println("kharid");
+            profile.setExternalCoins(-p.getPrice());
+            profile.addPlant(p);}
+        else System.out.println("nakharid");
+
     }
 
     public void exit() {

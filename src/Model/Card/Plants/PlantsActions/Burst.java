@@ -26,7 +26,7 @@ public class Burst extends Action {
             plant.setHealthPoint(0);
         }
 
-        if (plant.getName().equalsIgnoreCase("Cherry Bomb")) {
+        if (plant.getName().equalsIgnoreCase("CherryBomb")) {
 
             for (Zombie z : battle.getMap().getCell(x - 1, y).getZombies()) {
                 z.setHealthPoint(0);

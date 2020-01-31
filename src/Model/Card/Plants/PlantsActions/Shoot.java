@@ -13,14 +13,19 @@ public class Shoot extends Action {
         if (plant.getHP() > 0) {
 
             if(plant.getName().equalsIgnoreCase("split pea")) {
-                battle.getPeas().add(new PeaOrProjectile(plant));
+                PeaOrProjectile pea1 = new PeaOrProjectile(plant);
+                battle.getPeas().add(pea1);
                 pea = new PeaOrProjectile(plant);
+                plant.getCell().getPeas().add(pea1);
+                plant.getCell().getPeas().add(pea);
                 pea.setBackward(true);
                 battle.getPeas().add(pea);
             }
             else {
                 for (int i=0;i<plant.getPeaAmount();i++){
                     battle.getPeas().add(new PeaOrProjectile(plant));
+                    plant.getCell().getPeas().add(new PeaOrProjectile(plant));
+                    //todo
                 }
             }
         }

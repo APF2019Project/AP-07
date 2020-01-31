@@ -101,7 +101,7 @@ public abstract class GameMode {
     public boolean zombieReachedToTheEnd(Battle battle) {
         for (int i = 0; i < Map.getHEIGHT() + 4; i++) {
             if (!battle.getMap().getCell(i, 0).getZombies().isEmpty() || !battle.getMap().getCell(i, 1).getZombies().isEmpty()) {
-                System.err.println("finish");
+                System.out.println("finish");
                 Menu.menuHandler.setCurrentMenu(Menu.mainMenu);
 //                if (!landMower[i])
                 return true;
@@ -119,7 +119,7 @@ public abstract class GameMode {
         for (Cell[] i : battle.getMap().getCells()) {
             for (Cell j : i) {
                 if (!j.getZombies().isEmpty()) {
-                    System.err.println("all zombies Are NOT Dead     size     " + j.getZombies().size());
+                    System.out.println("all zombies Are NOT Dead     size     " + j.getZombies().size());
                     return false;
                 }
             }
@@ -204,7 +204,6 @@ public abstract class GameMode {
     }
 
     public int removeDeadPlants(Battle battle) {
-        System.out.println("update coleectionnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn");
         ArrayList<Plant> plantsToBeDeleted = new ArrayList<>();
         for (Cell[] i : battle.getMap().getCells()) {
             for (Cell j : i) {
@@ -219,7 +218,6 @@ public abstract class GameMode {
             battle.getMap().getCell(x, y).setPlant(null);
             System.out.println("size    " + battle.getMap().getCell(x, y).getZombies().size());
         }
-        System.out.println("finitoooooooooooooooooooooooooooooooooooooooooooooooooo");
         return plantsToBeDeleted.size();
     }
 
