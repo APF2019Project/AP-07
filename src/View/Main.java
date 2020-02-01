@@ -15,7 +15,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         FXMLLoader loader = new FXMLLoader();
-        Parent root = loader.load(getClass().getResource("../Controller/Menus/MainMenu.fxml"));
+        Parent root = loader.load(getClass().getResource("../Controller/Menus/helpMenu.fxml"));
         primaryStage.setTitle("Zombieeeeeeeee");
 
 
