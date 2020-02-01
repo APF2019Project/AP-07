@@ -29,8 +29,8 @@ public class Main extends Application {
         //by setting this property to true, the audio will be played
         mediaPlayer.setAutoPlay(true);
 
-        primaryStage.setScene(new Scene(root));
-        primaryStage.show();
+        Menu.primaryStage.setScene(new Scene(root));
+        Menu.primaryStage.show();
 
 
 //        Button quitButton = new Button();
