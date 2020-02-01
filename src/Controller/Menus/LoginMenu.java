@@ -2,8 +2,11 @@ package Controller.Menus;
 
 import Model.Player.*;
 
+import java.awt.*;
+
 public class LoginMenu extends Menu {
 
+    public TextField textField;
 
     public LoginMenu() {
         this.orders = new String[]{"Create account", "Login", "Leaderboard", "Help", "Exit"};

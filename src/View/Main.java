@@ -1,6 +1,5 @@
 package View;
 
-import Controller.Menus.Menu;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -16,9 +15,8 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         FXMLLoader loader = new FXMLLoader();
-        Parent root = loader.load(getClass().getResource("../Controller/Menus/MainMenu.fxml"));
-
-        Menu.primaryStage.setTitle("Zombieeeeeeeee");
+        Parent root = loader.load(getClass().getResource("../Controller/Menus/helpMenu.fxml"));
+        primaryStage.setTitle("Plants vs Zombies");
 
 
         String path = "src/View/MainMenu.mp3";

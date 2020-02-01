@@ -1,0 +1,7 @@
+.label {
+    -fx-font-size: 30px;
+    -fx-color: rgba(187, 24, 13, 0.91);
+    -fx-padding: 5px;
+    -fx-background-radius: 10px;
+    -fx-font-family: "Comic Sans MS";
+}
