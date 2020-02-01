@@ -1,17 +1,17 @@
 package Controller.Menus;
 
-import Model.Player.*;
+import Model.Player.Profile;
 
 import java.awt.*;
 
 public class LoginMenu extends Menu {
 
+    public Button okButton;
     public TextField textField;
 
     public LoginMenu() {
         this.orders = new String[]{"Create account", "Login", "Leaderboard", "Help", "Exit"};
     }
-
 
     public void createAccount(String username, String password) {
         if (Profile.validUsername(username)) {
@@ -19,8 +19,7 @@ public class LoginMenu extends Menu {
             Profile.addAccount(profile);
             menuHandler.setCurrentMenu(loginMenu);
             System.out.println("Account created");
-        }
-        else {
+        } else {
             System.out.println("invalid username");
         }
     }
@@ -30,8 +29,7 @@ public class LoginMenu extends Menu {
         if (p != null) {
             System.out.println("logged in");
             menuHandler.setCurrentMenu(mainMenu);
-        }
-        else
+        } else
             System.out.println("wrong username or password");
         return p;
     }

@@ -6,6 +6,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.media.*;
 import javafx.stage.Stage;
+
+import java.awt.*;
 import java.io.File;
 
 public class Main extends Application {
@@ -17,7 +19,6 @@ public class Main extends Application {
         FXMLLoader loader = new FXMLLoader();
         Parent root = loader.load(getClass().getResource("../Controller/Menus/MainMenu.fxml"));
         primaryStage.setTitle("Plants vs Zombies");
-
 
         String path = "src/View/MainMenu.mp3";
         Media media = new Media(new File(path).toURI().toString());
