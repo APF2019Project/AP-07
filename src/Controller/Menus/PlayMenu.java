@@ -24,7 +24,7 @@ import java.util.ResourceBundle;
 import static javafx.application.Platform.exit;
 
 public class PlayMenu extends Menu implements Initializable {
-    public Button exiit;
+
 
     public PlayMenu() throws IOException {
         this.orders = new String[]{"Day", "Water", "Rail", "ZombieGameMode", "PvP"};
@@ -65,6 +65,6 @@ public class PlayMenu extends Menu implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        exiit.setOnAction(ActionsOfAnEvent -> exit());
+        //exiit.setOnAction(ActionsOfAnEvent -> exit());
     }
 }
