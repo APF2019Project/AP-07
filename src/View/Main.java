@@ -1,23 +1,28 @@
 package View;
 
+import Controller.Menus.Menu;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.io.IOException;
+
 
 public class Main extends Application {
     public final static int sceneHeight = 800;
     public final static int sceneWitdh = 800;
+    FXMLLoader loader = new FXMLLoader();
 
+    public Main() throws IOException {
+    }
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        FXMLLoader loader = new FXMLLoader();
-        Parent root = loader.load(getClass().getResource("../Controller/Menus/MainMenu.fxml"));
+        Menu.root = loader.load(getClass().getResource("../Controller/Menus/MainMenu.fxml"));
         primaryStage.setTitle("Hello World");
-        primaryStage.setScene(new Scene(root));
+        primaryStage.setScene(new Scene(Menu.root));
         primaryStage.show();
 
 
