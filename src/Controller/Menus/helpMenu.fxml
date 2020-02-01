@@ -8,8 +8,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<VBox xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Menus.HelpMenu" stylesheets="@labelStyle.css">
+<VBox xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Menus.HelpMenu">
    <children>
       <AnchorPane prefHeight="400.0" prefWidth="600.0">
          <children>
@@ -18,12 +17,31 @@
                   <Image url="@../../../../../../Desktop/helpMenu.png" />
                </image>
             </ImageView>
-            <Text fx:id="txt" fill="#a70101" fontSmoothingType="LCD" layoutX="442.0" layoutY="277.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Help">
+            <Text fx:id="txt" fill="#a70101" fontSmoothingType="LCD" layoutX="346.0" layoutY="340.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Help">
                <font>
                   <Font size="33.0" />
                </font>
             </Text>
-            <Label fx:id="label" layoutX="128.0" layoutY="134.0" text="Label"/>
+            <Label fx:id="label" alignment="CENTER" layoutX="12.0" layoutY="124.0" prefHeight="58.0" prefWidth="126.0" rotate="-18.4" style="label" text="Label" textAlignment="CENTER" textFill="#bf0c0c">
+               <font>
+                  <Font size="27.0" />
+               </font></Label>
+            <Label alignment="CENTER" layoutX="477.0" layoutY="124.0" prefHeight="58.0" prefWidth="103.0" rotate="11.3" text="Label" textAlignment="CENTER" textFill="#c20808">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </Label>
+            <Label layoutX="43.0" layoutY="221.0" prefHeight="95.0" prefWidth="201.0" rotate="18.4" text="Label" textFill="#a70505">
+               <font>
+                  <Font size="79.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="381.0" layoutY="195.0" prefHeight="44.0" prefWidth="68.0" rotate="-31.0" text="Label" textAlignment="CENTER" textFill="#b70808" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="258.0" layoutY="180.0" prefHeight="44.0" prefWidth="98.0" text="Label" textAlignment="CENTER" textFill="#c50303">
+               <font>
+                  <Font size="27.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
    </children>
