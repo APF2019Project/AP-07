@@ -3,21 +3,22 @@ package Controller.Menus;
 
 import Model.Player.Profile;
 import com.gilecode.yagson.YaGson;
-import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 
 import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
-
-import static javafx.application.Platform.exit;
 
 public class MainMenu extends Menu implements  Initializable {
     public Button exiit;
@@ -42,51 +43,59 @@ public class MainMenu extends Menu implements  Initializable {
     }
 
 
+    public void helpAct(Stage stage) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("../Controller/Menu/MainMenuHelp.fxml"));
+        stage.setScene(new Scene(root));
+    }
+
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         //username.setAccessibleHelp();
-        start1.setOnAction(new EventHandler<ActionEvent>() {
+//        start1.setOnAction(new EventHandler<ActionEvent>() {
+//            @Override
+//            public void handle(ActionEvent actionEvent) {
+//                try {
+//                    Menu.root = FXMLLoader.load(getClass().getResource("../Controller/Menus/Entrance.fxml"));
+//                } catch (IOException e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//        });
+//        help2.setOnAction(new EventHandler<ActionEvent>() {
+//            @Override
+//            public void handle(ActionEvent actionEvent) {
+//                try {
+//                    Menu.root = FXMLLoader.load(getClass().getResource("../Controller/Menus/MainMenuHelp.fxml"));
+//                } catch (IOException e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//        });
+//        start2.setOnAction(new EventHandler<ActionEvent>() {
+//            @Override
+//            public void handle(ActionEvent actionEvent) {
+//                try {
+//                    Menu.root = FXMLLoader.load(getClass().getResource("../Controller/Menus/Entrance.fxml"));
+//                } catch (IOException e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//        });
+        help.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
-            public void handle(ActionEvent actionEvent) {
+            public void handle(MouseEvent mouseEvent) {
                 try {
-                    Menu.root = FXMLLoader.load(getClass().getResource("../Controller/Menus/Entrance.fxml"));
+                    Parent root = (FXMLLoader.load(getClass().getResource("MainMenuHelp.fxml")));
+                    Menu.primaryStage.setScene(new Scene(root));
+                    Menu.primaryStage.show();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
         });
-        help2.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                try {
-                    Menu.root = FXMLLoader.load(getClass().getResource("../Controller/Menus/MainMenu-help.fxml"));
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-        start2.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                try {
-                    Menu.root = FXMLLoader.load(getClass().getResource("../Controller/Menus/Entrance.fxml"));
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-        help.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                try {
-                    Menu.root = FXMLLoader.load(getClass().getResource("../Controller/Menus/MainMenu-help.fxml"));
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-        quit.setOnAction(ActionsOfAnEvent -> exit());
-        exiit.setOnAction(ActionsOfAnEvent -> exit());
+//        quit.setOnAction(ActionsOfAnEvent -> exit());
+//        exiit.setOnAction(ActionsOfAnEvent -> exit());
     }
 }
 

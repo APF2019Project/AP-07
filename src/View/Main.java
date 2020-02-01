@@ -1,5 +1,6 @@
 package View;
 
+import Controller.Menus.Menu;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -16,7 +17,8 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
         FXMLLoader loader = new FXMLLoader();
         Parent root = loader.load(getClass().getResource("../Controller/Menus/MainMenu.fxml"));
-        primaryStage.setTitle("Zombieeeeeeeee");
+
+        Menu.primaryStage.setTitle("Zombieeeeeeeee");
 
 
         String path = "src/View/MainMenu.mp3";
@@ -28,8 +30,8 @@ public class Main extends Application {
         //by setting this property to true, the audio will be played
         mediaPlayer.setAutoPlay(true);
 
-        primaryStage.setScene(new Scene(root));
-        primaryStage.show();
+        Menu.primaryStage.setScene(new Scene(root));
+        Menu.primaryStage.show();
 
 
 //        Button quitButton = new Button();
