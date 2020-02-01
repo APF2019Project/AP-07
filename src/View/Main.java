@@ -4,19 +4,30 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.media.*;
 import javafx.stage.Stage;
-
+import java.io.File;
 
 public class Main extends Application {
     public final static int sceneHeight = 800;
     public final static int sceneWitdh = 800;
 
-
     @Override
     public void start(Stage primaryStage) throws Exception {
         FXMLLoader loader = new FXMLLoader();
         Parent root = loader.load(getClass().getResource("../Controller/Menus/MainMenu.fxml"));
-        primaryStage.setTitle("Hello World");
+        primaryStage.setTitle("Zombieeeeeeeee");
+
+
+        String path = "src/View/MainMenu.mp3";
+        Media media = new Media(new File(path).toURI().toString());
+
+        //Instantiating MediaPlayer class
+        MediaPlayer mediaPlayer = new MediaPlayer(media);
+
+        //by setting this property to true, the audio will be played
+        mediaPlayer.setAutoPlay(true);
+
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
 
