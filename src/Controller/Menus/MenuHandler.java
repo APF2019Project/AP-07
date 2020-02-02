@@ -63,7 +63,7 @@ public class MenuHandler {
                 } else if (input.equalsIgnoreCase("help")) {
                     Menu.help();
                 } else if (input.equalsIgnoreCase("Exit")) {
-                    Menu.loginMenu.exit();
+                    Menu.loginMenu.Exit();
                 } else {
                     System.out.println("invalid command");
                 }
