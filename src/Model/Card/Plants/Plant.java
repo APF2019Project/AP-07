@@ -189,6 +189,11 @@ public class Plant extends Card {
 //        System.out.println(plant1.getSun());
     }
 
+    public static void makePlantsImages(String name){
+        String path="CollectionGifs"+"/"+"PeaShooter"+".gif";
+
+    }
+
 
     public static Plant findPlant(String name) {
         for (Plant plant : plants) {
