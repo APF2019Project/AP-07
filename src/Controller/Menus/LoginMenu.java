@@ -1,13 +1,26 @@
 package Controller.Menus;
 
 import Model.Player.Profile;
+import javafx.event.EventHandler;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.input.MouseEvent;
 
-import java.awt.*;
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class LoginMenu extends Menu {
+import static javafx.application.Platform.exit;
 
-    public Button okButton;
-    public TextField textField;
+public class LoginMenu extends Menu implements Initializable {
+
+    public Button quitButton;
+    public Button CreateAccountButton;
+    public Button LoginButton;
+    public Button LeaderBoardButton;
 
     public LoginMenu() {
         this.orders = new String[]{"Create account", "Login", "Leaderboard", "Help", "Exit"};
@@ -34,7 +47,26 @@ public class LoginMenu extends Menu {
         return p;
     }
 
-    public void exit() {
+    public void Exit() {
         menuHandler.setCurrentMenu(null);
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        quitButton.setOnAction(ActionsOfAnEvent -> exit());
+        //todo
+        LeaderBoardButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                try {
+                    Parent root = (FXMLLoader.load(getClass().getResource("LeaderBoard.fxml")));
+                    Menu.primaryStage.setScene(new Scene(root));
+                    Menu.primaryStage.show();
+                    Menu.primaryStage.setTitle("PvZ");
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
     }
 }

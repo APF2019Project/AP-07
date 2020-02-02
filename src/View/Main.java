@@ -19,6 +19,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
         FXMLLoader loader = new FXMLLoader();
         Parent root = loader.load(getClass().getResource("../Controller/Menus/MainMenu.fxml"));
+        // todo //ba loginMenu shoro beshe bazi
         primaryStage.setTitle("Plants vs Zombies");
 
         String path = "src/View/MainMenu.mp3";
