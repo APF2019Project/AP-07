@@ -11,6 +11,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 
 import java.io.FileWriter;
@@ -55,7 +56,7 @@ public class LoginMenu extends Menu implements Initializable {
         Profile p = Profile.login(username, password);
         if (p != null) {
             System.out.println("logged in");
-            menuHandler.setCurrentMenu(mainMenu);
+//            menuHandler.setCurrentMenu(mainMenu);
         } else
             System.out.println("wrong username or password");
         return p;
@@ -68,11 +69,12 @@ public class LoginMenu extends Menu implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         //quitButton.setOnAction(ActionsOfAnEvent -> exit());
+
+        //System.out.println(user.length());
         CreateAccountButton.setOnAction(new EventHandler<>() {
             @Override
             public void handle(ActionEvent actionEvent) {
                 String user = usernameField.getText();
-                System.out.println(user.length());
                 String pass = passwordField.getText();
                 if (Profile.validUsername(user)) {
                     try {
@@ -80,6 +82,7 @@ public class LoginMenu extends Menu implements Initializable {
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
+                    //System.out.println("dab");
                     MainMenu.User = user;
                     try {
                         Parent root = (FXMLLoader.load(getClass().getResource("MainMenu.fxml")));
@@ -94,12 +97,11 @@ public class LoginMenu extends Menu implements Initializable {
                 }
                 else {
                     try {
-
-                        Parent root = (FXMLLoader.load(getClass().getResource("createAccount.fxml")));
+                        Parent root = (FXMLLoader.load(getClass().getResource("CreateAccount.fxml")));
                         Menu.primaryStage.setScene(new Scene(root));
                         Menu.primaryStage.show();
                         Menu.primaryStage.setTitle("PvZ");
-                        System.out.println("error");
+                        //System.out.println("error");
                         err.setText("This username is invalid");
                         errorL.setText("This username is invalid");
                         //todo//
@@ -107,6 +109,26 @@ public class LoginMenu extends Menu implements Initializable {
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
+                }
+            }
+        });
+        LoginButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                String user = usernameField.getText();
+                String pass = passwordField.getText();
+//                System.out.println("rt");
+                Login(user,pass);
+//                System.out.println(user);
+                MainMenu.User = user;
+                try {
+                    Parent root = FXMLLoader.load(getClass().getResource("MainMenu.fxml"));
+                    Menu.primaryStage.setScene(new Scene(root));
+                    Menu.primaryStage.show();
+                    Menu.primaryStage.setTitle("PvZ");
+                }
+                catch (IOException e) {
+                    e.printStackTrace();
                 }
             }
         });

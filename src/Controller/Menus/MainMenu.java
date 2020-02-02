@@ -109,7 +109,7 @@ public class MainMenu extends Menu implements Initializable {
             @Override
             public void handle(ActionEvent actionEvent) {
                 try {
-                    Parent root = (FXMLLoader.load(getClass().getResource("createAccount.fxml")));
+                    Parent root = (FXMLLoader.load(getClass().getResource("CreateAccount.fxml")));
                     Menu.primaryStage.setScene(new Scene(root));
                     Menu.primaryStage.show();
                     Menu.primaryStage.setTitle("PvZ");
