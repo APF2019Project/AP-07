@@ -11,17 +11,13 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 
-import java.awt.*;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
-
-import static javafx.application.Platform.exit;
 
 public class LoginMenu extends Menu implements Initializable {
 
@@ -99,7 +95,7 @@ public class LoginMenu extends Menu implements Initializable {
                 else {
                     try {
 
-                        Parent root = (FXMLLoader.load(getClass().getResource("CreateAccount.fxml")));
+                        Parent root = (FXMLLoader.load(getClass().getResource("createAccount.fxml")));
                         Menu.primaryStage.setScene(new Scene(root));
                         Menu.primaryStage.show();
                         Menu.primaryStage.setTitle("PvZ");

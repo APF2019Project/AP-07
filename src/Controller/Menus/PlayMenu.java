@@ -22,6 +22,10 @@ public class PlayMenu extends Menu implements Initializable {
     public Button pVp;
     public Button railM;
 
+public void setStyle(){
+    dayM.setStyle("");
+}
+
 
     public PlayMenu() throws IOException {
         this.orders = new String[]{"Day", "Water", "Rail", "ZombieGameMode", "PvP"};
@@ -67,6 +71,19 @@ public class PlayMenu extends Menu implements Initializable {
             public void handle(MouseEvent mouseEvent) {
                 try {
                     Parent root = (FXMLLoader.load(getClass().getResource("MainMenu.fxml")));
+                    Menu.primaryStage.setScene(new Scene(root));
+                    Menu.primaryStage.show();
+                    Menu.primaryStage.setTitle("PvZ");
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+        dayM.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                try {
+                    Parent root = (FXMLLoader.load(getClass().getResource("CollectionMenu.fxml")));
                     Menu.primaryStage.setScene(new Scene(root));
                     Menu.primaryStage.show();
                     Menu.primaryStage.setTitle("PvZ");

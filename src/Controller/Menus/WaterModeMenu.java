@@ -39,6 +39,9 @@ public class WaterModeMenu extends Menu {
                         p.setLoading(p.getCooldown());
                         System.out.println("plant planted:)");
 
+
+
+
                     } else {
                         System.out.println("plant is not ready");
                     }

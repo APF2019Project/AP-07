@@ -1,26 +1,88 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Menus.ProfileMenu">
-   <children>
-      <ImageView fitHeight="570.0" fitWidth="760.0">
-         <image>
-            <Image url="@../../Images/menusBackGround.png" />
-         </image>
-      </ImageView>
-      <Button fx:id="ShowHandButton" layoutX="299.0" layoutY="40.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="113.0" text="Show Hand" />
-      <ImageView fitHeight="80.0" fitWidth="80.0">
-         <image>
-            <Image url="@../../Images/back.png" />
-         </image>
-      </ImageView>
-      <Button fx:id="ShowCollectionButton" layoutX="299.0" layoutY="90.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="113.0" text="Show Collection" />
-      <Button fx:id="SelectButton" layoutX="299.0" layoutY="138.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="113.0" text="Select" />
-      <Button fx:id="PlayButton" layoutX="299.0" layoutY="234.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="113.0" text="Play" />
-      <Button fx:id="RemoveButton" layoutX="299.0" layoutY="186.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="113.0" text="Remove" />
-   </children>
-</AnchorPane>
+<VBox fx:id="vBox" prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Menus.CollectionMenu">
+  <children>
+    <MenuBar VBox.vgrow="NEVER">
+      <menus>
+        <Menu mnemonicParsing="false" text="File">
+          <items>
+            <MenuItem mnemonicParsing="false" text="New" />
+            <MenuItem mnemonicParsing="false" text="Open…" />
+            <Menu mnemonicParsing="false" text="Open Recent" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Close" />
+            <MenuItem mnemonicParsing="false" text="Save" />
+            <MenuItem mnemonicParsing="false" text="Save As…" />
+            <MenuItem mnemonicParsing="false" text="Revert" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Preferences…" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Quit" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Edit">
+          <items>
+            <MenuItem mnemonicParsing="false" text="Undo" />
+            <MenuItem mnemonicParsing="false" text="Redo" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Cut" />
+            <MenuItem mnemonicParsing="false" text="Copy" />
+            <MenuItem mnemonicParsing="false" text="Paste" />
+            <MenuItem mnemonicParsing="false" text="Delete" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Select All" />
+            <MenuItem mnemonicParsing="false" text="Unselect All" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Help">
+          <items>
+            <MenuItem mnemonicParsing="false" text="About MyHelloApp" />
+          </items>
+        </Menu>
+      </menus>
+    </MenuBar>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+      <children>
+        <Label alignment="CENTER" layoutX="155.0" layoutY="177.0" style="&#10;" text="Drag components from Library here…" textAlignment="CENTER" textFill="#9f9f9f" wrapText="false">
+          <font>
+            <Font size="18.0" />
+          </font>
+        </Label>
+            <ImageView fitHeight="570.0" fitWidth="760.0" layoutY="4.0">
+               <image>
+                  <Image url="@../../Images/emptyShop.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="sunflower" fitHeight="70.0" fitWidth="70.0" layoutX="145.0" layoutY="89.0">
+               <image>
+                  <Image url="@../../CollectionImages/Sunflower_transparent.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="peashooter" fitHeight="63.0" fitWidth="63.0" layoutX="228.0" layoutY="92.0">
+               <image>
+                  <Image url="@../../CollectionImages/plantPeashooter.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="cattail" fitHeight="70.0" fitWidth="70.0" layoutX="68.0" layoutY="89.0">
+               <image>
+                  <Image url="@../../CollectionImages/Cattail.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="play" layoutX="665.0" layoutY="512.0" mnemonicParsing="false" text="play" />
+            <Button fx:id="back" layoutX="23.0" layoutY="525.0" mnemonicParsing="false" text="back" />
+      </children>
+    </AnchorPane>
+  </children>
+</VBox>

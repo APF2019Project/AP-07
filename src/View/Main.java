@@ -18,7 +18,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
         Menu.init();
         FXMLLoader loader = new FXMLLoader();
-        Parent root = loader.load(getClass().getResource("../Controller/Menus/CreateAccount.fxml"));
+        Parent root = loader.load(getClass().getResource("../Controller/Menus/createAccount.fxml"));
         // todo //ba loginMenu shoro beshe bazi
         primaryStage.setTitle("PvZ");
 

@@ -1,21 +1,8 @@
 package Controller.Menus;
-
-import Model.Card.Action;
-import Model.Card.ActionsOfAnEvent;
-import Model.Card.Event.*;
 import Model.Card.Plants.Plant;
-import Model.Card.Plants.PlantsActions.Burst;
-import Model.Card.Plants.PlantsActions.Magnet;
-import Model.Card.Plants.PlantsActions.ProduceSun;
-import Model.Card.Plants.PlantsActions.Shoot;
 import Model.Card.Zombies.Zombie;
-import Model.Player.Player;
 import Model.Player.Profile;
 import com.gilecode.yagson.YaGson;
-import com.sun.tools.javac.Main;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.BufferedReader;

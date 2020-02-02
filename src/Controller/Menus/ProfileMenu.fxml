@@ -22,5 +22,6 @@
       <Button fx:id="RenameButton" layoutX="299.0" layoutY="138.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="113.0" text="Rename" />
       <Button fx:id="ShowButton" layoutX="299.0" layoutY="234.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="113.0" text="Show" />
       <Button fx:id="CreateButton" layoutX="299.0" layoutY="186.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="113.0" text="Create" />
+      <Button fx:id="backButton" layoutX="14.0" layoutY="28.0" mnemonicParsing="false" opacity="0.0" text="backButton" />
    </children>
 </AnchorPane>

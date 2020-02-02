@@ -21,5 +21,6 @@
       <Button fx:id="ShowCollectionButton" layoutX="299.0" layoutY="90.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="113.0" text="Show Collection" />
       <Button fx:id="BuyButton" layoutX="299.0" layoutY="138.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="113.0" text="Buy" />
       <Button fx:id="MoneyButton" layoutX="299.0" layoutY="186.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="113.0" text="Money" />
+      <Button fx:id="backButton" layoutX="14.0" layoutY="24.0" mnemonicParsing="false" opacity="0.0" prefHeight="31.0" prefWidth="74.0" text="backButton" />
    </children>
 </AnchorPane>
