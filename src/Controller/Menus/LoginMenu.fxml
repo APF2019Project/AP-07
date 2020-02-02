@@ -11,7 +11,7 @@
    <children>
       <ImageView fitHeight="570.0" fitWidth="760.0">
          <image>
-            <Image url="@../../Images/loginMenu.png" />
+            <Image url="@../../Images/menusBackGround.png" />
          </image>
       </ImageView>
       <ButtonBar layoutX="181.0" layoutY="278.0" prefHeight="40.0" prefWidth="200.0" />

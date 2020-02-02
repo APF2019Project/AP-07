@@ -12,15 +12,14 @@
             <Image url="@../../Images/menusBackGround.png" />
          </image>
       </ImageView>
-      <Button fx:id="ChangeButton" layoutX="299.0" layoutY="40.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="113.0" text="Change" />
+      <Button fx:id="ShowShopButton" layoutX="299.0" layoutY="40.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="113.0" text="Show Shop" />
       <ImageView fitHeight="80.0" fitWidth="80.0">
          <image>
             <Image url="@../../Images/back.png" />
          </image>
       </ImageView>
-      <Button fx:id="DeleteButton" layoutX="299.0" layoutY="90.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="113.0" text="Delete" />
-      <Button fx:id="RenameButton" layoutX="299.0" layoutY="138.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="113.0" text="Rename" />
-      <Button fx:id="ShowButton" layoutX="299.0" layoutY="234.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="113.0" text="Show" />
-      <Button fx:id="CreateButton" layoutX="299.0" layoutY="186.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="113.0" text="Create" />
+      <Button fx:id="ShowCollectionButton" layoutX="299.0" layoutY="90.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="113.0" text="Show Collection" />
+      <Button fx:id="BuyButton" layoutX="299.0" layoutY="138.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="113.0" text="Buy" />
+      <Button fx:id="MoneyButton" layoutX="299.0" layoutY="186.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="113.0" text="Money" />
    </children>
 </AnchorPane>
