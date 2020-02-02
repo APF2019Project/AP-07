@@ -1,8 +1,11 @@
 package Controller.Menus;
 
 
+import Model.Card.Action;
+import Model.Card.ActionsOfAnEvent;
 import Model.Player.Profile;
 import com.gilecode.yagson.YaGson;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -20,7 +23,9 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class MainMenu extends Menu implements  Initializable {
+import static javafx.application.Platform.exit;
+
+public class MainMenu extends Menu implements Initializable {
     public Button exiit;
     public Button help;
     public Button start1;
@@ -30,7 +35,7 @@ public class MainMenu extends Menu implements  Initializable {
     public MenuItem help2;
 
     public MainMenu() throws IOException {
-        this.orders = new String[] {"Play", "Profiles", "Shop", "Help", "Exit"};
+        this.orders = new String[]{"Play", "Profiles", "Shop", "Help", "Exit"};
     }
 
     public void Exit() throws IOException {
@@ -51,42 +56,34 @@ public class MainMenu extends Menu implements  Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        //username.setAccessibleHelp();
-//        start1.setOnAction(new EventHandler<ActionEvent>() {
-//            @Override
-//            public void handle(ActionEvent actionEvent) {
-//                try {
-//                    Menu.root = FXMLLoader.load(getClass().getResource("../Controller/Menus/Entrance.fxml"));
-//                } catch (IOException e) {
-//                    e.printStackTrace();
-//                }
-//            }
-//        });
-//        help2.setOnAction(new EventHandler<ActionEvent>() {
-//            @Override
-//            public void handle(ActionEvent actionEvent) {
-//                try {
-//                    Menu.root = FXMLLoader.load(getClass().getResource("../Controller/Menus/MainMenuHelp.fxml"));
-//                } catch (IOException e) {
-//                    e.printStackTrace();
-//                }
-//            }
-//        });
-//        start2.setOnAction(new EventHandler<ActionEvent>() {
-//            @Override
-//            public void handle(ActionEvent actionEvent) {
-//                try {
-//                    Menu.root = FXMLLoader.load(getClass().getResource("../Controller/Menus/Entrance.fxml"));
-//                } catch (IOException e) {
-//                    e.printStackTrace();
-//                }
-//            }
-//        });
+//        username.setAccessibleHelp();
+        start1.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                try {
+                    Menu.primaryStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("PlayMenu.fxml"))));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                Menu.primaryStage.show();
+            }
+        });
+        start2.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                try {
+                    Menu.primaryStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("PlayMenu.fxml"))));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                Menu.primaryStage.show();
+            }
+        });
         help.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
                 try {
-                    Parent root = (FXMLLoader.load(getClass().getResource("MainMenuHelp.fxml")));
+                    Parent root = (FXMLLoader.load(getClass().getResource("helpMenu.fxml")));
                     Menu.primaryStage.setScene(new Scene(root));
                     Menu.primaryStage.show();
                 } catch (IOException e) {
@@ -94,8 +91,8 @@ public class MainMenu extends Menu implements  Initializable {
                 }
             }
         });
-//        quit.setOnAction(ActionsOfAnEvent -> exit());
-//        exiit.setOnAction(ActionsOfAnEvent -> exit());
+        quit.setOnAction(ActionsOfAnEvent -> exit());
+        exiit.setOnAction(ActionsOfAnEvent -> exit());
     }
 }
 
