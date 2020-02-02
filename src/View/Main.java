@@ -32,6 +32,7 @@ public class Main extends Application {
 
         Controller.Menus.Menu.primaryStage.setScene(new Scene(root));
         Menu.primaryStage.show();
+        Menu.primaryStage.setTitle("PvZ");
 
 //        Button quitButton = new Button();
 //        root.getChildren().add(quitButton);

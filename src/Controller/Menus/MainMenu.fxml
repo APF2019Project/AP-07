@@ -9,6 +9,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Menus.MainMenu">
   <children>
@@ -31,16 +32,19 @@
     </MenuBar>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
          <children>
-            <ImageView fitHeight="506.0" fitWidth="733.0" layoutY="-2.0">
+            <ImageView fitHeight="570.0" fitWidth="760.0" layoutY="-2.0">
                <image>
                   <Image url="@../../resources/LoginMenu.png" />
                </image>
             </ImageView>
-            <Button fx:id="exiit" layoutX="650.0" layoutY="414.0" mnemonicParsing="false" opacity="0.0" prefHeight="45.0" prefWidth="61.0" text="Button" />
-            <Button fx:id="help" layoutX="592.0" layoutY="417.0" mnemonicParsing="false" opacity="0.0" prefHeight="45.0" prefWidth="52.0" text="Button" />
-            <Label fx:id="username" layoutX="58.0" layoutY="71.0" prefHeight="17.0" prefWidth="206.0" textAlignment="JUSTIFY" />
-            <Button fx:id="start2" layoutX="379.0" layoutY="87.0" mnemonicParsing="false" opacity="0.0" prefHeight="65.0" prefWidth="288.0" rotate="6.699999999999999" text="Button" />
-            <Button fx:id="start1" layoutX="454.0" layoutY="53.0" mnemonicParsing="false" opacity="0.0" prefHeight="39.0" prefWidth="139.0" rotate="5.0" text="Button" />
+            <Button fx:id="exiit" layoutX="669.0" layoutY="463.0" mnemonicParsing="false" opacity="0.0" prefHeight="51.0" prefWidth="69.0" text="Button" />
+            <Button fx:id="help" layoutX="610.0" layoutY="473.0" mnemonicParsing="false" opacity="0.0" prefHeight="51.0" prefWidth="55.0" text="Button" />
+            <Label fx:id="username" alignment="CENTER" contentDisplay="CENTER" layoutX="51.0" layoutY="75.0" prefHeight="18.0" prefWidth="224.0" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+               <font>
+                  <Font name="Comic Sans MS Bold" size="19.0" />
+               </font></Label>
+            <Button fx:id="start2" layoutX="391.0" layoutY="93.0" mnemonicParsing="false" opacity="0.0" prefHeight="82.0" prefWidth="305.0" rotate="6.699999999999999" text="Button" />
+            <Button fx:id="start1" layoutX="465.0" layoutY="60.0" mnemonicParsing="false" opacity="0.0" prefHeight="39.0" prefWidth="139.0" rotate="5.0" text="Button" />
          </children>
     </AnchorPane>
   </children>
