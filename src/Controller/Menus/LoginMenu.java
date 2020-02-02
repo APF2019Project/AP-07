@@ -1,39 +1,57 @@
 package Controller.Menus;
 
 import Model.Player.Profile;
+import com.gilecode.yagson.YaGson;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.text.Text;
 
+import java.awt.*;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import static javafx.application.Platform.exit;
 
 public class LoginMenu extends Menu implements Initializable {
 
-    public Button quitButton;
+
+    public Text errorL;
+    public TextField usernameField;
+    public TextField passwordField;
     public Button CreateAccountButton;
     public Button LoginButton;
-    public Button LeaderBoardButton;
+    public Label err;
+
 
     public LoginMenu() {
         this.orders = new String[]{"Create account", "Login", "Leaderboard", "Help", "Exit"};
     }
 
-    public void createAccount(String username, String password) {
+    public int createAccount(String username, String password) throws IOException {
         if (Profile.validUsername(username)) {
             Profile profile = new Profile(username, password);
             Profile.addAccount(profile);
-            menuHandler.setCurrentMenu(loginMenu);
-            System.out.println("Account created");
+            ArrayList<Profile> accounts = Profile.getAccounts();
+            String json = new YaGson().toJson(accounts);
+            FileWriter writer = new FileWriter("Accounts\\accounts");
+            writer.write(json);
+            writer.close();
+//            menuHandler.setCurrentMenu(loginMenu);
+            return 1;
         } else {
-            System.out.println("invalid username");
+//            System.out.println("invalid username");
+            return 2;
         }
     }
 
@@ -53,20 +71,49 @@ public class LoginMenu extends Menu implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        quitButton.setOnAction(ActionsOfAnEvent -> exit());
-        //todo
-        LeaderBoardButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
+        //quitButton.setOnAction(ActionsOfAnEvent -> exit());
+        CreateAccountButton.setOnAction(new EventHandler<>() {
             @Override
-            public void handle(MouseEvent mouseEvent) {
-                try {
-                    Parent root = (FXMLLoader.load(getClass().getResource("LeaderBoard.fxml")));
-                    Menu.primaryStage.setScene(new Scene(root));
-                    Menu.primaryStage.show();
-                    Menu.primaryStage.setTitle("PvZ");
-                } catch (IOException e) {
-                    e.printStackTrace();
+            public void handle(ActionEvent actionEvent) {
+                String user = usernameField.getText();
+                System.out.println(user.length());
+                String pass = passwordField.getText();
+                if (Profile.validUsername(user)) {
+                    try {
+                        createAccount(user,pass);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    MainMenu.User = user;
+                    try {
+                        Parent root = (FXMLLoader.load(getClass().getResource("MainMenu.fxml")));
+                        Menu.primaryStage.setScene(new Scene(root));
+                        Menu.primaryStage.show();
+
+                        Menu.primaryStage.setTitle("PvZ");
+
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+                else {
+                    try {
+
+                        Parent root = (FXMLLoader.load(getClass().getResource("CreateAccount.fxml")));
+                        Menu.primaryStage.setScene(new Scene(root));
+                        Menu.primaryStage.show();
+                        Menu.primaryStage.setTitle("PvZ");
+                        System.out.println("error");
+                        err.setText("This username is invalid");
+                        errorL.setText("This username is invalid");
+                        //todo//
+
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                 }
             }
         });
+
     }
 }

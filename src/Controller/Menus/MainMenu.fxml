@@ -10,6 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Menus.MainMenu">
   <children>
@@ -34,7 +35,7 @@
          <children>
             <ImageView fitHeight="570.0" fitWidth="760.0" layoutY="-2.0">
                <image>
-                  <Image url="@../../resources/LoginMenu.png" />
+                  <Image url="@../../Images/LoginMenu.png" />
                </image>
             </ImageView>
             <Button fx:id="exiit" layoutX="669.0" layoutY="463.0" mnemonicParsing="false" opacity="0.0" prefHeight="51.0" prefWidth="69.0" text="Button" />
@@ -46,6 +47,11 @@
             <Button fx:id="start2" layoutX="391.0" layoutY="93.0" mnemonicParsing="false" opacity="0.0" prefHeight="82.0" prefWidth="305.0" rotate="6.699999999999999" text="Button" />
             <Button fx:id="start1" layoutX="465.0" layoutY="60.0" mnemonicParsing="false" opacity="0.0" prefHeight="39.0" prefWidth="139.0" rotate="5.0" text="Button" />
             <Button fx:id="loginButton" layoutX="34.0" layoutY="121.0" mnemonicParsing="false" opacity="0.0" prefHeight="40.0" prefWidth="259.0" />
+            <Text fx:id="id" fill="WHITE" layoutX="86.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="155.13671875">
+               <font>
+                  <Font name="Comic Sans MS Bold" size="20.0" />
+               </font>
+            </Text>
          </children>
     </AnchorPane>
   </children>

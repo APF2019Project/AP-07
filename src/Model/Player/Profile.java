@@ -127,9 +127,13 @@ public class Profile {
     public static boolean validUsername(String username) {
         if (profiles.size() != 0) {
             for (Profile x : profiles)
-                if (x.getUsername().equals(username))
+                if (x.getUsername().equals(username)) {
+                    System.out.println("eshkms");
                     return false;
+
+                }
         }
+        System.out.println("True e");
         return true;
     }
 
