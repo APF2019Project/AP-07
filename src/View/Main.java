@@ -1,5 +1,6 @@
 package View;
 
+import Controller.Menus.Menu;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -31,6 +32,7 @@ public class Main extends Application {
 
         Menu.primaryStage.setScene(new Scene(root));
         Menu.primaryStage.show();
+        Menu.primaryStage.setTitle("PvZ");
 
 
 //        Button quitButton = new Button();

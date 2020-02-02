@@ -48,24 +48,20 @@ public class MainMenu extends Menu implements Initializable {
     }
 
 
-    public void helpAct(Stage stage) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("../Controller/Menu/MainMenuHelp.fxml"));
-        stage.setScene(new Scene(root));
-    }
-
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-//        username.setAccessibleHelp();
+        username.setText("Dabbe");
         start1.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
                 try {
                     Menu.primaryStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("PlayMenu.fxml"))));
+                    Menu.primaryStage.show();
+                    Menu.primaryStage.setTitle("PvZ");
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-                Menu.primaryStage.show();
             }
         });
         start2.setOnMouseClicked(new EventHandler<MouseEvent>() {
@@ -73,19 +69,34 @@ public class MainMenu extends Menu implements Initializable {
             public void handle(MouseEvent mouseEvent) {
                 try {
                     Menu.primaryStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("PlayMenu.fxml"))));
+                    Menu.primaryStage.show();
+                    Menu.primaryStage.setTitle("PvZ");
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-                Menu.primaryStage.show();
             }
         });
         help.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
                 try {
-                    Parent root = (FXMLLoader.load(getClass().getResource("helpMenu.fxml")));
+                    Parent root = (FXMLLoader.load(getClass().getResource("MainMenuHelp.fxml")));
                     Menu.primaryStage.setScene(new Scene(root));
                     Menu.primaryStage.show();
+                    Menu.primaryStage.setTitle("PvZ");
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+        help2.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                try {
+                    Parent root = (FXMLLoader.load(getClass().getResource("MainMenuHelp.fxml")));
+                    Menu.primaryStage.setScene(new Scene(root));
+                    Menu.primaryStage.show();
+                    Menu.primaryStage.setTitle("PvZ");
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
