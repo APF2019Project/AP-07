@@ -190,7 +190,7 @@ public class Plant extends Card {
     }
 
     public static void makePlantsImages(String name){
-        String path="CollectionGifs"+"/"+"PeaShooter"+".gif";
+        String path= "CollectionGifsAndImages" +"/"+"PeaShooter"+".gif";
 
     }
 

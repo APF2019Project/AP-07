@@ -157,10 +157,12 @@ public class CollectionMenu extends Menu implements Initializable {
             @Override
             public void handle(MouseEvent event) {
                 try {
+                    Pane root = (FXMLLoader.load(getClass().getResource("../GameMode/DayModeGround.fxml")));
+                    Menu.primaryStage.setScene(new Scene(root));
                     for(int i=0;i<collection.getPlants().size();i++){
                         String name=collection.getPlants().get(i).getName();
-                        //String path="../../Cards/"+name+".png";
-                        Image image = new Image(new FileInputStream("D:\\Programming\\Java\\AP-07\\src\\CollectionImages\\PeaShooter.png"));
+                        String path="../../Cards/"+name+".png";
+                        Image image = new Image(new FileInputStream("D:\\Programming\\Java\\AP-07\\src\\CardImages\\PeaShooter.png"));
                         ImageView imageView=new ImageView(image);
                         //todo
                         //todo
@@ -168,7 +170,6 @@ public class CollectionMenu extends Menu implements Initializable {
                         System.out.println(imageViews.size());
 
                     }
-                    Pane root = (FXMLLoader.load(getClass().getResource("../GameMode/DayModeGround.fxml")));
                     for (int i=0;i<imageViews.size();i++){
                         imageViews.get(i).setX(87+(i+1)*84);
                         imageViews.get(i).setY(9.5);
