@@ -47,6 +47,6 @@
             <Image url="@../../Images/sun.png" />
          </image>
       </ImageView>
-      <Label fx:id="sunLabel" layoutX="135.0" layoutY="48.0" text="Label" />
+      <Label fx:id="sunL" layoutX="135.0" layoutY="49.0" text="Label" />
    </children>
 </AnchorPane>
