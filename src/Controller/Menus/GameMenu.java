@@ -8,36 +8,20 @@ import Model.Map.Cell;
 import Model.Map.Map;
 import Model.Player.Player;
 import Model.Player.Profile;
-import javafx.fxml.Initializable;
-import java.io.IOException;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.ResourceBundle;
-import Controller.GameMode.GameMode;
-import Model.Card.Plants.Plant;
-import Model.Player.Player;
-import Model.Player.Profile;
 import javafx.event.EventHandler;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
-import javafx.scene.input.DragEvent;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
 
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
-import java.util.ResourceBundle;
-import Model.Shop.Collection;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.Pane;
-import javafx.scene.shape.Circle;
-
 import java.util.ArrayList;
+import java.util.ResourceBundle;
 
 
 public class GameMenu extends Menu implements Initializable {
@@ -46,10 +30,10 @@ public class GameMenu extends Menu implements Initializable {
 
     public Player player1;
     public Player player2;
-
+    public static Pane root = new Pane();
     public Battle battle = new Battle(player1, player2, day);
 
-//    public ImageView imageView;
+    //    public ImageView imageView;
     public Label sunL;
     public static ArrayList<ImageView> plantsImages = new ArrayList<>();
 
@@ -71,23 +55,23 @@ public class GameMenu extends Menu implements Initializable {
             for (Plant p : player1.getPlants()) {
                 if (p.getName().equalsIgnoreCase(name)) {
                     if (p.getLoading() == 0 && p.getSun() <= player1.getSun()) {
-                        if (!name.equalsIgnoreCase("lilypad") && !name.equalsIgnoreCase("tanglekelp") && !name.equalsIgnoreCase("cattail") ){
-                        battle.getMap().getCell(x, y).setPlant(p1);
-                        p1.setCell(battle.getMap().getCell(x, y));
-                        p.setLoading(p.getCooldown());
-                        System.out.println("plant planted:)");
-                        player1.setSun(player1.getSun() - p.getSun());
+                        if (!name.equalsIgnoreCase("lilypad") && !name.equalsIgnoreCase("tanglekelp") && !name.equalsIgnoreCase("cattail")) {
+                            battle.getMap().getCell(x, y).setPlant(p1);
+                            p1.setCell(battle.getMap().getCell(x, y));
+                            p.setLoading(p.getCooldown());
+                            System.out.println("plant planted:)");
+                            player1.setSun(player1.getSun() - p.getSun());
+                        }
+                    } else {
+                        System.out.println("plant is not ready");
                     }
-                } else {
-                    System.out.println("plant is not ready");
-                }
 
-                break;
+                    break;
+                }
             }
         }
-    }
 
-}
+    }
 
     public void endTurn(Profile profile) throws IOException {
 
@@ -146,23 +130,41 @@ public class GameMenu extends Menu implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         sunL.setText("sun");
-
-        System.out.println("before"+GameMenu.plantsImages.size());
+        System.out.println("before" + GameMenu.plantsImages.size());
         plantsImages.addAll(CollectionMenu.imageViews);
-        System.out.println("after"+GameMenu.plantsImages.size());
+        System.out.println("after" + GameMenu.plantsImages.size());
         for (ImageView x : plantsImages) {
 //            System.out.println("number");
-            x.setOnMouseClicked(new EventHandler<MouseEvent>() {
-                @Override
-                public void handle(MouseEvent mouseEvent) {
-                    System.out.println("sjveuagf");
-                }
+            try {
+                x.setOnMousePressed(new EventHandler<MouseEvent>() {
+
+                    @Override
+                    public void handle(MouseEvent mouseEvent) {
+                        //root.getChildren().remove(x);
+                        System.out.println("sjveuagf");
+                    }
+                });
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            x.setOnMouseDragged(event -> {
+                System.out.println("NOOOOOOOOOOOOO");
             });
-            x.setOnDragDropped(new EventHandler<DragEvent>() {
-                @Override
-                public void handle(DragEvent dragEvent) {
-                    System.out.println("hello");
+            x.setOnMouseReleased(event -> {
+                Image image = null;
+                try {
+                    image = new Image(new FileInputStream("C:\\Users\\asus\\IdeaProjects\\AP-07\\AP-07-1\\src\\CollectionGifsAndImages\\SunFlower.gif"));
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
                 }
+                ImageView imageView = new ImageView(image);
+                imageView.setX(event.getX());
+                imageView.setY(event.getY());
+                imageView.setFitWidth(80);
+                imageView.setFitHeight(80);
+                root.getChildren().add(imageView);
+
+                System.out.println("AAAAAAAAAAA");
             });
         }
     }

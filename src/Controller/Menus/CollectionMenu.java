@@ -154,13 +154,14 @@ public class CollectionMenu extends Menu implements Initializable {
             }
         });
         play.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            Image image;
             @Override
             public void handle(MouseEvent event) {
                 try {
                     for(int i=0;i<collection.getPlants().size();i++){
                         String name=collection.getPlants().get(i).getName();
 //                        String path="../../Cards/"+name+".png";
-                        Image image = new Image(new FileInputStream("D:\\Programming\\Java\\AP-07\\src\\CardImages\\PeaShooter.png"));
+                        image = new Image(new FileInputStream("C:\\Users\\asus\\IdeaProjects\\AP-07\\AP-07-1\\src\\CardImages\\SunFlower.png"));
                         ImageView imageView=new ImageView(image);
                         //todo
                         //todo
@@ -174,11 +175,11 @@ public class CollectionMenu extends Menu implements Initializable {
 
                     }
                     Pane root = (FXMLLoader.load(getClass().getResource("../GameMode/DayModeGround.fxml")));
-
+                    GameMenu.root = root;
                     for (int i=0;i<imageViews.size();i++){
                         root.getChildren().add(imageViews.get(i));
                     }
-                    Menu.primaryStage.setScene(new Scene(root));
+                    Menu.primaryStage.setScene(new Scene(GameMenu.root));
                     Menu.primaryStage.show();
                     Menu.primaryStage.setTitle("PvZ");
                 } catch (IOException e) {
