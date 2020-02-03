@@ -71,9 +71,9 @@ public class LoginMenu extends Menu implements Initializable {
         //quitButton.setOnAction(ActionsOfAnEvent -> exit());
 
         //System.out.println(user.length());
-        CreateAccountButton.setOnAction(new EventHandler<>() {
+        CreateAccountButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
-            public void handle(ActionEvent actionEvent) {
+            public void handle(MouseEvent event) {
                 String user = usernameField.getText();
                 String pass = passwordField.getText();
                 if (Profile.validUsername(user)) {
