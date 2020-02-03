@@ -25,6 +25,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
+import javafx.scene.input.DragEvent;
 import javafx.scene.input.MouseEvent;
 
 import java.io.FileInputStream;
@@ -146,15 +147,21 @@ public class GameMenu extends Menu implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         sunL.setText("sun");
 
-//        System.out.println("before"+GameMenu.plantsImages.size());
+        System.out.println("before"+GameMenu.plantsImages.size());
         plantsImages.addAll(CollectionMenu.imageViews);
-//        System.out.println("after"+GameMenu.plantsImages.size());
+        System.out.println("after"+GameMenu.plantsImages.size());
         for (ImageView x : plantsImages) {
 //            System.out.println("number");
             x.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent mouseEvent) {
                     System.out.println("sjveuagf");
+                }
+            });
+            x.setOnDragDropped(new EventHandler<DragEvent>() {
+                @Override
+                public void handle(DragEvent dragEvent) {
+                    System.out.println("hello");
                 }
             });
         }

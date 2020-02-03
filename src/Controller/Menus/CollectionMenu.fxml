@@ -60,28 +60,23 @@
             <Font size="18.0" />
           </font>
         </Label>
-            <ImageView fitHeight="570.0" fitWidth="760.0" layoutY="4.0">
+            <ImageView fitHeight="570.0" fitWidth="760.0">
                <image>
                   <Image url="@../../Images/emptyShop.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="sunflower" fitHeight="70.0" fitWidth="70.0" layoutX="145.0" layoutY="89.0">
-               <image>
-                  <Image url="@../../CollectionImages/Sunflower_transparent.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="peashooter" fitHeight="63.0" fitWidth="63.0" layoutX="228.0" layoutY="92.0">
-               <image>
-                  <Image url="@../../CollectionImages/plantPeashooter.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="cattail" fitHeight="70.0" fitWidth="70.0" layoutX="68.0" layoutY="89.0">
-               <image>
-                  <Image url="@../../CollectionImages/Cattail.png" />
-               </image>
-            </ImageView>
             <Button fx:id="play" layoutX="677.0" layoutY="525.0" mnemonicParsing="false" text="play" />
             <Button fx:id="back" layoutX="23.0" layoutY="525.0" mnemonicParsing="false" text="back" />
+            <ImageView fx:id="sunflower" fitHeight="73.0" fitWidth="73.0" layoutX="70.0" layoutY="82.0">
+               <image>
+                  <Image url="@../../CollectionGifsAndImages/SunFlower.gif" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="peashooter" fitHeight="70.0" fitWidth="70.0" layoutX="152.0" layoutY="84.0">
+               <image>
+                  <Image url="@../../CollectionGifsAndImages/Peashooter.gif" />
+               </image>
+            </ImageView>
       </children>
     </AnchorPane>
   </children>
