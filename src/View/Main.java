@@ -30,7 +30,6 @@ public class Main extends Application {
 
         //by setting this property to true, the audio will be played
         mediaPlayer.setAutoPlay(true);
-        mediaPlayer.onRepeatProperty();
 
         Controller.Menus.Menu.primaryStage.setScene(new Scene(root));
         Menu.primaryStage.show();

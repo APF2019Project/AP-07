@@ -11,45 +11,45 @@
    <children>
       <ImageView fitHeight="570.0" fitWidth="760.0">
          <image>
-            <Image url="@../../Images/dayGround.png" />
+            <Image url="@../../Images/dayBackgroundCutSixLines.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="lawnMower4" fitHeight="60.0" fitWidth="70.0" layoutX="38.0" layoutY="341.0">
+      <ImageView fx:id="lawnMower4" fitHeight="60.0" fitWidth="70.0" layoutX="23.0" layoutY="310.0">
          <image>
             <Image url="@../../Images/lawnMower.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="lawnMower5" fitHeight="60.0" fitWidth="70.0" layoutX="36.0" layoutY="434.0">
+      <ImageView fx:id="lawnMower5" fitHeight="60.0" fitWidth="70.0" layoutX="17.0" layoutY="383.0">
          <image>
             <Image url="@../../Images/lawnMower.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="lawnMower1" fitHeight="60.0" fitWidth="70.0" layoutX="38.0" layoutY="82.0">
+      <ImageView fx:id="lawnMower1" fitHeight="60.0" fitWidth="70.0" layoutX="26.0" layoutY="79.0">
          <image>
             <Image url="@../../Images/lawnMower.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="lawnMower2" fitHeight="60.0" fitWidth="70.0" layoutX="38.0" layoutY="178.0">
+      <ImageView fx:id="lawnMower2" fitHeight="60.0" fitWidth="70.0" layoutX="24.0" layoutY="158.0">
          <image>
             <Image url="@../../Images/lawnMower.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="lawnMower3" fitHeight="60.0" fitWidth="70.0" layoutX="38.0" layoutY="263.0">
+      <ImageView fx:id="lawnMower3" fitHeight="60.0" fitWidth="70.0" layoutX="24.0" layoutY="239.0">
          <image>
             <Image url="@../../Images/lawnMower.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="paperBar" fitHeight="418.0" fitWidth="63.0" layoutX="284.0" layoutY="-171.0" rotate="90.0">
+      <ImageView fx:id="paperBar" fitHeight="418.0" fitWidth="70.0" layoutX="284.0" layoutY="-171.0" rotate="90.0">
          <image>
             <Image url="@../../Images/paperBar.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="124.0" layoutY="7.0">
+      <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="124.0" layoutY="3.0">
          <image>
             <Image url="@../../Images/sun.png" />
          </image>
       </ImageView>
-      <Label fx:id="sunL" layoutX="135.0" layoutY="49.0" text="Label" />
+      <Label fx:id="sunL" alignment="CENTER" layoutX="135.0" layoutY="49.0" text="Label" textAlignment="CENTER" />
       <GridPane layoutX="174.0" layoutY="142.0" prefHeight="103.0" prefWidth="134.0">
         <rowConstraints>
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -57,5 +57,10 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
       </GridPane>
+      <ImageView fx:id="lawnMower6" fitHeight="60.0" fitWidth="70.0" layoutX="11.0" layoutY="461.0">
+         <image>
+            <Image url="@../../Images/lawnMower.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

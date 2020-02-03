@@ -13,6 +13,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseDragEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 
@@ -133,39 +134,36 @@ public class GameMenu extends Menu implements Initializable {
         System.out.println("before" + GameMenu.plantsImages.size());
         plantsImages.addAll(CollectionMenu.imageViews);
         System.out.println("after" + GameMenu.plantsImages.size());
-        for (ImageView x : plantsImages) {
-//            System.out.println("number");
+        for (ImageView x : plantsImages){
+            Image image = null;
             try {
-                x.setOnMousePressed(new EventHandler<MouseEvent>() {
-
-                    @Override
-                    public void handle(MouseEvent mouseEvent) {
-                        //root.getChildren().remove(x);
-                        System.out.println("sjveuagf");
-                    }
-                });
-            } catch (Exception e) {
+                image = new Image(new FileInputStream("C:\\Users\\asus\\IdeaProjects\\AP-07\\AP-07-1\\src\\CollectionGifsAndImages\\BalloonZombie.gif"));
+            } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
-            x.setOnMouseDragged(event -> {
-                System.out.println("NOOOOOOOOOOOOO");
+            Image finalImage = image;
+            ImageView imageView = new ImageView(finalImage);
+            x.setOnMousePressed(event ->  {
+                root.getChildren().add(imageView);
+            System.out.println("sjveuagf");
+
             });
-            x.setOnMouseReleased(event -> {
-                Image image = null;
-                try {
-                    image = new Image(new FileInputStream("C:\\Users\\asus\\IdeaProjects\\AP-07\\AP-07-1\\src\\CollectionGifsAndImages\\SunFlower.gif"));
-                } catch (FileNotFoundException e) {
-                    e.printStackTrace();
-                }
-                ImageView imageView = new ImageView(image);
+
+            x.setOnMouseDragged(event -> {
+
                 imageView.setX(event.getX());
                 imageView.setY(event.getY());
                 imageView.setFitWidth(80);
-                imageView.setFitHeight(80);
-                root.getChildren().add(imageView);
+                imageView.setFitHeight(100);
+                System.out.println("NOOOOOOOOOOOOO");
+            });
 
+            x.setOnMouseReleased(event -> {
+                root.getChildren().remove(finalImage);
                 System.out.println("AAAAAAAAAAA");
             });
         }
+
     }
-}
+    }
+
