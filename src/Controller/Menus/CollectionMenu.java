@@ -28,6 +28,7 @@ public class CollectionMenu extends Menu implements Initializable {
     public boolean zombieMode;
     public boolean pvp = false;
     public boolean water;
+    public static ArrayList<ImageView> imageViews = new ArrayList<>();
 
     public ImageView sunflower;
     public ImageView peashooter;
@@ -160,15 +161,23 @@ public class CollectionMenu extends Menu implements Initializable {
                     Menu.primaryStage.setScene(new Scene(root));
                     for(int i=0;i<collection.getPlants().size();i++){
                         String name=collection.getPlants().get(i).getName();
-                        String path="../../CardImages/"+name+".png";
-                        Image image = new Image(new FileInputStream("C:\\Users\\asus\\IdeaProjects\\AP-07\\AP-07-1\\src\\Controller\\Menus\\PeaShooter.png"));
+                        String path="../../Cards/"+name+".png";
+                        Image image = new Image(new FileInputStream("D:\\Programming\\Java\\AP-07\\src\\CardImages\\PeaShooter.png"));
                         ImageView imageView=new ImageView(image);
                         //todo
                         //todo
-                        imageView.setX(100+i*100);
-                        imageView.setY(10);
-                        root.getChildren().add(imageView);
+                        imageViews.add(imageView);
+                        System.out.println(imageViews.size());
+
                     }
+                    for (int i=0;i<imageViews.size();i++){
+                        imageViews.get(i).setX(87+(i+1)*84);
+                        imageViews.get(i).setY(9.5);
+                        imageViews.get(i).setFitWidth(50);
+                        imageViews.get(i).setFitHeight(60);
+                        root.getChildren().add(imageViews.get(i));
+                    }
+                    Menu.primaryStage.setScene(new Scene(root));
                     Menu.primaryStage.show();
                     Menu.primaryStage.setTitle("PvZ");
                 } catch (IOException e) {

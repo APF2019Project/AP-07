@@ -9,10 +9,35 @@ import Model.Map.Map;
 import Model.Player.Player;
 import Model.Player.Profile;
 import javafx.fxml.Initializable;
-import javax.swing.text.html.ImageView;
+import java.io.IOException;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.ResourceBundle;
+import Controller.GameMode.GameMode;
+import Model.Card.Plants.Plant;
+import Model.Player.Player;
+import Model.Player.Profile;
+import javafx.event.EventHandler;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.input.MouseEvent;
+
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import Model.Shop.Collection;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
+import javafx.scene.shape.Circle;
+
+import java.util.ArrayList;
+
 
 public class GameMenu extends Menu implements Initializable {
 
@@ -23,7 +48,9 @@ public class GameMenu extends Menu implements Initializable {
 
     public Battle battle = new Battle(player1, player2, day);
 
-    public ImageView imageView;
+//    public ImageView imageView;
+    public Label sunL;
+    public static ArrayList<ImageView> plantsImages = new ArrayList<>();
 
     public void showHand() {
         for (Plant x : player1.getPlants()) {
@@ -117,6 +144,19 @@ public class GameMenu extends Menu implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        sunL.setText("sun");
 
+//        System.out.println("before"+GameMenu.plantsImages.size());
+        plantsImages.addAll(CollectionMenu.imageViews);
+//        System.out.println("after"+GameMenu.plantsImages.size());
+        for (ImageView x : plantsImages) {
+//            System.out.println("number");
+            x.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent mouseEvent) {
+                    System.out.println("sjveuagf");
+                }
+            });
+        }
     }
 }
