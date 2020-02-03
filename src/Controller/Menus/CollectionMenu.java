@@ -160,7 +160,7 @@ public class CollectionMenu extends Menu implements Initializable {
                     Menu.primaryStage.setScene(new Scene(root));
                     for(int i=0;i<collection.getPlants().size();i++){
                         String name=collection.getPlants().get(i).getName();
-                        String path="../../Cards/"+name+".png";
+                        String path="../../CardImages/"+name+".png";
                         Image image = new Image(new FileInputStream("C:\\Users\\asus\\IdeaProjects\\AP-07\\AP-07-1\\src\\Controller\\Menus\\PeaShooter.png"));
                         ImageView imageView=new ImageView(image);
                         //todo
