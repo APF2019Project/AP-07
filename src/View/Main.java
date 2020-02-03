@@ -5,10 +5,9 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.media.*;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
-
-import java.awt.*;
 import java.io.File;
 
 public class Main extends Application {
@@ -17,10 +16,11 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+        Menu.init();
         FXMLLoader loader = new FXMLLoader();
-        Parent root = loader.load(getClass().getResource("../Controller/Menus/MainMenu.fxml"));
+        Parent root = loader.load(getClass().getResource("../Controller/Menus/CreateAccount.fxml"));
         // todo //ba loginMenu shoro beshe bazi
-        primaryStage.setTitle("Plants vs Zombies");
+        primaryStage.setTitle("PvZ");
 
         String path = "src/View/MainMenu.mp3";
         Media media = new Media(new File(path).toURI().toString());
@@ -30,6 +30,7 @@ public class Main extends Application {
 
         //by setting this property to true, the audio will be played
         mediaPlayer.setAutoPlay(true);
+        mediaPlayer.onRepeatProperty();
 
         Controller.Menus.Menu.primaryStage.setScene(new Scene(root));
         Menu.primaryStage.show();

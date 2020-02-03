@@ -13,6 +13,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.text.Text;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -31,6 +32,9 @@ public class MainMenu extends Menu implements Initializable {
     public MenuItem quit;
     public MenuItem help2;
     public Button loginButton;
+    public static String User = new String();
+    public Text id;
+
 
     public MainMenu() throws IOException {
         this.orders = new String[]{"Play", "Profiles", "Shop", "Help", "Exit"};
@@ -49,7 +53,8 @@ public class MainMenu extends Menu implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        username.setText("Dabbe");
+        id.setText(User);
+//        System.out.println(User);
         start1.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
@@ -104,7 +109,7 @@ public class MainMenu extends Menu implements Initializable {
             @Override
             public void handle(ActionEvent actionEvent) {
                 try {
-                    Parent root = (FXMLLoader.load(getClass().getResource("LoginMenu.fxml")));
+                    Parent root = (FXMLLoader.load(getClass().getResource("CreateAccount.fxml")));
                     Menu.primaryStage.setScene(new Scene(root));
                     Menu.primaryStage.show();
                     Menu.primaryStage.setTitle("PvZ");
