@@ -10,12 +10,18 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
+
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import Model.Shop.Collection;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
+import javafx.scene.shape.Circle;
+
 import java.util.ArrayList;
 
 public class CollectionMenu extends Menu implements Initializable {
@@ -134,8 +140,6 @@ public class CollectionMenu extends Menu implements Initializable {
                     collection.addPlant(Plant.makePlant("sunflower"));
                 }
                 catch (Exception e){}
-
-
             }
         });
         peashooter.setOnMouseClicked(new EventHandler<MouseEvent>() {
@@ -143,18 +147,28 @@ public class CollectionMenu extends Menu implements Initializable {
             public void handle(MouseEvent event) {
                 try {
                     collection.addPlant(Plant.makePlant("peashooter"));
+                    System.out.println("selected");
                 }
                 catch (Exception e){}
-
-
             }
         });
         play.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    Parent root = (FXMLLoader.load(getClass().getResource("DayModeGround.fxml")));
+                    Pane root = (FXMLLoader.load(getClass().getResource("../GameMode/DayModeGround.fxml")));
                     Menu.primaryStage.setScene(new Scene(root));
+                    for(int i=0;i<collection.getPlants().size();i++){
+                        String name=collection.getPlants().get(i).getName();
+                        String path="../../Cards/"+name+".png";
+                        Image image = new Image(new FileInputStream("C:\\Users\\asus\\IdeaProjects\\AP-07\\AP-07-1\\src\\Controller\\Menus\\PeaShooter.png"));
+                        ImageView imageView=new ImageView(image);
+                        //todo
+                        //todo
+                        imageView.setX(100+i*100);
+                        imageView.setY(10);
+                        root.getChildren().add(imageView);
+                    }
                     Menu.primaryStage.show();
                     Menu.primaryStage.setTitle("PvZ");
                 } catch (IOException e) {
@@ -178,5 +192,6 @@ public class CollectionMenu extends Menu implements Initializable {
                 }
             }
         });
+
     }
 }

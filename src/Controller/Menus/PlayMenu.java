@@ -9,6 +9,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -21,11 +22,6 @@ public class PlayMenu extends Menu implements Initializable {
     public Button waterM;
     public Button pVp;
     public Button railM;
-
-public void setStyle(){
-    dayM.setStyle("");
-}
-
 
     public PlayMenu() throws IOException {
         this.orders = new String[]{"Day", "Water", "Rail", "ZombieGameMode", "PvP"};
@@ -66,6 +62,7 @@ public void setStyle(){
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
         backButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
@@ -79,6 +76,7 @@ public void setStyle(){
                 }
             }
         });
+
         dayM.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
@@ -92,6 +90,7 @@ public void setStyle(){
                 }
             }
         });
+
         //todo
     }
 }

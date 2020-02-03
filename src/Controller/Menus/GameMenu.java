@@ -8,10 +8,13 @@ import Model.Map.Cell;
 import Model.Map.Map;
 import Model.Player.Player;
 import Model.Player.Profile;
-
+import javafx.fxml.Initializable;
+import javax.swing.text.html.ImageView;
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class GameMenu extends Menu {
+public class GameMenu extends Menu implements Initializable {
 
     public Day day = new Day();
 
@@ -20,6 +23,7 @@ public class GameMenu extends Menu {
 
     public Battle battle = new Battle(player1, player2, day);
 
+    public ImageView imageView;
 
     public void showHand() {
         for (Plant x : player1.getPlants()) {
@@ -109,5 +113,10 @@ public class GameMenu extends Menu {
                 System.out.print(cell.getZombies().size() + "" + p + "" + cell.getPeas().size() + "\t");
             }
         }
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+
     }
 }

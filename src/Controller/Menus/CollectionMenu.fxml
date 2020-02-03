@@ -80,7 +80,7 @@
                   <Image url="@../../CollectionImages/Cattail.png" />
                </image>
             </ImageView>
-            <Button fx:id="play" layoutX="665.0" layoutY="512.0" mnemonicParsing="false" text="play" />
+            <Button fx:id="play" layoutX="677.0" layoutY="525.0" mnemonicParsing="false" text="play" />
             <Button fx:id="back" layoutX="23.0" layoutY="525.0" mnemonicParsing="false" text="back" />
       </children>
     </AnchorPane>
