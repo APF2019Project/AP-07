@@ -3,8 +3,8 @@ package View;
 import Controller.Menus.Menu;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.Pane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
@@ -17,8 +17,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         Menu.init();
-        FXMLLoader loader = new FXMLLoader();
-        Parent root = loader.load(getClass().getResource("../Controller/Menus/CreateAccount.fxml"));
+        Pane root = FXMLLoader.load(getClass().getResource("../Controller/Menus/CreateAccount.fxml"));
         // todo //ba loginMenu shoro beshe bazi
         primaryStage.setTitle("PvZ");
 
