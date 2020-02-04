@@ -5,10 +5,12 @@ import Model.Card.Action;
 import Model.Card.Plants.PeaOrProjectile;
 import Model.Card.Plants.Plant;
 import Model.Card.Zombies.Zombie;
+import javafx.scene.Group;
+import javafx.scene.layout.Pane;
 
 public class Shoot extends Action {
     @Override
-    public void doAction(Plant plant, Battle battle, int d) {
+    public void doAction(Plant plant, Battle battle, int d, Pane root) {
         PeaOrProjectile pea;
         if (plant.getHP() > 0) {
 
@@ -32,6 +34,6 @@ public class Shoot extends Action {
     }
 
     @Override
-    public void doAction(Zombie zombie, Battle battle, int d) {
+    public void doAction(Zombie zombie, Battle battle, int d, Pane root) {
     }
 }

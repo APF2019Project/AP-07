@@ -4,6 +4,9 @@ import Controller.GameMode.*;
 import Model.Card.Plants.Plant;
 import Model.Player.Player;
 import Model.Player.Profile;
+import javafx.scene.Group;
+import javafx.scene.layout.Pane;
+
 import java.io.IOException;
 import java.util.Scanner;
 import java.util.regex.Pattern;
@@ -24,7 +27,7 @@ public class MenuHandler {
         this.currentMenu = currentMenu;
     }
 
-    public void run() throws IOException {
+    public void run(Pane root) throws IOException {
 
 
         Player bot = new Player();
@@ -49,81 +52,83 @@ public class MenuHandler {
             //loginMenu//
             //leaderboard // //
 
-            if (Menu.menuHandler.getCurrentMenu() == Menu.loginMenu) {
-                if (input.equalsIgnoreCase("create account")) {
-                    String username = scanner.nextLine();
-                    String password = scanner.nextLine();
-                    Menu.loginMenu.createAccount(username, password);
-                } else if (input.equalsIgnoreCase("login")) {
-                    String username = scanner.nextLine();
-                    String password = scanner.nextLine();
-                    profile = Menu.loginMenu.Login(username, password);
-                } else if (input.equalsIgnoreCase("Leaderboard")) {
-                    Menu.leaderBoard.showPlayers();
-                } else if (input.equalsIgnoreCase("help")) {
-                    Menu.help();
-                } else if (input.equalsIgnoreCase("Exit")) {
-                    Menu.loginMenu.Exit();
-                } else {
-                    System.out.println("invalid command");
-                }
-            }
+//            if (Menu.menuHandler.getCurrentMenu() == Menu.loginMenu) {
+//                if (input.equalsIgnoreCase("create account")) {
+//                    String username = scanner.nextLine();
+//                    String password = scanner.nextLine();
+//                    Menu.loginMenu.createAccount(username, password);
+//                } else if (input.equalsIgnoreCase("login")) {
+//                    String username = scanner.nextLine();
+//                    String password = scanner.nextLine();
+//                    profile = Menu.loginMenu.Login(username, password);
+//                } else if (input.equalsIgnoreCase("Leaderboard")) {
+//                    Menu.leaderBoard.showPlayers();
+//                } else if (input.equalsIgnoreCase("help")) {
+//                    Menu.help();
+//                } else if (input.equalsIgnoreCase("Exit")) {
+//                    Menu.loginMenu.Exit();
+//                } else {
+//                    System.out.println("invalid command");
+//                }
+//            }
 
             //mainMenu//
 
-            else if (Menu.menuHandler.getCurrentMenu() == Menu.mainMenu) {
-                if (input.equalsIgnoreCase("play"))
-                    Menu.menuHandler.setCurrentMenu(Menu.playMenu);
-                else if (input.equalsIgnoreCase("Profiles"))
-                    Menu.menuHandler.setCurrentMenu(Menu.profileMenu);
-                else if (input.equalsIgnoreCase("Shop"))
-                    Menu.menuHandler.setCurrentMenu(Menu.shopMenu);
-                else if (input.equalsIgnoreCase("Exit"))
-                    Menu.mainMenu.Exit();
-                else if (input.equalsIgnoreCase("help"))
-                    Menu.help();
-                else
-                    System.out.println("invalid command");
-            }
+//            else if (Menu.menuHandler.getCurrentMenu() == Menu.mainMenu) {
+//                if (input.equalsIgnoreCase("play"))
+//                    Menu.menuHandler.setCurrentMenu(Menu.playMenu);
+//                else if (input.equalsIgnoreCase("Profiles"))
+//                    Menu.menuHandler.setCurrentMenu(Menu.profileMenu);
+//                else if (input.equalsIgnoreCase("Shop"))
+//                    Menu.menuHandler.setCurrentMenu(Menu.shopMenu);
+//                else if (input.equalsIgnoreCase("Exit"))
+//                    Menu.mainMenu.Exit();
+//                else if (input.equalsIgnoreCase("help"))
+//                    Menu.help();
+//                else
+//                    System.out.println("invalid command");
+//            }
 
             //profileMenu//
 
-            else if (Menu.menuHandler.getCurrentMenu() == Menu.profileMenu) {
-                if (input.equalsIgnoreCase("help"))
-                    Menu.help();
-                else if (input.equalsIgnoreCase("Change")) {
-                    String username = scanner.nextLine();
-                    String password = scanner.nextLine();
-                    Profile p = Profile.login(username, password);
-                    if (p == null)
-                        System.out.println("invalid account");
-                    else {
-                        profile = p;
-                    }
-                } else if (input.equalsIgnoreCase("rename")) {
-                    String username = scanner.nextLine();
-                    profile.change_username(username);
-                } else if (input.equalsIgnoreCase("create")) {
-                    String username = scanner.nextLine();
-                    String password = scanner.nextLine();
-                    Profile.addAccount(new Profile(username, password));
-                } else if (input.equalsIgnoreCase("delete")) {
-                    String username = scanner.nextLine();
-                    String password = scanner.nextLine();
-                    profile.delete_account(username, password);
-                    profile = null;
-                    Menu.menuHandler.setCurrentMenu(Menu.loginMenu);
-                } else if (input.equalsIgnoreCase("jhajCJUK")) {
-                    Menu.profileMenu.exit();
-                } else if (input.equalsIgnoreCase("show")) {
-                    System.out.println(profile.getUsername());
-                } else
-                    System.out.println("invalid command");
-            }
+//            else if (Menu.menuHandler.getCurrentMenu() == Menu.profileMenu) {
+//                if (input.equalsIgnoreCase("help"))
+//                    Menu.help();
+//                else if (input.equalsIgnoreCase("Change")) {
+//                    String username = scanner.nextLine();
+//                    String password = scanner.nextLine();
+//                    Profile p = Profile.login(username, password);
+//                    if (p == null)
+//                        System.out.println("invalid account");
+//                    else {
+//                        profile = p;
+//                    }
+//                } else if (input.equalsIgnoreCase("rename")) {
+//                    String username = scanner.nextLine();
+//                    profile.change_username(username);
+//                } else if (input.equalsIgnoreCase("create")) {
+//                    String username = scanner.nextLine();
+//                    String password = scanner.nextLine();
+//                    Profile.addAccount(new Profile(username, password));
+//                } else if (input.equalsIgnoreCase("delete")) {
+//                    String username = scanner.nextLine();
+//                    String password = scanner.nextLine();
+//                    profile.delete_account(username, password);
+//                    profile = null;
+//                    Menu.menuHandler.setCurrentMenu(Menu.loginMenu);
+//                } else if (input.equalsIgnoreCase("jhajCJUK")) {
+//                    Menu.profileMenu.exit();
+//                } else if (input.equalsIgnoreCase("show")) {
+//                    System.out.println(profile.getUsername());
+//                } else
+//                    System.out.println("invalid command");
+//            }
 
             //playMenu//
 
-            else if (Menu.menuHandler.getCurrentMenu() == Menu.playMenu) {
+            //todo
+            //else if bood
+            if (Menu.menuHandler.getCurrentMenu() == Menu.playMenu) {
                 if (input.equalsIgnoreCase("help"))
                     Menu.help();
 
@@ -228,7 +233,7 @@ public class MenuHandler {
                     int y = Integer.parseInt(splitInput[2]);
                     Menu.gameMenu.remove(x, y);
                 } else if (input.equalsIgnoreCase("End Turn")) {
-                    Menu.gameMenu.endTurn(profile);
+                    Menu.gameMenu.endTurn(profile,root );
                 } else if (input.equalsIgnoreCase("show lawn")) {
                     Menu.gameMenu.showLawn();
                 } else
@@ -260,7 +265,7 @@ public class MenuHandler {
                     int y = Integer.parseInt(splitInput[2]);
                     Menu.railMenu.remove(x, y);
                 } else if (input.equalsIgnoreCase("End Turn")) {
-                    Menu.railMenu.endTurn(profile, Menu.railMenu.getBattle());
+                    Menu.railMenu.endTurn(profile, Menu.railMenu.getBattle(), root );
                 } else if (input.equalsIgnoreCase("show lawn")) {
                     Menu.railMenu.showLawn();
                 } else if (input.equalsIgnoreCase("record"))
@@ -290,7 +295,7 @@ public class MenuHandler {
                     int y = Integer.parseInt(splitInput[2]);
                     Menu.waterModeMenu.remove(x, y);
                 } else if (input.equalsIgnoreCase("End Turn")) {
-                    Menu.waterModeMenu.endTurn(profile);
+                    Menu.waterModeMenu.endTurn(profile,root );
                 } else if (input.equalsIgnoreCase("show lawn")) {
                     Menu.waterModeMenu.showLawn();
                 } else
@@ -306,7 +311,7 @@ public class MenuHandler {
                     int x = Integer.parseInt(splitInput[2]);
                     Menu.zombieMenu.putZombie(n, x);
                 } else if (input.equalsIgnoreCase("start")) {
-                    Menu.zombieMenu.start();
+                    Menu.zombieMenu.start(root);
                 } else if (input.equalsIgnoreCase("show lanes")) {
                     Menu.zombieMenu.showLanes();
                 } else if (input.equalsIgnoreCase("show lawn")) {

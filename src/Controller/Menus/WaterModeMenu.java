@@ -8,6 +8,8 @@ import Model.Map.Cell;
 import Model.Map.Map;
 import Model.Player.Player;
 import Model.Player.Profile;
+import javafx.scene.Group;
+import javafx.scene.layout.Pane;
 
 import java.io.IOException;
 
@@ -69,11 +71,11 @@ public class WaterModeMenu extends Menu {
         }
     }
 
-    public void endTurn(Profile profile) throws IOException {
+    public void endTurn(Profile profile, Pane root) throws IOException {
         if (battle.getGameMode() instanceof Water) {
             waterMode.wave(battle);
             waterMode.setLastTurnGivingSuns(1);
-            battle.actAllMembers();
+            battle.actAllMembers(root);
             waterMode.generateSun(battle);
             if (!waterMode.handleWin(profile, battle)) {
                 //Menu.menuHandler.setCurrentMenu(Menu.mainMenu);

@@ -7,6 +7,9 @@ import Model.Card.Card;
 import Model.Card.Event.*;
 import Model.Card.Zombies.ZombiesActions.*;
 import com.gilecode.yagson.YaGson;
+import javafx.scene.Group;
+import javafx.scene.layout.Pane;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -217,13 +220,13 @@ public class Zombie extends Card {
         IronHat = ironHat;
     }
 
-    public void act(Battle battle) {
+    public void act(Battle battle, Pane root) {
         for (ActionsOfAnEvent e : this.actionsOfAnEvent){
             int d = 0;//bayad taeen she be ezaye har plant vali
             if (e.getEvent().check(this, battle, d)) {//age shart barqarar bood
                 for (Action action : e.getActions()) {
                     try {
-                        action.doAction(this, battle, d);//action o anjam bede
+                        action.doAction(this, battle, d, root );//action o anjam bede
                     } catch (IOException ex) {
                         ex.printStackTrace();
                     }

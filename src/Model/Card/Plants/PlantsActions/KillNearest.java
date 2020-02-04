@@ -5,13 +5,15 @@ import Model.Card.Action;
 import Model.Card.Plants.Plant;
 import Model.Card.Zombies.Zombie;
 import Model.Map.Cell;
+import javafx.scene.Group;
+import javafx.scene.layout.Pane;
 
 import java.io.IOException;
 
 public class KillNearest extends Action {
 
     @Override
-    public void doAction(Plant plant, Battle battle, int d) {
+    public void doAction(Plant plant, Battle battle, int d, Pane root) {
         double MinRad = 100;
         Cell nearestCell = null;
         if (plant.getHP() > 0) {
@@ -30,7 +32,7 @@ public class KillNearest extends Action {
     }
 
     @Override
-    public void doAction(Zombie zombie, Battle battle, int d) throws IOException {
+    public void doAction(Zombie zombie, Battle battle, int d, Pane root) throws IOException {
 
     }
 

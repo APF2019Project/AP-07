@@ -8,6 +8,8 @@ import Model.Card.Zombies.Zombie;
 import Model.Map.Cell;
 import Model.Map.Map;
 import Model.Player.Player;
+import javafx.scene.Group;
+import javafx.scene.layout.Pane;
 
 import java.io.IOException;
 
@@ -43,15 +45,15 @@ public class ZombieMenu extends Menu {
         }
     }
 
-    public void start() {
+    public void start(Pane root) {
         while (true) {////ta zamani ke round tamom she
             for (int i = 2; i < Map.getHEIGHT() + 2; i++)
                 for (int j = 2; j < Map.getWIDTH() + 2; j++) {
                     if (battle.getMap().getCell(i, j).getPlant() != null)
-                        battle.getMap().getCell(i, j).getPlant().act(battle);
+                        battle.getMap().getCell(i, j).getPlant().act(battle, root );
                     if (battle.getMap().getCell(i, j).getZombies().size() != 0)
                         for (Zombie z : battle.getMap().getCell(i, j).getZombies())
-                            z.act(battle);
+                            z.act(battle,root);
                 }
             for (Plant p : this.player1.getPlants()) {
                 if (p.getLoading() != 0) {

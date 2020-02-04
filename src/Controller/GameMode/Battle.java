@@ -6,9 +6,10 @@ import Model.Card.Zombies.Zombie;
 import Model.Map.Cell;
 import Model.Map.Map;
 import Model.Player.Player;
+import javafx.scene.Group;
+import javafx.scene.layout.Pane;
 
 import java.util.ArrayList;
-import java.util.Collection;
 
 
 public class Battle {
@@ -39,18 +40,18 @@ public class Battle {
         this.map = GameMode.generateMap(gameMode);
     }
 
-    public void actAllMembers() {
+    public void actAllMembers(Pane root) {
         for (int i = 0; i < Map.getHEIGHT() + 4; i++) {
             for (int j = 0; j < Map.getWIDTH() + 4; j++) {
                 if (map.getCell(i, j).getPlant() != null) {
                     System.out.println(map.getCell(i, j).getPlant().getName() + "///////////////");
-                    map.getCell(i, j).getPlant().act(this);
+                    map.getCell(i, j).getPlant().act(this,root );
                 }
                 //todo
                 try {
                     for (Zombie z : map.getCell(i, j).getZombies()) {
                         System.out.println(z.getName() + "/////////////////");
-                        z.act(this);
+                        z.act(this,root);
                     }
                 } catch (Exception e) {
                     System.out.println("exeption");

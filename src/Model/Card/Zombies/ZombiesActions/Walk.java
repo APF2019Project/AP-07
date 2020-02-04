@@ -4,17 +4,29 @@ import Controller.GameMode.Battle;
 import Model.Card.Action;
 import Model.Card.Plants.Plant;
 import Model.Card.Zombies.Zombie;
+import javafx.animation.PathTransition;
+import javafx.scene.Group;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
+import javafx.scene.shape.LineTo;
+import javafx.scene.shape.MoveTo;
+import javafx.scene.shape.Path;
+import javafx.util.Duration;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 
 public class Walk extends Action {
 
 
     @Override
-    public void doAction(Plant plant, Battle battle, int d) {
+    public void doAction(Plant plant, Battle battle, int d, Pane root) {
 
     }
 
     @Override
-    public void doAction(Zombie zombie, Battle battle, int d) {
+    public void doAction(Zombie zombie, Battle battle, int d, Pane root) throws FileNotFoundException {
         int i = 0;
         int x = zombie.getCell().x();
         int y = zombie.getCell().y();
@@ -30,6 +42,16 @@ public class Walk extends Action {
         }
         zombie.setCell(battle.getMap().getCell(x, y));
         battle.getMap().getCell(x, y).getZombies().add(zombie);
+
+        Image image = new Image(new FileInputStream("C:\\Users\\asus\\IdeaProjects\\Test\\src\\sample\\FootballZombie.png"));
+        ImageView imageView = new ImageView(image);
+        root.getChildren().add(imageView);
+        Path path = new Path(new MoveTo(700, 100), new LineTo(100, 100));
+        path.setVisible(false);
+        PathTransition pathTransition = new PathTransition(Duration.millis(80000), path,imageView);
+        root.getChildren().add(path);
+        pathTransition.setAutoReverse(false);
+        pathTransition.play();
     }
 
 }

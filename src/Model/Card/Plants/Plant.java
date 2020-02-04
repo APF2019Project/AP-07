@@ -7,6 +7,8 @@ import Model.Card.Card;
 import Model.Card.Event.*;
 import Model.Card.Plants.PlantsActions.*;
 import com.gilecode.yagson.YaGson;
+import javafx.scene.Group;
+import javafx.scene.layout.Pane;
 
 import java.io.File;
 import java.io.IOException;
@@ -212,13 +214,13 @@ public class Plant extends Card {
 
     }
 
-    public void act(Battle battle) {
+    public void act(Battle battle, Pane root) {
         this.actionsOfAnEvent.forEach(e -> {
             int d = 0;//bayad taeen she be ezaye har plant vali
             if (e.getEvent().check(this, battle, d)) {//age shart barqharar bood
                 System.out.println("plant check");
                 for (Action action : e.getActions()) {
-                    action.doAction(this, battle, d);//action o anjam bede
+                    action.doAction(this, battle, d, root );//action o anjam bede
                 }
             }
         });

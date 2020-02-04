@@ -8,13 +8,11 @@ import Model.Map.Cell;
 import Model.Map.Map;
 import Model.Player.Player;
 import Model.Player.Profile;
-import javafx.event.EventHandler;
 import javafx.fxml.Initializable;
+import javafx.scene.Group;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseDragEvent;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 
 import java.io.FileInputStream;
@@ -71,15 +69,14 @@ public class GameMenu extends Menu implements Initializable {
                 }
             }
         }
-
     }
 
-    public void endTurn(Profile profile) throws IOException {
+    public void endTurn(Profile profile, Pane root) throws IOException {
 
         if (battle.getGameMode() instanceof Day) {
             day.wave(battle);
             day.setLastTurnGivingSuns(1);
-            battle.actAllMembers();
+            battle.actAllMembers(root);
             day.generateSun(battle);
             if (!day.handleWin(profile, battle)) {
                 //Menu.menuHandler.setCurrentMenu(Menu.mainMenu);
@@ -146,11 +143,9 @@ public class GameMenu extends Menu implements Initializable {
             x.setOnMousePressed(event ->  {
                 root.getChildren().add(imageView);
             System.out.println("sjveuagf");
-
             });
 
             x.setOnMouseDragged(event -> {
-
                 imageView.setX(event.getX());
                 imageView.setY(event.getY());
                 imageView.setFitWidth(80);

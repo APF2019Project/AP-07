@@ -9,6 +9,8 @@ import Model.Map.Cell;
 import Model.Map.Map;
 import Model.Player.Player;
 import Model.Player.Profile;
+import javafx.scene.Group;
+import javafx.scene.layout.Pane;
 
 import java.io.IOException;
 
@@ -65,10 +67,10 @@ public class RailMenu extends Menu {
         cell.removePlant();
     }
 
-    public void endTurn(Profile profile, Battle battle) throws IOException {
+    public void endTurn(Profile profile, Battle battle, Pane root) throws IOException {
         rail.wave(battle);
         rail.setLastTurnUpdatingRailCollection(1);
-        battle.actAllMembers();
+        battle.actAllMembers(root);
         rail.generateSun(battle);
         rail.handleWin(profile,battle );
         rail.setLastTurnWaved(1);
