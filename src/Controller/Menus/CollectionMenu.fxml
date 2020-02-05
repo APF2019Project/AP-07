@@ -65,16 +65,116 @@
                   <Image url="@../../Images/emptyShop.png" />
                </image>
             </ImageView>
-            <Button fx:id="play" layoutX="677.0" layoutY="525.0" mnemonicParsing="false" text="play" />
-            <Button fx:id="back" layoutX="23.0" layoutY="525.0" mnemonicParsing="false" text="back" />
-            <ImageView fx:id="sunflower" fitHeight="73.0" fitWidth="73.0" layoutX="70.0" layoutY="82.0">
+            <Button fx:id="play" layoutX="685.0" layoutY="519.0" mnemonicParsing="false" text="play" />
+            <Button fx:id="back" layoutX="32.0" layoutY="519.0" mnemonicParsing="false" text="back" />
+            <ImageView fx:id="SunFlower" fitHeight="73.0" fitWidth="73.0" layoutX="70.0" layoutY="82.0">
                <image>
                   <Image url="@../../CollectionGifsAndImages/SunFlower.gif" />
                </image>
             </ImageView>
-            <ImageView fx:id="peashooter" fitHeight="70.0" fitWidth="70.0" layoutX="152.0" layoutY="84.0">
+            <ImageView fx:id="Cattail" fitHeight="70.0" fitWidth="70.0" layoutX="118.0" layoutY="364.0">
                <image>
-                  <Image url="@../../CollectionGifsAndImages/Peashooter.gif" />
+                  <Image url="@../../CollectionGifsAndImages/Cattail.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="Jalapeno" fitHeight="60.0" fitWidth="41.0" layoutX="499.0" layoutY="284.0">
+               <image>
+                  <Image url="@../../CollectionGifsAndImages/Jalapeno.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="SnowPea" fitHeight="50.0" fitWidth="50.0" layoutX="553.0" layoutY="94.0">
+               <image>
+                  <Image url="@../../CollectionGifsAndImages/SnowPea.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="CherryBomb" fitHeight="70.0" fitWidth="70.0" layoutX="41.0" layoutY="277.0">
+               <image>
+                  <Image url="@../../CollectionGifsAndImages/CherryBomb.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="ExplodeONut" fitHeight="60.0" fitWidth="55.0" layoutX="218.0" layoutY="280.0">
+               <image>
+                  <Image url="@../../CollectionGifsAndImages/ExplodeONut.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="PotatoMine" fitHeight="70.0" fitWidth="70.0" layoutX="296.0" layoutY="278.0">
+               <image>
+                  <Image url="@../../CollectionGifsAndImages/PotatoMine.gif" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="CabbagePult" fitHeight="70.0" fitWidth="70.0" layoutX="52.0" layoutY="180.0">
+               <image>
+                  <Image url="@../../CollectionGifsAndImages/Cabbagepult.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="TangleKelp" fitHeight="72.0" fitWidth="72.0" layoutX="209.0" layoutY="373.0">
+               <image>
+                  <Image url="@../../CollectionGifsAndImages/TangleKelp.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="WinterMelon" fitHeight="50.0" fitWidth="50.0" layoutX="400.0" layoutY="198.0">
+               <image>
+                  <Image url="@../../CollectionGifsAndImages/WinterMelon.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="Kernelpult" fitHeight="72.0" fitWidth="72.0" layoutX="214.0" layoutY="182.0">
+               <image>
+                  <Image url="@../../CollectionGifsAndImages/Kernelpult.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="ThreePeater" fitHeight="60.0" fitWidth="60.0" layoutX="232.0" layoutY="94.0">
+               <image>
+                  <Image url="@../../CollectionGifsAndImages/ThreePeater.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="SplitPea" fitHeight="50.0" fitWidth="50.0" layoutX="311.0" layoutY="100.0">
+               <image>
+                  <Image url="@../../CollectionGifsAndImages/SplitPea.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="TwinSunFlower" fitHeight="58.0" fitWidth="58.0" layoutX="151.0" layoutY="188.0">
+               <image>
+                  <Image url="@../../CollectionGifsAndImages/TwinSunFlower.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="WallNut" fitHeight="60.0" fitWidth="55.0" layoutX="132.0" layoutY="280.0">
+               <image>
+                  <Image url="@../../CollectionGifsAndImages/Wall-nut.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="Cactus" fitHeight="76.0" fitWidth="65.0" layoutX="620.0" layoutY="73.0">
+               <image>
+                  <Image url="@../../CollectionGifsAndImages/Cactus.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="GatlingPea" fitHeight="53.0" fitWidth="50.0" layoutX="399.0" layoutY="95.0">
+               <image>
+                  <Image url="@../../CollectionGifsAndImages/GatlingPea.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="PeaShooter" fitHeight="70.0" fitWidth="70.0" layoutX="152.0" layoutY="84.0">
+               <image>
+                  <Image url="@../../CollectionGifsAndImages/PeaShooter.gif" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="MelonPult" fitHeight="70.0" fitWidth="70.0" layoutX="284.0" layoutY="180.0">
+               <image>
+                  <Image url="@../../CollectionGifsAndImages/Melon-pult.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="Repeater" fitHeight="50.0" fitWidth="45.0" layoutX="474.0" layoutY="96.0">
+               <image>
+                  <Image url="@../../CollectionGifsAndImages/Repeater.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="MagnetShroom" fitHeight="60.0" fitWidth="50.0" layoutX="403.0" layoutY="283.0">
+               <image>
+                  <Image url="@../../CollectionGifsAndImages/MagnetShroom.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="LilyPad" fitHeight="70.0" fitWidth="70.0" layoutX="38.0" layoutY="382.0">
+               <image>
+                  <Image url="@../../CollectionGifsAndImages/LilyPad.gif" />
                </image>
             </ImageView>
       </children>

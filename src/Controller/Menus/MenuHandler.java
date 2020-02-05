@@ -133,10 +133,9 @@ public class MenuHandler {
                     Menu.help();
 
                 else if (input.equalsIgnoreCase("day")) {
-                    player = new Player();
-                    Menu.playMenu.startDayGame(player, bot);
-                    dayMode = new Day();
-                    Menu.gameMenu.battle.setMap(GameMode.generateMap(dayMode));
+
+                    Menu.playMenu.startDayGame(new Player(), new Player());
+                    Menu.gameMenu.battle.setMap(GameMode.generateMap(new Day()));
                     Menu.collectionMenu.zombieMode = false;
                     Menu.collectionMenu.water = false;
                 } else if (input.equalsIgnoreCase("water")) {
@@ -176,9 +175,9 @@ public class MenuHandler {
 
             else if (Menu.menuHandler.getCurrentMenu() == Menu.collectionMenu) {
                 if (input.equalsIgnoreCase("Show hand")) {
-                    Menu.collectionMenu.showHand();
+//                    Menu.collectionMenu.showHand();
                 } else if (input.equalsIgnoreCase("Show collection")) {
-                    Menu.collectionMenu.showCollection(profile);
+//                    Menu.collectionMenu.showCollection(profile);
                 } else if (selectCard.matcher(input).matches()) {
                     Menu.collectionMenu.selectCollection(splitInput[1], profile);
                 } else if (input.equalsIgnoreCase("Play")) {

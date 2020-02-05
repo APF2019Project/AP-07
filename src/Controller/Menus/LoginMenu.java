@@ -78,37 +78,24 @@ public class LoginMenu extends Menu implements Initializable {
                 String pass = passwordField.getText();
                 if (Profile.validUsername(user)) {
                     try {
-                        createAccount(user,pass);
+                        createAccount(user, pass);
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
-                    //System.out.println("dab");
-                    MainMenu.User = user;
                     try {
                         Parent root = (FXMLLoader.load(getClass().getResource("MainMenu.fxml")));
                         Menu.primaryStage.setScene(new Scene(root));
                         Menu.primaryStage.show();
-
+                        Menu.profile = new Profile(user, pass);
                         Menu.primaryStage.setTitle("PvZ");
 
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
-                }
-                else {
-                    try {
-                        Parent root = (FXMLLoader.load(getClass().getResource("CreateAccount.fxml")));
-                        Menu.primaryStage.setScene(new Scene(root));
-                        Menu.primaryStage.show();
-                        Menu.primaryStage.setTitle("PvZ");
-                        //System.out.println("error");
-                        err.setText("This username is invalid");
-                        errorL.setText("This username is invalid");
-                        //todo//
-
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
+                } else {
+                    err.setText("This username is invalid");
+                    usernameField.clear();
+                    passwordField.clear();
                 }
             }
         });
@@ -118,17 +105,22 @@ public class LoginMenu extends Menu implements Initializable {
                 String user = usernameField.getText();
                 String pass = passwordField.getText();
 //                System.out.println("rt");
-                Login(user,pass);
+                Menu.profile = Login(user, pass);
 //                System.out.println(user);
-                MainMenu.User = user;
-                try {
-                    Parent root = FXMLLoader.load(getClass().getResource("MainMenu.fxml"));
-                    Menu.primaryStage.setScene(new Scene(root));
-                    Menu.primaryStage.show();
-                    Menu.primaryStage.setTitle("PvZ");
+                if (Menu.profile != null) {
+                    try {
+                        Parent root = FXMLLoader.load(getClass().getResource("MainMenu.fxml"));
+                        Menu.primaryStage.setScene(new Scene(root));
+                        Menu.primaryStage.show();
+                        Menu.primaryStage.setTitle("PvZ");
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                 }
-                catch (IOException e) {
-                    e.printStackTrace();
+                else {
+                    err.setText("Username or Password is incorrect");
+                    usernameField.clear();
+                    passwordField.clear();
                 }
             }
         });

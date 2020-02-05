@@ -51,7 +51,7 @@
          </image>
       </ImageView>
       <Label fx:id="sunL" alignment="CENTER" layoutX="135.0" layoutY="49.0" text="Label" textAlignment="CENTER" />
-      <GridPane gridLinesVisible="true" layoutX="87.0" layoutY="74.0" prefHeight="471.0" prefWidth="646.0">
+      <GridPane fx:id="map" gridLinesVisible="true" layoutX="87.0" layoutY="70.0" opacity="0.0" prefHeight="471.0" prefWidth="646.0">
         <rowConstraints>
             <RowConstraints maxHeight="84.00000610351563" minHeight="10.0" prefHeight="82.4" vgrow="SOMETIMES" />
           <RowConstraints maxHeight="74.4" minHeight="10.0" prefHeight="74.4" vgrow="SOMETIMES" />
@@ -61,15 +61,15 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <columnConstraints>
+            <ColumnConstraints minWidth="10.0" prefWidth="107.0" />
+            <ColumnConstraints minWidth="10.0" prefWidth="88.0" />
+            <ColumnConstraints minWidth="10.0" prefWidth="104.0" />
+            <ColumnConstraints minWidth="10.0" prefWidth="99.0" />
             <ColumnConstraints minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints minWidth="10.0" prefWidth="97.0" />
             <ColumnConstraints minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints minWidth="10.0" prefWidth="107.0" />
+            <ColumnConstraints minWidth="10.0" prefWidth="108.0" />
          </columnConstraints>
       </GridPane>
       <ImageView fx:id="lawnMower6" fitHeight="60.0" fitWidth="70.0" layoutX="11.0" layoutY="461.0">

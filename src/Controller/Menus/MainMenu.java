@@ -32,8 +32,10 @@ public class MainMenu extends Menu implements Initializable {
     public MenuItem quit;
     public MenuItem help2;
     public Button loginButton;
-    public static String User = new String();
     public Text id;
+    public Button shop;
+    public Button profiles;
+    public Button leaderboard;
 
 
     public MainMenu() throws IOException {
@@ -53,7 +55,7 @@ public class MainMenu extends Menu implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        id.setText(User);
+        id.setText(Menu.profile.getUsername());
 //        System.out.println(User);
         start1.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override

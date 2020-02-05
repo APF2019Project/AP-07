@@ -1,6 +1,8 @@
 package Controller.Menus;
 
+import Controller.GameMode.Day;
 import Controller.GameMode.GameMode;
+import javafx.scene.Scene;
 import Model.Card.Plants.Plant;
 import Model.Player.Player;
 import Model.Player.Profile;
@@ -8,8 +10,8 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Tooltip;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 
@@ -17,10 +19,10 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
 import Model.Shop.Collection;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
-import javafx.scene.shape.Circle;
 
 import java.util.ArrayList;
 
@@ -30,11 +32,30 @@ public class CollectionMenu extends Menu implements Initializable {
     public boolean water;
     public static ArrayList<ImageView> imageViews = new ArrayList<>();
 
-    public ImageView sunflower;
-    public ImageView peashooter;
     public Button back;
     public Button play;
-
+    public ImageView SunFlower;
+    public ImageView PeaShooter;
+    public ImageView Cattail;
+    public ImageView Jalapeno;
+    public ImageView SnowPea;
+    public ImageView CherryBomb;
+    public ImageView ExplodeONut;
+    public ImageView PotatoMine;
+    public ImageView CabbagePult;
+    public ImageView TangleKelp;
+    public ImageView WinterMelon;
+    public ImageView Kernelpult;
+    public ImageView ThreePeater;
+    public ImageView SplitPea;
+    public ImageView TwinSunFlower;
+    public ImageView WallNut;
+    public ImageView Cactus;
+    public ImageView GatlingPea;
+    public ImageView MelonPult;
+    public ImageView Repeater;
+    public ImageView MagnetShroom;
+    public ImageView LilyPad;
 
     public CollectionMenu() {
         this.orders = new String[]{"Show hand", "Show collection", "Select", "Remove", "Play", "Help", "Exit"};
@@ -43,26 +64,26 @@ public class CollectionMenu extends Menu implements Initializable {
 
     private Collection collection = new Collection();
 
-    public void showHand() {
-        // in bayad bar asas gamemode chap kone
+//    public void showHand() {
+//        // in bayad bar asas gamemode chap kone
+//
+//        ArrayList<Plant> p = this.collection.getPlants();
+//        if (!zombieMode) {
+//            for (Plant x : p) {
+//                System.out.println(x.getName());
+//
+//            }
+//        }
+//    }
 
-        ArrayList<Plant> p = this.collection.getPlants();
-        if (!zombieMode) {
-            for (Plant x : p) {
-                System.out.println(x.getName());
-
-            }
-        }
-    }
-
-    public void showCollection(Profile profile) {
-        if (!zombieMode) {
-            for (String p : profile.getPurchasedPlants()) {
-                if (!collection.getPlants().contains(p))
-                    System.out.println(p);
-            }
-        }
-    }
+//    public void showCollection(Profile profile) {
+//        if (!zombieMode) {
+//            for (String p : profile.getPurchasedPlants()) {
+//                if (!collection.getPlants().contains(p))
+//                    System.out.println(p);
+//            }
+//        }
+//    }
 
 
     public void selectCollection(String name, Profile profile) {
@@ -134,49 +155,98 @@ public class CollectionMenu extends Menu implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        sunflower.setOnMouseClicked(new EventHandler<MouseEvent>() {
+
+        SunFlower.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    collection.addPlant(Plant.makePlant("sunflower"));
+                    selectCollection("sunflower", Menu.profile);
+                } catch (Exception e) {
                 }
-                catch (Exception e){}
             }
         });
-        peashooter.setOnMouseClicked(new EventHandler<MouseEvent>() {
+        SunFlower.setOnMouseEntered(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+
+                Tooltip tooltip = new Tooltip("Sunflower" );
+                tooltip.setX(mouseEvent.getX());
+                tooltip.setY(mouseEvent.getY());
+                Tooltip.install(SunFlower, tooltip);
+            }
+        });
+        PeaShooter.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
                 try {
                     collection.addPlant(Plant.makePlant("peashooter"));
-                    System.out.println("selected");
+                } catch (Exception e) {
                 }
-                catch (Exception e){}
+            }
+        });
+        PeaShooter.setOnMouseEntered(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+
+                Tooltip tooltip = new Tooltip("PeaShooter");
+                tooltip.setX(mouseEvent.getX());
+                tooltip.setY(mouseEvent.getY());
+                Tooltip.install(PeaShooter, tooltip);
+            }
+        });
+        Cattail.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                try {
+                    collection.addPlant(Plant.makePlant("Cattail"));
+                } catch (Exception e) {
+                }
+            }
+        });
+        Cattail.setOnMouseEntered(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+
+                Tooltip tooltip = new Tooltip("Cattail");
+                tooltip.setX(mouseEvent.getX());
+                tooltip.setY(mouseEvent.getY());
+                Tooltip.install(Cattail, tooltip);
             }
         });
         play.setOnMouseClicked(new EventHandler<MouseEvent>() {
             Image image;
+
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    for(int i=0;i<collection.getPlants().size();i++){
-                        String name=collection.getPlants().get(i).getName();
-//                        String path="../../Cards/"+name+".png";
-                        image = new Image(new FileInputStream("C:\\Users\\asus\\IdeaProjects\\AP-07\\AP-07-1\\src\\CardImages\\SunFlower.png"));
-                        ImageView imageView=new ImageView(image);
+                    for (int i = 0; i < collection.getPlants().size(); i++) {
+                        String name = collection.getPlants().get(i).getName();
+                        String path = "src/CardImages/" + name + ".png";
+                        image = new Image(new FileInputStream(path));
+                        ImageView imageView = new ImageView(image);
                         //todo
                         //todo
                         imageViews.add(imageView);
-                        imageViews.get(i).setX(91+(i+1)*80);
+                        imageViews.get(i).setX(91 + (i + 1) * 80);
                         imageViews.get(i).setY(9.5);
                         imageViews.get(i).setFitWidth(50);
                         imageViews.get(i).setFitHeight(60);
-
+                        player1.setCollection(collection);
+                        Menu.menuHandler.setCurrentMenu(Menu.gameMenu);
+                        Menu.player1 = player1;
+                        Menu.player2 = player2;
+                        gameMenu.battle.setPlayer(player1, 1);
+                        gameMenu.battle.setPlayer(player2, 2);
+                        gameMenu.battle.setMap(GameMode.generateMap(gameMenu.day));
+                        Menu.player1.setSun(2);
+                        Menu.gameMenu.battle.setMap(GameMode.generateMap(new Day()));
                         System.out.println(imageViews.size());
 
                     }
                     Pane root = (FXMLLoader.load(getClass().getResource("../GameMode/DayModeGround.fxml")));
+                    GameMenu.root = new Pane();
                     GameMenu.root = root;
-                    for (int i=0;i<imageViews.size();i++){
+                    for (int i = 0; i < imageViews.size(); i++) {
                         root.getChildren().add(imageViews.get(i));
                     }
                     Menu.primaryStage.setScene(new Scene(GameMenu.root));
@@ -185,9 +255,370 @@ public class CollectionMenu extends Menu implements Initializable {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-                for (Plant p :collection.getPlants()){
+                for (Plant p : collection.getPlants()) {
                     System.out.println(p.getName());
                 }
+            }
+        });
+        Jalapeno.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                try {
+                    collection.addPlant(Plant.makePlant("Jalapeno"));
+                } catch (Exception e) {
+                }
+            }
+        });
+        Jalapeno.setOnMouseEntered(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+
+                Tooltip tooltip = new Tooltip("Jalapeno");
+                tooltip.setX(mouseEvent.getX());
+                tooltip.setY(mouseEvent.getY());
+                Tooltip.install(Jalapeno, tooltip);
+            }
+        });
+        SnowPea.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                try {
+                    collection.addPlant(Plant.makePlant("SnowPea"));
+                } catch (Exception e) {
+                }
+            }
+        });
+        SnowPea.setOnMouseEntered(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+
+                Tooltip tooltip = new Tooltip("SnowPea");
+                tooltip.setX(mouseEvent.getX());
+                tooltip.setY(mouseEvent.getY());
+                Tooltip.install(SnowPea, tooltip);
+            }
+        });
+        CherryBomb.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                try {
+                    collection.addPlant(Plant.makePlant("CherryBomb"));
+                } catch (Exception e) {
+                }
+            }
+        });
+        CherryBomb.setOnMouseEntered(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+
+                Tooltip tooltip = new Tooltip("CherryBomb");
+                tooltip.setX(mouseEvent.getX());
+                tooltip.setY(mouseEvent.getY());
+                Tooltip.install(CherryBomb, tooltip);
+            }
+        });
+        ExplodeONut.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                try {
+                    collection.addPlant(Plant.makePlant("ExplodeONut"));
+                } catch (Exception e) {
+                }
+            }
+        });
+        ExplodeONut.setOnMouseEntered(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+
+                Tooltip tooltip = new Tooltip("ExplodeONut");
+                tooltip.setX(mouseEvent.getX());
+                tooltip.setY(mouseEvent.getY());
+                Tooltip.install(ExplodeONut, tooltip);
+            }
+        });
+        PotatoMine.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                try {
+                    collection.addPlant(Plant.makePlant("PotatoMine"));
+                } catch (Exception e) {
+                }
+            }
+        });
+        PotatoMine.setOnMouseEntered(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+
+                Tooltip tooltip = new Tooltip("PotatoMine");
+                tooltip.setX(mouseEvent.getX());
+                tooltip.setY(mouseEvent.getY());
+                Tooltip.install(PotatoMine, tooltip);
+            }
+        });
+        CabbagePult.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                try {
+                    collection.addPlant(Plant.makePlant("CabbagePult"));
+                } catch (Exception e) {
+                }
+            }
+        });
+        CabbagePult.setOnMouseEntered(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+
+                Tooltip tooltip = new Tooltip("CabbagePult");
+                tooltip.setX(mouseEvent.getX());
+                tooltip.setY(mouseEvent.getY());
+                Tooltip.install(CabbagePult, tooltip);
+            }
+        });
+        TangleKelp.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                try {
+                    collection.addPlant(Plant.makePlant("TangleKelp"));
+                } catch (Exception e) {
+                }
+            }
+        });
+        TangleKelp.setOnMouseEntered(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+
+                Tooltip tooltip = new Tooltip("TangleKelp");
+                tooltip.setX(mouseEvent.getX());
+                tooltip.setY(mouseEvent.getY());
+                Tooltip.install(TangleKelp, tooltip);
+            }
+        });
+        WinterMelon.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                try {
+                    collection.addPlant(Plant.makePlant("WinterMelon"));
+                } catch (Exception e) {
+                }
+            }
+        });
+        WinterMelon.setOnMouseEntered(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+
+                Tooltip tooltip = new Tooltip("WinterMelon");
+                tooltip.setX(mouseEvent.getX());
+                tooltip.setY(mouseEvent.getY());
+                Tooltip.install(WinterMelon, tooltip);
+            }
+        });
+        Kernelpult.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                try {
+                    collection.addPlant(Plant.makePlant("Kernelpult"));
+                } catch (Exception e) {
+                }
+            }
+        });
+        Kernelpult.setOnMouseEntered(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+
+                Tooltip tooltip = new Tooltip("Kernelpult");
+                tooltip.setX(mouseEvent.getX());
+                tooltip.setY(mouseEvent.getY());
+                Tooltip.install(Kernelpult, tooltip);
+            }
+        });
+        ThreePeater.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                try {
+                    collection.addPlant(Plant.makePlant("ThreePeater"));
+                } catch (Exception e) {
+                }
+            }
+        });
+        ThreePeater.setOnMouseEntered(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+
+                Tooltip tooltip = new Tooltip("ThreePeater");
+                tooltip.setX(mouseEvent.getX());
+                tooltip.setY(mouseEvent.getY());
+                Tooltip.install(ThreePeater, tooltip);
+            }
+        });
+        SplitPea.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                try {
+                    collection.addPlant(Plant.makePlant("SplitPea"));
+                } catch (Exception e) {
+                }
+            }
+        });
+        SplitPea.setOnMouseEntered(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+
+                Tooltip tooltip = new Tooltip("SplitPea");
+                tooltip.setX(mouseEvent.getX());
+                tooltip.setY(mouseEvent.getY());
+                Tooltip.install(SplitPea, tooltip);
+            }
+        });
+        TwinSunFlower.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                try {
+                    collection.addPlant(Plant.makePlant("TwinSunFlower"));
+                } catch (Exception e) {
+                }
+            }
+        });
+        TwinSunFlower.setOnMouseEntered(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+
+                Tooltip tooltip = new Tooltip("TwinSunFlower");
+                tooltip.setX(mouseEvent.getX());
+                tooltip.setY(mouseEvent.getY());
+                Tooltip.install(TwinSunFlower, tooltip);
+            }
+        });
+        WallNut.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                try {
+                    collection.addPlant(Plant.makePlant("WallNut"));
+                } catch (Exception e) {
+                }
+            }
+        });
+        WallNut.setOnMouseEntered(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+
+                Tooltip tooltip = new Tooltip("WallNut");
+                tooltip.setX(mouseEvent.getX());
+                tooltip.setY(mouseEvent.getY());
+                Tooltip.install(WallNut, tooltip);
+            }
+        });
+        Cactus.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                try {
+                    collection.addPlant(Plant.makePlant("Cactus"));
+                } catch (Exception e) {
+                }
+            }
+        });
+        Cactus.setOnMouseEntered(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+
+                Tooltip tooltip = new Tooltip("Cactus");
+                tooltip.setX(mouseEvent.getX());
+                tooltip.setY(mouseEvent.getY());
+                Tooltip.install(Cactus, tooltip);
+            }
+        });
+        GatlingPea.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                try {
+                    collection.addPlant(Plant.makePlant("GatlingPea"));
+                } catch (Exception e) {
+                }
+            }
+        });
+        GatlingPea.setOnMouseEntered(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+
+                Tooltip tooltip = new Tooltip("GatlingPea");
+                tooltip.setX(mouseEvent.getX());
+                tooltip.setY(mouseEvent.getY());
+                Tooltip.install(GatlingPea, tooltip);
+            }
+        });
+        MelonPult.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                try {
+                    collection.addPlant(Plant.makePlant("MelonPult"));
+                } catch (Exception e) {
+                }
+            }
+        });
+        MelonPult.setOnMouseEntered(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+
+                Tooltip tooltip = new Tooltip("MelonPult");
+                tooltip.setX(mouseEvent.getX());
+                tooltip.setY(mouseEvent.getY());
+                Tooltip.install(MelonPult, tooltip);
+            }
+        });
+        Repeater.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                try {
+                    collection.addPlant(Plant.makePlant("Repeater"));
+                } catch (Exception e) {
+                }
+            }
+        });
+        Repeater.setOnMouseEntered(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+
+                Tooltip tooltip = new Tooltip("Repeater");
+                tooltip.setX(mouseEvent.getX());
+                tooltip.setY(mouseEvent.getY());
+                Tooltip.install(Repeater, tooltip);
+            }
+        });
+        MagnetShroom.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                try {
+                    collection.addPlant(Plant.makePlant("MagnetShroom"));
+                } catch (Exception e) {
+                }
+            }
+        });
+        MagnetShroom.setOnMouseEntered(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+
+                Tooltip tooltip = new Tooltip("MagnetShroom");
+                tooltip.setX(mouseEvent.getX());
+                tooltip.setY(mouseEvent.getY());
+                Tooltip.install(MagnetShroom, tooltip);
+            }
+        });
+        LilyPad.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                try {
+                    collection.addPlant(Plant.makePlant("LilyPad"));
+                } catch (Exception e) {
+                }
+            }
+        });
+        LilyPad.setOnMouseEntered(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+
+                Tooltip tooltip = new Tooltip("LilyPad");
+                tooltip.setX(mouseEvent.getX());
+                tooltip.setY(mouseEvent.getY());
+                Tooltip.install(LilyPad, tooltip);
             }
         });
         back.setOnMouseClicked(new EventHandler<MouseEvent>() {
