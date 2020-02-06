@@ -1,10 +1,12 @@
+package Controller.Server;
+
 //package Controller.Server;
 //
 //import com.gilecode.yagson.YaGson;
 //
 //import java.io.IOException;
 //
-//public class ClientHandler extends Thread {
+public class ClientHandler extends Thread {
 //    public boolean endOfClient = false;
 //    //  private Transmitter transmitter;
 //    private controller.server.SocketClass socketClass;
@@ -46,4 +48,4 @@
 //    }
 //
 //
-//}
+}

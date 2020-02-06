@@ -8,6 +8,7 @@ import Model.Map.Cell;
 import Model.Map.Map;
 import Model.Player.Player;
 import Model.Player.Profile;
+import javafx.application.Platform;
 import javafx.event.EventHandler;
 import javafx.fxml.Initializable;
 import javafx.scene.Group;
@@ -81,20 +82,21 @@ public class GameMenu extends Menu implements Initializable {
         //todo
     }
 
-    public void endTurn(Profile profile, Pane root) throws IOException {
+    public synchronized void endTurn(Profile profile, Pane root) throws IOException {
+        synchronized (battle){
 
-        if (battle.getGameMode() instanceof Day) {
-            day.wave(battle);
-            day.setLastTurnGivingSuns(1);
-            battle.actAllMembers(root);
-            day.generateSun(battle);
-            if (!day.handleWin(profile, battle)) {
-                //Menu.menuHandler.setCurrentMenu(Menu.mainMenu);
+            if (battle.getGameMode() instanceof Day) {
+                day.wave(battle);
+                day.setLastTurnGivingSuns(1);
+                battle.actAllMembers(root);
+                day.generateSun(battle);
+                if (!day.handleWin(profile, battle)) {
+                    //Menu.menuHandler.setCurrentMenu(Menu.mainMenu);
+                }
+                day.setLastTurnWaved(1);
+                day.updateCollection(battle);
+                battle.setCurrentTurn(1);
             }
-            day.setLastTurnWaved(1);
-            day.updateCollection(battle);
-            battle.setCurrentTurn(1);
-        }
 
 
 //        for (Plant p:player1.getPlants()) {
@@ -103,7 +105,8 @@ public class GameMenu extends Menu implements Initializable {
 //            }
 //        }
 ////        System.out.println(player1.getSun());
-        System.out.println(battle.getCurrentTurn());
+            System.out.println(battle.getCurrentTurn());
+        }
     }
 
 
@@ -115,11 +118,12 @@ public class GameMenu extends Menu implements Initializable {
                 if (cell.getZombies().size() != 0) {
                     for (Zombie z : cell.getZombies()) {
                         System.out.println(z.getName() + "\t" + cell.x() + "," + cell.y() + "\t" + z.getHP() + z.showIronHat());
-                        synchronized (battle) {
+                        Platform.runLater(() -> {
                             imageView.setX(200);
                             imageView.setY(200);
                             root.getChildren().add(imageView);
-                        }
+
+                        });
                     }
                 }
                 if (cell.getPlant() != null) {
@@ -196,14 +200,11 @@ public class GameMenu extends Menu implements Initializable {
                         x.setOnMouseReleased(event -> {
                             root.getChildren().remove(finalImage);
                             System.out.println("AAAAAAAAAAA");
-                            map.getChildren().get(0).setOnMouseReleased(new EventHandler<MouseEvent>() {
-                                @Override
-                                public void handle(MouseEvent mouseEvent) {
-                                    try {
-                                        battle.getMap().getCell(0, 0).setPlant(Plant.makePlant("sunflower"));
-                                    } catch (IOException e) {
-                                        e.printStackTrace();
-                                    }
+                            map.getChildren().get(0).setOnMouseReleased(mouseEvent -> {
+                                try {
+                                    battle.getMap().getCell(0, 0).setPlant(Plant.makePlant("sunflower"));
+                                } catch (IOException e) {
+                                    e.printStackTrace();
                                 }
                             });
                         });

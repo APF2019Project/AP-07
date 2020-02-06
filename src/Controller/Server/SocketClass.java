@@ -1,3 +1,5 @@
+package Controller.Server;
+
 //package controller.server;
 //
 //import Controller.Message;
@@ -6,8 +8,7 @@
 //import java.net.Socket;
 //import java.util.Scanner;
 //
-//public class
-//SocketClass {
+public class SocketClass {
 //    private Socket socket;
 //    private ObjectInputStream inputStream;
 //    private ObjectOutputStream objectOutputStream;
@@ -135,4 +136,4 @@
 //    public int getNumberOfPlayer() {
 //        return numberOfPlayer;
 //    }
-//}
+}

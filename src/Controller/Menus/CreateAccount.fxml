@@ -13,6 +13,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
+<?import javafx.scene.control.PasswordField?>
 <VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Menus.LoginMenu">
     <children>
         <VBox>
@@ -54,7 +55,7 @@
                                 <Font size="17.0" />
                             </font>
                         </Label>
-                        <TextField fx:id="passwordField" layoutX="280.0" layoutY="206.0" promptText="password" />
+                        <PasswordField fx:id="passwordField" layoutX="280.0" layoutY="206.0" promptText="password" />
                         <Label layoutX="280.0" layoutY="188.0" prefHeight="18.0" prefWidth="129.0" text="Password:" textFill="#0a0000" />
                         <Label layoutX="280.0" layoutY="117.0" prefHeight="18.0" prefWidth="101.0" text="Username:" textFill="#0a0000" />
                         <Button fx:id="LoginButton" layoutX="280.0" layoutY="247.0" mnemonicParsing="false" text="Login" />
