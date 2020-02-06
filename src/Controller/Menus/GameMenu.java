@@ -8,11 +8,14 @@ import Model.Map.Cell;
 import Model.Map.Map;
 import Model.Player.Player;
 import Model.Player.Profile;
+import javafx.event.EventHandler;
 import javafx.fxml.Initializable;
 import javafx.scene.Group;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 
 import java.io.FileInputStream;
@@ -27,14 +30,14 @@ public class GameMenu extends Menu implements Initializable {
 
     public Day day = new Day();
 
-    public Player player1;
-    public Player player2;
     public static Pane root = new Pane();
     public Battle battle = new Battle(player1, player2, day);
 
     //    public ImageView imageView;
-    public Label sunL;
     public static ArrayList<ImageView> plantsImages = new ArrayList<>();
+    public Label sunL;
+    public GridPane map;
+
 
     public void showHand() {
         for (Plant x : player1.getPlants()) {
@@ -127,22 +130,23 @@ public class GameMenu extends Menu implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        sunL.setText("sun");
+        sunL.setText(player1.getSun()+ "");
+        System.out.println(battle.getMap().getCells()[1].length);
         System.out.println("before" + GameMenu.plantsImages.size());
         plantsImages.addAll(CollectionMenu.imageViews);
         System.out.println("after" + GameMenu.plantsImages.size());
-        for (ImageView x : plantsImages){
+        for (ImageView x : plantsImages) {
             Image image = null;
             try {
-                image = new Image(new FileInputStream("C:\\Users\\asus\\IdeaProjects\\AP-07\\AP-07-1\\src\\CollectionGifsAndImages\\BalloonZombie.gif"));
+                image = new Image(new FileInputStream("src/CollectionGifsAndImages/SunFlower.gif"));
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
             Image finalImage = image;
             ImageView imageView = new ImageView(finalImage);
-            x.setOnMousePressed(event ->  {
+            x.setOnMousePressed(event -> {
                 root.getChildren().add(imageView);
-            System.out.println("sjveuagf");
+                System.out.println("sjveuagf");
             });
 
             x.setOnMouseDragged(event -> {
@@ -156,9 +160,19 @@ public class GameMenu extends Menu implements Initializable {
             x.setOnMouseReleased(event -> {
                 root.getChildren().remove(finalImage);
                 System.out.println("AAAAAAAAAAA");
+                map.getChildren().get(0).setOnMouseReleased(new EventHandler<MouseEvent>() {
+                    @Override
+                    public void handle(MouseEvent mouseEvent) {
+                        try {
+                            battle.getMap().getCell(0, 0).setPlant(Plant.makePlant("sunflower"));
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                });
             });
         }
 
     }
-    }
+}
 

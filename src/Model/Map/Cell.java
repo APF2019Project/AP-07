@@ -50,6 +50,7 @@ public class Cell {
 
     public void setPlant(Plant plant) {
         this.plant = plant;
+        System.out.println("planted");
     }
 
     public ArrayList<Zombie> getZombies() {

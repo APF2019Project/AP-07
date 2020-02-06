@@ -1,6 +1,7 @@
 package Controller.Menus;
 import Model.Card.Plants.Plant;
 import Model.Card.Zombies.Zombie;
+import Model.Player.Player;
 import Model.Player.Profile;
 import com.gilecode.yagson.YaGson;
 import javafx.stage.Stage;
@@ -16,6 +17,9 @@ public class Menu {
     public static CollectionMenu collectionMenu = new CollectionMenu();
     public static PlayMenu playMenu;
     public static Stage primaryStage = new Stage();
+    public static Profile profile;
+    public static Player player1;
+    public static Player player2;
 
 
     static {

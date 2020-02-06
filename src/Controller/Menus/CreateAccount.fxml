@@ -49,9 +49,9 @@
                             </image>
                         </ImageView>
                         <TextField fx:id="usernameField" layoutX="280.0" layoutY="135.0" promptText="username" />
-                        <Label fx:id="err" alignment="CENTER" layoutX="213.0" layoutY="285.0" prefHeight="17.0" prefWidth="284.0" textAlignment="CENTER" textFill="RED">
+                        <Label fx:id="err" alignment="CENTER" layoutX="213.0" layoutY="296.0" prefHeight="17.0" prefWidth="284.0" textAlignment="CENTER" textFill="#e11919">
                             <font>
-                                <Font size="16.0" />
+                                <Font size="17.0" />
                             </font>
                         </Label>
                         <TextField fx:id="passwordField" layoutX="280.0" layoutY="206.0" promptText="password" />

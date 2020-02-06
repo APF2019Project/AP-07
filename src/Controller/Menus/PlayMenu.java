@@ -9,6 +9,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -61,6 +62,8 @@ public class PlayMenu extends Menu implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+
         backButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
@@ -79,10 +82,19 @@ public class PlayMenu extends Menu implements Initializable {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    Parent root = (FXMLLoader.load(getClass().getResource("CollectionMenu.fxml")));
-                    Menu.primaryStage.setScene(new Scene(root));
+                    Menu.playMenu.startDayGame(new Player(), new Player());
+                    Menu.gameMenu.battle.setMap(GameMode.generateMap(new Day()));
+                    Menu.collectionMenu.zombieMode = false;
+                    Menu.collectionMenu.water = false;
+                    GameMenu.root = (FXMLLoader.load(getClass().getResource("CollectionMenu.fxml")));
+                    Menu.menuHandler.setCurrentMenu(new CollectionMenu());
+                    Menu.primaryStage.setScene(new Scene(GameMenu.root));
                     Menu.primaryStage.show();
                     Menu.primaryStage.setTitle("PvZ");
+                    Day day = new Day();
+                    player1 = new Player();
+                    player2 = new Player();
+                    Menu.menuHandler.setCurrentMenu(Menu.collectionMenu);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
