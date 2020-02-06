@@ -57,6 +57,30 @@ public class MainMenu extends Menu implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         id.setText(Menu.profile.getUsername());
 //        System.out.println(User);
+        profiles.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                try {
+                    Menu.primaryStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("ProfileMenu.fxml"))));
+                    Menu.primaryStage.show();
+                    Menu.primaryStage.setTitle("PvZ");
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+        shop.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                try {
+                    Menu.primaryStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("ShopMenu.fxml"))));
+                    Menu.primaryStage.show();
+                    Menu.primaryStage.setTitle("PvZ");
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
         start1.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {

@@ -4,7 +4,6 @@ import Controller.GameMode.*;
 import Model.Card.Plants.Plant;
 import Model.Player.Player;
 import Model.Player.Profile;
-import javafx.scene.Group;
 import javafx.scene.layout.Pane;
 
 import java.io.IOException;
@@ -204,7 +203,7 @@ public class MenuHandler {
                 } else if (input.equalsIgnoreCase("Help")) {
                     Menu.help();
                 } else if (input.equalsIgnoreCase("Exit")) {
-                    Menu.shopMenu.exit();
+                    Menu.shopMenu.Exit();
                 } else if (buyCard.matcher(input).matches()) {
                     Menu.shopMenu.buy(splitInput[1], profile);
                 } else
@@ -215,7 +214,7 @@ public class MenuHandler {
 
             else if (Menu.menuHandler.getCurrentMenu() == Menu.gameMenu) {
                 if (input.equalsIgnoreCase("show hand")) {
-                    Menu.gameMenu.showHand();
+                    Menu.gameMenu.showHandOk();
                 } else if (select.matcher(input).matches()) {
                     name = splitInput[1];
                 } else if (plantPlant.matcher(input).matches()) {

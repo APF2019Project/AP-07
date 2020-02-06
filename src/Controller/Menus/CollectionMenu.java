@@ -227,7 +227,7 @@ public class CollectionMenu extends Menu implements Initializable {
                         //todo
                         //todo
                         imageViews.add(imageView);
-                        imageViews.get(i).setX(91 + (i + 1) * 80);
+                        imageViews.get(i).setX(96 + (i + 1) * 78);
                         imageViews.get(i).setY(9.5);
                         imageViews.get(i).setFitWidth(50);
                         imageViews.get(i).setFitHeight(60);

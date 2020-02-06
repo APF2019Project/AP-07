@@ -39,7 +39,7 @@ public class GameMenu extends Menu implements Initializable {
     public GridPane map;
 
 
-    public void showHand() {
+    public void showHandOk() {
         for (Plant x : player1.getPlants()) {
             System.out.println(x.getName() + "\t" + x.getSun() + "\t" + x.getCooldown());
         }
@@ -49,6 +49,8 @@ public class GameMenu extends Menu implements Initializable {
         Map map = battle.getMap();
         Cell cell = map.getCell(x, y);
         cell.removePlant();
+
+        //todo
     }
 
     public void plant(String name, int x, int y) throws IOException {
@@ -72,6 +74,9 @@ public class GameMenu extends Menu implements Initializable {
                 }
             }
         }
+
+
+        //todo
     }
 
     public void endTurn(Profile profile, Pane root) throws IOException {

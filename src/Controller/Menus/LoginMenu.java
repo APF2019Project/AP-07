@@ -35,7 +35,7 @@ public class LoginMenu extends Menu implements Initializable {
         this.orders = new String[]{"Create account", "Login", "Leaderboard", "Help", "Exit"};
     }
 
-    public int createAccount(String username, String password) throws IOException {
+    public Profile createAccount(String username, String password) throws IOException {
         if (Profile.validUsername(username)) {
             Profile profile = new Profile(username, password);
             Profile.addAccount(profile);
@@ -45,10 +45,10 @@ public class LoginMenu extends Menu implements Initializable {
             writer.write(json);
             writer.close();
 //            menuHandler.setCurrentMenu(loginMenu);
-            return 1;
+            return profile;
         } else {
 //            System.out.println("invalid username");
-            return 2;
+            return null;
         }
     }
 
@@ -78,7 +78,7 @@ public class LoginMenu extends Menu implements Initializable {
                 String pass = passwordField.getText();
                 if (Profile.validUsername(user)) {
                     try {
-                        createAccount(user, pass);
+                        Menu.profile = createAccount(user, pass);
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
