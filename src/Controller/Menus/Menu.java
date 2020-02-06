@@ -79,7 +79,7 @@ public class Menu {
         ArrayList<Profile> profiles = yaGson.fromJson(string, ArrayList.class);
         Profile.setProfiles(profiles);
 
-        String[] plants = new String[]{"CabbagePult", "Cactus", "Cattail", "CherryBomb", "ExplodeONut", "GatlingPea", "KernelPult", "LilyPad","Jalapeno", "MagnetShroom", "Melon-pult", "PeaShooter", "PotatoMine", "Repeater", "ScaredyShroom", "SnowPea", "SplitPea", "SunFlower", "Tall-nut", "TangleKelp", "ThreePeater", "TwinSunFlower", "Wall-nut", "WinterMelon"};
+        String[] plants = new String[]{"CabbagePult", "Cactus", "Cattail", "CherryBomb", "ExplodeONut", "GatlingPea", "KernelPult", "LilyPad","Jalapeno", "MagnetShroom", "MelonPult", "PeaShooter", "PotatoMine", "Repeater", "ScaredyShroom", "SnowPea", "SplitPea", "SunFlower", "TallNut", "TangleKelp", "ThreePeater", "TwinSunFlower", "WallNut", "WinterMelon"};
         String[] zombies = new String[]{"BalloonZombie",
                 "BucketheadZombie",
                 "BungeeZombie",

@@ -116,7 +116,7 @@ public class PlantsAction {
 //
 //        //todo
 //        //what does wallNut do
-//        Plant wallNut = Plant.makePlant("Wall-nut");
+//        Plant wallNut = Plant.makePlant("WallNut");
 //        actions.clear();
 //        //wallNut.setActionsOfAnEvent(new ActionsOfAnEvent(inTheSameRow, actions) {
 //        //});
@@ -129,7 +129,7 @@ public class PlantsAction {
 //
 //        //todo
 //        //what does wallNut do
-//        Plant tallNut = Plant.makePlant("Tall-nut");
+//        Plant tallNut = Plant.makePlant("TallNut");
 //        actions.clear();
 ////        tallNut.setActionsOfAnEvent(new ActionsOfAnEvent(OnSpawn, actions) {
 ////        });

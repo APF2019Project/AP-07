@@ -1,7 +1,7 @@
 {
   "@type": "Model.Card.Plants.Plant",
   "@val": {
-    "name": "Wall-nut",
+    "name": "WallNut",
     "id":"15",
     "AP": "0",
     "HP": "4",

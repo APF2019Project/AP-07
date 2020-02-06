@@ -112,7 +112,7 @@ public class ShopMenu extends Menu implements Initializable {
                     }
                 });
             }
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
@@ -131,7 +131,7 @@ public class ShopMenu extends Menu implements Initializable {
                     }
                 });
             }
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
@@ -149,7 +149,7 @@ public class ShopMenu extends Menu implements Initializable {
                     }
                 });
             }
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
@@ -167,7 +167,7 @@ public class ShopMenu extends Menu implements Initializable {
                     }
                 });
             }
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
@@ -185,7 +185,7 @@ public class ShopMenu extends Menu implements Initializable {
                     }
                 });
             }
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
@@ -203,7 +203,7 @@ public class ShopMenu extends Menu implements Initializable {
                     }
                 });
             }
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
@@ -221,7 +221,7 @@ public class ShopMenu extends Menu implements Initializable {
                     }
                 });
             }
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
@@ -239,7 +239,7 @@ public class ShopMenu extends Menu implements Initializable {
                     }
                 });
             }
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         try {
@@ -256,7 +256,7 @@ public class ShopMenu extends Menu implements Initializable {
                     }
                 });
             }
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         try {
@@ -273,7 +273,7 @@ public class ShopMenu extends Menu implements Initializable {
                     }
                 });
             }
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         try {
@@ -290,7 +290,7 @@ public class ShopMenu extends Menu implements Initializable {
                     }
                 });
             }
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         try {
@@ -307,7 +307,7 @@ public class ShopMenu extends Menu implements Initializable {
                     }
                 });
             }
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         try {
@@ -324,7 +324,7 @@ public class ShopMenu extends Menu implements Initializable {
                     }
                 });
             }
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
@@ -342,7 +342,7 @@ public class ShopMenu extends Menu implements Initializable {
                     }
                 });
             }
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         try {
@@ -359,126 +359,104 @@ public class ShopMenu extends Menu implements Initializable {
                     }
                 });
             }
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
-        try {
-            if(Menu.profile.getPurchasedPlants().contains("WallNut"))
-                WallNut.setVisible(false);
-            else {
-                WallNut.setOnMouseEntered(new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent mouseEvent) {
-                        Tooltip tooltip = new Tooltip("WallNut  " + Plant.findPlant("WallNut").getPrice());
-                        tooltip.setX(mouseEvent.getX());
-                        tooltip.setY(mouseEvent.getY());
-                        Tooltip.install(WallNut, tooltip);
-                    }
-                });
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
+        if(Menu.profile.getPurchasedPlants().contains("WallNut"))
+            WallNut.setVisible(false);
+        else {
+            WallNut.setOnMouseEntered(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent mouseEvent) {
+                    Tooltip tooltip = new Tooltip("WallNut  " + Plant.findPlant("WallNut").getPrice());
+                    tooltip.setX(mouseEvent.getX());
+                    tooltip.setY(mouseEvent.getY());
+                    Tooltip.install(WallNut, tooltip);
+                }
+            });
         }
         try {
             if(Menu.profile.getPurchasedPlants().contains("Cactus"))
                 Cactus.setVisible(false);
             else {
-                Cactus.setOnMouseEntered(new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent mouseEvent) {
-                        Tooltip tooltip = new Tooltip("Cactus  " + Plant.findPlant("Cactus").getPrice());
-                        tooltip.setX(mouseEvent.getX());
-                        tooltip.setY(mouseEvent.getY());
-                        Tooltip.install(Cactus, tooltip);
-                    }
+                Cactus.setOnMouseEntered(mouseEvent -> {
+                    Tooltip tooltip = new Tooltip("Cactus  " + Plant.findPlant("Cactus").getPrice());
+                    tooltip.setX(mouseEvent.getX());
+                    tooltip.setY(mouseEvent.getY());
+                    Tooltip.install(Cactus, tooltip);
                 });
             }
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         try {
             if(Menu.profile.getPurchasedPlants().contains("GatlingPea"))
                 GatlingPea.setVisible(false);
             else {
-                GatlingPea.setOnMouseEntered(new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent mouseEvent) {
-                        Tooltip tooltip = new Tooltip("GatlingPea  " + Plant.findPlant("GatlingPea").getPrice());
-                        tooltip.setX(mouseEvent.getX());
-                        tooltip.setY(mouseEvent.getY());
-                        Tooltip.install(GatlingPea, tooltip);
-                    }
+                GatlingPea.setOnMouseEntered(mouseEvent -> {
+                    Tooltip tooltip = new Tooltip("GatlingPea  " + Plant.findPlant("GatlingPea").getPrice());
+                    tooltip.setX(mouseEvent.getX());
+                    tooltip.setY(mouseEvent.getY());
+                    Tooltip.install(GatlingPea, tooltip);
                 });
             }
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         try {
             if(Menu.profile.getPurchasedPlants().contains("MelonPult"))
                 MelonPult.setVisible(false);
             else {
-                MelonPult.setOnMouseEntered(new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent mouseEvent) {
-                        Tooltip tooltip = new Tooltip("MelonPult  " + Plant.findPlant("MelonPult").getPrice());
-                        tooltip.setX(mouseEvent.getX());
-                        tooltip.setY(mouseEvent.getY());
-                        Tooltip.install(MelonPult, tooltip);
-                    }
+                MelonPult.setOnMouseEntered(mouseEvent -> {
+                    Tooltip tooltip = new Tooltip("MelonPult  " + Plant.findPlant("MelonPult").getPrice());
+                    tooltip.setX(mouseEvent.getX());
+                    tooltip.setY(mouseEvent.getY());
+                    Tooltip.install(MelonPult, tooltip);
                 });
             }
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         try {
             if(Menu.profile.getPurchasedPlants().contains("Repeater"))
                 Repeater.setVisible(false);
             else {
-                Repeater.setOnMouseEntered(new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent mouseEvent) {
-                        Tooltip tooltip = new Tooltip("Repeater  " + Plant.findPlant("Repeater").getPrice());
-                        tooltip.setX(mouseEvent.getX());
-                        tooltip.setY(mouseEvent.getY());
-                        Tooltip.install(Repeater, tooltip);
-                    }
+                Repeater.setOnMouseEntered(mouseEvent -> {
+                    Tooltip tooltip = new Tooltip("Repeater  " + Plant.findPlant("Repeater").getPrice());
+                    tooltip.setX(mouseEvent.getX());
+                    tooltip.setY(mouseEvent.getY());
+                    Tooltip.install(Repeater, tooltip);
                 });
             }
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         try {
             if(Menu.profile.getPurchasedPlants().contains("MagnetShroom"))
                 MagnetShroom.setVisible(false);
             else {
-                MagnetShroom.setOnMouseEntered(new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent mouseEvent) {
-                        Tooltip tooltip = new Tooltip("MagnetShroom  " + Plant.findPlant("MagnetShroom").getPrice());
-                        tooltip.setX(mouseEvent.getX());
-                        tooltip.setY(mouseEvent.getY());
-                        Tooltip.install(MagnetShroom, tooltip);
-                    }
+                MagnetShroom.setOnMouseEntered(mouseEvent -> {
+                    Tooltip tooltip = new Tooltip("MagnetShroom  " + Plant.findPlant("MagnetShroom").getPrice());
+                    tooltip.setX(mouseEvent.getX());
+                    tooltip.setY(mouseEvent.getY());
+                    Tooltip.install(MagnetShroom, tooltip);
                 });
             }
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         try {
             if(Menu.profile.getPurchasedPlants().contains("LilyPad"))
                 LilyPad.setVisible(false);
             else {
-                LilyPad.setOnMouseEntered(new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent mouseEvent) {
-                        Tooltip tooltip = new Tooltip("LilyPad  " + Plant.findPlant("LilyPad").getPrice());
-                        tooltip.setX(mouseEvent.getX());
-                        tooltip.setY(mouseEvent.getY());
-                        Tooltip.install(LilyPad, tooltip);
-                    }
+                LilyPad.setOnMouseEntered(mouseEvent -> {
+                    Tooltip tooltip = new Tooltip("LilyPad  " + Plant.findPlant("LilyPad").getPrice());
+                    tooltip.setX(mouseEvent.getX());
+                    tooltip.setY(mouseEvent.getY());
+                    Tooltip.install(LilyPad, tooltip);
                 });
             }
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

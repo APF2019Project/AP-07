@@ -25,6 +25,8 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+import static java.lang.Thread.sleep;
+
 
 public class GameMenu extends Menu implements Initializable {
 
@@ -105,13 +107,19 @@ public class GameMenu extends Menu implements Initializable {
     }
 
 
-    public void showLawn() {
+    public synchronized void showLawn() throws FileNotFoundException {
+        ImageView imageView = new ImageView(new Image(new FileInputStream("src/GameGifs/FootballZombie.gif")));
         System.out.println("Zombies And Plants");
         for (Cell[] cells : battle.getMap().getCells()) {
             for (Cell cell : cells) {
                 if (cell.getZombies().size() != 0) {
                     for (Zombie z : cell.getZombies()) {
                         System.out.println(z.getName() + "\t" + cell.x() + "," + cell.y() + "\t" + z.getHP() + z.showIronHat());
+                        synchronized (battle) {
+                            imageView.setX(200);
+                            imageView.setY(200);
+                            root.getChildren().add(imageView);
+                        }
                     }
                 }
                 if (cell.getPlant() != null) {
@@ -134,50 +142,75 @@ public class GameMenu extends Menu implements Initializable {
     }
 
     @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        sunL.setText(player1.getSun()+ "");
-        System.out.println(battle.getMap().getCells()[1].length);
-        System.out.println("before" + GameMenu.plantsImages.size());
-        plantsImages.addAll(CollectionMenu.imageViews);
-        System.out.println("after" + GameMenu.plantsImages.size());
-        for (ImageView x : plantsImages) {
-            Image image = null;
-            try {
-                image = new Image(new FileInputStream("src/CollectionGifsAndImages/SunFlower.gif"));
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
+    public synchronized void initialize(URL location, ResourceBundle resources) {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                while (true) {
+                    try {
+                        sleep(1000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    try {
+                        endTurn(Menu.profile, root);
+                        showLawn();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
             }
-            Image finalImage = image;
-            ImageView imageView = new ImageView(finalImage);
-            x.setOnMousePressed(event -> {
-                root.getChildren().add(imageView);
-                System.out.println("sjveuagf");
-            });
+        }).start();
 
-            x.setOnMouseDragged(event -> {
-                imageView.setX(event.getX());
-                imageView.setY(event.getY());
-                imageView.setFitWidth(80);
-                imageView.setFitHeight(100);
-                System.out.println("NOOOOOOOOOOOOO");
-            });
-
-            x.setOnMouseReleased(event -> {
-                root.getChildren().remove(finalImage);
-                System.out.println("AAAAAAAAAAA");
-                map.getChildren().get(0).setOnMouseReleased(new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent mouseEvent) {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                synchronized (battle) {
+                    sunL.setText(player1.getSun() + "");
+                    System.out.println(battle.getMap().getCells()[1].length);
+                    System.out.println("before" + GameMenu.plantsImages.size());
+                    plantsImages.addAll(CollectionMenu.imageViews);
+                    System.out.println("after" + GameMenu.plantsImages.size());
+                    for (ImageView x : plantsImages) {
+                        Image image = null;
                         try {
-                            battle.getMap().getCell(0, 0).setPlant(Plant.makePlant("sunflower"));
-                        } catch (IOException e) {
+                            image = new Image(new FileInputStream("src/CollectionGifsAndImages/SunFlower.gif"));
+                        } catch (FileNotFoundException e) {
                             e.printStackTrace();
                         }
-                    }
-                });
-            });
-        }
+                        Image finalImage = image;
+                        ImageView imageView = new ImageView(finalImage);
+                        x.setOnMousePressed(event -> {
+                            root.getChildren().add(imageView);
+                            System.out.println("sjveuagf");
+                        });
 
+                        x.setOnMouseDragged(event -> {
+                            imageView.setX(event.getX());
+                            imageView.setY(event.getY());
+                            imageView.setFitWidth(80);
+                            imageView.setFitHeight(100);
+                            System.out.println("NOOOOOOOOOOOOO");
+                        });
+
+                        x.setOnMouseReleased(event -> {
+                            root.getChildren().remove(finalImage);
+                            System.out.println("AAAAAAAAAAA");
+                            map.getChildren().get(0).setOnMouseReleased(new EventHandler<MouseEvent>() {
+                                @Override
+                                public void handle(MouseEvent mouseEvent) {
+                                    try {
+                                        battle.getMap().getCell(0, 0).setPlant(Plant.makePlant("sunflower"));
+                                    } catch (IOException e) {
+                                        e.printStackTrace();
+                                    }
+                                }
+                            });
+                        });
+                    }
+                }
+            }
+        }).start();
     }
 }
 

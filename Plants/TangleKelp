@@ -1,10 +1,10 @@
 {
   "@type": "Model.Card.Plants.Plant",
   "@val": {
-    "name": "Tangle Kelp",
+    "name": "TangleKelp",
     "id":"16",
     "AP": "1000000",
-    "HP": "10000",
+    "HP": "0",
     "sun": "3",
     "Turn": "0",
     "cooldown": "3",
