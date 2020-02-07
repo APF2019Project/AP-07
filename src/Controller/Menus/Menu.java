@@ -1,15 +1,18 @@
 package Controller.Menus;
+
 import Model.Card.Plants.Plant;
 import Model.Card.Zombies.Zombie;
 import Model.Player.Player;
 import Model.Player.Profile;
 import com.gilecode.yagson.YaGson;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
+import java.awt.*;
+import java.io.*;
 import java.util.ArrayList;
 
 public class Menu {
@@ -49,6 +52,15 @@ public class Menu {
     public static WaterModeMenu waterModeMenu = new WaterModeMenu();
     public static ZombieMenu zombieMenu = new ZombieMenu();
     public static PvPMenu pvPMenu = new PvPMenu();
+    public static HelpMenu helpMenu = new HelpMenu();
+
+    protected static void saveAccount() throws IOException {
+        ArrayList<Profile> accounts = Profile.getAccounts();
+        String json = new YaGson().toJson(accounts);
+        FileWriter writer = new FileWriter("Accounts\\accounts");
+        writer.write(json);
+        writer.close();
+    }
 
     public String[] getOrders() {
         return orders;
@@ -56,9 +68,16 @@ public class Menu {
 
     protected String[] orders;
 
-    public static void help() {
+    public static void help() throws IOException {
+        int i=0;
         for (String x : menuHandler.getCurrentMenu().getOrders()) {
-            System.out.println(x);
+            if(i<helpMenu.labels.size() && !x.equalsIgnoreCase("help")) {
+                helpMenu.labels.get(i).setText(x);
+                i++;
+            }
+        }
+        for(Label l:helpMenu.labels){
+            System.out.println(l.getText());
         }
     }
 
@@ -79,7 +98,7 @@ public class Menu {
         ArrayList<Profile> profiles = yaGson.fromJson(string, ArrayList.class);
         Profile.setProfiles(profiles);
 
-        String[] plants = new String[]{"CabbagePult", "Cactus", "Cattail", "CherryBomb", "ExplodeONut", "GatlingPea", "KernelPult", "LilyPad","Jalapeno", "MagnetShroom", "MelonPult", "PeaShooter", "PotatoMine", "Repeater", "ScaredyShroom", "SnowPea", "SplitPea", "SunFlower", "TallNut", "TangleKelp", "ThreePeater", "TwinSunFlower", "WallNut", "WinterMelon"};
+        String[] plants = new String[]{"CabbagePult", "Cactus", "Cattail", "CherryBomb", "ExplodeONut", "GatlingPea", "KernelPult", "LilyPad", "Jalapeno", "MagnetShroom", "MelonPult", "PeaShooter", "PotatoMine", "Repeater", "ScaredyShroom", "SnowPea", "SplitPea", "SunFlower", "TallNut", "TangleKelp", "ThreePeater", "TwinSunFlower", "WallNut", "WinterMelon"};
         String[] zombies = new String[]{"BalloonZombie",
                 "BucketheadZombie",
                 "BungeeZombie",
@@ -91,7 +110,7 @@ public class Menu {
                 "NewspaperZombie", "PogoZombie", "ScreenDoorZombie", "SnorkelZombie", "TargetZombie", "Zombie", "Zomboni"};
         for (String x : plants) {
             Plant p = new Plant(x);
-                p = Plant.makePlant(x);
+            p = Plant.makePlant(x);
         }
 //        Event inTheSameRow = new NearRows();
 //        Event OnSpawn = new OnSpawn();
@@ -185,6 +204,5 @@ public class Menu {
 
         for (String x : zombies)
             Zombie.makeZombie(x);
-
     }
 }

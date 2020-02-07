@@ -37,7 +37,6 @@ public class MainMenu extends Menu implements Initializable {
     public Button profiles;
     public Button leaderboard;
 
-
     public MainMenu() throws IOException {
         this.orders = new String[]{"Play", "Profiles", "Shop", "Help", "Exit"};
     }
@@ -50,7 +49,6 @@ public class MainMenu extends Menu implements Initializable {
         writer.write(json);
         writer.close();
     }
-
 
 
     @Override
@@ -73,9 +71,10 @@ public class MainMenu extends Menu implements Initializable {
             @Override
             public void handle(MouseEvent mouseEvent) {
                 try {
-                    Menu.primaryStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("ShopMenu.fxml"))));
+                    Menu.primaryStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../../Model/Shop/ShopMenu.fxml"))));
                     Menu.primaryStage.show();
                     Menu.primaryStage.setTitle("PvZ");
+                    Menu.menuHandler.setCurrentMenu(shopMenu);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -109,7 +108,7 @@ public class MainMenu extends Menu implements Initializable {
             @Override
             public void handle(MouseEvent mouseEvent) {
                 try {
-                    Parent root = (FXMLLoader.load(getClass().getResource("MainMenuHelp.fxml")));
+                    Parent root = (FXMLLoader.load(getClass().getResource("HelpMenu.fxml")));
                     Menu.primaryStage.setScene(new Scene(root));
                     Menu.primaryStage.show();
                     Menu.primaryStage.setTitle("PvZ");
@@ -122,7 +121,7 @@ public class MainMenu extends Menu implements Initializable {
             @Override
             public void handle(ActionEvent actionEvent) {
                 try {
-                    Parent root = (FXMLLoader.load(getClass().getResource("MainMenuHelp.fxml")));
+                    Parent root = (FXMLLoader.load(getClass().getResource("HelpMenu.fxml")));
                     Menu.primaryStage.setScene(new Scene(root));
                     Menu.primaryStage.show();
                     Menu.primaryStage.setTitle("PvZ");

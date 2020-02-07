@@ -39,11 +39,7 @@ public class LoginMenu extends Menu implements Initializable {
         if (Profile.validUsername(username)) {
             Profile profile = new Profile(username, password);
             Profile.addAccount(profile);
-            ArrayList<Profile> accounts = Profile.getAccounts();
-            String json = new YaGson().toJson(accounts);
-            FileWriter writer = new FileWriter("Accounts\\accounts");
-            writer.write(json);
-            writer.close();
+            Menu.saveAccount();
 //            menuHandler.setCurrentMenu(loginMenu);
             return profile;
         } else {

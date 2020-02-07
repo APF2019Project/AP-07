@@ -1,14 +1,10 @@
-package Controller.Server;
-
-//package controller.server;
-//
-//import Controller.Message;
+//package Controller;
 //
 //import java.io.*;
 //import java.net.Socket;
 //import java.util.Scanner;
 //
-public class SocketClass {
+//public class SocketClass {
 //    private Socket socket;
 //    private ObjectInputStream inputStream;
 //    private ObjectOutputStream objectOutputStream;
@@ -26,8 +22,8 @@ public class SocketClass {
 //    public SocketClass opponent;
 //    public int numberOfPlayer;
 //
-//    public ClientHandlerServer getClientHandlerServer() {
-//        return clientHandlerServer;
+//    public ClientHandler getClientHandlerServer() {
+//        return clientHandler;
 //    }
 //
 //    public void setClientHandlerServer(ClientHandlerServer clientHandlerServer) {
@@ -136,4 +132,4 @@ public class SocketClass {
 //    public int getNumberOfPlayer() {
 //        return numberOfPlayer;
 //    }
-}
+//}

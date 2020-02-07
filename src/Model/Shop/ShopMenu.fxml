@@ -10,57 +10,55 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<VBox fx:id="vBox" prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Menus.CollectionMenu">
-  <children>
-    <MenuBar VBox.vgrow="NEVER">
-      <menus>
-        <Menu mnemonicParsing="false" text="File">
-          <items>
-            <MenuItem mnemonicParsing="false" text="New" />
-            <MenuItem mnemonicParsing="false" text="Open…" />
-            <Menu mnemonicParsing="false" text="Open Recent" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Close" />
-            <MenuItem mnemonicParsing="false" text="Save" />
-            <MenuItem mnemonicParsing="false" text="Save As…" />
-            <MenuItem mnemonicParsing="false" text="Revert" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Preferences…" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Quit" />
-          </items>
-        </Menu>
-        <Menu mnemonicParsing="false" text="Edit">
-          <items>
-            <MenuItem mnemonicParsing="false" text="Undo" />
-            <MenuItem mnemonicParsing="false" text="Redo" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Cut" />
-            <MenuItem mnemonicParsing="false" text="Copy" />
-            <MenuItem mnemonicParsing="false" text="Paste" />
-            <MenuItem mnemonicParsing="false" text="Delete" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Select All" />
-            <MenuItem mnemonicParsing="false" text="Unselect All" />
-          </items>
-        </Menu>
-        <Menu mnemonicParsing="false" text="Help">
-          <items>
-            <MenuItem mnemonicParsing="false" text="About MyHelloApp" />
-          </items>
-        </Menu>
-      </menus>
-    </MenuBar>
-    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
-      <children>
-        <Label alignment="CENTER" layoutX="155.0" layoutY="177.0" style="&#10;" text="Drag components from Library here…" textAlignment="CENTER" textFill="#9f9f9f" wrapText="false">
-          <font>
-            <Font size="18.0" />
-          </font>
-        </Label>
-            <ImageView fitHeight="570.0" fitWidth="760.0">
+<VBox fx:id="vBox" prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Menus.ShopMenu">
+   <children>
+      <MenuBar VBox.vgrow="NEVER">
+         <menus>
+            <Menu mnemonicParsing="false" text="File">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="New" />
+                  <MenuItem mnemonicParsing="false" text="Open…" />
+                  <Menu mnemonicParsing="false" text="Open Recent" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem mnemonicParsing="false" text="Close" />
+                  <MenuItem mnemonicParsing="false" text="Save" />
+                  <MenuItem mnemonicParsing="false" text="Save As…" />
+                  <MenuItem mnemonicParsing="false" text="Revert" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem mnemonicParsing="false" text="Preferences…" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem mnemonicParsing="false" text="Quit" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Edit">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Undo" />
+                  <MenuItem mnemonicParsing="false" text="Redo" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem mnemonicParsing="false" text="Cut" />
+                  <MenuItem mnemonicParsing="false" text="Copy" />
+                  <MenuItem mnemonicParsing="false" text="Paste" />
+                  <MenuItem mnemonicParsing="false" text="Delete" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem mnemonicParsing="false" text="Select All" />
+                  <MenuItem mnemonicParsing="false" text="Unselect All" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Help">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="About MyHelloApp" />
+               </items>
+            </Menu>
+         </menus>
+      </MenuBar>
+      <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+         <children>
+            <ImageView fx:id="shopBackground" fitHeight="570.0" fitWidth="760.0">
                <image>
                   <Image url="@../../Images/emptyShop.png" />
                </image>
@@ -77,12 +75,12 @@
                   <Image url="@../../CollectionGifsAndImages/Cattail.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="Jalapeno" fitHeight="60.0" fitWidth="41.0" layoutX="499.0" layoutY="284.0">
+            <ImageView fx:id="Jalapeno" fitHeight="60.0" fitWidth="41.0" layoutX="412.0" layoutY="283.0">
                <image>
                   <Image url="@../../CollectionGifsAndImages/Jalapeno.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="SnowPea" fitHeight="50.0" fitWidth="50.0" layoutX="553.0" layoutY="94.0">
+            <ImageView fx:id="SnowPea" fitHeight="50.0" fitWidth="50.0" layoutX="476.0" layoutY="97.0">
                <image>
                   <Image url="@../../CollectionGifsAndImages/SnowPea.png" />
                </image>
@@ -112,7 +110,7 @@
                   <Image url="@../../CollectionGifsAndImages/TangleKelp.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="WinterMelon" fitHeight="50.0" fitWidth="50.0" layoutX="400.0" layoutY="198.0">
+            <ImageView fx:id="WinterMelon" fitHeight="50.0" fitWidth="50.0" layoutX="294.0" layoutY="384.0">
                <image>
                   <Image url="@../../CollectionGifsAndImages/WinterMelon.png" />
                </image>
@@ -142,7 +140,7 @@
                   <Image url="@../../CollectionGifsAndImages/Wall-nut.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="Cactus" fitHeight="76.0" fitWidth="65.0" layoutX="620.0" layoutY="73.0">
+            <ImageView fx:id="Cactus" fitHeight="76.0" fitWidth="65.0" layoutX="476.0" layoutY="166.0">
                <image>
                   <Image url="@../../CollectionGifsAndImages/Cactus.png" />
                </image>
@@ -162,12 +160,12 @@
                   <Image url="@../../CollectionGifsAndImages/Melon-pult.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="Repeater" fitHeight="50.0" fitWidth="45.0" layoutX="474.0" layoutY="96.0">
+            <ImageView fx:id="Repeater" fitHeight="50.0" fitWidth="45.0" layoutX="417.0" layoutY="387.0">
                <image>
                   <Image url="@../../CollectionGifsAndImages/Repeater.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="MagnetShroom" fitHeight="60.0" fitWidth="50.0" layoutX="403.0" layoutY="283.0">
+            <ImageView fx:id="MagnetShroom" fitHeight="60.0" fitWidth="50.0" layoutX="403.0" layoutY="185.0">
                <image>
                   <Image url="@../../CollectionGifsAndImages/MagnetShroom.png" />
                </image>
@@ -177,7 +175,32 @@
                   <Image url="@../../CollectionGifsAndImages/LilyPad.gif" />
                </image>
             </ImageView>
-      </children>
-    </AnchorPane>
-  </children>
+            <Label fx:id="buyLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="222.0" layoutY="33.0" prefHeight="50.0" prefWidth="217.0" text="Label" textAlignment="CENTER">
+               <font>
+                  <Font name="Comic Sans MS Bold" size="17.0" />
+               </font>
+            </Label>
+            <Text layoutX="618.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Coins" textAlignment="CENTER" visible="false">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+               <fill>
+                  <RadialGradient centerX="0.7311111450195312" centerY="0.5305343584249947" radius="0.5">
+                     <stops>
+                        <Stop color="#d5bb10" />
+                        <Stop color="WHITE" offset="1.0" />
+                     </stops>
+                  </RadialGradient>
+               </fill>
+            </Text>
+            <Label fx:id="playerCoins" alignment="CENTER" contentDisplay="CENTER" layoutX="640.0" layoutY="27.0" prefHeight="26.0" prefWidth="38.0" text="Label" textAlignment="CENTER" textFill="#c1d22a" />
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="602.0" layoutY="15.0">
+               <image>
+                  <Image url="@../../Images/coin.gif" />
+               </image>
+            </ImageView>
+            <Button fx:id="help" layoutX="354.0" layoutY="519.0" mnemonicParsing="false" text="help" />
+         </children>
+      </AnchorPane>
+   </children>
 </VBox>

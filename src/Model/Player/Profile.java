@@ -62,7 +62,7 @@ public class Profile {
         return username;
     }
 
-    public void change_username(String username) {
+    public void changeUsername(String username) {
         this.username = username;
     }
 

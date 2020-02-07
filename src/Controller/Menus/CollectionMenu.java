@@ -272,7 +272,6 @@ public class CollectionMenu extends Menu implements Initializable {
         Jalapeno.setOnMouseEntered(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
-
                 Tooltip tooltip = new Tooltip("Jalapeno");
                 tooltip.setX(mouseEvent.getX());
                 tooltip.setY(mouseEvent.getY());
