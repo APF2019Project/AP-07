@@ -50,7 +50,7 @@
                 <Image url="@../../Images/sun.png" />
             </image>
         </ImageView>
-        <Label fx:id="sunL" alignment="CENTER" layoutX="135.0" layoutY="49.0" text="Label" textAlignment="CENTER" />
+        <Label fx:id="sunL" alignment="CENTER" contentDisplay="TEXT_ONLY" layoutX="144.0" layoutY="47.0" text="Label" textAlignment="CENTER" textFill="#edf506" textOverrun="CENTER_WORD_ELLIPSIS" />
         <GridPane fx:id="map" gridLinesVisible="true" layoutX="87.0" layoutY="70.0" opacity="0.0" prefHeight="471.0" prefWidth="646.0">
             <rowConstraints>
                 <RowConstraints maxHeight="84.00000610351563" minHeight="10.0" prefHeight="82.4" vgrow="SOMETIMES" />

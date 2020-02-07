@@ -42,15 +42,17 @@ public class Walk extends Action {
         zombie.setCell(battle.getMap().getCell(x, y));
         battle.getMap().getCell(x, y).getZombies().add(zombie);
 
-//        Image image = new Image(new FileInputStream("src/GameGifs/FootballZombie.gif"));
-//        ImageView imageView = new ImageView(image);
+        Image image = new Image(new FileInputStream("src/GameGifs/FootballZombie.gif"));
+        ImageView imageView = new ImageView(image);
 //        root.getChildren().add(imageView);
-//        Path path = new Path(new MoveTo(200, 100), new LineTo(100, 100));
-////        path.setVisible(false);
-//        PathTransition pathTransition = new PathTransition(Duration.millis(80000), path,imageView);
-//        root.getChildren().add(path);
-//        pathTransition.setAutoReverse(false);
-//        pathTransition.play();
+        Path path = new Path(new MoveTo(200, 100), new LineTo(100, 100));
+        path.setVisible(true);
+        PathTransition pathTransition = new PathTransition(Duration.millis(1000), path,imageView);
+        root.getChildren().add(path);
+//        pathTransition.setNode();
+        pathTransition.setAutoReverse(false);
+        pathTransition.play();
+        getClass().getName();
     }
 
 }

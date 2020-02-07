@@ -6,16 +6,15 @@ import Model.Card.Plants.Plant;
 import Model.Card.Zombies.Zombie;
 import Model.Map.Cell;
 import Model.Map.Map;
-import Model.Player.Player;
 import Model.Player.Profile;
 import javafx.application.Platform;
 import javafx.event.EventHandler;
 import javafx.fxml.Initializable;
-import javafx.scene.Group;
+import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
+import javafx.scene.input.DragEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 
@@ -70,41 +69,36 @@ public class GameMenu extends Menu implements Initializable {
                             player1.setSun(player1.getSun() - p.getSun());
                         }
                     } else {
-                        System.out.println("plant is not ready");
+                        System.out.println("plant is not ready:|");
                     }
 
                     break;
                 }
             }
         }
-
-
         //todo
     }
 
     public synchronized void endTurn(Profile profile, Pane root) throws IOException {
-        synchronized (battle){
+        synchronized (battle) {
 
             if (battle.getGameMode() instanceof Day) {
                 day.wave(battle);
                 day.setLastTurnGivingSuns(1);
                 battle.actAllMembers(root);
                 day.generateSun(battle);
-                if (!day.handleWin(profile, battle)) {
-                    //Menu.menuHandler.setCurrentMenu(Menu.mainMenu);
-                }
                 day.setLastTurnWaved(1);
                 day.updateCollection(battle);
                 battle.setCurrentTurn(1);
             }
 
 
-//        for (Plant p:player1.getPlants()) {
-//            if (p.getLoading()!=0) {
-//                p.setLoading(p.getLoading()-1);
-//            }
-//        }
-////        System.out.println(player1.getSun());
+            for (Plant p : player1.getPlants()) {
+                if (p.getLoading() != 0) {
+                    p.setLoading(p.getLoading() - 1);
+                }
+            }
+            System.out.println(player1.getSun());
             System.out.println(battle.getCurrentTurn());
         }
     }
@@ -118,12 +112,12 @@ public class GameMenu extends Menu implements Initializable {
                 if (cell.getZombies().size() != 0) {
                     for (Zombie z : cell.getZombies()) {
                         System.out.println(z.getName() + "\t" + cell.x() + "," + cell.y() + "\t" + z.getHP() + z.showIronHat());
-                        Platform.runLater(() -> {
-                            imageView.setX(200);
-                            imageView.setY(200);
-                            root.getChildren().add(imageView);
-
-                        });
+//                        Platform.runLater(() -> {
+//                            imageView.setX(200);
+//                            imageView.setY(200);
+//                            root.getChildren().add(imageView);
+//                        });
+//                        break;
                     }
                 }
                 if (cell.getPlant() != null) {
@@ -175,7 +169,7 @@ public class GameMenu extends Menu implements Initializable {
                     System.out.println("before" + GameMenu.plantsImages.size());
                     plantsImages.addAll(CollectionMenu.imageViews);
                     System.out.println("after" + GameMenu.plantsImages.size());
-                    for (ImageView x : plantsImages) {
+                    for (ImageView plantName : plantsImages) {
                         Image image = null;
                         try {
                             image = new Image(new FileInputStream("src/CollectionGifsAndImages/SunFlower.gif"));
@@ -184,12 +178,12 @@ public class GameMenu extends Menu implements Initializable {
                         }
                         Image finalImage = image;
                         ImageView imageView = new ImageView(finalImage);
-                        x.setOnMousePressed(event -> {
+                        plantName.setOnMousePressed(event -> {
                             root.getChildren().add(imageView);
                             System.out.println("sjveuagf");
                         });
 
-                        x.setOnMouseDragged(event -> {
+                        plantName.setOnMouseDragged(event -> {
                             imageView.setX(event.getX());
                             imageView.setY(event.getY());
                             imageView.setFitWidth(80);
@@ -197,16 +191,18 @@ public class GameMenu extends Menu implements Initializable {
                             System.out.println("NOOOOOOOOOOOOO");
                         });
 
-                        x.setOnMouseReleased(event -> {
-                            root.getChildren().remove(finalImage);
-                            System.out.println("AAAAAAAAAAA");
-                            map.getChildren().get(0).setOnMouseReleased(mouseEvent -> {
+                        plantName.setOnDragDropped(new EventHandler<DragEvent>() {
+                            @Override
+                            public void handle(DragEvent dragEvent) {
+                                Node source = (Node) dragEvent.getSource();
+                                int x = GridPane.getRowIndex(source);
+                                int y = GridPane.getColumnIndex(source);
                                 try {
-                                    battle.getMap().getCell(0, 0).setPlant(Plant.makePlant("sunflower"));
+                                    plant(plantName.getAccessibleText(),x+2,y+2);
                                 } catch (IOException e) {
                                     e.printStackTrace();
                                 }
-                            });
+                            }
                         });
                     }
                 }
