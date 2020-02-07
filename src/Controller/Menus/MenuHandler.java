@@ -104,7 +104,7 @@ public class MenuHandler {
 //                    }
 //                } else if (input.equalsIgnoreCase("rename")) {
 //                    String username = scanner.nextLine();
-//                    profile.change_username(username);
+//                    profile.changeUsername(username);
 //                } else if (input.equalsIgnoreCase("create")) {
 //                    String username = scanner.nextLine();
 //                    String password = scanner.nextLine();
@@ -205,7 +205,7 @@ public class MenuHandler {
                 } else if (input.equalsIgnoreCase("Exit")) {
                     Menu.shopMenu.Exit();
                 } else if (buyCard.matcher(input).matches()) {
-                    Menu.shopMenu.buy(splitInput[1], profile);
+                    Menu.shopMenu.buy(splitInput[1], profile,root);
                 } else
                     System.out.println("invalid command");
             }

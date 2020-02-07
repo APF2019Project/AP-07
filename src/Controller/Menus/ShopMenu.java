@@ -3,15 +3,26 @@ package Controller.Menus;
 import Model.Card.Card;
 import Model.Card.Plants.Plant;
 import Model.Card.Zombies.Zombie;
-import Model.Player.Player;
 import Model.Player.Profile;
-import Model.Shop.Shop;
+import javafx.animation.PathTransition;
 import javafx.event.EventHandler;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.Tooltip;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
+import javafx.scene.shape.LineTo;
+import javafx.scene.shape.MoveTo;
+import javafx.scene.shape.Path;
+import javafx.util.Duration;
 
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -41,8 +52,10 @@ public class ShopMenu extends Menu implements Initializable {
     public ImageView Repeater;
     public ImageView MagnetShroom;
     public ImageView LilyPad;
-
-
+    public Label buyLabel;
+    public Label playerCoins;
+    public Button help;
+    public Button back;
 
 
     public ShopMenu() {
@@ -72,24 +85,46 @@ public class ShopMenu extends Menu implements Initializable {
             System.out.println(x);
     }
 
-    public void buy(String name, Profile profile) {
+    public boolean buy(String name, Profile profile, Pane root) throws IOException {
+        System.out.println(Menu.profile.getExternalCoins());
+        System.out.println("buy");
         Zombie z = Zombie.findZombie(name);
         Plant p = Plant.findPlant(name);
-        if (z != null && !profile.getPurchasedZombies().contains(z.getName())&& z.getPrice() <= profile.getExternalCoins()){
+        if (z != null && !profile.getPurchasedZombies().contains(z.getName()) && z.getPrice() <= profile.getExternalCoins()) {
             System.out.println("kharid");
+            buyLabel.setText("Kharid :)");
             profile.addZombie(z);
             profile.setExternalCoins(-z.getPrice());
-        }
-        else if (p != null &&!profile.getPurchasedPlants().contains(p.getName()) && p.getPrice() <= profile.getExternalCoins()){
+            playerCoins.setText(Integer.toString(profile.getExternalCoins()));
+            return true;
+        } else if (p != null && !profile.getPurchasedPlants().contains(p.getName()) && p.getPrice() <= profile.getExternalCoins()) {
             System.out.println("kharid");
+            buyLabel.setText("Kharid :)");
             profile.setExternalCoins(-p.getPrice());
-            profile.addPlant(p);}
-        else System.out.println("nakharid");
+            profile.addPlant(p);
+            System.out.println(Menu.profile.getExternalCoins());
+            playerCoins.setText(Integer.toString(profile.getExternalCoins()));
+            return true;
+        } else {
+            System.out.println("nakharid");
+            buyLabel.setText("Nakharid :(");
+            playerCoins.setText(Integer.toString(profile.getExternalCoins()));
+            return false;
+        }
 
     }
 
     public void Exit() {
         Menu.menuHandler.setCurrentMenu(Menu.mainMenu);
+        Parent root = null;
+        try {
+            root = (FXMLLoader.load(getClass().getResource("MainMenu.fxml")));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Menu.primaryStage.setScene(new Scene(root));
+        Menu.primaryStage.show();
+        Menu.primaryStage.setTitle("PvZ");
     }
 
     public void showMoney(Profile profile) {
@@ -98,366 +133,662 @@ public class ShopMenu extends Menu implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        back.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                Exit();
+
+            }
+        });
+
+        help.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                try {
+                    Parent root = (FXMLLoader.load(getClass().getResource("HelpMenu.fxml")));
+                    Menu.help();
+                    Menu.primaryStage.setScene(new Scene(root));
+                    Menu.primaryStage.show();
+                    Menu.primaryStage.setTitle("PvZ");
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
         try {
-            if(Menu.profile.getPurchasedPlants().contains("SunFlower"))
-                SunFlower.setVisible(false);
-            else {
-                SunFlower.setOnMouseEntered(new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent mouseEvent) {
-                        Tooltip tooltip = new Tooltip("SunFlower  " + Plant.findPlant("sunflower").getPrice());
+            SunFlower.setOnMouseEntered(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent mouseEvent) {
+                    if (Menu.profile.getPurchasedPlants().contains("SunFlower")) {
+                        Tooltip tooltip = new Tooltip("kharidish qablan:)");
+                        tooltip.setX(mouseEvent.getX());
+                        tooltip.setY(mouseEvent.getY());
+                        Tooltip.install(SunFlower, tooltip);
+                    } else {
+                        Tooltip tooltip = new Tooltip("SunFlower" + Plant.findPlant("sunflower").getPrice());
                         tooltip.setX(mouseEvent.getX());
                         tooltip.setY(mouseEvent.getY());
                         Tooltip.install(SunFlower, tooltip);
                     }
-                });
-            }
+                }
+            });
+
         } catch (Exception e) {
             e.printStackTrace();
         }
 
+        SunFlower.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                try {
+                    buy("sunflower", profile, GameMenu.root);
+
+                } catch (Exception e) {
+                }
+            }
+        });
 
         try {
-            if(Menu.profile.getPurchasedPlants().contains("PeaShooter"))
-                PeaShooter.setVisible(false);
-            else {
-                PeaShooter.setOnMouseEntered(new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent mouseEvent) {
-                        Tooltip tooltip = new Tooltip("PeaShooter  " + Plant.findPlant("PeaShooter").getPrice());
+            PeaShooter.setOnMouseEntered(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent mouseEvent) {
+                    if (Menu.profile.getPurchasedPlants().contains("PeaShooter")) {
+                        Tooltip tooltip = new Tooltip("kharidish qablan:)");
+                        tooltip.setX(mouseEvent.getX());
+                        tooltip.setY(mouseEvent.getY());
+                        Tooltip.install(PeaShooter, tooltip);
+                    } else {
+                        Tooltip tooltip = new Tooltip("PeaShooter" + Plant.findPlant("PeaShooter").getPrice());
                         tooltip.setX(mouseEvent.getX());
                         tooltip.setY(mouseEvent.getY());
                         Tooltip.install(PeaShooter, tooltip);
                     }
-                });
-            }
+                }
+            });
+
         } catch (Exception e) {
             e.printStackTrace();
         }
 
+        PeaShooter.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                try {
+                    buy("PeaShooter", profile, GameMenu.root);
+                } catch (Exception e) {
+                }
+            }
+        });
+
         try {
-            if(Menu.profile.getPurchasedPlants().contains("Cattail"))
-                Cattail.setVisible(false);
-            else {
-                Cattail.setOnMouseEntered(new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent mouseEvent) {
-                        Tooltip tooltip = new Tooltip("Cattail  " + Plant.findPlant("Cattail").getPrice());
+            Cattail.setOnMouseEntered(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent mouseEvent) {
+                    if (Menu.profile.getPurchasedPlants().contains("Cattail")) {
+                        Tooltip tooltip = new Tooltip("kharidish qablan:)");
+                        tooltip.setX(mouseEvent.getX());
+                        tooltip.setY(mouseEvent.getY());
+                        Tooltip.install(Cattail, tooltip);
+                    } else {
+                        Tooltip tooltip = new Tooltip("Cattail" + Plant.findPlant("Cattail").getPrice());
                         tooltip.setX(mouseEvent.getX());
                         tooltip.setY(mouseEvent.getY());
                         Tooltip.install(Cattail, tooltip);
                     }
-                });
-            }
+                }
+            });
         } catch (Exception e) {
             e.printStackTrace();
         }
-
+        Cattail.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                try {
+                    buy("Cattail", profile, GameMenu.root);
+                } catch (Exception e) {
+                }
+            }
+        });
         try {
-            if(Menu.profile.getPurchasedPlants().contains("Jalapeno"))
-                Jalapeno.setVisible(false);
-            else {
-                Jalapeno.setOnMouseEntered(new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent mouseEvent) {
-                        Tooltip tooltip = new Tooltip("Jalapeno  " + Plant.findPlant("Jalapeno").getPrice());
+            Jalapeno.setOnMouseEntered(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent mouseEvent) {
+                    if (Menu.profile.getPurchasedPlants().contains("Jalapeno")) {
+                        Tooltip tooltip = new Tooltip("kharidish qablan:)");
+                        tooltip.setX(mouseEvent.getX());
+                        tooltip.setY(mouseEvent.getY());
+                        Tooltip.install(Jalapeno, tooltip);
+                    } else {
+                        Tooltip tooltip = new Tooltip("Jalapeno" + Plant.findPlant("Jalapeno").getPrice());
                         tooltip.setX(mouseEvent.getX());
                         tooltip.setY(mouseEvent.getY());
                         Tooltip.install(Jalapeno, tooltip);
                     }
-                });
-            }
+                }
+            });
         } catch (Exception e) {
             e.printStackTrace();
         }
-
+        Jalapeno.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                try {
+                    buy("Jalapeno", profile, GameMenu.root);
+                } catch (Exception e) {
+                }
+            }
+        });
         try {
-            if(Menu.profile.getPurchasedPlants().contains("SnowPea"))
-                SnowPea.setVisible(false);
-            else {
-                SnowPea.setOnMouseEntered(new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent mouseEvent) {
-                        Tooltip tooltip = new Tooltip("SnowPea  " + Plant.findPlant("SnowPea").getPrice());
+            SnowPea.setOnMouseEntered(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent mouseEvent) {
+                    if (Menu.profile.getPurchasedPlants().contains("SnowPea")) {
+                        Tooltip tooltip = new Tooltip("kharidish qablan:)");
+                        tooltip.setX(mouseEvent.getX());
+                        tooltip.setY(mouseEvent.getY());
+                        Tooltip.install(SnowPea, tooltip);
+                    } else {
+                        Tooltip tooltip = new Tooltip("SnowPea" + Plant.findPlant("SnowPea").getPrice());
                         tooltip.setX(mouseEvent.getX());
                         tooltip.setY(mouseEvent.getY());
                         Tooltip.install(SnowPea, tooltip);
                     }
-                });
-            }
+                }
+            });
         } catch (Exception e) {
             e.printStackTrace();
         }
-
+        SnowPea.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                try {
+                    buy("SnowPea", profile, GameMenu.root);
+                } catch (Exception e) {
+                }
+            }
+        });
         try {
-            if(Menu.profile.getPurchasedPlants().contains("CherryBomb"))
-                CherryBomb.setVisible(false);
-            else {
-                CherryBomb.setOnMouseEntered(new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent mouseEvent) {
-                        Tooltip tooltip = new Tooltip("CherryBomb  " + Plant.findPlant("CherryBomb").getPrice());
+
+            CherryBomb.setOnMouseEntered(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent mouseEvent) {
+                    if (Menu.profile.getPurchasedPlants().contains("CherryBomb")) {
+                        Tooltip tooltip = new Tooltip("kharidish qablan:)");
+                        tooltip.setX(mouseEvent.getX());
+                        tooltip.setY(mouseEvent.getY());
+                        Tooltip.install(CherryBomb, tooltip);
+                    } else {
+                        Tooltip tooltip = new Tooltip("CherryBomb" + Plant.findPlant("CherryBomb").getPrice());
                         tooltip.setX(mouseEvent.getX());
                         tooltip.setY(mouseEvent.getY());
                         Tooltip.install(CherryBomb, tooltip);
                     }
-                });
-            }
+                }
+            });
+
         } catch (Exception e) {
             e.printStackTrace();
         }
-
+        CherryBomb.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                try {
+                    buy("CherryBomb", profile, GameMenu.root);
+                } catch (Exception e) {
+                }
+            }
+        });
         try {
-            if(Menu.profile.getPurchasedPlants().contains("ExplodeONut"))
-                ExplodeONut.setVisible(false);
-            else {
-                ExplodeONut.setOnMouseEntered(new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent mouseEvent) {
-                        Tooltip tooltip = new Tooltip("ExplodeONut  " + Plant.findPlant("ExplodeONut").getPrice());
+            ExplodeONut.setOnMouseEntered(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent mouseEvent) {
+                    if (Menu.profile.getPurchasedPlants().contains("ExplodeONut")) {
+                        Tooltip tooltip = new Tooltip("kharidish qablan:)");
+                        tooltip.setX(mouseEvent.getX());
+                        tooltip.setY(mouseEvent.getY());
+                        Tooltip.install(ExplodeONut, tooltip);
+                    } else {
+                        Tooltip tooltip = new Tooltip("ExplodeONut" + Plant.findPlant("ExplodeONut").getPrice());
                         tooltip.setX(mouseEvent.getX());
                         tooltip.setY(mouseEvent.getY());
                         Tooltip.install(ExplodeONut, tooltip);
                     }
-                });
-            }
+                }
+            });
         } catch (Exception e) {
             e.printStackTrace();
         }
-
+        ExplodeONut.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                try {
+                    buy("ExplodeONut", profile, GameMenu.root);
+                } catch (Exception e) {
+                }
+            }
+        });
         try {
-            if(Menu.profile.getPurchasedPlants().contains("PotatoMine"))
-                PotatoMine.setVisible(false);
-            else {
-                PotatoMine.setOnMouseEntered(new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent mouseEvent) {
-                        Tooltip tooltip = new Tooltip("PotatoMine  " + Plant.findPlant("PotatoMine").getPrice());
+            PotatoMine.setOnMouseEntered(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent mouseEvent) {
+                    if (Menu.profile.getPurchasedPlants().contains("PotatoMine")) {
+                        Tooltip tooltip = new Tooltip("kharidish qablan:)");
+                        tooltip.setX(mouseEvent.getX());
+                        tooltip.setY(mouseEvent.getY());
+                        Tooltip.install(PotatoMine, tooltip);
+                    } else {
+                        Tooltip tooltip = new Tooltip("PotatoMine" + Plant.findPlant("PotatoMine").getPrice());
                         tooltip.setX(mouseEvent.getX());
                         tooltip.setY(mouseEvent.getY());
                         Tooltip.install(PotatoMine, tooltip);
                     }
-                });
-            }
+                }
+            });
         } catch (Exception e) {
             e.printStackTrace();
         }
+        PotatoMine.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                try {
+                    buy("PotatoMine", profile, GameMenu.root);
+                } catch (Exception e) {
+                }
+            }
+        });
         try {
-            if(Menu.profile.getPurchasedPlants().contains("CabbagePult"))
-                CabbagePult.setVisible(false);
-            else {
-                CabbagePult.setOnMouseEntered(new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent mouseEvent) {
-                        Tooltip tooltip = new Tooltip("CabbagePult  " + Plant.findPlant("CabbagePult").getPrice());
+            CabbagePult.setOnMouseEntered(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent mouseEvent) {
+                    if (Menu.profile.getPurchasedPlants().contains("CabbagePult")) {
+                        Tooltip tooltip = new Tooltip("kharidish qablan:)");
+                        tooltip.setX(mouseEvent.getX());
+                        tooltip.setY(mouseEvent.getY());
+                        Tooltip.install(CabbagePult, tooltip);
+                    } else {
+                        Tooltip tooltip = new Tooltip("CabbagePult" + Plant.findPlant("CabbagePult").getPrice());
                         tooltip.setX(mouseEvent.getX());
                         tooltip.setY(mouseEvent.getY());
                         Tooltip.install(CabbagePult, tooltip);
                     }
-                });
-            }
+                }
+            });
         } catch (Exception e) {
             e.printStackTrace();
         }
+        CabbagePult.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                try {
+                    buy("CabbagePult", profile, GameMenu.root);
+                } catch (Exception e) {
+                }
+            }
+        });
         try {
-            if(Menu.profile.getPurchasedPlants().contains("TangleKelp"))
-                TangleKelp.setVisible(false);
-            else {
-                TangleKelp.setOnMouseEntered(new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent mouseEvent) {
-                        Tooltip tooltip = new Tooltip("TangleKelp  " + Plant.findPlant("TangleKelp").getPrice());
+            TangleKelp.setOnMouseEntered(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent mouseEvent) {
+                    if (Menu.profile.getPurchasedPlants().contains("TangleKelp")) {
+                        Tooltip tooltip = new Tooltip("kharidish qablan:)");
+                        tooltip.setX(mouseEvent.getX());
+                        tooltip.setY(mouseEvent.getY());
+                        Tooltip.install(TangleKelp, tooltip);
+                    } else {
+                        Tooltip tooltip = new Tooltip("TangleKelp" + Plant.findPlant("TangleKelp").getPrice());
                         tooltip.setX(mouseEvent.getX());
                         tooltip.setY(mouseEvent.getY());
                         Tooltip.install(TangleKelp, tooltip);
                     }
-                });
-            }
+                }
+            });
         } catch (Exception e) {
             e.printStackTrace();
         }
+        TangleKelp.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                try {
+                    buy("TangleKelp", profile, GameMenu.root);
+                } catch (Exception e) {
+                }
+            }
+        });
         try {
-            if(Menu.profile.getPurchasedPlants().contains("WinterMelon"))
-                WinterMelon.setVisible(false);
-            else {
-                WinterMelon.setOnMouseEntered(new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent mouseEvent) {
-                        Tooltip tooltip = new Tooltip("WinterMelon  " + Plant.findPlant("WinterMelon").getPrice());
+            WinterMelon.setOnMouseEntered(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent mouseEvent) {
+                    if (Menu.profile.getPurchasedPlants().contains("WinterMelon")) {
+                        Tooltip tooltip = new Tooltip("kharidish qablan:)");
+                        tooltip.setX(mouseEvent.getX());
+                        tooltip.setY(mouseEvent.getY());
+                        Tooltip.install(WinterMelon, tooltip);
+                    } else {
+                        Tooltip tooltip = new Tooltip("WinterMelon" + Plant.findPlant("WinterMelon").getPrice());
                         tooltip.setX(mouseEvent.getX());
                         tooltip.setY(mouseEvent.getY());
                         Tooltip.install(WinterMelon, tooltip);
                     }
-                });
-            }
+                }
+            });
         } catch (Exception e) {
             e.printStackTrace();
         }
+        WinterMelon.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                try {
+                    buy("WinterMelon", profile, GameMenu.root);
+                } catch (Exception e) {
+                }
+            }
+        });
         try {
-            if(Menu.profile.getPurchasedPlants().contains("Kernelpult"))
-                Kernelpult.setVisible(false);
-            else {
-                Kernelpult.setOnMouseEntered(new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent mouseEvent) {
-                        Tooltip tooltip = new Tooltip("Kernelpult  " + Plant.findPlant("Kernelpult").getPrice());
+            Kernelpult.setOnMouseEntered(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent mouseEvent) {
+                    if (Menu.profile.getPurchasedPlants().contains("Kernelpult")) {
+                        Tooltip tooltip = new Tooltip("kharidish qablan:)");
+                        tooltip.setX(mouseEvent.getX());
+                        tooltip.setY(mouseEvent.getY());
+                        Tooltip.install(Kernelpult, tooltip);
+                    } else {
+                        Tooltip tooltip = new Tooltip("Kernelpult" + Plant.findPlant("Kernelpult").getPrice());
                         tooltip.setX(mouseEvent.getX());
                         tooltip.setY(mouseEvent.getY());
                         Tooltip.install(Kernelpult, tooltip);
                     }
-                });
-            }
+                }
+            });
         } catch (Exception e) {
             e.printStackTrace();
         }
+        Kernelpult.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                try {
+                    buy("Kernelpult", profile, GameMenu.root);
+                } catch (Exception e) {
+                }
+            }
+        });
         try {
-            if(Menu.profile.getPurchasedPlants().contains("ThreePeater"))
-                ThreePeater.setVisible(false);
-            else {
-                ThreePeater.setOnMouseEntered(new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent mouseEvent) {
-                        Tooltip tooltip = new Tooltip("ThreePeater  " + Plant.findPlant("ThreePeater").getPrice());
+            ThreePeater.setOnMouseEntered(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent mouseEvent) {
+                    if (Menu.profile.getPurchasedPlants().contains("ThreePeater")) {
+                        Tooltip tooltip = new Tooltip("kharidish qablan:)");
+                        tooltip.setX(mouseEvent.getX());
+                        tooltip.setY(mouseEvent.getY());
+                        Tooltip.install(ThreePeater, tooltip);
+                    } else {
+                        Tooltip tooltip = new Tooltip("ThreePeater" + Plant.findPlant("ThreePeater").getPrice());
                         tooltip.setX(mouseEvent.getX());
                         tooltip.setY(mouseEvent.getY());
                         Tooltip.install(ThreePeater, tooltip);
                     }
-                });
-            }
+                }
+            });
         } catch (Exception e) {
             e.printStackTrace();
         }
+        ThreePeater.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                try {
+                    buy("ThreePeater", profile, GameMenu.root);
+                } catch (Exception e) {
+                }
+            }
+        });
 
         try {
-            if(Menu.profile.getPurchasedPlants().contains("SplitPea"))
-                SplitPea.setVisible(false);
-            else {
-                SplitPea.setOnMouseEntered(new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent mouseEvent) {
-                        Tooltip tooltip = new Tooltip("SplitPea  " + Plant.findPlant("SplitPea").getPrice());
+            SplitPea.setOnMouseEntered(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent mouseEvent) {
+                    if (Menu.profile.getPurchasedPlants().contains("SplitPea")) {
+                        Tooltip tooltip = new Tooltip("kharidish qablan:)");
+                        tooltip.setX(mouseEvent.getX());
+                        tooltip.setY(mouseEvent.getY());
+                        Tooltip.install(SplitPea, tooltip);
+                    } else {
+                        Tooltip tooltip = new Tooltip("SplitPea" + Plant.findPlant("SplitPea").getPrice());
                         tooltip.setX(mouseEvent.getX());
                         tooltip.setY(mouseEvent.getY());
                         Tooltip.install(SplitPea, tooltip);
                     }
-                });
-            }
+                }
+            });
         } catch (Exception e) {
             e.printStackTrace();
         }
+        SplitPea.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                try {
+                    buy("SplitPea", profile, GameMenu.root);
+                } catch (Exception e) {
+                }
+            }
+        });
         try {
-            if(Menu.profile.getPurchasedPlants().contains("TwinSunFlower"))
-                TwinSunFlower.setVisible(false);
-            else {
-                TwinSunFlower.setOnMouseEntered(new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent mouseEvent) {
-                        Tooltip tooltip = new Tooltip("TwinSunFlower  " + Plant.findPlant("TwinSunFlower").getPrice());
+            TwinSunFlower.setOnMouseEntered(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent mouseEvent) {
+                    if (Menu.profile.getPurchasedPlants().contains("TwinSunFlower")) {
+                        Tooltip tooltip = new Tooltip("kharidish qablan:)");
+                        tooltip.setX(mouseEvent.getX());
+                        tooltip.setY(mouseEvent.getY());
+                        Tooltip.install(TwinSunFlower, tooltip);
+                    } else {
+                        Tooltip tooltip = new Tooltip("TwinSunFlower" + Plant.findPlant("TwinSunFlower").getPrice());
                         tooltip.setX(mouseEvent.getX());
                         tooltip.setY(mouseEvent.getY());
                         Tooltip.install(TwinSunFlower, tooltip);
                     }
-                });
-            }
+                }
+            });
         } catch (Exception e) {
             e.printStackTrace();
         }
-        if(Menu.profile.getPurchasedPlants().contains("WallNut"))
-            WallNut.setVisible(false);
-        else {
-            WallNut.setOnMouseEntered(new EventHandler<MouseEvent>() {
-                @Override
-                public void handle(MouseEvent mouseEvent) {
-                    Tooltip tooltip = new Tooltip("WallNut  " + Plant.findPlant("WallNut").getPrice());
+        TwinSunFlower.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                try {
+                    buy("TwinSunFlower", profile, GameMenu.root);
+                } catch (Exception e) {
+                }
+            }
+        });
+        WallNut.setOnMouseEntered(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                if (Menu.profile.getPurchasedPlants().contains("WallNut")) {
+                    Tooltip tooltip = new Tooltip("kharidish qablan:)");
+                    tooltip.setX(mouseEvent.getX());
+                    tooltip.setY(mouseEvent.getY());
+                    Tooltip.install(WallNut, tooltip);
+                } else {
+                    Tooltip tooltip = new Tooltip("WallNut" + Plant.findPlant("WallNut").getPrice());
                     tooltip.setX(mouseEvent.getX());
                     tooltip.setY(mouseEvent.getY());
                     Tooltip.install(WallNut, tooltip);
                 }
-            });
-        }
+            }
+        });
+
+        WallNut.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                try {
+                    buy("WallNut", profile, GameMenu.root);
+                } catch (Exception e) {
+                }
+            }
+        });
         try {
-            if(Menu.profile.getPurchasedPlants().contains("Cactus"))
-                Cactus.setVisible(false);
-            else {
-                Cactus.setOnMouseEntered(mouseEvent -> {
-                    Tooltip tooltip = new Tooltip("Cactus  " + Plant.findPlant("Cactus").getPrice());
+            Cactus.setOnMouseEntered(mouseEvent -> {
+                if (Menu.profile.getPurchasedPlants().contains("Cactus")) {
+                    Tooltip tooltip = new Tooltip("kharidish qablan:)");
                     tooltip.setX(mouseEvent.getX());
                     tooltip.setY(mouseEvent.getY());
                     Tooltip.install(Cactus, tooltip);
-                });
-            }
+                } else {
+                    Tooltip tooltip = new Tooltip("Cactus" + Plant.findPlant("Cactus").getPrice());
+                    tooltip.setX(mouseEvent.getX());
+                    tooltip.setY(mouseEvent.getY());
+                    Tooltip.install(Cactus, tooltip);
+                }
+            });
         } catch (Exception e) {
             e.printStackTrace();
         }
+        Cactus.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                try {
+                    buy("Cactus", profile, GameMenu.root);
+                } catch (Exception e) {
+                }
+            }
+        });
         try {
-            if(Menu.profile.getPurchasedPlants().contains("GatlingPea"))
-                GatlingPea.setVisible(false);
-            else {
-                GatlingPea.setOnMouseEntered(mouseEvent -> {
-                    Tooltip tooltip = new Tooltip("GatlingPea  " + Plant.findPlant("GatlingPea").getPrice());
+            GatlingPea.setOnMouseEntered(mouseEvent -> {
+                if (Menu.profile.getPurchasedPlants().contains("GatlingPea")) {
+                    Tooltip tooltip = new Tooltip("kharidish qablan:)");
                     tooltip.setX(mouseEvent.getX());
                     tooltip.setY(mouseEvent.getY());
                     Tooltip.install(GatlingPea, tooltip);
-                });
-            }
+                } else {
+                    Tooltip tooltip = new Tooltip("GatlingPea" + Plant.findPlant("GatlingPea").getPrice());
+                    tooltip.setX(mouseEvent.getX());
+                    tooltip.setY(mouseEvent.getY());
+                    Tooltip.install(GatlingPea, tooltip);
+                }
+            });
         } catch (Exception e) {
             e.printStackTrace();
         }
+        GatlingPea.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                try {
+                    buy("GatlingPea", profile, GameMenu.root);
+                } catch (Exception e) {
+                }
+            }
+        });
         try {
-            if(Menu.profile.getPurchasedPlants().contains("MelonPult"))
-                MelonPult.setVisible(false);
-            else {
-                MelonPult.setOnMouseEntered(mouseEvent -> {
-                    Tooltip tooltip = new Tooltip("MelonPult  " + Plant.findPlant("MelonPult").getPrice());
+            MelonPult.setOnMouseEntered(mouseEvent -> {
+                if (Menu.profile.getPurchasedPlants().contains("MelonPult")) {
+                    Tooltip tooltip = new Tooltip("kharidish qablan:)");
                     tooltip.setX(mouseEvent.getX());
                     tooltip.setY(mouseEvent.getY());
                     Tooltip.install(MelonPult, tooltip);
-                });
-            }
+                } else {
+                    Tooltip tooltip = new Tooltip("MelonPult" + Plant.findPlant("MelonPult").getPrice());
+                    tooltip.setX(mouseEvent.getX());
+                    tooltip.setY(mouseEvent.getY());
+                    Tooltip.install(MelonPult, tooltip);
+                }
+            });
         } catch (Exception e) {
             e.printStackTrace();
         }
+        MelonPult.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                try {
+                    buy("MelonPult", profile, GameMenu.root);
+                } catch (Exception e) {
+                }
+            }
+        });
         try {
-            if(Menu.profile.getPurchasedPlants().contains("Repeater"))
-                Repeater.setVisible(false);
-            else {
-                Repeater.setOnMouseEntered(mouseEvent -> {
-                    Tooltip tooltip = new Tooltip("Repeater  " + Plant.findPlant("Repeater").getPrice());
+            Repeater.setOnMouseEntered(mouseEvent -> {
+                if (Menu.profile.getPurchasedPlants().contains("Reapeter")) {
+                    Tooltip tooltip = new Tooltip("kharidish qablan:)");
                     tooltip.setX(mouseEvent.getX());
                     tooltip.setY(mouseEvent.getY());
                     Tooltip.install(Repeater, tooltip);
-                });
-            }
+                } else {
+                    Tooltip tooltip = new Tooltip("Repeater" + Plant.findPlant("Repeater").getPrice());
+                    tooltip.setX(mouseEvent.getX());
+                    tooltip.setY(mouseEvent.getY());
+                    Tooltip.install(Repeater, tooltip);
+                }
+            });
         } catch (Exception e) {
             e.printStackTrace();
         }
+        Repeater.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                try {
+                    buy("Repeater", profile, GameMenu.root);
+                } catch (Exception e) {
+                }
+            }
+        });
+
         try {
-            if(Menu.profile.getPurchasedPlants().contains("MagnetShroom"))
-                MagnetShroom.setVisible(false);
-            else {
-                MagnetShroom.setOnMouseEntered(mouseEvent -> {
-                    Tooltip tooltip = new Tooltip("MagnetShroom  " + Plant.findPlant("MagnetShroom").getPrice());
+            MagnetShroom.setOnMouseEntered(mouseEvent -> {
+                if (Menu.profile.getPurchasedPlants().contains("MagnetShroom")) {
+                    Tooltip tooltip = new Tooltip("kharidish qablan:)");
                     tooltip.setX(mouseEvent.getX());
                     tooltip.setY(mouseEvent.getY());
                     Tooltip.install(MagnetShroom, tooltip);
-                });
-            }
+                } else {
+                    Tooltip tooltip = new Tooltip("MagnetShroom" + Plant.findPlant("MagnetShroom").getPrice());
+                    tooltip.setX(mouseEvent.getX());
+                    tooltip.setY(mouseEvent.getY());
+                    Tooltip.install(MagnetShroom, tooltip);
+                }
+            });
         } catch (Exception e) {
             e.printStackTrace();
         }
+        MagnetShroom.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                try {
+                    buy("MagnetShroom", Menu.profile, GameMenu.root);
+                    Menu.primaryStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../../Model/Shop/ShopMenu.fxml"))));
+                    Menu.primaryStage.show();
+                    Menu.primaryStage.setTitle("PvZ");
+                } catch (Exception e) {
+                }
+            }
+        });
         try {
-            if(Menu.profile.getPurchasedPlants().contains("LilyPad"))
-                LilyPad.setVisible(false);
-            else {
-                LilyPad.setOnMouseEntered(mouseEvent -> {
-                    Tooltip tooltip = new Tooltip("LilyPad  " + Plant.findPlant("LilyPad").getPrice());
+            LilyPad.setOnMouseEntered(mouseEvent -> {
+                if (Menu.profile.getPurchasedPlants().contains("LilyPad")) {
+                    Tooltip tooltip = new Tooltip("kharidish qablan:)");
                     tooltip.setX(mouseEvent.getX());
                     tooltip.setY(mouseEvent.getY());
                     Tooltip.install(LilyPad, tooltip);
-                });
-            }
+                } else {
+                    Tooltip tooltip = new Tooltip("LilyPad" + Plant.findPlant("LilyPad").getPrice());
+                    tooltip.setX(mouseEvent.getX());
+                    tooltip.setY(mouseEvent.getY());
+                    Tooltip.install(LilyPad, tooltip);
+                }
+            });
         } catch (Exception e) {
             e.printStackTrace();
         }
+        LilyPad.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                try {
+                    buy("LilyPad", profile, GameMenu.root);
+                    Menu.primaryStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../../Model/Shop/ShopMenu.fxml"))));
+                    Menu.primaryStage.show();
+                    Menu.primaryStage.setTitle("PvZ");
+                } catch (Exception e) {
+                }
+            }
+        });
     }
 }
