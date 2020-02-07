@@ -3,6 +3,7 @@ package Controller.GameMode;
 import Model.Card.Card;
 import Model.Card.Plants.Plant;
 import Model.Player.Profile;
+import javafx.scene.layout.Pane;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -23,7 +24,7 @@ public class Rail extends GameMode {
 
     @Override
     //dar asl wave nadare va be soorate tasadofi har chand turn zombie varede zamin mishe
-    public void wave(Battle battle) throws IOException {
+    public void wave(Battle battle, Pane root) throws IOException {
         //har 3 ta 5 turn
         int random = (int) (Math.random() * ((5 - 3) + 1)) + 3;
         if(lastTurnWaved ==random) {

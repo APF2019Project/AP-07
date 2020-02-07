@@ -1,15 +1,12 @@
 package Controller.GameMode;
 
 import Model.Card.Card;
-import Model.Card.Plants.Plant;
 import Model.Card.Zombies.Zombie;
-import Model.Map.Map;
 import Model.Player.Profile;
+import javafx.scene.layout.Pane;
 
-import java.awt.event.MouseAdapter;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Random;
 
 public class ZombieGameMode extends GameMode {
 
@@ -70,7 +67,7 @@ public class ZombieGameMode extends GameMode {
 
 
     @Override
-    public void wave(Battle battle) {
+    public void wave(Battle battle, Pane root) {
 //        for (int i = 0; i < getBattle().getMap().getCells().length; i++) {
 //            ArrayList<Zombie> zombiesInRow = new ArrayList<>();
 //            for (int j = 0; j < getBattle().getMap().getCells()[i].length; j++) {

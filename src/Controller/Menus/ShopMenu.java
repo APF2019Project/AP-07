@@ -4,7 +4,6 @@ import Model.Card.Card;
 import Model.Card.Plants.Plant;
 import Model.Card.Zombies.Zombie;
 import Model.Player.Profile;
-import javafx.animation.PathTransition;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -13,16 +12,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Tooltip;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
-import javafx.scene.shape.LineTo;
-import javafx.scene.shape.MoveTo;
-import javafx.scene.shape.Path;
-import javafx.util.Duration;
 
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -182,7 +175,7 @@ public class ShopMenu extends Menu implements Initializable {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    buy("sunflower", profile, GameMenu.root);
+                    buy("sunflower", profile, DayModeMenu.root);
 
                 } catch (Exception e) {
                 }
@@ -215,7 +208,7 @@ public class ShopMenu extends Menu implements Initializable {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    buy("PeaShooter", profile, GameMenu.root);
+                    buy("PeaShooter", profile, DayModeMenu.root);
                 } catch (Exception e) {
                 }
             }
@@ -245,7 +238,7 @@ public class ShopMenu extends Menu implements Initializable {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    buy("Cattail", profile, GameMenu.root);
+                    buy("Cattail", profile, DayModeMenu.root);
                 } catch (Exception e) {
                 }
             }
@@ -274,7 +267,7 @@ public class ShopMenu extends Menu implements Initializable {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    buy("Jalapeno", profile, GameMenu.root);
+                    buy("Jalapeno", profile, DayModeMenu.root);
                 } catch (Exception e) {
                 }
             }
@@ -303,7 +296,7 @@ public class ShopMenu extends Menu implements Initializable {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    buy("SnowPea", profile, GameMenu.root);
+                    buy("SnowPea", profile, DayModeMenu.root);
                 } catch (Exception e) {
                 }
             }
@@ -334,7 +327,7 @@ public class ShopMenu extends Menu implements Initializable {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    buy("CherryBomb", profile, GameMenu.root);
+                    buy("CherryBomb", profile, DayModeMenu.root);
                 } catch (Exception e) {
                 }
             }
@@ -363,7 +356,7 @@ public class ShopMenu extends Menu implements Initializable {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    buy("ExplodeONut", profile, GameMenu.root);
+                    buy("ExplodeONut", profile, DayModeMenu.root);
                 } catch (Exception e) {
                 }
             }
@@ -392,7 +385,7 @@ public class ShopMenu extends Menu implements Initializable {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    buy("PotatoMine", profile, GameMenu.root);
+                    buy("PotatoMine", profile, DayModeMenu.root);
                 } catch (Exception e) {
                 }
             }
@@ -421,7 +414,7 @@ public class ShopMenu extends Menu implements Initializable {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    buy("CabbagePult", profile, GameMenu.root);
+                    buy("CabbagePult", profile, DayModeMenu.root);
                 } catch (Exception e) {
                 }
             }
@@ -450,7 +443,7 @@ public class ShopMenu extends Menu implements Initializable {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    buy("TangleKelp", profile, GameMenu.root);
+                    buy("TangleKelp", profile, DayModeMenu.root);
                 } catch (Exception e) {
                 }
             }
@@ -479,7 +472,7 @@ public class ShopMenu extends Menu implements Initializable {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    buy("WinterMelon", profile, GameMenu.root);
+                    buy("WinterMelon", profile, DayModeMenu.root);
                 } catch (Exception e) {
                 }
             }
@@ -508,7 +501,7 @@ public class ShopMenu extends Menu implements Initializable {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    buy("Kernelpult", profile, GameMenu.root);
+                    buy("Kernelpult", profile, DayModeMenu.root);
                 } catch (Exception e) {
                 }
             }
@@ -537,7 +530,7 @@ public class ShopMenu extends Menu implements Initializable {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    buy("ThreePeater", profile, GameMenu.root);
+                    buy("ThreePeater", profile, DayModeMenu.root);
                 } catch (Exception e) {
                 }
             }
@@ -567,7 +560,7 @@ public class ShopMenu extends Menu implements Initializable {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    buy("SplitPea", profile, GameMenu.root);
+                    buy("SplitPea", profile, DayModeMenu.root);
                 } catch (Exception e) {
                 }
             }
@@ -596,7 +589,7 @@ public class ShopMenu extends Menu implements Initializable {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    buy("TwinSunFlower", profile, GameMenu.root);
+                    buy("TwinSunFlower", profile, DayModeMenu.root);
                 } catch (Exception e) {
                 }
             }
@@ -622,7 +615,7 @@ public class ShopMenu extends Menu implements Initializable {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    buy("WallNut", profile, GameMenu.root);
+                    buy("WallNut", profile, DayModeMenu.root);
                 } catch (Exception e) {
                 }
             }
@@ -648,7 +641,7 @@ public class ShopMenu extends Menu implements Initializable {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    buy("Cactus", profile, GameMenu.root);
+                    buy("Cactus", profile, DayModeMenu.root);
                 } catch (Exception e) {
                 }
             }
@@ -674,7 +667,7 @@ public class ShopMenu extends Menu implements Initializable {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    buy("GatlingPea", profile, GameMenu.root);
+                    buy("GatlingPea", profile, DayModeMenu.root);
                 } catch (Exception e) {
                 }
             }
@@ -700,7 +693,7 @@ public class ShopMenu extends Menu implements Initializable {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    buy("MelonPult", profile, GameMenu.root);
+                    buy("MelonPult", profile, DayModeMenu.root);
                 } catch (Exception e) {
                 }
             }
@@ -726,7 +719,7 @@ public class ShopMenu extends Menu implements Initializable {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    buy("Repeater", profile, GameMenu.root);
+                    buy("Repeater", profile, DayModeMenu.root);
                 } catch (Exception e) {
                 }
             }
@@ -753,7 +746,7 @@ public class ShopMenu extends Menu implements Initializable {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    buy("MagnetShroom", Menu.profile, GameMenu.root);
+                    buy("MagnetShroom", Menu.profile, DayModeMenu.root);
                     Menu.primaryStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../../Model/Shop/ShopMenu.fxml"))));
                     Menu.primaryStage.show();
                     Menu.primaryStage.setTitle("PvZ");
@@ -782,7 +775,7 @@ public class ShopMenu extends Menu implements Initializable {
             @Override
             public void handle(MouseEvent event) {
                 try {
-                    buy("LilyPad", profile, GameMenu.root);
+                    buy("LilyPad", profile, DayModeMenu.root);
                     Menu.primaryStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../../Model/Shop/ShopMenu.fxml"))));
                     Menu.primaryStage.show();
                     Menu.primaryStage.setTitle("PvZ");

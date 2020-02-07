@@ -134,13 +134,13 @@ public class MenuHandler {
                 else if (input.equalsIgnoreCase("day")) {
 
                     Menu.playMenu.startDayGame(new Player(), new Player());
-                    Menu.gameMenu.battle.setMap(GameMode.generateMap(new Day()));
+                    Menu.dayModeMenu.battle.setMap(GameMode.generateMap(new Day()));
                     Menu.collectionMenu.zombieMode = false;
                     Menu.collectionMenu.water = false;
                 } else if (input.equalsIgnoreCase("water")) {
                     player = new Player();
                     waterMode = new Water();
-                    Menu.gameMenu.battle.setMap(GameMode.generateMap(waterMode));
+                    Menu.dayModeMenu.battle.setMap(GameMode.generateMap(waterMode));
                     Menu.collectionMenu.zombieMode = false;
                     Menu.collectionMenu.water = true;
                     Menu.playMenu.startWaterGame(player, bot);
@@ -210,18 +210,18 @@ public class MenuHandler {
                     System.out.println("invalid command");
             }
 
-            //gameMenu//
+            //dayModeMenu//
 
-            else if (Menu.menuHandler.getCurrentMenu() == Menu.gameMenu) {
+            else if (Menu.menuHandler.getCurrentMenu() == Menu.dayModeMenu) {
                 if (input.equalsIgnoreCase("show hand")) {
-                    Menu.gameMenu.showHandOk();
+                    Menu.dayModeMenu.showHandOk();
                 } else if (select.matcher(input).matches()) {
                     name = splitInput[1];
                 } else if (plantPlant.matcher(input).matches()) {
                     int x = Integer.parseInt(splitInput[1]);
                     int y = Integer.parseInt(splitInput[2]);
                     if (name != null) {
-                        Menu.gameMenu.plant(name, x, y);
+                        Menu.dayModeMenu.plant(name, x, y);
                     } else {
                         System.out.println("select a plant first:|");
                     }
@@ -229,11 +229,11 @@ public class MenuHandler {
                 } else if (removePlant.matcher(input).matches()) {
                     int x = Integer.parseInt(splitInput[1]);
                     int y = Integer.parseInt(splitInput[2]);
-                    Menu.gameMenu.remove(x, y);
+                    Menu.dayModeMenu.remove(x, y);
                 } else if (input.equalsIgnoreCase("End Turn")) {
-                    Menu.gameMenu.endTurn(profile,root );
+                    Menu.dayModeMenu.endTurn(profile,root );
                 } else if (input.equalsIgnoreCase("show lawn")) {
-                    Menu.gameMenu.showLawn();
+                    Menu.dayModeMenu.showLawn();
                 } else
                     System.out.println("invalid command");
             }
