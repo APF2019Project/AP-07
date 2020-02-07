@@ -111,7 +111,7 @@ public abstract class GameMode {
 //                }
             }
         }
-        System.err.println("continue the game");
+        System.out.println("continue the game");
         return false;
     }
 
@@ -124,7 +124,7 @@ public abstract class GameMode {
                 }
             }
         }
-        System.err.println("all zombies are dead");
+        System.out.println("all zombies are dead");
         return true;
     }
 

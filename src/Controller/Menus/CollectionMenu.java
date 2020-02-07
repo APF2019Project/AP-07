@@ -233,18 +233,15 @@ public class CollectionMenu extends Menu implements Initializable {
                         imageViews.get(i).setFitHeight(60);
                         player1.setCollection(collection);
                         Menu.menuHandler.setCurrentMenu(Menu.gameMenu);
-                        Menu.player1 = player1;
-                        Menu.player2 = player2;
                         gameMenu.battle.setPlayer(player1, 1);
                         gameMenu.battle.setPlayer(player2, 2);
                         gameMenu.battle.setMap(GameMode.generateMap(gameMenu.day));
                         Menu.player1.setSun(2);
                         Menu.gameMenu.battle.setMap(GameMode.generateMap(new Day()));
                         System.out.println(imageViews.size());
-
                     }
-                    Pane root = (FXMLLoader.load(getClass().getResource("../GameMode/DayModeGround.fxml")));
-                    GameMenu.root = new Pane();
+                    Pane root = FXMLLoader.load(getClass().getResource("../GameMode/DayModeGround.fxml"));
+//                    GameMenu.root = new Pane();
                     GameMenu.root = root;
                     for (int i = 0; i < imageViews.size(); i++) {
                         root.getChildren().add(imageViews.get(i));

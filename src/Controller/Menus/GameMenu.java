@@ -118,12 +118,11 @@ public class GameMenu extends Menu implements Initializable {
                 if (cell.getZombies().size() != 0) {
                     for (Zombie z : cell.getZombies()) {
                         System.out.println(z.getName() + "\t" + cell.x() + "," + cell.y() + "\t" + z.getHP() + z.showIronHat());
-                        Platform.runLater(() -> {
-                            imageView.setX(200);
-                            imageView.setY(200);
-                            root.getChildren().add(imageView);
-
-                        });
+//                        Platform.runLater(() -> {
+//                            imageView.setX(200);
+//                            imageView.setY(200);
+//                            root.getChildren().add(imageView);
+//                        });
                     }
                 }
                 if (cell.getPlant() != null) {
