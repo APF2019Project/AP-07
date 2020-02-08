@@ -188,7 +188,7 @@ public abstract class GameMode {
                 finalZombie.getImageView().setFitWidth(70);
                 finalZombie.getImageView().setFitHeight(70);
                 root.getChildren().add(finalZombie.getImageView());
-            }
+                   }
         });
         battle.getMap().getCell(randomPlace, 21).addZombie(zombie);
     }
