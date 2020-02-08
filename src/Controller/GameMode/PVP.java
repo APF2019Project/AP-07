@@ -1,5 +1,6 @@
 package Controller.GameMode;
 
+import Controller.Menus.Menu;
 import Model.Card.Card;
 import Model.Card.Plants.Plant;
 import Model.Map.Map;
@@ -35,7 +36,7 @@ public class PVP extends GameMode {
             }
         }
         ZombieGameMode zombieGameMode = new ZombieGameMode(profile,battle);
-        zombieGameMode.wave(battle, );
+        zombieGameMode.wave(battle, Menu.root);
     }
 
     @Override

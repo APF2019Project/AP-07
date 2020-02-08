@@ -7,6 +7,7 @@ import Model.Card.Zombies.Zombie;
 import Model.Map.Cell;
 import Model.Map.Map;
 import Model.Player.Profile;
+import javafx.application.Platform;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -79,7 +80,7 @@ public class DayModeMenu extends Menu implements Initializable {
         synchronized (battle){
 
             if (battle.getGameMode() instanceof Day) {
-                day.wave(battle, );
+                day.wave(battle, Menu.root);
                 day.setLastTurnGivingSuns(1);
                 battle.actAllMembers(root);
                 day.generateSun(battle);

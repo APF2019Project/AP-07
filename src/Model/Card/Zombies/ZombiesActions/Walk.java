@@ -63,7 +63,7 @@ public class Walk extends Action {
             public void run() {
                 Image image = null;
                 try {
-                    image = new Image(new FileInputStream("C:\\Users\\asus\\IdeaProjects\\Test\\src\\sample\\FootballZombie.png"));
+                    image = new Image(new FileInputStream("src/CollectionGifsAndImages/FootballZombie.png,"));
                 } catch (Exception e) {
                 }
                 ImageView imageView = new ImageView(image);
