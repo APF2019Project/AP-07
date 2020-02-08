@@ -158,7 +158,7 @@ public class DayModeMenu extends Menu implements Initializable {
             }
         }).start();
 
-        new Thread(new Runnable() {
+        Platform.runLater(new Runnable() {
             @Override
             public void run() {
                 synchronized (battle) {
@@ -200,7 +200,7 @@ public class DayModeMenu extends Menu implements Initializable {
                     }
                 }
             }
-        }).start();
+        });
     }
 }
 
