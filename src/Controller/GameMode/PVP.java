@@ -4,6 +4,7 @@ import Model.Card.Card;
 import Model.Card.Plants.Plant;
 import Model.Map.Map;
 import Model.Player.Profile;
+import javafx.scene.layout.Pane;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -21,7 +22,7 @@ public class PVP extends GameMode {
     }
 
     @Override
-    public void wave(Battle battle) throws IOException {
+    public void wave(Battle battle, Pane root) throws IOException {
         int randomNumberOfPlants = (int) (Math.random() * ((Plant.getPlants().size()) + 1)) + Plant.getPlants().size();
         for (int i = 0; i < randomNumberOfPlants; i++) {
             int randomPlant = (int) (Math.random() * ((Plant.getPlants().size()) + 1)) + Plant.getPlants().size();
@@ -34,7 +35,7 @@ public class PVP extends GameMode {
             }
         }
         ZombieGameMode zombieGameMode = new ZombieGameMode(profile,battle);
-        zombieGameMode.wave(battle);
+        zombieGameMode.wave(battle, );
     }
 
     @Override

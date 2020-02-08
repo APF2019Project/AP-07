@@ -7,7 +7,6 @@ import Model.Card.Plants.Plant;
 import Model.Card.Zombies.Zombie;
 import javafx.animation.PathTransition;
 import javafx.application.Platform;
-import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
@@ -17,11 +16,7 @@ import javafx.scene.shape.Path;
 import javafx.util.Duration;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-
-import static Controller.Menus.Menu.primaryStage;
-import static javafx.fxml.FXMLLoader.load;
 
 public class Walk extends Action {
 
@@ -61,24 +56,22 @@ public class Walk extends Action {
 //        pathTransition.play();
 
         System.err.println("walk graphic");
-       // Scene scene = new Scene(root, 800, 800);
-       // Menu.primaryStage.setScene(scene);
+        // Scene scene = new Scene(root, 800, 800);
+        // Menu.primaryStage.setScene(scene);
         Platform.runLater(new Runnable() {
             @Override
             public void run() {
                 Image image = null;
                 try {
-                    image = new Image(new FileInputStream("src/CollectionGifsAndImages/BalloonZombie.gif"));
-
+                    image = new Image(new FileInputStream("C:\\Users\\asus\\IdeaProjects\\Test\\src\\sample\\FootballZombie.png"));
+                } catch (Exception e) {
                 }
-                catch (Exception e){}
                 ImageView imageView = new ImageView(image);
-
                 System.err.println(root.toString());
                 root.getChildren().add(imageView);
-                Path path = new Path(new MoveTo(zombie.getCell().y()*50, 100), new LineTo((zombie.getCell().y()+1)*50, 100));
+                Path path = new Path(new MoveTo(zombie.getCell().y() * 50, 100), new LineTo((zombie.getCell().y() + 1) * 50, 100));
                 path.setVisible(false);
-                PathTransition pathTransition = new PathTransition(Duration.millis(1000), path,imageView);
+                PathTransition pathTransition = new PathTransition(Duration.millis(1000), path, imageView);
                 root.getChildren().add(path);
                 pathTransition.setAutoReverse(false);
                 pathTransition.play();

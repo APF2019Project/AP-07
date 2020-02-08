@@ -4,6 +4,7 @@ import Model.Card.Card;
 import Model.Card.Zombies.Zombie;
 import Model.Map.Map;
 import Model.Player.Profile;
+import javafx.scene.layout.Pane;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -23,7 +24,7 @@ public class Water extends GameMode {
     }
 
     @Override
-    public void wave(Battle battle) throws IOException {
+    public void wave(Battle battle, Pane root) throws IOException {
         if (canWave(battle)) {
             int numberOfZombiesInAWave = (int) (Math.random() * ((10 - 4) + 1)) + 4;
             for (int i = 0; i < numberOfZombiesInAWave; i++) {

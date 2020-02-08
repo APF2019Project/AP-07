@@ -8,6 +8,7 @@ import Model.Map.Cell;
 import Model.Map.Map;
 import Model.Player.Player;
 import Model.Player.Profile;
+import javafx.scene.layout.Pane;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -32,7 +33,7 @@ public abstract class GameMode {
     private Battle battle = new Battle(player1, player2, this);
     private int record = 0;
 
-    public abstract void wave(Battle battle) throws IOException;
+    public abstract void wave(Battle battle, Pane root) throws IOException;
 
     public abstract boolean canWave(Battle battle);
 

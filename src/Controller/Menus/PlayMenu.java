@@ -83,12 +83,12 @@ public class PlayMenu extends Menu implements Initializable {
             public void handle(MouseEvent event) {
                 try {
                     Menu.playMenu.startDayGame(new Player(), new Player());
-                    Menu.gameMenu.battle.setMap(GameMode.generateMap(new Day()));
+                    Menu.dayModeMenu.battle.setMap(GameMode.generateMap(new Day()));
                     Menu.collectionMenu.zombieMode = false;
                     Menu.collectionMenu.water = false;
-                    GameMenu.root = (FXMLLoader.load(getClass().getResource("../../Model/Shop/CollectionMenu.fxml")));
+                    DayModeMenu.root = (FXMLLoader.load(getClass().getResource("../../Model/Shop/CollectionMenu.fxml")));
                     Menu.menuHandler.setCurrentMenu(new CollectionMenu());
-                    Menu.primaryStage.setScene(new Scene(GameMenu.root));
+                    Menu.primaryStage.setScene(new Scene(DayModeMenu.root));
                     Menu.primaryStage.show();
                     Menu.primaryStage.setTitle("PvZ");
                     Day day = new Day();

@@ -5,13 +5,10 @@ import Model.Card.Zombies.Zombie;
 import Model.Player.Player;
 import Model.Player.Profile;
 import com.gilecode.yagson.YaGson;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
-import java.awt.*;
 import java.io.*;
 import java.util.ArrayList;
 
@@ -23,7 +20,7 @@ public class Menu {
     public static Profile profile;
     public static Player player1;
     public static Player player2;
-
+    public static Pane root = new Pane();
 
     static {
         try {
@@ -47,7 +44,7 @@ public class Menu {
     public static ProfileMenu profileMenu = new ProfileMenu();
     public static ShopMenu shopMenu = new ShopMenu();
     public static MenuHandler menuHandler = new MenuHandler();
-    public static GameMenu gameMenu = new GameMenu();
+    public static DayModeMenu dayModeMenu = new DayModeMenu();
     public static RailMenu railMenu = new RailMenu();
     public static WaterModeMenu waterModeMenu = new WaterModeMenu();
     public static ZombieMenu zombieMenu = new ZombieMenu();

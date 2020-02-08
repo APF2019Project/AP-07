@@ -6,16 +6,11 @@ import Model.Card.Plants.Plant;
 import Model.Card.Zombies.Zombie;
 import Model.Map.Cell;
 import Model.Map.Map;
-import Model.Player.Player;
 import Model.Player.Profile;
-import javafx.application.Platform;
-import javafx.event.EventHandler;
 import javafx.fxml.Initializable;
-import javafx.scene.Group;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 
@@ -29,11 +24,9 @@ import java.util.ResourceBundle;
 import static java.lang.Thread.sleep;
 
 
-public class GameMenu extends Menu implements Initializable {
+public class DayModeMenu extends Menu implements Initializable {
 
     public Day day = new Day();
-
-    public static Pane root = new Pane();
     public Battle battle = new Battle(player1, player2, day);
 
     //    public ImageView imageView;
@@ -86,7 +79,7 @@ public class GameMenu extends Menu implements Initializable {
         synchronized (battle){
 
             if (battle.getGameMode() instanceof Day) {
-                day.wave(battle);
+                day.wave(battle, );
                 day.setLastTurnGivingSuns(1);
                 battle.actAllMembers(root);
                 day.generateSun(battle);
@@ -171,9 +164,9 @@ public class GameMenu extends Menu implements Initializable {
                 synchronized (battle) {
                     sunL.setText(player1.getSun() + "");
                     System.out.println(battle.getMap().getCells()[1].length);
-                    System.out.println("before" + GameMenu.plantsImages.size());
+                    System.out.println("before" + DayModeMenu.plantsImages.size());
                     plantsImages.addAll(CollectionMenu.imageViews);
-                    System.out.println("after" + GameMenu.plantsImages.size());
+                    System.out.println("after" + DayModeMenu.plantsImages.size());
                     for (ImageView x : plantsImages) {
                         Image image = null;
                         try {

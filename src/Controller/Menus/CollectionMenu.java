@@ -120,13 +120,13 @@ public class CollectionMenu extends Menu implements Initializable {
                     waterModeMenu.battle.setMap(GameMode.generateMap(waterModeMenu.waterMode));
                     waterModeMenu.player1.setSun(2);
                 } else {
-                    Menu.menuHandler.setCurrentMenu(Menu.gameMenu);
-                    gameMenu.player1 = player1;
-                    gameMenu.player2 = player2;
-                    gameMenu.battle.setPlayer(player1, 1);
-                    gameMenu.battle.setPlayer(player2, 2);
-                    gameMenu.battle.setMap(GameMode.generateMap(gameMenu.day));
-                    gameMenu.player1.setSun(2);
+                    Menu.menuHandler.setCurrentMenu(Menu.dayModeMenu);
+                    dayModeMenu.player1 = player1;
+                    dayModeMenu.player2 = player2;
+                    dayModeMenu.battle.setPlayer(player1, 1);
+                    dayModeMenu.battle.setPlayer(player2, 2);
+                    dayModeMenu.battle.setMap(GameMode.generateMap(dayModeMenu.day));
+                    dayModeMenu.player1.setSun(2);
                 }
             } else {
                 Menu.menuHandler.setCurrentMenu(Menu.zombieMenu);
@@ -232,21 +232,21 @@ public class CollectionMenu extends Menu implements Initializable {
                         imageViews.get(i).setFitWidth(50);
                         imageViews.get(i).setFitHeight(60);
                         player1.setCollection(collection);
-                        Menu.menuHandler.setCurrentMenu(Menu.gameMenu);
-                        gameMenu.battle.setPlayer(player1, 1);
-                        gameMenu.battle.setPlayer(player2, 2);
-                        gameMenu.battle.setMap(GameMode.generateMap(gameMenu.day));
+                        Menu.menuHandler.setCurrentMenu(Menu.dayModeMenu);
+                        dayModeMenu.battle.setPlayer(player1, 1);
+                        dayModeMenu.battle.setPlayer(player2, 2);
+                        dayModeMenu.battle.setMap(GameMode.generateMap(dayModeMenu.day));
                         Menu.player1.setSun(2);
-                        Menu.gameMenu.battle.setMap(GameMode.generateMap(new Day()));
+                        Menu.dayModeMenu.battle.setMap(GameMode.generateMap(new Day()));
                         System.out.println(imageViews.size());
                     }
                     Pane root = FXMLLoader.load(getClass().getResource("../GameMode/DayModeGround.fxml"));
-//                    GameMenu.root = new Pane();
-                    GameMenu.root = root;
+//                    DayModeMenu.root = new Pane();
+                    DayModeMenu.root = root;
                     for (int i = 0; i < imageViews.size(); i++) {
                         root.getChildren().add(imageViews.get(i));
                     }
-                    Menu.primaryStage.setScene(new Scene(GameMenu.root));
+                    Menu.primaryStage.setScene(new Scene(DayModeMenu.root));
                     Menu.primaryStage.show();
                     Menu.primaryStage.setTitle("PvZ");
                 } catch (IOException e) {
