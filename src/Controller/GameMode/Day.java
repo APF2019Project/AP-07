@@ -29,7 +29,7 @@ public class Day extends GameMode {
         if (canWave(battle)) {
             int numberOfZombiesInAWave = (int) (Math.random() * ((10 - 4) + 1)) + 4;
             for (int i = 0; i < numberOfZombiesInAWave; i++) {
-                generateZombies(battle);
+                generateZombies(battle,root );
             }
             setWaveCounter(1);
         }

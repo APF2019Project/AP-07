@@ -176,7 +176,6 @@ public class ShopMenu extends Menu implements Initializable {
             public void handle(MouseEvent event) {
                 try {
                     buy("sunflower", profile, DayModeMenu.root);
-
                 } catch (Exception e) {
                 }
             }

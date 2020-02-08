@@ -71,11 +71,13 @@ public class Plant extends Card {
             plant1.actionsOfAnEvent1.add(shoot);
             plant1.setActionsOfAnEvent(new ActionsOfAnEvent(OnSpawn, plant1.actionsOfAnEvent1) {
             });
+          //  plant1.setImageView("C:\\Users\\asus\\IdeaProjects\\AP-07\\AP-07-1\\src\\CollectionGifsAndImages\\PeaShooter.gif");
         }
         if (plant1.getName().equalsIgnoreCase("SnowPea")) {
             plant1.actionsOfAnEvent1.add(shoot);
             plant1.setActionsOfAnEvent(new ActionsOfAnEvent(OnSpawn, plant1.actionsOfAnEvent1) {
             });
+          //  plant1.setImageView("C:\\Users\\asus\\IdeaProjects\\AP-07\\AP-07-1\\src\\CollectionGifsAndImages\\SnowPea.gif");
         }
         if (plant1.getName().equalsIgnoreCase("CabbagePult")) {
             plant1.actionsOfAnEvent1.add(shoot);

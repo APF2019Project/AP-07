@@ -160,7 +160,7 @@ public abstract class GameMode {
     }
 
 
-    public void generateZombies(Battle battle) throws IOException {
+    public void generateZombies(Battle battle, Pane root) throws IOException {
         int randomPlace = (int) (Math.random() * ((Map.getHEIGHT()) + 1));
         boolean zombieIsMade = false;
         Zombie zombie = null;

@@ -120,6 +120,5 @@ public class LoginMenu extends Menu implements Initializable {
                 }
             }
         });
-
     }
 }

@@ -187,12 +187,10 @@ public class DayModeMenu extends Menu implements Initializable {
                             imageView.setY(event.getY());
                             imageView.setFitWidth(80);
                             imageView.setFitHeight(100);
-                            System.out.println("NOOOOOOOOOOOOO");
                         });
 
                         x.setOnMouseReleased(event -> {
                             root.getChildren().remove(finalImage);
-                            System.out.println("AAAAAAAAAAA");
                             map.getChildren().get(0).setOnMouseReleased(mouseEvent -> {
                                 try {
                                     battle.getMap().getCell(0, 0).setPlant(Plant.makePlant("sunflower"));

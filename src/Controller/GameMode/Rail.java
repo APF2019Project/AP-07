@@ -29,7 +29,7 @@ public class Rail extends GameMode {
         int random = (int) (Math.random() * ((5 - 3) + 1)) + 3;
         if(lastTurnWaved ==random) {
             lastTurnWaved=0;
-            generateZombies(battle);
+            generateZombies(battle,root );
         }
     }
 
