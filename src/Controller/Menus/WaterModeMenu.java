@@ -72,7 +72,7 @@ public class WaterModeMenu extends Menu {
 
     public void endTurn(Profile profile, Pane root) throws IOException {
         if (battle.getGameMode() instanceof Water) {
-            waterMode.wave(battle, );
+            waterMode.wave(battle, root);
             waterMode.setLastTurnGivingSuns(1);
             battle.actAllMembers(root);
             waterMode.generateSun(battle);

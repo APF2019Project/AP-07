@@ -5,6 +5,8 @@ import Model.Card.Plants.Plant;
 import Model.Card.Zombies.Zombie;
 import Model.Map.Cell;
 import Model.Shop.Shop;
+import javafx.scene.image.ImageView;
+import javafx.scene.shape.Path;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -24,6 +26,7 @@ public abstract class Card {
     protected static ArrayList<Plant> plants = new ArrayList<>();
     protected static ArrayList<Zombie> zombies = new ArrayList<>();
     protected int price;
+    protected ImageView imageView;
 
     public static String makeString(File file) throws IOException {
         BufferedReader br = new BufferedReader(new FileReader(file));
@@ -123,4 +126,12 @@ public abstract class Card {
         zombies.add(zombie);
     }
 
+    public ImageView getImageView() {
+        return imageView;
+    }
+
+    public void setImageView(String path) {
+        ImageView imageView=new ImageView(path);
+        this.imageView = imageView;
+    }
 }

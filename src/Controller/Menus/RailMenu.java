@@ -67,7 +67,7 @@ public class RailMenu extends Menu {
     }
 
     public void endTurn(Profile profile, Battle battle, Pane root) throws IOException {
-        rail.wave(battle, );
+        rail.wave(battle, root);
         rail.setLastTurnUpdatingRailCollection(1);
         battle.actAllMembers(root);
         rail.generateSun(battle);

@@ -35,7 +35,7 @@ public class PVP extends GameMode {
             }
         }
         ZombieGameMode zombieGameMode = new ZombieGameMode(profile,battle);
-        zombieGameMode.wave(battle, );
+        zombieGameMode.wave(battle, root);
     }
 
     @Override

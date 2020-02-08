@@ -49,7 +49,7 @@ public class Walk extends Action {
 //        ImageView imageView = new ImageView(image);
 //        root.getChildren().add(imageView);
 //        Path path = new Path(new MoveTo(200, 100), new LineTo(100, 100));
-////        path.setVisible(false);
+//        path.setVisible(false);
 //        PathTransition pathTransition = new PathTransition(Duration.millis(80000), path,imageView);
 //        root.getChildren().add(path);
 //        pathTransition.setAutoReverse(false);

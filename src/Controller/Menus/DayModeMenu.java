@@ -79,7 +79,7 @@ public class DayModeMenu extends Menu implements Initializable {
         synchronized (battle){
 
             if (battle.getGameMode() instanceof Day) {
-                day.wave(battle, );
+                day.wave(battle, root);
                 day.setLastTurnGivingSuns(1);
                 battle.actAllMembers(root);
                 day.generateSun(battle);
@@ -178,7 +178,6 @@ public class DayModeMenu extends Menu implements Initializable {
                         ImageView imageView = new ImageView(finalImage);
                         x.setOnMousePressed(event -> {
                             root.getChildren().add(imageView);
-                            System.out.println("sjveuagf");
                         });
 
                         x.setOnMouseDragged(event -> {
@@ -186,12 +185,10 @@ public class DayModeMenu extends Menu implements Initializable {
                             imageView.setY(event.getY());
                             imageView.setFitWidth(80);
                             imageView.setFitHeight(100);
-                            System.out.println("NOOOOOOOOOOOOO");
                         });
 
                         x.setOnMouseReleased(event -> {
                             root.getChildren().remove(finalImage);
-                            System.out.println("AAAAAAAAAAA");
                             map.getChildren().get(0).setOnMouseReleased(mouseEvent -> {
                                 try {
                                     battle.getMap().getCell(0, 0).setPlant(Plant.makePlant("sunflower"));
