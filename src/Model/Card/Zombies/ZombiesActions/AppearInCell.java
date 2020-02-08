@@ -21,7 +21,7 @@ public class AppearInCell extends Action {
         Random random = new Random();
         int x = (int) (Math.random() * (7) )+2;
         int y = (int) (Math.random() * (20)) +2;
-        battle.getMap().getCell(x,y).getPlant().setHealthPoint(0);
+        battle.getMap().getCell(x,y).setPlant(null);
         zombie.setHealthPoint(0);
     }
 }

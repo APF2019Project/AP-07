@@ -56,8 +56,6 @@ public class Battle {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-
-
                 map.getCell(i, j).setZombies(new ArrayList<Zombie>());
 //                System.out.println( "size" + map.getCell(i, j).getZombies().size());
 //                //todo

@@ -61,17 +61,11 @@ public class Walk extends Action {
         Platform.runLater(new Runnable() {
             @Override
             public void run() {
-                Image image = null;
-                try {
-                    image = new Image(new FileInputStream("src/CollectionGifsAndImages/FootballZombie.png,"));
-                } catch (Exception e) {
-                }
-                ImageView imageView = new ImageView(image);
+
                 System.err.println(root.toString());
-                root.getChildren().add(imageView);
                 Path path = new Path(new MoveTo(zombie.getCell().y() * 50, 100), new LineTo((zombie.getCell().y() + 1) * 50, 100));
                 path.setVisible(false);
-                PathTransition pathTransition = new PathTransition(Duration.millis(1000), path, imageView);
+                PathTransition pathTransition = new PathTransition(Duration.millis(1000), path, zombie.getImageView());
                 root.getChildren().add(path);
                 pathTransition.setAutoReverse(false);
                 pathTransition.play();

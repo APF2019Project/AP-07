@@ -8,6 +8,8 @@ import Model.Map.Cell;
 import Model.Map.Map;
 import Model.Player.Player;
 import Model.Player.Profile;
+import javafx.application.Platform;
+import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
 
 import java.io.IOException;
@@ -175,6 +177,19 @@ public abstract class GameMode {
             }
         }
         zombie.setCell(battle.getMap().getCell(randomPlace, 21));
+        Zombie finalZombie = zombie;
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                Image image = new Image("FootballZombie1.png");
+                finalZombie.setImageView(image);
+                finalZombie.getImageView().setX(650);
+                finalZombie.getImageView().setY(randomPlace*80);
+                finalZombie.getImageView().setFitWidth(70);
+                finalZombie.getImageView().setFitHeight(70);
+                root.getChildren().add(finalZombie.getImageView());
+            }
+        });
         battle.getMap().getCell(randomPlace, 21).addZombie(zombie);
     }
 

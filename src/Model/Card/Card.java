@@ -5,6 +5,8 @@ import Model.Card.Plants.Plant;
 import Model.Card.Zombies.Zombie;
 import Model.Map.Cell;
 import Model.Shop.Shop;
+import javafx.application.Platform;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.shape.Path;
 
@@ -31,7 +33,7 @@ public abstract class Card {
     public static String makeString(File file) throws IOException {
         BufferedReader br = new BufferedReader(new FileReader(file));
         String string = new String();
-        String s = new String();
+        String s;
         while (true) {
             s = br.readLine();
             if (s != null)
@@ -130,8 +132,15 @@ public abstract class Card {
         return imageView;
     }
 
-    public void setImageView(String path) {
-        ImageView imageView=new ImageView(path);
-        this.imageView = imageView;
+    public void setImageView(Image image) {
+        Card card= this;
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                ImageView imageView=new ImageView(image);
+                card.imageView = imageView;
+            }
+        });
+        this.imageView = new ImageView(image);
     }
 }
