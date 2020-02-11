@@ -144,17 +144,17 @@ public abstract class GameMode {
     public static Map generateWaterMap() {
         Map m = new Map();
         for (int i = 4; i < 6; i++) {
-            for (int j = 0; j < Map.getWIDTH()+4; j++) {
+            for (int j = 0; j < Map.getWIDTH() + 4; j++) {
                 m.setCell(i, j, new Cell(i, j, true));
             }
         }
         for (int i = 6; i < 10; i++) {
-            for (int j = 0; j < Map.getWIDTH()+4; j++) {
+            for (int j = 0; j < Map.getWIDTH() + 4; j++) {
                 m.setCell(i, j, new Cell(i, j, false));
             }
         }
         for (int i = 0; i < 4; i++) {
-            for (int j = 0; j < Map.getWIDTH()+4; j++) {
+            for (int j = 0; j < Map.getWIDTH() + 4; j++) {
                 m.setCell(i, j, new Cell(i, j, false));
             }
         }
@@ -163,7 +163,7 @@ public abstract class GameMode {
 
 
     public void generateZombies(Battle battle, Pane root) throws IOException {
-        int randomPlace = (int) (Math.random() * ((Map.getHEIGHT()) + 1));
+        int randomPlace = (int) (Math.random() * 6) + 2;
         boolean zombieIsMade = false;
         Zombie zombie = null;
         while (!zombieIsMade) {
@@ -184,11 +184,11 @@ public abstract class GameMode {
                 Image image = new Image("FootballZombie1.png");
                 finalZombie.setImageView(image);
                 finalZombie.getImageView().setX(650);
-                finalZombie.getImageView().setY(randomPlace*80);
+                finalZombie.getImageView().setY((randomPlace - 1) * 78);
                 finalZombie.getImageView().setFitWidth(70);
                 finalZombie.getImageView().setFitHeight(70);
                 root.getChildren().add(finalZombie.getImageView());
-                   }
+            }
         });
         battle.getMap().getCell(randomPlace, 21).addZombie(zombie);
     }
@@ -215,7 +215,7 @@ public abstract class GameMode {
             int y = zombiesToBeDeleted.get(k).getCell().y();
             battle.getMap().getCell(x, y).getZombies().remove(zombiesToBeDeleted.get(k));
         }
-        record+=zombiesToBeDeleted.size();
+        record += zombiesToBeDeleted.size();
         return zombiesToBeDeleted.size();
     }
 
@@ -242,7 +242,7 @@ public abstract class GameMode {
     }
 
     public void setRecord(int i) {
-        record+=i;
+        record += i;
     }
 
 }

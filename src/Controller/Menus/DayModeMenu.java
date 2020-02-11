@@ -145,7 +145,7 @@ public class DayModeMenu extends Menu implements Initializable {
             public void run() {
                 while (true) {
                     try {
-                        sleep(1000);
+                        sleep(2000);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
@@ -168,8 +168,8 @@ public class DayModeMenu extends Menu implements Initializable {
                     System.out.println("before" + DayModeMenu.plantsImages.size());
                     plantsImages.addAll(CollectionMenu.imageViews);
                     System.out.println("after" + DayModeMenu.plantsImages.size());
+                    Image image = null;
                     for (ImageView x : plantsImages) {
-                        Image image = null;
                         try {
                             image = new Image(new FileInputStream("src/CollectionGifsAndImages/SunFlower.gif"));
                         } catch (FileNotFoundException e) {

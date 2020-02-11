@@ -21,7 +21,7 @@ public abstract class Card {
     protected String name;
     protected int id;
     protected static int uniqueId = 0;
-    protected int AP;//num of throwing pea or projectiles
+    protected int AP; //num of throwing pea or projectiles
     protected int HP;
     protected Cell cell;
     protected int coin;
